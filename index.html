@@ -3,9 +3,12 @@
 <html>
     <head>
         <LINK href="css/index.css" rel="stylesheet" type="text/css"/>
-	<LINK href="css/vivo/input.css" rel="stylesheet" type="text/css"/>
 	
-        
+
+        <meta charset="utf-8">
+        <LINK href="css/index.css" rel="stylesheet" type="text/css"/>
+        <LINK href="css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
+
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
         </script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -13,16 +16,29 @@
         <title>Web building blocks</title>
     </head>
     <body>
-        <div class="inputSize">
-	<input id="input_full_name" name="credit_card[full_name]" type="text" class="inputBox"/>
 
-            <div id="errorSpaceName" class="infoSpace"> 
-            </div> 
+        
+        <header>
+            <div id="branding-logo"></div>
+            <div id="user-links"></div>
+        </header>
+        <div id="left-container">
+            <ul class="components-nav">
+            </ul>
+        </div>
+        <div id="right-container">
+            <ul class="brand-nav">
+                <li><a href="#">All brands</a></li>
+                <li><a href="#">Telefónica</a></li>
+                <li><a href="#">Movistar</a></li>
+                <li><a href="#">Vivo</a></li>
+                <li><a href="#">O2</a></li>
+            </ul>
+            <div id="visualization-container"></div>
+            <div id="testing-container"></div>
+            <footer>
+            </footer>
+        </div>
 
-            <div id="errorSpaceNameX" class="checkSpace"> 
-                <div id="checkBoxName" class="checkBox">
-                </div>
-            </div>
-         </div>
     </body>
 </html>
