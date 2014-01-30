@@ -1,0 +1,30 @@
+.inputBox:focus{
+    outline: none !important;
+    border-color: #0b4784;
+    border-width: 2px;
+    margin:-1px;
+}
+
+.negativeBox{
+    border-color: #db0000 !important;
+    border-width:2px;
+    margin:-1px;
+}
+
+.positiveBox{
+    border-color: #8dc63f;
+    border-width:2px;
+    margin:-1px;
+}
+
+.negativeCheck,.positiveCheck{
+    color:white;
+}
+
+.negativeCheck{
+    background-color:#db0000;
+}
+
+.positiveCheck{
+    background-color:#8dc63f;
+}

@@ -2,15 +2,27 @@
 
 <html>
     <head>
-        <LINK href="index.css" rel="stylesheet" type="text/css"/>
-        <LINK href="css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
+        <LINK href="css/index.css" rel="stylesheet" type="text/css"/>
+	<LINK href="css/vivo/input.css" rel="stylesheet" type="text/css"/>
+	
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
         </script>
-        <script type="text/javascript" src="index.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+	  
         <title>Web building blocks</title>
     </head>
     <body>
+        <div class="inputSize">
+	<input id="input_full_name" name="credit_card[full_name]" type="text" class="inputBox"/>
 
-         
+            <div id="errorSpaceName" class="infoSpace"> 
+            </div> 
+
+            <div id="errorSpaceNameX" class="checkSpace"> 
+                <div id="checkBoxName" class="checkBox">
+                </div>
+            </div>
+         </div>
     </body>
 </html>

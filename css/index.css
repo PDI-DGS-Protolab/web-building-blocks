@@ -1,0 +1,44 @@
+.inputSize{
+    width:400px;
+}
+
+.inputBox{
+    height:36px;
+    border:#999999 1px solid;
+    border-radius:5px;
+    font-size:18px;
+    padding:0px 5px 0px 5px;
+    width:97.5%; 
+}
+
+.infoSpace,.checkSpace{
+    height:30px;
+    font-size:18px;
+}
+
+.infoSpace{
+    padding:0px 5px 0px 5px;
+    line-height:30px;
+    font-size:14px;
+    color:#474747;
+    vertical-align:middle;
+}
+.checkSpace{
+    height:30px;
+    font-size:18px;
+    display:none;
+}
+
+.checkBox{
+    margin-top:3.75px;
+    float:left;
+    height:22.5px;
+    border-radius:5px;
+    line-height:22.5px;
+    vertical-align: middle;
+    background-color:white;
+    font-size:14px;
+    font-weight:bold;
+    text-indent:5px;
+    width:100%;
+}
