@@ -1,30 +1,30 @@
-.input-box:focus{
+.input-box:focus {
     margin: -1px;
     border-color: #00C6D7;
     border-width: 2px;
     outline: none !important;
 }
 
-.negative-box{
+.negative-box {
     margin: -1px;
     border-color: #CA3430;
     border-width: 2px;
 }
 
-.positive-box{
+.positive-box {
     margin: -1px;
     border-color: #00C607;
     border-width: 2px;
 }
 
-.negative-check,.positive-check{
+.negative-check,.positive-check {
     color: white;
 }
 
-.negative-check{
+.negative-check {
     background-color: #CA3430;
 }
 
-.positive-check{
+.positive-check {
     background-color: #00C607;
 }
