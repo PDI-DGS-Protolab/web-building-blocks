@@ -1,30 +1,30 @@
-.inputBox:focus{
-    outline: none !important;
-    border-color: #5cd2ed;
+.input-box:focus{
+    border-color: #5CD2ED;
     border-width: 2px;
-    margin:-1px;
+    margin: -1px;
+    outline: none !important;
 }
 
-.negativeBox{
-    border-color: #c60606 !important;
-    border-width:2px;
-    margin:-1px;
+.negative-box{
+    border-color: #C60606;
+    border-width: 2px;
+    margin: -1px;
 }
 
-.positiveBox{
-    border-color: #7ab800;
-    border-width:2px;
-    margin:-1px;
+.positive-box{
+    border-color: #7AB800;
+    border-width: 2px;
+    margin: -1px;
 }
 
-.negativeCheck,.positiveCheck{
-    color:white;
+.negative-check,.positive-check{
+    color: white;
 }
 
-.negativeCheck{
-    background-color:#c60606;
+.negative-check{
+    background-color: #C60606;
 }
 
-.positiveCheck{
-    background-color:#7ab800;
+.positive-check{
+    background-color: #7AB800;
 }
