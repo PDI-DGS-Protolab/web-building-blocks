@@ -39,6 +39,7 @@ header {
 
 .components-nav li a {
     color: #002A32;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
 }
 
 #right-container {
@@ -77,7 +78,7 @@ header {
 
 .brand-nav li a {
     color: #002A32;
-    font-family: Arial, Helvetica, Sans-Serif;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
     text-decoration: none;
 }
 
