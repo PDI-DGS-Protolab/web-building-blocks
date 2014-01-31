@@ -1,0 +1,67 @@
+.input-size {
+    width: 400px;
+}
+
+.input-box {
+    border: #999999 1px solid;
+    border-radius: 5px;
+    font-size: 18px;
+    height: 36px;    
+    padding: 0px 5px 0px 5px;
+    width: 97.5%; 
+}
+
+.info-space, .checkSpace {
+    font-size: 18px;
+    height: 30px;
+}
+
+.info-space {
+    color: #474747;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0px 5px 0px 5px;
+    vertical-align: middle;
+}
+.check-space {
+    display: none;
+    font-size: 18px;
+    height: 30px;
+}
+
+.check-box {
+    background-color: white;
+    border-radius: 5px;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 22.5px;
+    line-height: 22.5px;
+    margin-top: 3.75px;
+    text-indent: 5px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.button-back {
+    background-color: rgba(72,72,72,0.0);
+    border-radius: 3px;
+    width: 50%;
+}
+
+.button {
+    background-color: white;
+    border: #999999 1px solid;
+    border-radius: 3px;
+    font-size: 0.875em;
+    font-weight: bold;
+    height: 45px;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.button:hover:enabled {
+    background-color: rgba(0,0,0,0.9);
+}
