@@ -1,20 +1,20 @@
 .input-box:focus{
+    margin: -1px;
     border-color: #5CD2ED;
     border-width: 2px;
-    margin: -1px;
     outline: none !important;
 }
 
 .negative-box{
+    margin: -1px;
     border-color: #C60606;
     border-width: 2px;
-    margin: -1px;
 }
 
 .positive-box{
+    margin: -1px;
     border-color: #7AB800;
     border-width: 2px;
-    margin: -1px;
 }
 
 .negative-check,.positive-check{
