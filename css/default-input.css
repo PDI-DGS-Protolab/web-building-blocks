@@ -42,26 +42,3 @@
     vertical-align: middle;
     width: 100%;
 }
-
-.button-back {
-    background-color: rgba(72,72,72,0.0);
-    border-radius: 3px;
-    width: 50%;
-}
-
-.button {
-    background-color: white;
-    border: #999999 1px solid;
-    border-radius: 3px;
-    font-size: 0.875em;
-    font-weight: bold;
-    height: 45px;
-    padding: 5px;
-    text-align: center;
-    width: 100%;
-    z-index: 1;
-}
-
-.button:hover:enabled {
-    background-color: rgba(0,0,0,0.9);
-}
