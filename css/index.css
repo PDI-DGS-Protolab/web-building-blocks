@@ -27,19 +27,54 @@ header {
     left: 0;
     margin-top: 80px;
     min-height: 100%;
+    max-width: 60%;
     position: fixed;
     top: 0;
     width: 20%;
     z-index: 50;
 }
 
-.components-nav {
+#components-nav-container {
+    color: #00C6D7;
+    cursor: default;
+    float: right;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+    width: 90%;
+}
+
+#components-nav-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#components-nav-container h1 {
+    color: #FFFFFF;
+    font-weight: normal;
+}
+
+#components-nav-container h2 {
+    font-weight: normal;
+}
+
+#components-nav-container li {
+    margin-bottom: 5px;
+}
+
+#components-nav-container li a {
+    color: #00C6D7;
+    text-decoration: none;
+}
+
+#forms-nav {
 
 }
 
-.components-nav li a {
-    color: #002A32;
-    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+#tables-nav {
+
+}
+
+#layouts-nav {
+
 }
 
 #right-container {
@@ -58,7 +93,7 @@ header {
     width: 80%;
 }
 
-.brand-nav {
+#brand-nav {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -67,7 +102,7 @@ header {
     width: 100%;
 }
 
-.brand-nav li {
+#brand-nav li {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -76,23 +111,37 @@ header {
     width: 10%;
 }
 
-.brand-nav li a {
+#brand-nav li a {
     color: #002A32;
     font-family: Verdana, Verdana, Geneva, Sans-Serif;
     text-decoration: none;
 }
 
-.brand-nav li a:active {
+#brand-nav li a:active {
     border-bottom: 3px solid #00C6D7;
     font-weight: bold;
 }
 
 #visualization-container {
-
+    border-right: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    height: auto;
+    min-height: 90%;
+    width: 50%;
 }
 
 #testing-container {
-
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: right;
+    height: auto;
+    min-height: 90%;
+    position: fixed;
+    width: 50%;
 }
 
 footer {
