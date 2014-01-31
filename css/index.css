@@ -117,10 +117,7 @@ header {
     text-decoration: none;
 }
 
-#brand-nav li a:active {
-    border-bottom: 3px solid #00C6D7;
-    font-weight: bold;
-}
+
 
 #visualization-container {
     border-right: 2px solid #FFFFFF;
