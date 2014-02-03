@@ -10,7 +10,6 @@
     background: linear-gradient( to bottom, #0086C3 0%, #1A8DCA 100% ); /* W3C */
     border: #0086C3 1px solid;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0086C3', endColorstr='#1A8DCA', GradientType=0 ); /* IE6-9 */
-
 }
 
 .btt-neutral:hover:enabled {
