@@ -2,7 +2,6 @@
     width: 400px;
 }
 
-
 .input-box,.special-input-box {
     border: #999999 1px solid;
     border-radius: 3px;
@@ -28,7 +27,7 @@
     background-color: #EAEAEA;
 }
 
-.special-input-btt,.special-input-btt-less {
+.special-input-btt, .special-input-btt-less {
     border-radius: 3px;
     cursor: pointer;
     float: right;
@@ -47,11 +46,10 @@
     border: #AEADAD 1px solid;
 }
 
-.special-input-btt:focus,.special-input-btt-less:focus {
+.special-input-btt:focus, .special-input-btt-less:focus {
     border: none;
     outline: none;
 }
-
 
 #input-hint, #error-container {
     font-size: 18px;
