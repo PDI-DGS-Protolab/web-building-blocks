@@ -15,15 +15,15 @@ $(document).ready(function() {
       $("#error-space-name").hide();
       $("#error-space-name-x").show();
       $(this).addClass("negative-box");
-      $("#checkBoxName").text("Illegal characters. You can input only letters.");
-      $("#checkBoxName").addClass("negative-check");
+      $("#check-box-name").text("Illegal characters. You can input only letters.");
+      $("#check-box-name").addClass("negative-check");
       nameCheck=false;
     }
 
     else if((str=='')||(str==undefined)) {
       $("#error-space-name").show();
       $("#error-space-name-x").hide();
-      $("#checkBoxName").text("");
+      $("#check-box-name").text("");
       $(this).removeClass("negative-box");
       nameCheck=false;
     }
@@ -33,7 +33,7 @@ $(document).ready(function() {
       $("#error-space-name-x").hide();
       $("#error-space-name").show();
       $("#error-space-name").text("Enter your full name as it appears on your card");
-      $("#checkBoxName").removeClass("negative-check");
+      $("#check-box-name").removeClass("negative-check");
       nameCheck=true;
     }
   });
@@ -45,8 +45,8 @@ $(document).ready(function() {
       $("#error-space-name").hide();
       $("#error-space-name-x").show();
       $(this).addClass("negative-box");
-      $("#checkBoxName").text("Illegal characters. You can input only letters.");
-      $("#checkBoxName").addClass("negative-check");
+      $("#check-box-name").text("Illegal characters. You can input only letters.");
+      $("#check-box-name").addClass("negative-check");
       nameCheck=false;
       $('#input-full-name').focus().val();
     }

@@ -77,6 +77,10 @@ header {
 
 }
 
+.comp-tab {
+    
+}
+
 #right-container {
     background: #EBEBEB;
     box-sizing: border-box;
@@ -117,7 +121,7 @@ header {
     text-decoration: none;
 }
 
-#brand-nav li a:active {
+.brand-clicked {
     border-bottom: 3px solid #00C6D7;
     font-weight: bold;
 }
