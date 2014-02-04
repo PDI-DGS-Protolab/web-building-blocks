@@ -1,14 +1,23 @@
-.input-size {
+#input-container {
     width: 400px;
 }
+
 
 .input-box,.special-input-box {
     border: #999999 1px solid;
     border-radius: 3px;
+}
+
+#full-name {
+    border: #999999 1px solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     font-size: 18px;
     height: 36px;    
     padding: 0px 5px 0px 5px;
-    width: 97.5%; 
+    width: 100%; 
 }
 
 .special-input-box {
@@ -43,27 +52,32 @@
     outline: none;
 }
 
-.info-space, .checkSpace {
+
+#input-hint, #error-container {
     font-size: 18px;
     height: 30px;
 }
 
-.info-space {
+#input-hint {
     color: #474747;
     font-size: 14px;
     line-height: 30px;
     padding: 0px 5px 0px 5px;
     vertical-align: middle;
 }
-.check-space {
+
+#error-container {
     display: none;
     font-size: 18px;
     height: 30px;
 }
 
-.check-box {
+#error-message {
     background-color: white;
     border-radius: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     float: left;
     font-size: 14px;
     font-weight: bold;

@@ -38,7 +38,7 @@
     outline: none !important;
 }
 
-.btt-neutral[disabled=disabled], .neutralButton:disabled {
+.btt-neutral[disabled=disabled], .btt-neutral:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -88,7 +88,7 @@
     outline: none !important;
 }
 
-.btt-positive[disabled=disabled], .neutralButton:disabled {
+.btt-positive[disabled=disabled], .btt-positive:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -138,7 +138,7 @@
     outline: none !important;
 }
 
-.btt-negative[disabled=disabled], .neutralButton:disabled {
+.btt-negative[disabled=disabled], .btt-negative:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -188,7 +188,7 @@
     outline: none !important;
 }
 
-.btt-subdued[disabled=disabled], .neutralButton:disabled {
+.btt-subdued[disabled=disabled], .btt-subdued:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
