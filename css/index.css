@@ -126,6 +126,13 @@ header {
     font-weight: bold;
 }
 
+#iframe {
+    float: right;
+    height: auto;
+    position: fixed;
+    width: 100%;
+}
+
 #visualization-container {
     border-right: 2px solid #FFFFFF;
     box-sizing: border-box;
