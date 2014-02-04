@@ -10,13 +10,14 @@
       
         <title>Web building blocks</title>
     </head>
-    <body>   
-        <input id="input-full-name" type="text" class="input-box"></input>
-        <div id="error-space-name" class="info-space"> 
-        </div> 
-        <div id="error-space-name-x" class="check-space"> 
-            <div id="check-box-name" class="check-box">
-            </div>
-        </div> 
+    <body>
+        <div id="input-container">
+            <input id="full-name" type="text"></input>
+            <div id="input-hint" class="info-space"> 
+            </div> 
+            <div id="error-container">
+                <a id="error-message"></a>
+            </div> 
+        </div>
     </body>
 </html>

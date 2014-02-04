@@ -1,54 +1,54 @@
 $(document).ready(function() {
 
- $('#input-full-name').focus(function() {
-     if( !$("#error-space-name-x").is(':visible') ) {
-      $("#error-space-name").show();
-      $("#error-space-name").text("Enter your full name as it appears on your card");
-      $("#error-space-name-x").hide();
+ $('#full-name').focus(function() {
+     if( !$("#error-container").is(':visible') ) {
+      $("#input-hint").show();
+      $("#input-hint").text("Enter your full name as it appears on your card");
+      $("#error-container").hide();
     }
   }); 
 
-  $('#input-full-name').keyup(function(e) {
-    var str = $('#input-full-name').val();
+  $('#full-name').keyup(function(e) {
+    var str = $('#input-hint').val();
 
     if(/^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1 ]*$/.test(str) == false) {
-      $("#error-space-name").hide();
-      $("#error-space-name-x").show();
+      $("#input-hint").hide();
+      $("#error-container").show();
       $(this).addClass("negative-box");
-      $("#check-box-name").text("Illegal characters. You can input only letters.");
-      $("#check-box-name").addClass("negative-check");
+      $("#error-message").text("Illegal characters. You can input only letters.");
+      $("#error-message").addClass("negative-check");
       nameCheck=false;
     }
 
     else if((str=='')||(str==undefined)) {
-      $("#error-space-name").show();
-      $("#error-space-name-x").hide();
-      $("#check-box-name").text("");
+      $("#input-hint").show();
+      $("#error-container").hide();
+      $("#error-message").text("");
       $(this).removeClass("negative-box");
       nameCheck=false;
     }
 
     else{
       $(this).removeClass("negative-box");
-      $("#error-space-name-x").hide();
-      $("#error-space-name").show();
-      $("#error-space-name").text("Enter your full name as it appears on your card");
-      $("#check-box-name").removeClass("negative-check");
+      $("#error-container").hide();
+      $("#input-hint").show();
+      $("#input-hint").text("Enter your full name as it appears on your card");
+      $("#error-message").removeClass("negative-check");
       nameCheck=true;
     }
   });
 
-  $('#input-full-name').blur(function() {
-    var str = $('#input-full-name').val();
-    $("#error-space-name").text("");
+  $('#full-name').blur(function() {
+    var str = $('#full-name').val();
+    $("#input-hint").text("");
     if(/^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1 ]*$/.test(str) == false) {
-      $("#error-space-name").hide();
-      $("#error-space-name-x").show();
+      $("#input-hint").hide();
+      $("#error-container").show();
       $(this).addClass("negative-box");
-      $("#check-box-name").text("Illegal characters. You can input only letters.");
-      $("#check-box-name").addClass("negative-check");
+      $("#error-message").text("Illegal characters. You can input only letters.");
+      $("#error-message").addClass("negative-check");
       nameCheck=false;
-      $('#input-full-name').focus().val();
+      $('#full-name').focus().val();
     }
   }); 
 
