@@ -53,3 +53,15 @@ $(document).ready(function() {
   }); 
 
 });
+
+$(document).on('click','#plus-input',function () {
+    $( "#input-box-div" ).append( '<div><input type="text" class="special-input-box"/><button type="submit" id="plus-input" class="special-input-btt"><img src="img/more.png" /></button></div>' );
+    $(this).addClass("special-input-btt-less");
+    $(this).removeClass("special-input-btt");
+    $(this).html('<img src="img/less.png" />');
+    $(this).attr("id","less-input");
+});
+
+$(document).on('click','#less-input',function () {
+    $(this).parent().remove();
+});
