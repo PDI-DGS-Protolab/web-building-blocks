@@ -9,6 +9,10 @@ header {
     z-index: 100;
 }
 
+body {
+    background: #EBEBEB;
+}
+
 #branding-logo {
     float: left;
 }
@@ -82,7 +86,6 @@ header {
 }
 
 #right-container {
-    background: #EBEBEB;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
