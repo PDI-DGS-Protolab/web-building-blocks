@@ -7,8 +7,8 @@ $().ready( function() {
   });
 
   $('.comp-tab').click(function() {
-    $('#iframe').src = componentRoute($(this).attr('id'));
-    console.log($('#iframe').src);
+    $('#iframe').attr('src', componentRoute($(this).attr('id')));
+    console.log($('#iframe').attr('src'));
   });
 
 });
@@ -18,5 +18,5 @@ function filter(brand) {
 }
 
 function componentRoute(component) {
-  return '../templates/' + component + '.html';
+  return 'templates/' + component + '.html';
 }

@@ -9,7 +9,7 @@ $(document).ready(function() {
   }); 
 
   $('#full-name').keyup(function(e) {
-    var str = $('#input-hint').val();
+    var str = $('#full-name').val();
 
     if(/^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1 ]*$/.test(str) == false) {
       $("#input-hint").hide();
@@ -28,7 +28,7 @@ $(document).ready(function() {
       nameCheck=false;
     }
 
-    else{
+    else {
       $(this).removeClass("negative-box");
       $("#error-container").hide();
       $("#input-hint").show();
