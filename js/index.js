@@ -7,8 +7,10 @@ $().ready( function() {
   });
 
   $('.comp-tab').click(function() {
+    $('#right-container').removeClass('hidden');
+    $('#all').toggleClass('brand-clicked');
+    $('#visualization-container h3').text($(this).text());
     $('#iframe').attr('src', componentRoute($(this).attr('id')));
-    console.log($('#iframe').attr('src'));
   });
 
 });
