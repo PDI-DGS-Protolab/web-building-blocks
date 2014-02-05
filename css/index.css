@@ -128,7 +128,7 @@ header {
 
 #iframe {
     float: right;
-    height: auto;
+    height: 100%;
     position: fixed;
     width: 100%;
 }
