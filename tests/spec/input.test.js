@@ -1,33 +1,34 @@
-function setUpHTMLFixture() {
-     setFixtures('<div id="input-container">
-            <input id="full-name" type="text"></input>
-            <div id="input-hint"> 
-            </div> 
-            <div id="error-container">
-                <a id="error-message"></a>
-            </div> 
-        </div>
-        <div id="input-container">
-                <input disabled id="special-full-name" type="text"></input>
-                <button id="refresh-btt" class="special-full-name-btt"><img src="../img/refresh.png"/></button>
-        </div>
-        <br>
-        <div id="input-container">
-            <div>
-                <input id="special-full-name" type="text"></input>
-                <button id="plus-btt" class="special-full-name-btt"><img src="../img/more.png"/></button>
-            </div>
-        </div>');
-}
+describe('Focus related functions', function() {
+   
+    beforeEach(function(){
+        $('body').append('<div id="input-container">'
+            +'<input id="full-name" type="text"></input>'
+            +'<div id="input-hint"></div>'
+            +'<div id="error-container">'
+            +'<a id="error-message"></a>'
+            +'</div></div>');
+    });
 
-describe("On input focus, div with help must me visible", function() {
-  beforeEach(function() {
-    setUpHTMLFixture();
-  });
+    afterEach(function(){
+         $('#input-container').remove();
+    });
 
-  it("input-hint visible", function() {
-    $('#full-name').focus();
-  });
+    
+    it('input-hint without text on non focus full-name state', function() {
+        expect($('#input-hint')).toBeEmpty();
+    });
+
+    it('input-hint with info on focus full-name state', function() {
+        $('#full-name').focus();
+        expect($('#input-hint')).not.toBeEmpty();
+    });
+
+    it('error-container on focus full-name state is hidden', function() {
+        $('#full-name').focus();
+        expect($('#error-container')).toBeHidden();
+    });
+    
+  
 });
 
 
