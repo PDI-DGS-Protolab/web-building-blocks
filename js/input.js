@@ -59,11 +59,8 @@ function containsLetters(name) {
 }
 
 $(document).on('click','.plus-btt',function () {
-    console.log($(this).attr('id'));
-
-    var newDiv = '<div><br><input class="special-full-name" type="text"></input><button class="plus-btt button"><img src="../img/more.png"/></button></div>';
+    var newDiv = '<div class="dynamic-div"><input class="special-full-name" type="text"></input><button class="plus-btt button"><img src="../img/more.png"/></button></div>';
     $('#input-container-plus-less').append(newDiv);
-    
     $(this).removeClass('plus-btt').addClass('less-btt');
     $(this).html('<img src="../img/less.png"/>');
 });
