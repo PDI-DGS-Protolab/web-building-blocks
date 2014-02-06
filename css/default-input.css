@@ -1,8 +1,8 @@
-#input-container {
+.input-container {
     width: 400px;
 }
 
-#full-name, #special-full-name {
+#full-name, .special-full-name {
     border: #999999 1px solid;
     border-radius: 5px;
     box-sizing: border-box;
@@ -50,15 +50,15 @@
     width: 100%;
 }
 
-#special-full-name {
+.special-full-name {
     width: 85%; 
 }
 
-#special-full-name:disabled {
+.special-full-name:disabled {
     background-color: #EAEAEA;
 }
 
-.special-full-name-btt, .special-full-name-btt-less {
+.button {
     border-radius: 3px;
     cursor: pointer;
     float: right;
@@ -67,17 +67,17 @@
     width: 36px; 
 }
 
-.special-full-name-btt {
+.plus-btt, .refresh-btt {
     background-color: #007487;
     border: #016171 1px solid; 
 }
 
-.special-full-name-btt-less {
+.less-btt{
     background-color: #AEADAD;
     border: #AEADAD 1px solid;
 }
 
-.special-full-name-btt:focus, .special-full-name-btt-less:focus {
+.button:focus {
     border: none;
     outline: none;
 }
