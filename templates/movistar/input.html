@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>   
+        <meta charset="utf-8">
+        <LINK href="../../css/default-input.css" rel="stylesheet" type="text/css"/>
+        <LINK href="../../css/movistar/input.css" rel="stylesheet" type="text/css"/>
+        <LINK href="../../css/visualization.css" rel="stylesheet" type="text/css"/>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/input.js"></script>
+      
+        <title>Web building blocks</title>
+    </head>
+    <body>
+        <div id="visualization-container" class="visual">
+            <h3>Input Boxes</h3><h3 class="brand-title"> - Movistar</h3>
+            <img class="component-img"/>
+        </div>
+        <div id="testing-container" class="visual">
+            <h3>Test</h3>
+            
+            <div class="input-container">
+                <input id="full-name" type="text"></input>
+                <div id="input-hint"> 
+                </div> 
+                <div id="error-container">
+                    <a id="error-message"></a>
+                </div> 
+            </div>
+            <div class="input-container">
+                    <input disabled class="special-full-name" type="text"></input>
+                    <button class="refresh-btt button"><img src="../../img/refresh.png"/></button>
+            </div>
+            <div class="input-container" id="input-container-plus-less">
+                <div class="dynamic-div">
+                    <input class="special-full-name" type="text"></input>
+                    <button class="plus-btt button"><img src="../../img/more.png"/></button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

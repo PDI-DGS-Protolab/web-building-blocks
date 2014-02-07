@@ -1,4 +1,4 @@
-.input-box:focus {
+#full-name:focus {
     margin: -1px;
     border-color: #0b4784;
     border-width: 2px;

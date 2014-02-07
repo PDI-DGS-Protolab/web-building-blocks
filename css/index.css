@@ -135,37 +135,18 @@ body {
     font-weight: bold;
 }
 
-.visual {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    height: auto;
-    min-height: 100%;
-    padding-left: 40px;
-    position: relative;
-    width: 50%;
+.ifr-container {
+    
 }
 
-.visual h3 {
-    font-family: Verdana, Verdana, Geneva, Sans-Serif;
-}
-
-#visualization-container {
-    border-right: 2px solid #FFFFFF;
-    float: left;
-}
-
-#testing-container {
-    float: right;
-}
-
-#iframe {
+.iframe {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     float: right;
     height: 100%;
-    position: fixed;
+    padding-bottom: 40px;
+    position: relative;
     width: 100%;
 }
 

@@ -1,0 +1,29 @@
+.visual {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 100%;
+    min-height: 100%;
+    padding-left: 40px;
+    position: relative;
+    width: 50%;
+}
+
+.visual h3 {
+    display: inline;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+}
+
+#visualization-container {
+    border-right: 2px solid #FFFFFF;
+    float: left;
+}
+
+.component-img {
+    
+}
+
+#testing-container {
+    float: right;
+    height: 100%;
+}
