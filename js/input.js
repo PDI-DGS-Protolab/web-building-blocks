@@ -68,3 +68,56 @@ $(document).on('click', '.plus-btt', function () {
 $(document).on('click','.less-btt',function () {
   $(this).parent().remove();
 });
+
+//Only needed for jasmine jquery untill latency problem not solved with $().ready
+
+$(document).on('focus', '#full-name', function() {
+     if( !$('#error-container').is(':visible') ) {
+      $('#input-hint').show();
+      $('#input-hint').text('Enter your full name as it appears on your card');
+      $('#error-container').hide();
+    }
+  });
+
+$(document).on('keyup', '#full-name', function(e) {
+    var str = $('#full-name').val();
+    if(!containsLetters(str)) {
+      $('#input-hint').hide();
+      $('#error-container').show();
+      $(this).addClass('negative-box');
+      $('#error-message').text('Illegal characters. You can input only letters.');
+      $('#error-message').addClass('negative-check');
+      nameCheck=false;
+    }
+
+    else if((str=='')||(str==undefined)) {
+      $('#input-hint').show();
+      $('#error-container').hide();
+      $('#error-message').text('');
+      $(this).removeClass('negative-box');
+      nameCheck=false;
+    }
+
+    else {
+      $(this).removeClass('negative-box');
+      $('#error-container').hide();
+      $('#input-hint').show();
+      $('#input-hint').text('Enter your full name as it appears on your card');
+      $('#error-message').removeClass('negative-check');
+      nameCheck=true;
+    }
+  });
+
+$(document).on('blur', '#full-name', function() {
+    var str = $('#full-name').val();
+    $('#input-hint').text('');
+    if(!containsLetters(str)) {
+      $('#input-hint').hide();
+      $('#error-container').show();
+      $(this).addClass('negative-box');
+      $('#error-message').text('Illegal characters. You can input only letters.');
+      $('#error-message').addClass('negative-check');
+      nameCheck=false;
+      $('#full-name').focus().val();
+    }
+});
