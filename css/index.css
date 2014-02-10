@@ -160,3 +160,10 @@ footer {
     position: fixed;
     width: 100%;
 }
+
+h3 {
+    padding-left: 40px;
+    color: #00C6D7;
+    display: inline;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+}
