@@ -25,11 +25,11 @@ function componentRoute(component, brand) {
 function hideComponentsVisualization(brand) {
   if (brand === "all") {
     $('.iframe').show();
-    $('.iframe').getElementsByClassName('brand-title').show();
+    $('.brand-title').show();
   }
   else {
     $('.iframe').hide();
     $('#' + brand + '-ifr').show();
-    $('.iframe').getElementsByClassName('brand-title').hide();
+    $('.brand-title').hide();
   }
 }
