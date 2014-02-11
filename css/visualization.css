@@ -10,7 +10,7 @@
 }
 
 .visual h3 {
-    display: inline;
+    /*display: inline;*/ 
     font-family: Verdana, Verdana, Geneva, Sans-Serif;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .component-img {
-    
+    margin: 10px;
 }
 
 #testing-container {
