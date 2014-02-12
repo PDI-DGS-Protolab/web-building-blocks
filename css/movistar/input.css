@@ -5,26 +5,26 @@
     outline: none !important;
 }
 
-.negative-box {
+#full-name.negative-box {
     margin: -1px;
     border-color: #C60606;
     border-width: 2px;
 }
 
-.positive-box {
+#full-name.positive-box {
     margin: -1px;
     border-color: #7AB800;
     border-width: 2px;
 }
 
-.negative-check,.positive-check {
+#error-message.negative-check,#error-message.positive-check {
     color: white;
 }
 
-.negative-check {
+#error-message.negative-check {
     background-color: #C60606;
 }
 
-.positive-check {
+#error-message.positive-check {
     background-color: #7AB800;
 }
