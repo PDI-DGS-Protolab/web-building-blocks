@@ -27,3 +27,17 @@
     float: right;
     height: 100%;
 }
+
+.download-btt {
+    background-color: #007487;
+    border: #016171 1px solid;
+    border-radius: 3px;
+    clear: both;
+    color: white;
+    cursor: pointer;
+    float: left;
+    font-weight: bold;
+    margin: 20px;
+    margin-left: 50px;
+    padding: 5px;
+}
