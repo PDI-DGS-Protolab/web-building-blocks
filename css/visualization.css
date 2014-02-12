@@ -49,7 +49,7 @@
     z-index: 1;
 }
 
-.button:hover:enabled {
+.download-btt:hover:enabled {
     background-color: rgba(0, 0, 0, 0.9);
 }
 

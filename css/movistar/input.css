@@ -28,3 +28,13 @@
 #error-message.positive-check {
     background-color: #7AB800;
 }
+
+.plus-btt, .refresh-btt {
+    background-color: #0086C3;
+    border: #0076B1 1px solid; 
+}
+
+.less-btt{
+    background-color: #999999;
+    border: #999999 1px solid;
+}

@@ -71,16 +71,6 @@
     width: 36px; 
 }
 
-.plus-btt, .refresh-btt {
-    background-color: #007487;
-    border: #016171 1px solid; 
-}
-
-.less-btt{
-    background-color: #AEADAD;
-    border: #AEADAD 1px solid;
-}
-
 .button:focus {
     border: none;
     outline: none;
