@@ -1,4 +1,8 @@
 $().ready(function() {
+ $( "img" ).tooltip();
+ $( "img" ).tooltip('option', 'position', { my: 'right center', at: 'left-10 center' });
+ $( "img" ).tooltip('option', 'tooltipClass', 'right');
+
 
  $('#full-name').focus(function() {
      if( !$('#error-container').is(':visible') ) {
@@ -59,7 +63,7 @@ function containsLetters(name) {
 }
 
 $(document).on('click', '.plus-btt', function () {
-    var newDiv = '<div class="dynamic-div"><input class="special-full-name" type="text"></input><button class="plus-btt button"><img src="../../img/more.png"/></button></div>';
+    var newDiv = '<div class="dynamic-div"><input class="special-full-name" type="text"></input><button class="plus-btt btt-input"><img src="../../img/more.png"/></button></div>';
     $('#input-container-plus-less').append(newDiv);
     $(this).removeClass('plus-btt').addClass('less-btt');
     $(this).html('<img src="../../img/less.png"/>');

@@ -172,31 +172,3 @@ footer {
     position: fixed;
     width: 100%;
 }
-
-.ui-tooltip {
-    background: #666;
-    color: white;
-    border: none;
-    padding: 0;
-    opacity: 1;
-}
-
-.ui-tooltip-content {
-    position: relative;
-    padding: 1em;
-}
-
-.ui-tooltip-content::after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    display: block;
-    width: 0;
-}
-
-.right .ui-tooltip-content::after {
-    top: 18px;
-    left: -10px;
-    border-color: transparent #666;
-    border-width: 10px 10px 10px 0;
-}

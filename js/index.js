@@ -1,8 +1,4 @@
 $().ready( function() {
-  $( "img" ).tooltip();
-  $( "img" ).tooltip('option', 'position', { my: 'right center', at: 'left-10 center' });
-  $( "img" ).tooltip('option', 'tooltipClass', 'right');
-  
 	$('.brand-tab').click(function() {
     $(this).toggleClass('brand-clicked');
     $('.brand-tab').not(this).removeClass('brand-clicked');

@@ -62,7 +62,7 @@
     margin-top: 30px;
 }
 
-.button {
+.btt-input {
     border-radius: 3px;
     cursor: pointer;
     float: right;
@@ -71,7 +71,7 @@
     width: 36px; 
 }
 
-.button:focus {
+.btt-input:focus {
     border: none;
     outline: none;
 }
