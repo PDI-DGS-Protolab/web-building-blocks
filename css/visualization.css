@@ -14,6 +14,10 @@
     font-family: Verdana, Verdana, Geneva, Sans-Serif;
 }
 
+.visual img {
+    display: block;
+}
+
 #visualization-container {
     border-right: 2px solid #FFFFFF;
     float: left;
