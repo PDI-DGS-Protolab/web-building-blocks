@@ -17,6 +17,10 @@ body {
     float: left;
 }
 
+.telefonica-logo {
+    max-height: 80px;
+}
+
 #user-links {
     float: right;
 }
