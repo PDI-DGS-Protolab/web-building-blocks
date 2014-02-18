@@ -7,7 +7,7 @@ $().ready( function() {
   $('.comp-tab').click(function() {
     switchActiveElements(this, '.comp-tab', 'active-comp');
     $('#right-container').removeClass('hidden');
-    if (!'.brand-tab.active-brand') {
+    if (!$('.brand-tab').hasClass('active-brand')) {
       $('#all').addClass('active-brand');
     }
     var component = $(this).attr('id');
@@ -28,17 +28,17 @@ function componentRoute(component, brand) {
 
 function hideComponentsVisualization(brand) {
   if (brand === "all") {
-    $('.iframe').show();
+    $('.iframe').parent().removeClass('hidden');
     $('.brand-title').show();
   }
   else {
-    $('.iframe').hide();
-    $('#' + brand + '-ifr').show();
+    $('.iframe').parent().addClass('hidden');
+    $('#' + brand + '-ifr').parent().removeClass('hidden');
     $('.brand-title').hide();
   }
 }
 
 function switchActiveElements(element, elementClass, activeClass) {
-  $(element).toggleClass(activeClass);
+  $(element).addClass(activeClass);
   $(elementClass).not(element).removeClass(activeClass);
 }
