@@ -7,7 +7,9 @@ $().ready( function() {
 
   $('.comp-tab').click(function() {
     $('#right-container').removeClass('hidden');
-    $('#all').addClass('brand-clicked');
+    if (!'.brand-tab.brand-clicked') {
+      $('#all').addClass('brand-clicked');
+    }
     var component = $(this).attr('id');
 
     $('#telefonica-ifr').attr('src', componentRoute(component, 'telefonica'));
