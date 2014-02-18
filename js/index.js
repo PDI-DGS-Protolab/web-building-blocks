@@ -1,14 +1,14 @@
 $().ready( function() {
 	$('.brand-tab').click(function() {
-    $(this).toggleClass('brand-clicked');
-    $('.brand-tab').not(this).removeClass('brand-clicked');
+    switchActiveElements(this, '.brand-tab', 'active-brand');
 		hideComponentsVisualization($(this).attr('id'));
   });
 
   $('.comp-tab').click(function() {
+    switchActiveElements(this, '.comp-tab', 'active-comp');
     $('#right-container').removeClass('hidden');
-    if (!'.brand-tab.brand-clicked') {
-      $('#all').addClass('brand-clicked');
+    if (!'.brand-tab.active-brand') {
+      $('#all').addClass('active-brand');
     }
     var component = $(this).attr('id');
 
@@ -36,4 +36,9 @@ function hideComponentsVisualization(brand) {
     $('#' + brand + '-ifr').show();
     $('.brand-title').hide();
   }
+}
+
+function switchActiveElements(element, elementClass, activeClass) {
+  $(element).toggleClass(activeClass);
+  $(elementClass).not(element).removeClass(activeClass);
 }

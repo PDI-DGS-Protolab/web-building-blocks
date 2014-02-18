@@ -85,6 +85,11 @@ body {
     
 }
 
+.active-comp {
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFFFFF !important;
+}
+
 #right-container {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -112,7 +117,7 @@ body {
 }
 
 .hidden {
-    visibility: hidden;
+    display: none;
 }
 
 #brand-nav li {
@@ -130,7 +135,7 @@ body {
     text-decoration: none;
 }
 
-.brand-clicked {
+.active-brand {
     border-bottom: 3px solid #00C6D7;
     font-weight: bold;
 }
