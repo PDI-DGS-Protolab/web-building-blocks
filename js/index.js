@@ -16,9 +16,35 @@ $().ready( function() {
     $('#movistar-ifr').attr('src', componentRoute(component, 'movistar'));
     $('#vivo-ifr').attr('src', componentRoute(component, 'vivo'));
     //$('#o2-ifr').attr('src', componentRoute(component, 'o2'));
-
-    //console.log($('#telefonica-ifr').contents().find('body').height());
   });
+
+  /**
+  function resizeIframe(iframe) {
+    $(iframe).height($(iframe)[0].contentDocument.body.scrollHeight);
+  }
+
+  $('#telefonica-ifr').load(function() {
+    resizeIframe('#telefonica-ifr');
+  });
+
+  $('#movistar-ifr').load(function() {
+    resizeIframe('#movistar-ifr');
+  });
+
+  $('#vivo-ifr').load(function() {
+    resizeIframe('#vivo-ifr');
+  });
+
+  $('#o2-ifr').load(function() {
+    resizeIframe('#vivo-ifr');
+  });
+
+  $(window).resize(function() {
+    resizeIframe('#telefonica-ifr');
+    resizeIframe('#movistar-ifr');
+    resizeIframe('#vivo-ifr');
+    resizeIframe('#o2-ifr');
+  });**/
 
 });
 
