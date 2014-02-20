@@ -103,7 +103,7 @@ body {
     margin-top: 80px;
     min-height: 100%;
     overflow: auto;
-    position: relative;
+    position: absolute;
     right: 0;
     top: 0;
     width: 80%;
