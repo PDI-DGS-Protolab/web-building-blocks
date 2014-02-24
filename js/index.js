@@ -18,7 +18,7 @@ $().ready( function() {
     //$('#o2-ifr').attr('src', componentRoute(component, 'o2'));
   });
 
-  /**
+  
   function resizeIframe(iframe) {
     $(iframe).height($(iframe)[0].contentDocument.body.scrollHeight);
   }
@@ -44,7 +44,7 @@ $().ready( function() {
     resizeIframe('#movistar-ifr');
     resizeIframe('#vivo-ifr');
     resizeIframe('#o2-ifr');
-  });**/
+  });
 
 });
 
