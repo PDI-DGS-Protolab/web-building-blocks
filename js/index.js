@@ -20,6 +20,7 @@ $().ready( function() {
 
   
   function resizeIframe(iframe) {
+    console.log($(iframe)[0].contentDocument.body.scrollHeight);
     $(iframe).height($(iframe)[0].contentDocument.body.scrollHeight);
   }
 
