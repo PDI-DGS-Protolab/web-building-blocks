@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+    <head>   
+        <meta charset="utf-8">
+        <LINK href="css/index.css" rel="stylesheet" type="text/css"/>
+        <LINK href="css/default-input.css" rel="stylesheet" type="text/css"/>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+        <script src="js/index.js" type="text/javascript" ></script>
+	  
+        <title>Web building blocks</title>
+    </head>
+    <body>   
+        <header>
+            <div id="branding-logo">
+                <img src="img/lgo_telefonica_at.png" class="telefonica-logo"/>
+            </div>
+            <div id="user-links"></div>
+        </header>
+        <div id="left-container">
+            <div id="components-nav-container">
+                <h1>UI<br>BUILDING<br>BLOCKS</h1>
+                <h2>FORMS</h2>
+                <ul id="forms-nav">
+                    <li><a class="comp-tab" id="input" href="#">Inputs</a></li>
+                    <li><a class="comp-tab" id="button" href="#">buttons</a></li>
+                    <li><a class="comp-tab" id="forms-background" href="#">background</a></li>
+                    <li><a class="comp-tab" id="environment" href="#">environment</a></li>
+                    <li><a class="comp-tab" id="drop-down" href="#">drop-down</a></li>
+                    <li><a class="comp-tab" id="payment-form" href="#">payment form</a></li>
+                </ul>
+                <h2>TABLES</h2>
+                <ul id="tables-nav">
+                    <li><a class="comp-tab" id="data-visualization" href="#">Data Visualization</a></li>
+                    <li><a class="comp-tab" id="cell-titles" href="#">Cell titles</a></li>
+                    <li><a class="comp-tab" id="vertical-horizontal" href="#">Vertical/horizontal</a></li>
+                    <li><a class="comp-tab" id="columns-rows" href="#">Columns/rows</a></li>
+                    <li><a class="comp-tab" id="tables-background" href="#">Background</a></li>
+                    <li><a class="comp-tab" id="responsive-behaviour" href="#">Responsive behaviour</a></li>
+                </ul>
+                <h2>LAYOUTS</h2>
+                <ul id="layouts-nav">
+                </ul>
+            </div>
+        </div>
+        <div id="right-container" class="hidden">
+            <ul id="brand-nav">
+                <li><a class="brand-tab" id="all" href="#">All brands</a></li>
+                <li><a class="brand-tab" id="telefonica" href="#">Telefónica</a></li>
+                <li><a class="brand-tab" id="movistar" href="#">Movistar</a></li>
+                <li><a class="brand-tab" id="vivo" href="#">Vivo</a></li>
+                <li><a class="brand-tab" id="o2" href="#">O2</a></li>
+            </ul>
+            <div class="ifr-container">
+                <h3 class="brand-title">Telefónica</h3>
+                <iframe id="telefonica-ifr" class="iframe" src="" seamless height="auto"></iframe>
+            </div>
+            <div class="ifr-container">
+                <h3 class="brand-title">Movistar</h3>
+                <iframe id="movistar-ifr" class="iframe" src="" seamless height="auto"></iframe>
+            </div>
+            <div class="ifr-container">
+                <h3 class="brand-title">Vivo</h3>
+                <iframe id="vivo-ifr" class="iframe" src="" seamless height="auto"></iframe>
+            </div>
+            <div class="ifr-container">
+                <h3 class="brand-title">O2</h3>
+                <iframe id="o2-ifr" class="iframe" src="" seamless height="auto"></iframe>
+            </div>
+            
+            <footer>
+            </footer>
+        </div>
+    </body>
+</html>

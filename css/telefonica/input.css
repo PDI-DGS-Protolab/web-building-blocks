@@ -1,0 +1,40 @@
+#full-name:focus {
+    margin: -1px;
+    border-color: #00C6D7;
+    border-width: 2px;
+    outline: none !important;
+}
+
+#full-name.negative-box {
+    margin: -1px;
+    border-color: #CA3430;
+    border-width: 2px;
+}
+
+#full-name.positive-box {
+    margin: -1px;
+    border-color: #00C607;
+    border-width: 2px;
+}
+
+#error-message.negative-check,#error-message.positive-check {
+    color: white;
+}
+
+#error-message.negative-check {
+    background-color: #CA3430;
+}
+
+#error-message.positive-check {
+    background-color: #00C607;
+}
+
+.plus-btt, .refresh-btt {
+    background-color: #007487;
+    border: #016171 1px solid; 
+}
+
+.less-btt{
+    background-color: #AEADAD;
+    border: #AEADAD 1px solid;
+}

@@ -1,0 +1,185 @@
+header {
+    background: #FFFFFF;
+    box-shadow: 0 2px 50px #474747;
+    height: 80px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+body {
+    background: #EBEBEB;
+}
+
+#branding-logo {
+    float: left;
+}
+
+.telefonica-logo {
+    max-height: 80px;
+}
+
+#user-links {
+    float: right;
+}
+
+#left-container {
+    background: #024257;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    height: auto;
+    left: 0;
+    margin-top: 80px;
+    min-height: 100%;
+    max-width: 60%;
+    position: fixed;
+    top: 0;
+    width: 20%;
+    z-index: 50;
+}
+
+#components-nav-container {
+    color: #00C6D7;
+    cursor: default;
+    float: right;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+    width: 90%;
+}
+
+#components-nav-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#components-nav-container h1 {
+    color: #FFFFFF;
+    font-weight: normal;
+}
+
+#components-nav-container h2 {
+    font-weight: normal;
+}
+
+#components-nav-container li {
+    margin-bottom: 5px;
+}
+
+#components-nav-container li a {
+    color: #00C6D7;
+    text-decoration: none;
+}
+
+#forms-nav {
+
+}
+
+#tables-nav {
+
+}
+
+#layouts-nav {
+
+}
+
+.comp-tab {
+    
+}
+
+.active-comp {
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFFFFF !important;
+}
+
+#right-container {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: right;
+    height: auto;
+    margin-top: 80px;
+    min-height: 100%;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+}
+
+
+#brand-nav {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    list-style-type: none;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#brand-nav li {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: inline-block;
+    padding-right: 20px;
+    width: 10%;
+}
+
+#brand-nav li a {
+    color: #002A32;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+    text-decoration: none;
+}
+
+.active-brand {
+    border-bottom: 3px solid #00C6D7;
+    font-weight: bold;
+}
+
+.brand-title {
+    color: #00C6D7;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-left: 40px;
+}
+
+.ifr-container {
+    height: 0;
+    position: relative;
+    padding-bottom: 62%;
+}
+
+.iframe {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: right;
+    height: 100%;
+    padding-bottom: 40px;
+    position: absolute;
+    width: 100%;
+    /*Seamless*/
+    background-color: transparent;
+    border: 0px none transparent;
+    padding: 0px;
+}
+
+footer {
+    background: #FFFFFF;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    bottom: 0;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+}
