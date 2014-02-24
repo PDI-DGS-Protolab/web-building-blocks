@@ -1,11 +1,11 @@
 $(document).on('click','.download-btt', function() {
   
     
-    var tmp = $(this).attr('id').split(' ');
-
-    var component = tmp[0];
-    var brand = tmp[1];
+    var tmp = $(this).attr('id').split('-');
     
+    var brand = tmp[0];
+    var component = tmp[1];
+  
     console.log('brand: '+brand+'; component: '+component);
     //We read the file that we want:
     //It only will work on localhost with firefox, with other 
