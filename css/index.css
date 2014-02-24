@@ -152,11 +152,7 @@ body {
     padding-left: 40px;
 }
 
-.ifr-container {
-    height: 0;
-    position: relative;
-    padding-bottom: 62%;
-}
+
 
 .iframe {
     box-sizing: border-box;
@@ -165,7 +161,6 @@ body {
     float: right;
     height: 100%;
     padding-bottom: 40px;
-    position: absolute;
     width: 100%;
     /*Seamless*/
     background-color: transparent;
