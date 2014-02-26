@@ -1,29 +1,37 @@
-.visual {
+.brand-title {
+    clear: both;
+    color: #00C6D7;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-left: 40px;
+}
+
+.visualization-container {
+    border-right: 2px solid #FFFFFF;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    clear: both;
+    float: left;
     height: 100%;
     min-height: 100%;
     padding-left: 40px;
+    padding-bottom: 40px;
     position: relative;
     width: 50%;
 }
 
-.visual h3 {
-    /*display: inline;*/ 
-    font-family: Verdana, Verdana, Geneva, Sans-Serif;
-}
-
-.visual img {
+.visualization-container img {
     display: block;
 }
 
-#visualization-container {
-    border-right: 2px solid #FFFFFF;
-    float: left;
+.component-title {
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
 }
 
 .component-img {
+    float: left;
     margin: 10px;
 }
 
@@ -83,7 +91,14 @@
 
 #testing-container {
     float: right;
-    height: 100%;
+    min-height: 10%;
+    width: 50%;
+}
+
+#selection-container {
+    float: right;
+    min-height: 10%;
+    width: 50%;
 }
 
 .ui-tooltip {
@@ -113,3 +128,4 @@
     left: -20px;
     top: 30px;
 }
+

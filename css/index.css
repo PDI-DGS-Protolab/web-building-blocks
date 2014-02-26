@@ -144,30 +144,6 @@ body {
     font-weight: bold;
 }
 
-.brand-title {
-    color: #00C6D7;
-    font-family: Verdana, Verdana, Geneva, Sans-Serif;
-    font-weight: normal;
-    margin-bottom: 0;
-    padding-left: 40px;
-}
-
-
-
-.iframe {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    float: right;
-    height: 100%;
-    padding-bottom: 40px;
-    width: 100%;
-    /*Seamless*/
-    background-color: transparent;
-    border: 0px none transparent;
-    padding: 0px;
-}
-
 footer {
     background: #FFFFFF;
     box-sizing: border-box;
@@ -175,6 +151,8 @@ footer {
     -webkit-box-sizing: border-box;
     bottom: 0;
     height: 40px;
+    left: 0;
     position: fixed;
     width: 100%;
+    z-index: 100;
 }
