@@ -172,6 +172,10 @@ body {
 #selection-container {
 }
 
+.common-title {
+    color: #333333;
+    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+}
 
 footer {
     background: #FFFFFF;
