@@ -4,22 +4,13 @@
     font-family: Verdana, Verdana, Geneva, Sans-Serif;
     font-weight: normal;
     margin-bottom: 0;
-    padding-left: 40px;
 }
 
 .visualization-container {
-    border-right: 2px solid #FFFFFF;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     clear: both;
     float: left;
     height: 100%;
     min-height: 100%;
-    padding-left: 40px;
-    padding-bottom: 40px;
-    position: relative;
-    width: 50%;
 }
 
 .visualization-container img {
@@ -87,18 +78,6 @@
     background: linear-gradient( to bottom, #067E92 0%, #007487 100% ); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#067E92', endColorstr='#007487', GradientType=0 ); /* IE6-9 */
     outline: none;
-}
-
-#testing-container {
-    float: right;
-    min-height: 10%;
-    width: 50%;
-}
-
-#selection-container {
-    float: right;
-    min-height: 10%;
-    width: 50%;
 }
 
 .ui-tooltip {

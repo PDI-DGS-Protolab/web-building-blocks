@@ -10,57 +10,18 @@ $().ready( function() {
     if (!$('.brand-tab').hasClass('active-brand')) {
       $('#all').addClass('active-brand');
     }
-    var component = $(this).attr('id');
-
-    $('#telefonica-ifr').attr('src', componentRoute(component, 'telefonica'));
-    $('#movistar-ifr').attr('src', componentRoute(component, 'movistar'));
-    $('#vivo-ifr').attr('src', componentRoute(component, 'vivo'));
-    //$('#o2-ifr').attr('src', componentRoute(component, 'o2'));
   });
-
-  
-  function resizeIframe(iframe) {
-    console.log($(iframe)[0].contentDocument.body.scrollHeight);
-    $(iframe).height($(iframe)[0].contentDocument.body.scrollHeight);
-  }
-
-  $('#telefonica-ifr').load(function() {
-    resizeIframe('#telefonica-ifr');
-  });
-
-  $('#movistar-ifr').load(function() {
-    resizeIframe('#movistar-ifr');
-  });
-
-  $('#vivo-ifr').load(function() {
-    resizeIframe('#vivo-ifr');
-  });
-
-  $('#o2-ifr').load(function() {
-    resizeIframe('#vivo-ifr');
-  });
-
-  $(window).resize(function() {
-    resizeIframe('#telefonica-ifr');
-    resizeIframe('#movistar-ifr');
-    resizeIframe('#vivo-ifr');
-    resizeIframe('#o2-ifr');
-  });
-
 });
-
-function componentRoute(component, brand) {
-  return 'templates/' + brand + '/' + component + '.html';
-}
 
 function hideComponentsVisualization(brand) {
   if (brand === "all") {
-    $('.iframe').parent().removeClass('hidden');
+    $('.visualization-container').removeClass('hidden');
     $('.brand-title').show();
   }
   else {
-    $('.iframe').parent().addClass('hidden');
-    $('#' + brand + '-ifr').parent().removeClass('hidden');
+    $('.visualization-container').addClass('hidden');
+    component = $('.active-comp').attr('id');
+    $('#' + component + '-' + brand).removeClass('hidden');
     $('.brand-title').hide();
   }
 }
