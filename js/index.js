@@ -14,20 +14,22 @@ $().ready( function() {
 
   $(".component-img").draggable({ 
       containment:"#right-container",
-      revert: true
+      revert: true,
+      helper: 'clone' 
   });
 
   $("#testing-container").droppable({
       tolerance: 'fit',
 
       drop: function( event, ui ) {
-        if (ui.draggable.hasClass("normal")) {
+        console.log(ui.draggable);
+        if (ui.draggable.hasClass("input-normal")) {
           $(this).append('<div class="input-container"><input id="full-name" type="text"></input><div id="input-hint"></div><div id="error-container"><a id="error-message"></a></div></div>');
-        } else if (ui.draggable.hasClass("refresh")) {
+        } else if (ui.draggable.hasClass("input-refresh")) {
           $(this).append('<div class="input-container"><input disabled class="special-full-name" type="text"></input><button class="refresh-btt btt-input"><img src="img/refresh.png"/></button></div>');
-        } else if (ui.draggable.hasClass("add")) {
+        } else if (ui.draggable.hasClass("input-add")) {
           $(this).append('<div class="input-container"><input class="special-full-name" type="text"></input><button class="plus-btt btt-input"><img src="img/more.png"/></button></div>');
-        } else if (ui.draggable.hasClass("quit")) {
+        } else if (ui.draggable.hasClass("input-quit")) {
           $(this).append('<div class="input-container"><input class="special-full-name" type="text"></input><button class="less-btt btt-input"><img src="img/less.png"/></button></div>');
       }
     }

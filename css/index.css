@@ -160,6 +160,7 @@ body {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    height: 100%;
     float: right;
     padding-bottom: 40px;
     padding-left: 40px;
@@ -167,9 +168,13 @@ body {
 }
 
 #testing-container {
+    height: 300px;
+    overflow: auto;
 }
 
 #selection-container {
+    height: 300px;
+    overflow: auto;
 }
 
 .common-title {
