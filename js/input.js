@@ -62,18 +62,18 @@ function containsLetters(name) {
   return /^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1 ]*$/.test(name);
 }
 
-$(document).on('click', '.plus-btt', function () {
-    var newDiv = '<div class="dynamic-div"><input class="special-full-name" type="text"></input><button class="plus-btt btt-input"><img src="../../img/more.png"/></button></div>';
+$(document).on('click', '.btt-plus', function () {
+    var newDiv = '<div class="dynamic-div"><input class="special-full-name" type="text"></input><button class="btt-plus btt-input"><img src="img/more.png"/></button></div>';
     $('#input-container-plus-less').append(newDiv);
-    $(this).removeClass('plus-btt').addClass('less-btt');
-    $(this).html('<img src="../../img/less.png"/>');
+    $(this).removeClass('btt-plus').addClass('btt-less');
+    $(this).html('<img src="img/less.png"/>');
 });
 
-$(document).on('click','.less-btt',function () {
+$(document).on('click','.btt-less',function () {
   $(this).parent().remove();
 });
 
-//Only needed for jasmine jquery untill latency problem not solved with $().ready
+//Only needed for jasmine jquery untill latency problem not solved with $().readys
 
 $(document).on('focus', '#full-name', function() {
      if( !$('#error-container').is(':visible') ) {

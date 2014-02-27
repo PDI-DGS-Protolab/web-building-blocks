@@ -23,18 +23,45 @@ $().ready( function() {
 
       drop: function( event, ui ) {
         console.log(ui.draggable);
-        if (ui.draggable.hasClass("input-normal")) {
-          $(this).append('<div class="input-container"><input id="full-name" type="text"></input><div id="input-hint"></div><div id="error-container"><a id="error-message"></a></div></div>');
-        } else if (ui.draggable.hasClass("input-refresh")) {
-          $(this).append('<div class="input-container"><input disabled class="special-full-name" type="text"></input><button class="refresh-btt btt-input"><img src="img/refresh.png"/></button></div>');
-        } else if (ui.draggable.hasClass("input-add")) {
-          $(this).append('<div class="input-container"><input class="special-full-name" type="text"></input><button class="plus-btt btt-input"><img src="img/more.png"/></button></div>');
-        } else if (ui.draggable.hasClass("input-quit")) {
-          $(this).append('<div class="input-container"><input class="special-full-name" type="text"></input><button class="less-btt btt-input"><img src="img/less.png"/></button></div>');
-      }
+
+        var brand = "";
+        if (ui.draggable.hasClass("telefonica")) {
+          brand = "telefonica";
+        } else if (ui.draggable.hasClass("movistar")) {
+          brand = "movistar";
+        } else if (ui.draggable.hasClass("vivo")) {
+          brand = "vivo";
+        } else if (ui.draggable.hasClass("o2")) {
+          brand = "o2";
+        }
+
+        console.log(brand);
+
+        if (ui.draggable.hasClass("input")) {
+          addInput(ui.draggable, $(this), brand);
+        } else if (ui.draggable.hasClass("button")) {
+          addButton(ui.draggable, $(this), brand)
+        }
     }
   });
 });
+
+function addInput(draggable, parent, brand) {
+  if (draggable.hasClass("normal")) {
+    parent.append('<div class="input-container"><input class="' + brand + '" id="full-name" type="text"></input><div id="input-hint"></div><div id="error-container"><a id="error-message"></a></div></div>');
+  } else if (draggable.hasClass("refresh")) {
+    parent.append('<div class="input-container"><input disabled class="' + brand + ' special-full-name" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
+  } else if (draggable.hasClass("add")) {
+    parent.append('<div id="#input-container-plus-less" class="input-container"><input class="' + brand + ' special-full-name" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div>');
+  } else if (draggable.hasClass("quit")) {
+    parent.append('<div id="#input-container-plus-less" class="input-container"><input class="' + brand + ' special-full-name" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div>');
+  }
+}
+
+function addButton(draggable, parent, brand) {
+
+  
+}
 
 function hideComponentsVisualization(brand) {
   if (brand === "all") {

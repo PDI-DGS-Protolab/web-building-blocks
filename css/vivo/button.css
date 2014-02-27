@@ -1,4 +1,4 @@
-.btt-neutral {
+.vivo.btt-neutral {
     color: white;
     cursor: pointer;
     background: #226cb1; /* Old browsers */
@@ -12,7 +12,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#226cb1', endColorstr='#0b4784', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-neutral:hover:enabled {
+.vivo.btt-neutral:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 34, 108, 177, 0.9 ); /* Old browsers */
@@ -26,7 +26,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 34, 108, 177, 0.9 )', endColorstr='rgba( 11, 71, 132, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-neutral:active:enabled {
+.vivo.btt-neutral:active:enabled {
     background: #0b4784; /* Old browsers */
     background: -moz-linear-gradient( top, #0b4784 0%, #226cb1 100% ); /* FF3.6+ */
     background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #0b4784 ), color-stop( 100%, #226cb1) ); /* Chrome,Safari4+ */
@@ -38,7 +38,7 @@
     outline: none !important;
 }
 
-.btt-neutral[disabled=disabled], .btt-neutral:disabled {
+.vivo.btt-neutral[disabled=disabled], .vivo.btt-neutral:disabled {
     cursor: inherit;
     filter: alpha( opacity=40);
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -48,7 +48,7 @@
     -ms-filter: "alpha( opacity=40)";
 }
 
-.btt-positive {
+.vivo.btt-positive {
     color: white;
     cursor: pointer;
     background: #8DC63F; /* Old browsers */
@@ -62,7 +62,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8DC63F', endColorstr='#62AA00', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-positive:hover:enabled {
+.vivo.btt-positive:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 141, 198, 63, 0.9 ); /* Old browsers */
@@ -76,7 +76,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 141, 198, 63, 0.9 )', endColorstr='rgba( 98, 170, 0, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-positive:active:enabled {
+.vivo.btt-positive:active:enabled {
     background: #62AA00; /* Old browsers */
     background: -moz-linear-gradient( top, #62AA00 0%, #8DC63F 100% ); /* FF3.6+ */
     background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #62AA00 ), color-stop( 100%, #8DC63F) ); /* Chrome,Safari4+ */
@@ -88,7 +88,7 @@
     outline: none !important;
 }
 
-.btt-positive[disabled=disabled], .btt-positive:disabled {
+.vivo.btt-positive[disabled=disabled], .vivo.btt-positive:disabled {
     cursor: inherit;
     filter: alpha( opacity=40);
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -98,7 +98,7 @@
     -ms-filter: "alpha( opacity=40)";
 }
 
-.btt-negative {
+.vivo.btt-negative {
     color: white;
     cursor: pointer;
     background: #DB0000; /* Old browsers */
@@ -112,7 +112,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DB0000', endColorstr='#9E1D22', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-negative:hover:enabled {
+.vivo.btt-negative:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 219, 0, 0, 0.9 ); /* Old browsers */
@@ -126,7 +126,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 219, 0, 0, 0.9 )', endColorstr='rgba( 158, 29, 34, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-negative:active:enabled {
+.vivo.btt-negative:active:enabled {
     background: #9E1D22; /* Old browsers */
     background: -moz-linear-gradient( top, #9E1D22 0%, #DB0000 100% ); /* FF3.6+ */
     background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #9E1D22 ), color-stop( 100%, #DB0000) ); /* Chrome,Safari4+ */
@@ -138,7 +138,7 @@
     outline: none !important;
 }
 
-.btt-negative[disabled=disabled], .btt-negative:disabled {
+.vivo.btt-negative[disabled=disabled], .vivo.btt-negative:disabled {
     cursor: inherit;
     filter: alpha( opacity=40);
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -148,7 +148,7 @@
     -ms-filter: "alpha( opacity=40)";
 }
 
-.btt-subdued {
+.vivo.btt-subdued {
     color: white;
     cursor: pointer;
     background: #C6C6C6; /* Old browsers */
@@ -162,7 +162,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C6C6C6', endColorstr='#8A8A8A', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-subdued:hover:enabled {
+.vivo.btt-subdued:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 198, 198, 198, 0.9 ); /* Old browsers */
@@ -176,7 +176,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 198, 198, 198, 0.9 )', endColorstr='rgba( 138, 138, 138, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-subdued:active:enabled {
+.vivo.btt-subdued:active:enabled {
     background: #8A8A8A; /* Old browsers */
     background: -moz-linear-gradient( top, #8A8A8A 0%, #C6C6C6 100% ); /* FF3.6+ */
     background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #8A8A8A ), color-stop( 100%, #C6C6C6) ); /* Chrome,Safari4+ */
@@ -188,7 +188,7 @@
     outline: none !important;
 }
 
-.btt-subdued[disabled=disabled], .btt-subdued:disabled {
+.vivo.btt-subdued[disabled=disabled], .vivo.btt-subdued:disabled {
     cursor: inherit;
     filter: alpha( opacity=40);
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );

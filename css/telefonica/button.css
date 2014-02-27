@@ -1,4 +1,4 @@
-.btt-neutral {
+.telefonica.btt-neutral {
     color: white;
     cursor: pointer;
     background: #007487; /* Old browsers */
@@ -12,7 +12,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007487', endColorstr='#067E92', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-neutral:hover:enabled {
+.telefonica.btt-neutral:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 0, 116, 135, 0.9 ); /* Old browsers */
@@ -26,7 +26,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 0, 116, 135, 0.9 )', endColorstr='rgba( 6, 126, 146, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-neutral:active:enabled {
+.telefonica.btt-neutral:active:enabled {
     background: #067E92; /* Old browsers */
     background: -moz-linear-gradient( top, #067E92 0%, #007487 100% ); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop( 0%, #067E92 ), color-stop( 100%, #007487) ); /* Chrome,Safari4+ */
@@ -38,7 +38,7 @@
     outline: none !important;
 }
 
-.btt-neutral[disabled=disabled], .btt-neutral:disabled {
+.telefonica.btt-neutral[disabled=disabled], .telefonica.btt-neutral:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -48,7 +48,7 @@
     -ms-filter: "alpha( opacity=40 )";
 }
 
-.btt-positive {
+.telefonica.btt-positive {
     color: white;
     cursor: pointer;
     background: #00C6D7; /* Old browsers */
@@ -62,7 +62,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00C6D7', endColorstr='#0BCEDF', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-positive:hover:enabled {
+.telefonica.btt-positive:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 0, 198, 215, 0.9 ); /* Old browsers */
@@ -76,7 +76,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 0, 198, 215, 0.9 )', endColorstr='rgba( 11, 206, 223, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-positive:active:enabled {
+.telefonica.btt-positive:active:enabled {
     background: #0BCEDF; /* Old browsers */
     background: -moz-linear-gradient( top, #0BCEDF 0%, #00C6D7 100% ); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop( 0%, #0BCEDF ), color-stop( 100%, #00C6D7) ); /* Chrome,Safari4+ */
@@ -88,7 +88,7 @@
     outline: none !important;
 }
 
-.btt-positive[disabled=disabled], .btt-positive:disabled {
+.telefonica.btt-positive[disabled=disabled], .telefonica.btt-positive:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -98,7 +98,7 @@
     -ms-filter: "alpha( opacity=40 )";
 }
 
-.btt-negative {
+.telefonica.btt-negative {
     color: white;
     cursor: pointer;
     background: #CA3430; /* Old browsers */
@@ -112,7 +112,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CA3430', endColorstr='#D7413D', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-negative:hover:enabled {
+.telefonica.btt-negative:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 202, 52, 48, 0.9 ); /* Old browsers */
@@ -126,7 +126,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 202, 52, 48, 0.9 )', endColorstr='rgba( 215, 65, 61, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-negative:active:enabled {
+.telefonica.btt-negative:active:enabled {
     background: #D7413D; /* Old browsers */
     background: -moz-linear-gradient( top, #D7413D 0%, #CA3430 100% ); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop( 0%, #D7413D ), color-stop( 100%, #CA3430) ); /* Chrome,Safari4+ */
@@ -138,7 +138,7 @@
     outline: none !important;
 }
 
-.btt-negative[disabled=disabled], .btt-negative:disabled {
+.telefonica.btt-negative[disabled=disabled], .telefonica.btt-negative:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -148,7 +148,7 @@
     -ms-filter: "alpha( opacity=40 )";
 }
 
-.btt-subdued {
+.telefonica.btt-subdued {
     color: white;
     cursor: pointer;
     background: #AEADAD; /* Old browsers */
@@ -162,7 +162,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#AEADAD', endColorstr='#B5B4B4', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-subdued:hover:enabled {
+.telefonica.btt-subdued:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 174, 173, 173, 0.9 ); /* Old browsers */
@@ -176,7 +176,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 174, 173, 173, 0.9 )', endColorstr='rgba( 181, 180, 180, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.btt-subdued:active:enabled {
+.telefonica.btt-subdued:active:enabled {
     background: #B5B4B4; /* Old browsers */
     background: -moz-linear-gradient( top, #B5B4B4 0%, #AEADAD 100% ); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop( 0%, #B5B4B4 ), color-stop( 100%, #AEADAD) ); /* Chrome,Safari4+ */
@@ -188,7 +188,7 @@
     outline: none !important;
 }
 
-.btt-subdued[disabled=disabled], .btt-subdued:disabled {
+.telefonica.btt-subdued[disabled=disabled], .telefonica.btt-subdued:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
