@@ -10,6 +10,7 @@
     clear: both;
     float: left;
     height: 100%;
+    margin-bottom: 10px;
     min-height: 100%;
 }
 
@@ -18,6 +19,7 @@
 }
 
 .component-img {
+    clear: both;
     float: left;
     margin: 10px;
 }
