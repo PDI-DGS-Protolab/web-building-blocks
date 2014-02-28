@@ -1,7 +1,7 @@
 $().ready( function() {
 	$('.brand-tab').click(function() {
     switchActiveElements(this, '.brand-tab', 'active-brand');
-		hideComponentsVisualization($(this).attr('id'));
+		hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
   });
 
   $('.comp-tab').click(function() {
@@ -10,6 +10,7 @@ $().ready( function() {
     if (!$('.brand-tab').hasClass('active-brand')) {
       $('#all').addClass('active-brand');
     }
+    hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
   });
 
   $(".component-img").draggable({ 
@@ -63,10 +64,11 @@ function addButton(draggable, parent, brand) {
   
 }
 
-function hideComponentsVisualization(brand) {
+function hideComponentsVisualization(containerId, brand) {
   if (brand === "all") {
-    $('.visualization-container').removeClass('hidden');
-    $('.brand-title').show();
+    $('.visualization-container').addClass('hidden');
+    $('.' + containerId).removeClass('hidden');
+    $('.brand-title.' + containerId).show();
   }
   else {
     $('.visualization-container').addClass('hidden');
