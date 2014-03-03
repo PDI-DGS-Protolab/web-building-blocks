@@ -17,13 +17,13 @@ $().ready( function() {
     hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
   });
 
-  $(".component-img").draggable({ 
+  $('.component-img').draggable({ 
       containment:"#right-container",
       revert: true,
       helper: 'clone' 
   });
 
-  $("#testing-container").droppable({
+  $('#testing-container').droppable({
       tolerance: 'fit',
 
       drop: function( event, ui ) {
