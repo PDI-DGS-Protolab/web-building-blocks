@@ -1,31 +1,31 @@
-.telefonica #full-name:focus {
+.telefonica.input:focus {
     margin: -1px;
     border-color: #00C6D7;
     border-width: 2px;
     outline: none !important;
 }
 
-.telefonica #full-name.negative-box {
+.telefonica.input.negative-box {
     margin: -1px;
     border-color: #CA3430;
     border-width: 2px;
 }
 
-.telefonica #full-name.positive-box {
+.telefonica.input.positive-box {
     margin: -1px;
     border-color: #00C607;
     border-width: 2px;
 }
 
-.telefonica #error-message.negative-check, .telefonica #error-message.positive-check {
+.telefonica.error-message.negative-check, .telefonica.error-message.positive-check {
     color: white;
 }
 
-.telefonica #error-message.negative-check {
+.telefonica.error-message.negative-check {
     background-color: #CA3430;
 }
 
-.telefonica #error-message.positive-check {
+.telefonica.error-message.positive-check {
     background-color: #00C607;
 }
 

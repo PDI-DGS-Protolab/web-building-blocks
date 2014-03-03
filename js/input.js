@@ -1,127 +1,69 @@
-$().ready(function() {
- $( "img" ).tooltip();
- $( "img" ).tooltip('option', 'position', { my: 'right center', at: 'left-10 center' });
- $( "img" ).tooltip('option', 'tooltipClass', 'right');
-
-
- $('#full-name').focus(function() {
-     if( !$('#error-container').is(':visible') ) {
-      $('#input-hint').show();
-      $('#input-hint').text('Enter your full name as it appears on your card');
-      $('#error-container').hide();
+$(document).ready(function() {
+  $( "img" ).tooltip();
+  $( "img" ).tooltip('option', 'position', { my: 'right center', at: 'left-10 center' });
+  $( "img" ).tooltip('option', 'tooltipClass', 'right');
+  
+  $(document).on('focus', '.input', function() {
+     if( !$(this).parent().find('.error-container').is(':visible') ) {
+      $(this).parent().find('.input-hint').show();
+      $(this).parent().find('.input-hint').text('Enter your full name as it appears on your card');
+      $(this).parent().find('.error-container').hide();
     }
-  }); 
+  });
 
-  $('#full-name').keyup(function(e) {
-    var str = $('#full-name').val();
-
-    if(!containsLetters(str)) {
-      $('#input-hint').hide();
-      $('#error-container').show();
+  $(document).on('keyup', '.input', function(e) {
+    var str = $(this).val();
+    if( !containsLetters(str)) {
+      $(this).parent().find('.input-hint').hide();
+      $(this).parent().find('.error-container').show();
       $(this).addClass('negative-box');
-      $('#error-message').text('Illegal characters. You can input only letters.');
-      $('#error-message').addClass('negative-check');
+      $(this).parent().find('.error-message').text('Illegal characters. You can input only letters.');
+      $(this).parent().find('.error-message').addClass('negative-check');
       nameCheck=false;
     }
 
     else if((str=='')||(str==undefined)) {
-      $('#input-hint').show();
-      $('#error-container').hide();
-      $('#error-message').text('');
+      $(this).parent().find('.input-hint').show();
+      $(this).parent().find('.error-container').hide();
+      $(this).parent().find('.error-message').text('');
       $(this).removeClass('negative-box');
       nameCheck=false;
     }
 
     else {
       $(this).removeClass('negative-box');
-      $('#error-container').hide();
-      $('#input-hint').show();
-      $('#input-hint').text('Enter your full name as it appears on your card');
-      $('#error-message').removeClass('negative-check');
+      $(this).parent().find('.error-container').hide();
+      $(this).parent().find('.input-hint').show();
+      $(this).parent().find('.input-hint').text('Enter your full name as it appears on your card');
+      $(this).parent().find('.error-message').removeClass('negative-check');
       nameCheck=true;
     }
   });
 
-  $('#full-name').blur(function() {
-    var str = $('#full-name').val();
-    $('#input-hint').text('');
+  $(document).on('blur', '.input', function() {
+    var str = $(this).val();
+    $(this).parent().find('.input-hint').text('');
     if(!containsLetters(str)) {
-      $('#input-hint').hide();
-      $('#error-container').show();
+      $(this).parent().find('.input-hint').hide();
+      $(this).parent().find('.error-container').show();
       $(this).addClass('negative-box');
-      $('#error-message').text('Illegal characters. You can input only letters.');
-      $('#error-message').addClass('negative-check');
+      $(this).parent().find('.error-message').text('Illegal characters. You can input only letters.');
+      $(this).parent().find('.error-message').addClass('negative-check');
       nameCheck=false;
-      $('#full-name').focus().val();
     }
-  }); 
+  });
 
+  $(document).on('click', '.btt-plus', function () {
+    $(this).parent().parent().append('<div class="input-container">' + $(this).parent().html() + '</div>');
+    $(this).removeClass('btt-plus').addClass('btt-less');
+    $(this).html('<img src="img/less.png"/>');
+  });
+
+  $(document).on('click','.btt-less',function () {
+    $(this).parent().remove();
+  });
 });
 
 function containsLetters(name) {
   return /^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1 ]*$/.test(name);
 }
-
-$(document).on('click', '.btt-plus', function () {
-    var newDiv = '<div class="dynamic-div"><input class="special-full-name" type="text"></input><button class="btt-plus btt-input"><img src="img/more.png"/></button></div>';
-    $('#input-container-plus-less').append(newDiv);
-    $(this).removeClass('btt-plus').addClass('btt-less');
-    $(this).html('<img src="img/less.png"/>');
-});
-
-$(document).on('click','.btt-less',function () {
-  $(this).parent().remove();
-});
-
-//Only needed for jasmine jquery untill latency problem not solved with $().readys
-
-$(document).on('focus', '#full-name', function() {
-     if( !$('#error-container').is(':visible') ) {
-      $('#input-hint').show();
-      $('#input-hint').text('Enter your full name as it appears on your card');
-      $('#error-container').hide();
-    }
-  });
-
-$(document).on('keyup', '#full-name', function(e) {
-    var str = $('#full-name').val();
-    if(!containsLetters(str)) {
-      $('#input-hint').hide();
-      $('#error-container').show();
-      $(this).addClass('negative-box');
-      $('#error-message').text('Illegal characters. You can input only letters.');
-      $('#error-message').addClass('negative-check');
-      nameCheck=false;
-    }
-
-    else if((str=='')||(str==undefined)) {
-      $('#input-hint').show();
-      $('#error-container').hide();
-      $('#error-message').text('');
-      $(this).removeClass('negative-box');
-      nameCheck=false;
-    }
-
-    else {
-      $(this).removeClass('negative-box');
-      $('#error-container').hide();
-      $('#input-hint').show();
-      $('#input-hint').text('Enter your full name as it appears on your card');
-      $('#error-message').removeClass('negative-check');
-      nameCheck=true;
-    }
-  });
-
-$(document).on('blur', '#full-name', function() {
-    var str = $('#full-name').val();
-    $('#input-hint').text('');
-    if(!containsLetters(str)) {
-      $('#input-hint').hide();
-      $('#error-container').show();
-      $(this).addClass('negative-box');
-      $('#error-message').text('Illegal characters. You can input only letters.');
-      $('#error-message').addClass('negative-check');
-      nameCheck=false;
-      $('#full-name').focus().val();
-    }
-});

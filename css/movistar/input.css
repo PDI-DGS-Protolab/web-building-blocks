@@ -1,31 +1,31 @@
-.movistar #full-name:focus {
+.movistar.input:focus {
     margin: -1px;
     border-color: #5CD2ED;
     border-width: 2px;
     outline: none !important;
 }
 
-.movistar #full-name.negative-box {
+.movistar.input.negative-box {
     margin: -1px;
     border-color: #C60606;
     border-width: 2px;
 }
 
-.movistar #full-name.positive-box {
+.movistar.input.positive-box {
     margin: -1px;
     border-color: #7AB800;
     border-width: 2px;
 }
 
-.movistar #error-message.negative-check, .movistar #error-message.positive-check {
+.movistar.error-message.negative-check, .movistar.error-message.positive-check {
     color: white;
 }
 
-.movistar #error-message.negative-check {
+.movistar.error-message.negative-check {
     background-color: #C60606;
 }
 
-.movistar #error-message.positive-check {
+.movistar.error-message.positive-check {
     background-color: #7AB800;
 }
 

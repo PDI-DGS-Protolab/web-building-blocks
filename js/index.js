@@ -1,4 +1,8 @@
 $().ready( function() {
+  $( "img" ).tooltip();
+  $( "img" ).tooltip('option', 'position', { my: 'right center', at: 'left-10 center' });
+  $( "img" ).tooltip('option', 'tooltipClass', 'right');
+
 	$('.brand-tab').click(function() {
     switchActiveElements(this, '.brand-tab', 'active-brand');
 		hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
@@ -23,8 +27,6 @@ $().ready( function() {
       tolerance: 'fit',
 
       drop: function( event, ui ) {
-        console.log(ui.draggable);
-
         var brand = "";
         if (ui.draggable.hasClass("telefonica")) {
           brand = "telefonica";
@@ -36,11 +38,9 @@ $().ready( function() {
           brand = "o2";
         }
 
-        console.log(brand);
-
-        if (ui.draggable.hasClass("input")) {
+        if (ui.draggable.hasClass("img-input")) {
           addInput(ui.draggable, $(this), brand);
-        } else if (ui.draggable.hasClass("button")) {
+        } else if (ui.draggable.hasClass("img-button")) {
           addButton(ui.draggable, $(this), brand)
         }
     }
@@ -49,13 +49,13 @@ $().ready( function() {
 
 function addInput(draggable, parent, brand) {
   if (draggable.hasClass("normal")) {
-    parent.append('<div class="input-container"><input class="' + brand + '" id="full-name" type="text"></input><div id="input-hint"></div><div id="error-container"><a id="error-message"></a></div></div>');
+    parent.append('<div class="input-container"><input class="' + brand +  ' input" type="text"></input><div class="input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>');
   } else if (draggable.hasClass("refresh")) {
-    parent.append('<div class="input-container"><input disabled class="' + brand + ' special-full-name" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
+    parent.append('<div class="input-container"><input disabled class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
   } else if (draggable.hasClass("add")) {
-    parent.append('<div id="#input-container-plus-less" class="input-container"><input class="' + brand + ' special-full-name" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div>');
+    parent.append('<div class=".input-container-plus-less"><div class="input-container"><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>');
   } else if (draggable.hasClass("quit")) {
-    parent.append('<div id="#input-container-plus-less" class="input-container"><input class="' + brand + ' special-full-name" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div>');
+    parent.append('<div class=".input-container-plus-less"><div class="input-container"><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div></div>');
   }
 }
 

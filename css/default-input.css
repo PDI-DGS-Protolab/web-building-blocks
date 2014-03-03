@@ -1,8 +1,10 @@
 .input-container {
     width: 400px;
+    height: 54px;
+    padding-top: 18px;
 }
 
-#full-name, .special-full-name {
+.input, .special-input {
     border: #999999 1px solid;
     border-radius: 5px;
     box-sizing: border-box;
@@ -14,12 +16,12 @@
     width: 100%; 
 }
 
-#input-hint, #error-container {
+.input-hint, .error-container {
     font-size: 18px;
     height: 30px;
 }
 
-#input-hint {
+.input-hint {
     color: #474747;
     font-size: 14px;
     line-height: 30px;
@@ -27,13 +29,13 @@
     vertical-align: middle;
 }
 
-#error-container {
+.error-container {
     display: none;
     font-size: 18px;
     height: 30px;
 }
 
-#error-message {
+.error-message {
     background-color: white;
     border-radius: 5px;
     box-sizing: border-box;
@@ -50,11 +52,11 @@
     width: 100%;
 }
 
-.special-full-name {
+.special-input {
     width: 85%; 
 }
 
-.special-full-name:disabled {
+.special-input:disabled {
     background-color: #EAEAEA;
 }
 
