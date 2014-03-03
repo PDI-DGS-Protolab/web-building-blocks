@@ -164,7 +164,9 @@ body {
     float: right;
     padding-bottom: 40px;
     padding-left: 40px;
-    width: 50%;
+    position: fixed;
+    right: 0;
+    width: 40%; /*50% of the 80% that is the right container from the body*/
 }
 
 #testing-container {
