@@ -47,7 +47,7 @@ body {
     color: #00C6D7;
     cursor: default;
     float: right;
-    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+    font-family: Arial, Helvetica, sans-serif;
     width: 90%;
 }
 
@@ -134,7 +134,7 @@ body {
 
 #brand-nav li a {
     color: #002A32;
-    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
 }
 
@@ -181,7 +181,7 @@ body {
 
 .common-title {
     color: #333333;
-    font-family: Verdana, Verdana, Geneva, Sans-Serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 footer {
