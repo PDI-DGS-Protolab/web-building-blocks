@@ -1,0 +1,28 @@
+table {
+    color: #555555;
+}
+
+thead td{
+    background-color: #03798C;
+    color: white;
+}
+
+td {
+    border: 1px solid #E0E0E0;
+}
+
+table.left-table thead tr:last-child td, table.left-table tbody tr:last-child td {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+table.top-table thead tr td:last-child, table.top-table tbody tr td:last-child {
+    border-right: 1px solid #E0E0E0;
+}
+
+.odd-line {
+    background-color: #F2F2F2;
+}
+
+.even-line {
+    background-color: #FFFFFF;
+}
