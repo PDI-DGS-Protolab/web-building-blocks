@@ -170,13 +170,13 @@ $().ready( function() {
 });
 
 function addInput(draggable, parent, brand) {
-  if (draggable.hasClass("normal")) {
+  if (draggable.hasClass('normal')) {
     parent.append('<div class="input-container"><input class="' + brand +  ' input" type="text"></input><div class="input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>');
-  } else if (draggable.hasClass("refresh")) {
+  } else if (draggable.hasClass('refresh')) {
     parent.append('<div class="input-container"><input disabled class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
-  } else if (draggable.hasClass("add")) {
+  } else if (draggable.hasClass('add')) {
     parent.append('<div class=".input-container-plus-less"><div class="input-container"><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>');
-  } else if (draggable.hasClass("quit")) {
+  } else if (draggable.hasClass('quit')) {
     parent.append('<div class=".input-container-plus-less"><div class="input-container"><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div></div>');
   }
 }
