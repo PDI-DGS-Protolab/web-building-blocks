@@ -10,15 +10,22 @@ $(document).on('click','.download-btt', function() {
     //We read the file that we want:
     //It only will work on localhost with firefox, with other 
     //browsers we must need the project deployed on a server(heroku for example)
-    var file1=readFileFromPath(component+'.html');
+    var htmlTemplate=readFileFromPath(component+'.html');
+    var defCss=readFileFromPath('../../css/default-'+component+'.css');
+    var css=readFileFromPath('../../css/'+branch+'/'+component+'.css');
   
     //Created an empty zip file
     var zip=new JSZip();
 
     //added to zip a new document called input.html, and with content file1
     // usage: zip.file(filename,content);
-    zip.file(component+'.html',file1);
-
+    zip.file(component+'.html',htmlTemplate);
+    zip.file('default-'+component+'.css',defCss);
+    zip.file(component+'.css',css);
+    if (component != 'button') {
+      var js=readFileFromPath('../../js/'+component+'.js');
+      zip.file(component+'.js',js);
+    }
     //Generate the zip
     var content=zip.generate();
     //And download it
