@@ -165,6 +165,8 @@ $().ready( function() {
         } else if (ui.draggable.hasClass('img-button')) {
           addButton(ui.draggable, $(this), brand)
         }
+
+        toggleQuitIcons($($(this).find('.trash')).hasClass('on'), $(this).find(".quit-icon"));
     }
   });
 
@@ -179,27 +181,25 @@ $().ready( function() {
   });
 
   $('#trash-test').click(function() {
-    if ($(this).hasClass('on')) {
-      console.log("on");
-      $('#testing-container .quit-icon').addClass('active-icon');
-    } else {
-      console.log("off");
-      $('#testing-container .quit-icon').removeClass('active-icon');
-    }
+    toggleQuitIcons($(this).hasClass('on'), $('#testing-container .quit-icon'));
   });
 
   $('#trash-keep').click(function() {
-    if ($(this).hasClass('on')) {
-      $('#selection-container .quit-icon').addClass('active-icon');
-    } else {
-      $('#selection-container .quit-icon').removeClass('active-icon');
-    }
+    toggleQuitIcons($(this).hasClass('on'), $('#selection-container .quit-icon'));
   });
 
   $(document).on('click', '.quit-icon', function () {
     $(this).parent().remove();
   });
 });
+
+function toggleQuitIcons(toggle, icons) {
+    if (toggle) {
+      icons.addClass('active-icon');
+    } else {
+      icons.removeClass('active-icon');
+    }
+}
 
 function addInput(draggable, parent, brand) {
   if (draggable.hasClass('normal')) {
