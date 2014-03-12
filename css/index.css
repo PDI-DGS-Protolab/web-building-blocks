@@ -179,6 +179,7 @@ body {
 #selection-container {
     height: 300px;
     overflow: auto;
+    position: relative;
 }
 
 .common-title, .common-title-inline {
@@ -192,7 +193,6 @@ body {
 }
 
 .trash {
-    background: url("../img/delete-off.png");
     background-repeat: no-repeat; 
     background-size: contain;
     display: inline-block;
@@ -201,10 +201,43 @@ body {
     min-width: 9px;
 }
 
-.trash:hover {
+.on {
+    background: url("../img/delete-on.png");
+}
+
+.off {
+    background: url("../img/delete-off.png"); 
+}
+
+.quit-icon {
+    background: url("../img/quit.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    display: inline-block;
+    position: absolute;
+}
+
+.input-container .quit-icon {
+    margin-left: 394px;
+    margin-top: -6px;
+}
+
+.active-icon {
+    min-height: 12px;
+    min-width: 12px;
+}
+
+.button-back .quit-icon {
+    margin-left: 294px;
+    margin-top: -6px;
+}
+
+.trash:hover, .quit-icon:hover {
     cursor: hand;
     cursor: pointer;
 }
+
+
 
 footer {
     background: #FFFFFF;

@@ -171,23 +171,45 @@ $().ready( function() {
   $('.trash').click(function() {
     if ($(this).hasClass('on')) {
       $(this).removeClass('on');
-      $(this).css('background-image', 'url("img/delete-off.png")');
+      $(this).addClass('off');
     } else {
+      $(this).removeClass('off');
       $(this).addClass('on');
-      $(this).css('background-image', 'url("img/delete-on.png")');
     }
+  });
+
+  $('#trash-test').click(function() {
+    if ($(this).hasClass('on')) {
+      console.log("on");
+      $('#testing-container .quit-icon').addClass('active-icon');
+    } else {
+      console.log("off");
+      $('#testing-container .quit-icon').removeClass('active-icon');
+    }
+  });
+
+  $('#trash-keep').click(function() {
+    if ($(this).hasClass('on')) {
+      $('#selection-container .quit-icon').addClass('active-icon');
+    } else {
+      $('#selection-container .quit-icon').removeClass('active-icon');
+    }
+  });
+
+  $(document).on('click', '.quit-icon', function () {
+    $(this).parent().remove();
   });
 });
 
 function addInput(draggable, parent, brand) {
   if (draggable.hasClass('normal')) {
-    parent.append('<div class="input-container"><input class="' + brand +  ' input" type="text"></input><div class="input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>');
+    parent.append('<div class="input-container"><div class="quit-icon"></div><input class="' + brand +  ' input" type="text"></input><div class="input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>');
   } else if (draggable.hasClass('refresh')) {
-    parent.append('<div class="input-container"><input disabled class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
+    parent.append('<div class="input-container"><div class="quit-icon"></div><input disabled class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
   } else if (draggable.hasClass('add')) {
-    parent.append('<div class=".input-container-plus-less"><div class="input-container"><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>');
+    parent.append('<div class=".input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>');
   } else if (draggable.hasClass('quit')) {
-    parent.append('<div class=".input-container-plus-less"><div class="input-container"><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div></div>');
+    parent.append('<div class=".input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div></div>');
   }
 }
 
@@ -205,7 +227,7 @@ function getButtonType(draggable) {
 
 function addButton(draggable, parent, brand) {
   var type = getButtonType(draggable);
-  parent.append('<div class="button-back" ><button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">' + toTitleCase(type) + '</button></div>');
+  parent.append('<div class="button-back" ><div class="quit-icon"></div><button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">' + toTitleCase(type) + '</button></div>');
 }
 
 function hideComponentsVisualization(containerId, brand) {
