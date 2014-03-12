@@ -122,7 +122,7 @@ $().ready( function() {
   $('#components-container').empty().append(htmlString);
 
   $('img').tooltip();
-  $('img').tooltip('option', 'position', { my: 'right center', at: 'right center' });
+  $('img').tooltip('option', 'position', { my: 'left center', at: 'right+10 center' });
   $('img').tooltip('option', 'tooltipClass', 'right');
 
 	$('.brand-tab').click(function() {
