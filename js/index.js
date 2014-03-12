@@ -140,12 +140,12 @@ $().ready( function() {
   });
 
   $('.component-img').draggable({ 
-      containment:"#right-container",
+      containment: '#right-container',
       revert: true,
       helper: 'clone' 
   });
 
-  $('#testing-container').droppable({
+  $('#testing-container, #selection-container').droppable({
       tolerance: 'fit',
 
       drop: function(event, ui) {
@@ -165,6 +165,16 @@ $().ready( function() {
         } else if (ui.draggable.hasClass('img-button')) {
           addButton(ui.draggable, $(this), brand)
         }
+    }
+  });
+
+  $('.trash').click(function() {
+    if ($(this).hasClass('on')) {
+      $(this).removeClass('on');
+      $(this).css('background-image', 'url("img/delete-off.png")');
+    } else {
+      $(this).addClass('on');
+      $(this).css('background-image', 'url("img/delete-on.png")');
     }
   });
 });

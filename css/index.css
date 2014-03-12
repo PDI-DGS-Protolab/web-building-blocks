@@ -181,9 +181,29 @@ body {
     overflow: auto;
 }
 
-.common-title {
+.common-title, .common-title-inline {
     color: #333333;
     font-family: Arial, Helvetica, sans-serif;
+    width: auto;
+}
+
+.common-title-inline {
+    display: inline-block;
+}
+
+.trash {
+    background: url("../img/delete-off.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    display: inline-block;
+    margin-left: 1%;
+    min-height: 11px;
+    min-width: 9px;
+}
+
+.trash:hover {
+    cursor: hand;
+    cursor: pointer;
 }
 
 footer {
@@ -198,3 +218,4 @@ footer {
     width: 100%;
     z-index: 100;
 }
+
