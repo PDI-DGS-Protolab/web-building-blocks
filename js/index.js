@@ -120,10 +120,9 @@ $().ready( function() {
   +'</div>';
   
   $('#components-container').empty().append(htmlString);
-
-  $('img').tooltip();
-  $('img').tooltip('option', 'position', { my: 'left center', at: 'right+10 center' });
-  $('img').tooltip('option', 'tooltipClass', 'right');
+  $('#components-container').ready(function() {
+    $('img').tooltip({position: {my: 'left+15 center', at: 'right center'}});
+  });
 
 	$('.brand-tab').click(function() {
     switchActiveElements(this, '.brand-tab', 'active-brand');

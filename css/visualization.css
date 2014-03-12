@@ -83,12 +83,15 @@
     border-radius: 7px;
     box-shadow: 0px 0px 2px 1px rgba(26, 26, 26, 0.6);
     -webkit-box-shadow: 0px 0px 2px 1px rgba(26, 26, 26, 0.6);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     color: white;
     font-size: 0.95em;
     max-width: 230px;
     padding: 10px 5px 10px 5px;
     position: absolute;
-    z-index: 999;
+    z-index: 99;
 }
 
 .ui-tooltip-content {
@@ -106,7 +109,7 @@
     width: 0;
 }
 
-.right .ui-tooltip-content::after {
+.ui-tooltip-content::after {
     border-color: transparent #3C3C3C;
     border-width: 10px 10px 10px 0;
     left: -15px;
