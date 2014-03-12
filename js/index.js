@@ -181,22 +181,43 @@ $().ready( function() {
 
   $('#trash-test').click(function() {
     toggleQuitIcons($(this).hasClass('on'), $('#testing-container .quit-icon'));
+    toggleClearAll($(this).hasClass('on'), $('#clear-all-test'));
   });
 
   $('#trash-keep').click(function() {
     toggleQuitIcons($(this).hasClass('on'), $('#selection-container .quit-icon'));
+    toggleClearAll($(this).hasClass('on'), $('#clear-all-keep'));
   });
 
   $(document).on('click', '.quit-icon', function () {
     $(this).parent().remove();
   });
+
+  $('#clear-all-test').click(function() {
+    $('#testing-container .quit-icon').trigger('click');
+  });
+
+  $('#clear-all-keep').click(function() {
+    $('#selection-container .quit-icon').trigger('click');
+  });
+
+  $('.clear-all').hide();
+  $('.quit-icon').hide();
 });
 
 function toggleQuitIcons(toggle, icons) {
     if (toggle) {
-      icons.addClass('active-icon');
+      icons.show();
     } else {
-      icons.removeClass('active-icon');
+      icons.hide();
+    }
+}
+
+function toggleClearAll(toggle, text) {
+    if (toggle) {
+      text.show();
+    } else {
+      text.hide();
     }
 }
 

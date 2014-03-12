@@ -214,17 +214,14 @@ body {
     background-repeat: no-repeat; 
     background-size: contain;
     display: inline-block;
+    min-height: 12px;
+    min-width: 12px;
     position: absolute;
 }
 
 .input-container .quit-icon {
     margin-left: 394px;
     margin-top: -6px;
-}
-
-.active-icon {
-    min-height: 12px;
-    min-width: 12px;
 }
 
 .button-back .quit-icon {
@@ -237,7 +234,20 @@ body {
     cursor: pointer;
 }
 
+.clear-all {
+    color: #777777;
+    cursor: hand;
+    cursor: pointer;
+    border-left: solid 1px #777777;
+    display: inline-block;
+    margin-left: 1%;
+    padding-left: 2%;
+    text-decoration: underline;
+}
 
+.clear-all:hover {
+    color: #00C6D7;
+}
 
 footer {
     background: #FFFFFF;
