@@ -1,4 +1,4 @@
-$().ready( function() {
+$().ready(function() {
   
   var htmlString = 
   '<div id="input-telefonica" class="visualization-container inputs-container">'
@@ -133,6 +133,7 @@ $().ready( function() {
     switchActiveElements(this, '.comp-tab', 'active-comp');
     $('#right-container').removeClass('hidden');
     if (!$('.brand-tab').hasClass('active-brand')) {
+      $('#informative-text').addClass('hidden');
       $('#all').addClass('active-brand');
     }
     hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
