@@ -147,8 +147,8 @@ $().ready(function() {
 
   $('#testing-container, #selection-container').droppable({
       tolerance: 'fit',
-
       drop: function(event, ui) {
+        var components = $(this);
         var brand = '';
         if (ui.draggable.hasClass('telefonica')) {
           brand = 'telefonica';
@@ -161,33 +161,36 @@ $().ready(function() {
         }
 
         if (ui.draggable.hasClass('img-input')) {
-          addInput(ui.draggable, $(this), brand);
+          addInput(ui.draggable, components, brand);
         } else if (ui.draggable.hasClass('img-button')) {
-          addButton(ui.draggable, $(this), brand)
+          addButton(ui.draggable, components, brand)
         }
 
-        toggleQuitIcons($($(this).find('.trash')).hasClass('on'), $(this).find(".quit-icon"));
+        toggleQuitIcons($(components.find('.trash')).hasClass('on'), components.find(".quit-icon"));
     }
   });
 
   $('.trash').click(function() {
-    if ($(this).hasClass('on')) {
-      $(this).removeClass('on');
-      $(this).addClass('off');
+    var trash = $(this);
+    if (trash.hasClass('on')) {
+      trash.removeClass('on');
+      trash.addClass('off');
     } else {
-      $(this).removeClass('off');
-      $(this).addClass('on');
+      trash.removeClass('off');
+      trash.addClass('on');
     }
   });
 
   $('#trash-test').click(function() {
-    toggleQuitIcons($(this).hasClass('on'), $('#testing-container .quit-icon'));
-    toggleClearAll($(this).hasClass('on'), $('#clear-all-test'));
+    var trashTest = $(this);
+    toggleQuitIcons(trashTest.hasClass('on'), $('#testing-container .quit-icon'));
+    toggleClearAll(trashTest.hasClass('on'), $('#clear-all-test'));
   });
 
   $('#trash-keep').click(function() {
-    toggleQuitIcons($(this).hasClass('on'), $('#selection-container .quit-icon'));
-    toggleClearAll($(this).hasClass('on'), $('#clear-all-keep'));
+    var trashKeep = $(this);
+    toggleQuitIcons(trashKeep.hasClass('on'), $('#selection-container .quit-icon'));
+    toggleClearAll(trashKeep.hasClass('on'), $('#clear-all-keep'));
   });
 
   $(document).on('click', '.quit-icon', function () {
