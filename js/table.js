@@ -1,14 +1,8 @@
-$().ready(function(){
-
+$(document).ready(function(){
 
   $('#table-here').html(getTable(4,4,'top'));
 
- 
-  
-
-});
-
-$(document).on('click.select', function(event) {
+  $(document).on('click.select', function(event) {
 
     var row = $('#row-value').val();
     var column = $('#column-value').val();
@@ -19,6 +13,7 @@ $(document).on('click.select', function(event) {
 
     if(type=='left' && cellInfo=='yes-info') resizeLeftTableColumns();
     
+  });
 });
 
 function getTable(row, column, type, info) {

@@ -1,8 +1,4 @@
 $(document).ready(function() {
-  $( "img" ).tooltip();
-  $( "img" ).tooltip('option', 'position', { my: 'right center', at: 'left-10 center' });
-  $( "img" ).tooltip('option', 'tooltipClass', 'right');
-  
   $(document).on('focus', '.input', function() {
      if( !$(this).parent().find('.error-container').is(':visible') ) {
       $(this).parent().find('.input-hint').show();

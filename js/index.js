@@ -124,6 +124,8 @@ $().ready(function() {
     $('img').tooltip({position: {my: 'left+15 center', at: 'right center'}});
   });
 
+  $('#testing-container, #selection-container').tooltip({position: {my: 'right top', at: 'right top'}});
+
 	$('.brand-tab').click(function() {
     switchActiveElements(this, '.brand-tab', 'active-brand');
 		hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
