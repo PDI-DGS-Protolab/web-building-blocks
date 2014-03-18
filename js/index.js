@@ -1,4 +1,4 @@
-$().ready(function() {
+$(document).ready(function() {
   
   var htmlString = 
   '<div id="input-telefonica" class="visualization-container inputs-container">'
@@ -235,7 +235,7 @@ function toggleClearAll(toggle, text) {
 
 function addInput(draggable, parent, brand) {
   if (draggable.hasClass('normal')) {
-    parent.append('<div class="input-container"><div class="quit-icon"></div><input class="' + brand +  ' input" type="text"></input><div class="input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>');
+    parent.append('<div class="input-container"><div class="quit-icon"></div><input class="' + brand +  ' input" type="text"></input><div class="' + brand + ' input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>');
   } else if (draggable.hasClass('refresh')) {
     parent.append('<div class="input-container"><div class="quit-icon"></div><input disabled class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
   } else if (draggable.hasClass('add')) {

@@ -16,11 +16,14 @@
         <LINK href="css/movistar/button.css" rel="stylesheet" type="text/css"/>
         <LINK href="css/vivo/button.css" rel="stylesheet" type="text/css"/>
 
+        <LINK href="css/telefonica/table.css" rel="stylesheet" type="text/css"/>
+
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
 
         <script src="js/index.js" type="text/javascript" ></script>
         <script src="js/input.js" type="text/javascript" ></script>
+        <script src="js/table.js" type="text/javascript" ></script>
 
         <script src="js/jsZip/jszip.js" type="text/javascript" ></script>
         <script src="js/download.js" type="text/javascript"></script>
@@ -48,7 +51,7 @@
                 </ul>
                 <h2>DATA</h2>
                 <ul id="data-nav">
-                    <li><a class="comp-tab" id="table" href="#">Table</a></li>
+                    <li><a class="comp-tab" id="table" href="#" data-component-container="tables-container">Table</a></li>
                     <li><a class="comp-tab" id="maps" href="#">Maps</a></li>
                     <li><a class="comp-tab" id="bar-graph" href="#">Bar Graph</a></li>
                     <li><a class="comp-tab" id="circle-graph" href="#">Circle Graph</a></li>
@@ -81,7 +84,7 @@
                 <li><a class="brand-tab" id="o2" href="#">O2</a></li>
             </ul>
 
-            <div id="components-container">     
+            <div id="components-container"> 
             </div>
 
             <div id="static-container">
