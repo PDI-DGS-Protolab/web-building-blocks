@@ -141,6 +141,10 @@ $().ready(function() {
 
     if ($(this).attr('id') == 'table') {
       $('#components-container').addClass('hidden');
+      $('#testing-container').addClass('hidden');
+      $('#static-container').switchClass($('#static-container').attr('class'), 'static-container-table');
+      $('#table-building-container').removeClass('hidden');
+      $('#selection-container').switchClass($('#selection-container').attr('class'), 'testing-container-table');
     }
     else {
       hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));

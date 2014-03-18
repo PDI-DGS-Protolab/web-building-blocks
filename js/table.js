@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $('#table-here').html(getTable(4,4,'top'));
+  $('#table-container').html(getTable(4,4,'top'));
 
   $(document).on('click.select', function(event) {
 
@@ -9,7 +9,7 @@ $(document).ready(function(){
     var type = $('#type-value').val();
     var cellInfo = $('#cell-info-value').val();
 
-    $('#table-here').html(getTable(row,column,type,cellInfo));
+    $('#table-container').html(getTable(row,column,type,cellInfo));
 
     if(type=='left' && cellInfo=='yes-info') resizeLeftTableColumns();
     
