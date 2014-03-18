@@ -1,3 +1,8 @@
+.vivo.input, .vivo.error-message, .vivo.input-hint {
+    font-family: "Officina", sans-serif;;
+    font-weight: bold;
+}
+
 .vivo.input:focus {
     margin: -1px;
     border-color: #0b4784;

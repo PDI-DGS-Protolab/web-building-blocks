@@ -1,3 +1,8 @@
+.telefonica.input, .telefonica.error-message, .telefonica.input-hint {
+    font-family: "Arial", sans-serif;;
+    font-weight: bold;
+}
+
 .telefonica.input:focus {
     margin: -1px;
     border-color: #00C6D7;

@@ -1,3 +1,8 @@
+.movistar.input, .movistar.error-message, .movistar.input-hint {
+    font-family: "Arial", sans-serif;;
+    font-weight: bold;
+}
+
 .movistar.input:focus {
     margin: -1px;
     border-color: #5CD2ED;
