@@ -136,13 +136,19 @@ $().ready(function() {
       $('#informative-text').addClass('hidden');
       $('#all').addClass('active-brand');
     }
-    hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
+
+    if ($(this).attr('id') == 'table') {
+      $('#components-container').addClass('hidden');
+    }
+    else {
+      hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
+    }
   });
 
   $('.component-img').draggable({ 
       containment: '#right-container',
       revert: true,
-      helper: 'clone' 
+      helper: 'clone'
   });
 
   $('#testing-container, #selection-container').droppable({
