@@ -169,7 +169,7 @@ body {
     width: 50%;
 }
 
-#static-container {
+.static-container-no-table {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -182,15 +182,39 @@ body {
     width: 40%; /*50% of the 80% that is the right container from the body*/
 }
 
+.static-container-table {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    float: left;
+    min-height: 100%;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    width: 100%;
+}
+
 #testing-container {
     height: 300px;
     overflow: auto;
 }
 
-#selection-container {
+#table-building-container {
+    float: left;
+    height: 80%;
+    width: 100%;
+}
+
+.selection-container-no-table {
     height: 300px;
     overflow: auto;
     position: relative;
+}
+
+.selection-container-table {
+    clear: both;
+    height: 20%;
+    float: left;
+    width: 50%;
 }
 
 .common-title, .common-title-inline {

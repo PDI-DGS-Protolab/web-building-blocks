@@ -16,6 +16,7 @@
         <LINK href="css/movistar/button.css" rel="stylesheet" type="text/css"/>
         <LINK href="css/vivo/button.css" rel="stylesheet" type="text/css"/>
 
+        <LINK href="css/default-table.css" rel="stylesheet" type="text/css"/>
         <LINK href="css/telefonica/table.css" rel="stylesheet" type="text/css"/>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
@@ -87,7 +88,7 @@
             <div id="components-container"> 
             </div>
 
-            <div id="static-container">
+            <div id="static-container" class="static-container-no-table">
                 <div id="testing-container" title="Drag and drop the components here in order to test their behaviour!">
                     <div>
                         <h3 class="common-title-inline">Test me!</h3>
@@ -95,7 +96,45 @@
                         <span id="clear-all-test" class="clear-all">clear all</span>
                     </div>
                 </div>
-                <div id="selection-container" title="Drag and drop the components here and then click the 'download' button in order to download them!">
+
+                <div id="table-building-container" class="hidden">
+                    <div id="table-option-pannel">
+                        Row:<select id="row-value">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+
+                        Column:<select id="column-value">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+
+                        Type:<select id="type-value">
+                            <option value="top">Top Header</option>
+                            <option value="left">Left Header</option>
+                        </select>
+
+                        Cell Info:<select id="cell-info-value">
+                            <option value="no-info">No placeholder info in table cells</option>
+                            <option value="yes-info">Add text info in table cells</option>
+                        </select>
+
+
+                    </div>
+                    <div id="table-container">
+
+                    </div>
+                    <button type="submit" id="telefonica-table" class="download-btt">Download pack + guidelines</button>
+                </div>
+                <div id="selection-container" class="selection-container-no-table" title="Drag and drop the components here and then click the 'download' button in order to download them!">
                     <div>
                         <h3 class="common-title-inline">Keep me!</h3>
                         <div id="trash-keep" class="trash off"></div>
