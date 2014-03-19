@@ -12,7 +12,7 @@ $(document).on('click','.download-btt', function() {
     //browsers we must need the project deployed on a server(heroku for example)
     var htmlTemplate=readFileFromPath(component+'.html');
     var defCss=readFileFromPath('../../css/default-'+component+'.css');
-    var css=readFileFromPath('../../css/'+branch+'/'+component+'.css');
+    var css=readFileFromPath('../../css/'+brand+'/'+component+'.css');
   
     //Created an empty zip file
     var zip=new JSZip();
