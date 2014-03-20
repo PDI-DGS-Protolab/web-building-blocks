@@ -128,6 +128,7 @@ body {
 }
 
 #informative-text a {
+    cursor: default;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -199,6 +200,18 @@ body {
     width: 100%;
 }
 
+.container-hint {
+    color: #595959;
+    cursor: default;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    font-style: italic;
+    max-width: 80%;
+    opacity: 0.9;
+    text-align: justify;
+}
+
 #testing-container {
     height: 300px;
     overflow: auto;
@@ -218,13 +231,14 @@ body {
 
 .selection-container-table {
     clear: both;
-    height: 20%;
+    height: 300px;
     float: left;
     width: 50%;
 }
 
 .common-title, .common-title-inline {
     color: #333333;
+    cursor: default;
     font-family: Arial, Helvetica, sans-serif;
     width: auto;
 }
