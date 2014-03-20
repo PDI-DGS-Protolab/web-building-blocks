@@ -173,7 +173,7 @@ $(document).ready(function() {
     }
   });
 
-  $('.component-img').draggable({ 
+  $('.component-img, #table-building-container #table-container').draggable({ 
       containment: '#right-container',
       revert: true,
       helper: 'clone'
