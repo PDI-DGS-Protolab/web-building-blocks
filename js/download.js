@@ -15,21 +15,7 @@ $(document).on('click','.download-btt', function() {
     var css=readFileFromPath('../../css/'+brand+'/'+component+'.css');
   
     //Created an empty zip file
-    var zip=new JSZip();
-
-    //added to zip a new document called input.html, and with content file1
-    // usage: zip.file(filename,content);
-    zip.file(component+'.html',htmlTemplate);
-    zip.file('default-'+component+'.css',defCss);
-    zip.file(component+'.css',css);
-    if (component != 'button') {
-      var js=readFileFromPath('../../js/'+component+'.js');
-      zip.file(component+'.js',js);
-    }
-    //Generate the zip
-    var content=zip.generate();
-    //And download it
-    location.href='data:application/zip;base64,'+content;
+    
 });
 
 function readFileFromPath(filePath) {

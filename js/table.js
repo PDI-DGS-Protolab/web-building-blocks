@@ -4,6 +4,8 @@ $(document).ready(function(){
 
   $(document).on('click.select', function(event) {
 
+    
+    console.log($(this).attr('id'));
     var row = $('#row-value').val();
     var column = $('#column-value').val();
     var type = $('#type-value').val();
