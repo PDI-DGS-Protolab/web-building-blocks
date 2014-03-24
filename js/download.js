@@ -14,9 +14,16 @@ $(document).on('click','.download-btt', function() {
     //var defCss=readFileFromPath('../../css/default-'+component+'.css');
     //var css=readFileFromPath('../../css/'+brand+'/'+component+'.css');
 
-    $.get( 'js/input.js', function( data ) {
-        console.log( data );
-        alert( "Load was performed." );
+    var htmlTemplate;
+    var file1=$.get( 'templates/'+brand+'/'+component+'.html', function() {
+    }).done(function( data ) {
+        htmlTemplate=data;
+    }).fail(function(){
+        alert('Could not load files!')
+    });
+
+    $.when(file1).done(function() {
+        console.log('Done all');
     });
 
     //console.log(htmlTemplate);
