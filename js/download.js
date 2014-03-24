@@ -10,24 +10,17 @@ $(document).on('click','.download-btt', function() {
     //We read the file that we want:
     //It only will work on localhost with firefox, with other 
     //browsers we must need the project deployed on a server(heroku for example)
-    var htmlTemplate=readFileFromPath(component+'.html');
-    var defCss=readFileFromPath('../../css/default-'+component+'.css');
-    var css=readFileFromPath('../../css/'+brand+'/'+component+'.css');
-  
+    //var htmlTemplate=readFileFromPath(component+'.html');
+    //var defCss=readFileFromPath('../../css/default-'+component+'.css');
+    //var css=readFileFromPath('../../css/'+brand+'/'+component+'.css');
+
+    $.get( 'js/input.js', function( data ) {
+        console.log( data );
+        alert( "Load was performed." );
+    });
+
+    //console.log(htmlTemplate);
     //Created an empty zip file
     
 });
 
-function readFileFromPath(filePath) {
-  if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  }
-  else {// code for IE6, IE5
-    xmlhttp=new ActiveXObject('Microsoft.XMLHTTP');
-  }
-  xmlhttp.open('GET',filePath,false);
-  xmlhttp.send();
-
-  xmlDoc=xmlhttp.responseText;
-  return xmlDoc;
-}
