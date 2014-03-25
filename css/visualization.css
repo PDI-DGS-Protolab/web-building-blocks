@@ -38,8 +38,10 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    clear: both;
     color: white;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007487', endColorstr='#067E92', GradientType=0 ); /* IE6-9 */
+    float: left;
     font-size: 0.875em;
     font-weight: bold;
     height: 45px;

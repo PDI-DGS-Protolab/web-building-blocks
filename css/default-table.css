@@ -7,7 +7,8 @@
 }
 
 .keep-table-container {
-    padding: 18px;
+    padding: 10px;
+    display: inline-block;
 }
 
 table {
