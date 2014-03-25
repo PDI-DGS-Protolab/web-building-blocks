@@ -1,9 +1,13 @@
-#table-option-pannel {
+.table-option-pannel {
     margin: 10px;
 }
 
 #table-container {
     margin: 10px;
+}
+
+.keep-table-container {
+    padding: 18px;
 }
 
 table {

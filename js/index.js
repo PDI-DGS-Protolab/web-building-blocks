@@ -126,9 +126,9 @@ $(document).ready(function() {
 
   $('#testing-container, #selection-container').tooltip({position: {my: 'right top', at: 'right top'}});
 
-	$('.brand-tab').click(function() {
+  $('.brand-tab').click(function() {
     switchActiveElements(this, '.brand-tab', 'active-brand');
-		hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
+	hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
   });
 
   $('.comp-tab').click(function() {
@@ -141,7 +141,7 @@ $(document).ready(function() {
     }
 
     if (lastComponent != $(this).attr('id')) {
-      if ($(this).attr('id') == 'table') {
+      if ($(this).attr('id') === 'table') {
         $('#components-container').addClass('hidden');
         $('#testing-container').addClass('hidden');
         $('#table-building-container').removeClass('hidden');
@@ -149,8 +149,15 @@ $(document).ready(function() {
         $('#static-container').addClass('static-container-table');
         $('#selection-container').removeClass('selection-container-no-table');
         $('#selection-container').addClass('selection-container-table');
+
+        $('#all').addClass('hidden');
+        if ($('#all').hasClass('active-brand')) {
+            switchActiveElements($('#telefonica'), '.brand-tab', 'active-brand');
+            hideComponentsVisualization($(this).attr('data-component-container'), 'telefonica');
+        }
       }
-      else if (lastComponent == 'table') {
+      else if (lastComponent === 'table') {
+        $('#all').removeClass('hidden');
         $('#table-building-container').addClass('hidden');
         $('#testing-container').removeClass('hidden');
         $('#components-container').removeClass('hidden');
@@ -197,7 +204,9 @@ $(document).ready(function() {
         if (ui.draggable.hasClass('img-input')) {
           addInput(ui.draggable, components, brand);
         } else if (ui.draggable.hasClass('img-button')) {
-          addButton(ui.draggable, components, brand)
+          addButton(ui.draggable, components, brand);
+        } else if (ui.draggable.attr('id') === ('table-container')) {
+            addTable(ui.draggable, components, brand);
         }
 
         toggleQuitIcons($(components.find('.trash')).hasClass('on'), components.find(".quit-icon"));
@@ -288,6 +297,12 @@ function addButton(draggable, parent, brand) {
   parent.append('<div class="button-back" ><div class="quit-icon"></div><button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">' + toTitleCase(type) + '</button></div>');
 }
 
+function addTable(draggable, parent, brand) {
+  var rows = $('#' + draggable.attr('id') + ' tr').length;
+  var cols = $('#' + draggable.attr('id') + ' td').length/rows;
+  parent.append('<div class="keep-table-container ' + brand + '" title="A table with ' + rows + ' rows and ' + cols + ' columns."><table class="top-table"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
+}
+
 function hideComponentsVisualization(containerId, brand) {
   if (brand === 'all') {
     $('.visualization-container').addClass('hidden');
@@ -298,6 +313,8 @@ function hideComponentsVisualization(containerId, brand) {
     $('.visualization-container').addClass('hidden');
     component = $('.active-comp').attr('id');
     $('#' + component + '-' + brand).removeClass('hidden');
+    $('#table-container').removeClass( $('#table-container').attr('class') );
+    $('#table-container').addClass(brand);
     $('.brand-title').hide();
   }
 }

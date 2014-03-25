@@ -1,43 +1,24 @@
 $(document).ready(function(){
 
-  $('#telefonica-table-container').html(getTable(4,4,'top'));
-  $('#movistar-table-container').html(getTable(4,4,'top'));
-  $('#vivo-table-container').html(getTable(4,4,'top'));
+  $('#table-container').html(getTable(4,4,'top'));
 
-  $(document).on('click.select', function(event) {
+  $(document).on('click', 'select', function(event) {
 
-    var telefonicaRow = $('#telefonica-row-value').val();
-    var telefonicaColumn = $('#telefonica-column-value').val();
-    var telefonicaType = $('#telefonica-type-value').val();
-    var telefonicaCellInfo = $('#telefonica-cell-info-value').val();
+    var row = $('#row-value').val();
+    var column = $('#column-value').val();
+    var type = $('#type-value').val();
+    var cellInfo = $('#cell-info-value').val();
 
-    $('#telefonica-table-container').html(getTable(telefonicaRow,telefonicaColumn,telefonicaType,telefonicaCellInfo));
+    $('#table-container').html(getTable(row,column,type,cellInfo));
 
-    var movistarRow = $('#movistar-row-value').val();
-    var movistarColumn = $('#movistar-column-value').val();
-    var movistarType = $('#movistar-type-value').val();
-    var movistarCellInfo = $('#movistar-cell-info-value').val();
-
-    $('#movistar-table-container').html(getTable(movistarRow,movistarColumn,movistarType,movistarCellInfo));
-
-
-    var vivoRow = $('#vivo-row-value').val();
-    var vivoColumn = $('#vivo-column-value').val();
-    var vivoType = $('#vivo-type-value').val();
-    var vivoCellInfo = $('#vivo-cell-info-value').val();
-
-    $('#vivo-table-container').html(getTable(vivoRow,vivoColumn,vivoType,vivoCellInfo));
-
-    if((telefonicaType=='left' && telefonicaCellInfo=='yes-info') || 
-       (movistarType=='left' && movistarCellInfo=='yes-info') || 
-       (vivoType=='left' && vivoCellInfo=='yes-info')) resizeLeftTableColumns();
+    if((type=='left' && cellInfo=='yes-info')) resizeLeftTableColumns();
     
   });
 });
 
 function getTable(row, column, type, info) {
   var table;
-  
+ 
   if(type=='top') table=getTopHeaderTable(row,column,info);
   else if(type=='left') table=getLeftHeaderTable(row,column,info);
   
