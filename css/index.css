@@ -318,3 +318,115 @@ footer {
     z-index: 100;
 }
 
+.ui-dialog { 
+    background: #F2F2F2;
+    border: 1px solid #CFCECE;
+    border-radius: 5px;
+    float: left;
+    font-family: Arial,sans-serif;
+    padding: 0.5em; 
+    position: fixed;
+    outline: none; 
+    z-index: 90; 
+}
+
+.ui-dialog a {
+    color: black;
+    padding: 10px;
+    display: block;
+    outline: none; 
+    text-decoration: none;
+}
+
+.ui-dialog ul {
+    list-style-type: none; 
+    margin: 0px;
+    padding: 0px;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;  
+}
+
+.ui-dialog li {
+    border: 1px solid #999;
+    border-radius: 5px;
+    float: left;
+    list-style-type: none; 
+    margin-right: 5px;
+    outline: none; 
+ }
+
+.ui-dialog-titlebar { 
+    display: none; 
+}
+
+.ui-tabs-nav {
+    margin: 0px;
+    padding: 0px;
+    text-align: none;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+.ui-dialog-content .ui-widget-content {
+    background-repeat:repeat-y;
+}
+
+#download_content {
+    clear: both;
+}
+
+.btt-close-download {
+    background-color:#dbdbdb;
+    border:4px solid #ababab;
+    -webkit-border-top-left-radius:20px;
+    -moz-border-radius-topleft:20px;
+    border-top-left-radius:20px;
+    -webkit-border-top-right-radius:20px;
+    -moz-border-radius-topright:20px;
+    border-top-right-radius:20px;
+    -webkit-border-bottom-right-radius:20px;
+    -moz-border-radius-bottomright:20px;
+    border-bottom-right-radius:20px;
+    -webkit-border-bottom-left-radius:20px;
+    -moz-border-radius-bottomleft:20px;
+    border-bottom-left-radius:20px;
+    color:#fa0a0a;
+    display:inline-block;
+    font-family:Arial;
+    font-size:10px;
+    font-weight:bold;
+    font-style:normal;
+    float: right;
+    height:25px;
+    margin-right: -2em;
+    margin-top:-2em;
+    outline: none;
+    padding: 2px 0px 0px 5px;
+    text-align:left;
+    text-decoration:none;
+    text-indent:0px;
+    width:25px;
+}
+
+.btt-close-download:hover {
+    cursor: pointer;
+    text-shadow: black 0.1em 0.1em 0.1em;
+}
+.btt-close-download:active {
+    margin-top:-1.7em;
+    position: relative;
+}
+
+.download-code {
+    line-break: strict;
+    background-color: white;
+    height:300px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
