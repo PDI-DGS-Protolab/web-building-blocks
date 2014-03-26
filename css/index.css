@@ -284,6 +284,11 @@ body {
     margin-top: -6px;
 }
 
+.keep-table-container .quit-icon {
+    margin-left: 150px;
+    margin-top: -5px;
+}
+
 .trash:hover, .quit-icon:hover {
     cursor: hand;
     cursor: pointer;

@@ -242,10 +242,16 @@ $(document).ready(function() {
 
   $('#clear-all-test').click(function() {
     $('#testing-container .quit-icon').trigger('click');
+    $('#trash-test').removeClass('on').addClass('off');
+    toggleQuitIcons($('#trash-test').hasClass('on'), $('#selection-container .quit-icon'));
+    toggleClearAll($('#trash-test').hasClass('on'), $('#clear-all-test'));
   });
 
   $('#clear-all-keep').click(function() {
     $('#selection-container .quit-icon').trigger('click');
+    $('#trash-keep').removeClass('on').addClass('off');
+    toggleQuitIcons($('#trash-keep').hasClass('on'), $('#selection-container .quit-icon'));
+    toggleClearAll($('#trash-keep').hasClass('on'), $('#clear-all-keep'));
   });
 
   $('.clear-all').hide();
@@ -300,7 +306,7 @@ function addButton(draggable, parent, brand) {
 function addTable(draggable, parent, brand) {
   var rows = $('#' + draggable.attr('id') + ' tr').length;
   var cols = $('#' + draggable.attr('id') + ' td').length/rows;
-  parent.append('<div class="keep-table-container ' + brand + '" title="A table with ' + rows + ' rows and ' + cols + ' columns."><table class="top-table"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
+  parent.append('<div class="keep-table-container ' + brand + '" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="top-table"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
 }
 
 function hideComponentsVisualization(containerId, brand) {
