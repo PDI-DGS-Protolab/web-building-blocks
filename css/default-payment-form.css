@@ -1,0 +1,298 @@
+.external-box {
+    width: 568px;
+    padding: 12px; 
+    background-color: #C7C7C7;    
+}
+
+.internal-box {
+    padding: 42px;
+    font-family: "Arial",sans-serif;
+    background-color: #ADADAD;
+    border: #999 1px solid;
+    border-radius: 5px;
+}
+
+.date-box::-webkit-input-placeholder {
+  font-style: italic;
+}
+.date-box:-moz-placeholder {
+  font-style: italic;
+}
+
+.right { 
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.CC-label {
+    width: 76%;
+    margin-right: 10px;
+    float: left;
+}
+
+.CVC-label {
+    width: 20.5%;
+    text-align: left;
+    float: right;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.spaceX {
+    height: 24px;
+}
+
+.space05X {
+    height: 24px;
+}
+
+.space025X {
+    height: 6px;
+}
+
+.space175X {
+    height: 42px;
+}
+
+.error-container,.target-space,.info-space,.info-spaceCC,.info-spaceCVC {
+    height: 30px;
+    font-size: 18px;
+}
+
+
+.target-space {
+    height: 20px;
+    float: right;
+}
+.target-left-space {
+    z-index: 99999999;
+    width: 73%;
+    position: relative;
+    margin-top: -30px;
+    background-color: blue;
+    float: left;
+}
+.info-space {
+    padding: 0px 5px 0px 5px;
+    font-size: 14px;
+    color: #474747;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+
+.info-left {
+    height: 30px;
+    width: 76%;
+    margin-right: 6px;
+    float: left;
+}
+
+.info-right {
+    height: 30px;
+    width: 21%;
+    float: right;
+}
+
+.error-container {
+    display: none;
+}
+
+.text-label {
+    font-size: 18px;
+    font-weight: bold;
+}
+.clearing {
+    clear: both;
+}
+
+.error-message,.check-boxCC,.check-boxCVC {
+    height: 22.5px;
+    width: 100%;
+    margin-top: 3.75px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 5px;
+    float: left;
+    line-height: 22.5px;
+    vertical-align: middle;
+    text-indent: 5px;
+}
+
+.error-message {
+    width: 97.5%;
+    padding-right: 12px;
+}
+
+.check-boxCC,.check-boxCVC {
+    display: none;
+}
+
+#credit-card-full-name,.date-box {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    height: 36px;
+    width: 100%;
+    padding: 0px 5px 0px 5px;
+    font-size: 18px;
+    border: #999999 1px solid;
+    border-radius: 5px;
+}
+
+#credit-card-full-name {
+    width: 97.5%;
+}
+
+.date-box {
+    width: 35px;
+    text-align: center;
+}
+
+#credit-card-number {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    margin-right: 12px;
+    width: 73%;
+}
+
+.american {
+    background: transparent url('cards/americanexpress.png');
+    
+}
+
+.maestro {
+    background: transparent url('cards/maestro.png');
+}
+
+.mastercard {
+    background: transparent url('cards/mastercard.png');
+}
+
+.visa {
+    background: transparent url('cards/visa.png');
+}
+
+.american,.mastercard,.maestro,.visa {
+    background-position: 98% 50%; 
+    background-size: 40px 25px;
+    background-repeat: no-repeat;
+}
+
+#credit-card-verification-code {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    float: right;
+    width: 18%;
+}
+
+.help-security-code {
+    height: 14px;
+    width: 14px;
+    margin-right: -105px;
+    margin-top: -5px;
+    padding: -2px;
+    color: #FFF;
+    background-color: #191919;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    float: right;
+    font-size: 14px;
+    text-align: center;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+.help {
+    height: 60px;
+    width: 140px;
+    margin-right: -20px;
+    margin-top: -70px;
+    padding: -2px;
+    font-size: 14px;
+    color: #FFF;
+    background-color: #212121;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    display: none;
+    float: right;
+    opacity: 0.9;
+    text-align:center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    
+}
+
+.date-drop-down {
+    width: 30%;
+    margin-right: 12px;
+}
+
+.submit-button {
+    height: 45px;
+    width: 100%;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: white;
+    border: #999999 1px solid;
+    border-radius: 5px;
+    text-align:center;
+    z-index: 1;
+}
+.submit-button:hover:enabled {
+    background-color: rgba(0,0,0,0.9);
+}
+.last-space {
+    height: 5px;
+}
+
+.context-name {
+    font-size: 10px;
+    color: #474747;
+    display: none;
+}
+.context-name-r {
+    font-size: 10px;
+    color: #474747;
+    display: none;
+}
+
+.back-submit {
+    width: 50%;
+    background-color: rgba(72,72,72,0.0);
+    border-radius: 5px;
+}
+
+.error-name {
+    padding:0px;
+    font-size:10px;
+    font-weight: bold;
+    color:white;
+    background-color:red;
+    border:#999999 1px solid;
+    border-radius:5px;
+    display: none;
+    text-align:center;    
+}
+
+.right-margin {
+    width: 100%;
+}
+.ok {
+    border: green 3px solid;
+}
+
+.ui-datepicker-calendar {
+    display: none;
+}​
+
