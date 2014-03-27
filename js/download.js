@@ -34,16 +34,17 @@ $(document).ready(function() {
         });
 
         $.when(file1, file2, file3).done(function() {
-            $('#javascript-content').text(jsFile);
-            $('#css-content').text(cssFile);
-            $('#html-content').text(htmlFile);
+            var jsFinal= getFileToShow(jsFile);
+            var cssFinal= getFileToShow(cssFile);
+            var htmlFinal= getFileToShow(htmlFile);
+            $('#javascript-content').html(jsFinal);
+            $('#css-content').html(cssFinal);
+            $('#html-content').html(htmlFinal);
 
             
         });
         $('#download-text').tabs();
-            $('#download-pop-up').dialog({width:600});
-        //$('#download-text').tabs();
-           // $('#download-pop-up').dialog({width:600});
+        $('#download-pop-up').dialog({width:900});
         //console.log(htmlTemplate);
         //Created an empty zip file
         
@@ -51,6 +52,18 @@ $(document).ready(function() {
 
     $(document).on('click','.btt-close-download',function(){
             $('#download-pop-up').dialog('close');
+            $('#javascript-content').html('');
+            $('#css-content').html('');
+            $('#html-content').html('');
     });
 
 });
+
+function getFileToShow(rawFile){
+    return rawFile.replace(/&/g, '&amp;')
+     .replace(/>/g, '&gt;')
+     .replace(/</g, '&lt;')
+     .replace(/\n/g, '<br>')
+     .replace(/\s/g,'&nbsp;&nbsp;')
+     ;
+}
