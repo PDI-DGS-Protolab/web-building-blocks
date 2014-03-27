@@ -1,19 +1,18 @@
-.external-box {
+#payment-container {
     background-color: #FFF;
 }
 
-.internal-box {
+#payment-content {
     background-color: #F2F2F2;
 }
 
-.input:focus,.security-code-box:focus,.date-box:focus {
+.credit-card-input:focus,.date-box:focus {
     border-color: #0B4784;
     border-width: 2px;
+    margin: -1px;
     outline: none !important;
 }
-.input:focus,.security-code-box:focus,.date-box:focus {
-    margin: -1px;
-}
+
 .date-box:focus {
     width: 38px;
 }
