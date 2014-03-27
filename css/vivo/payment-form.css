@@ -6,7 +6,7 @@
     background-color: #F2F2F2;
 }
 
-.credit-card-input:focus,.date-box:focus {
+.card-input:focus,.date-box:focus {
     border-color: #0B4784;
     border-width: 2px;
     margin: -1px;

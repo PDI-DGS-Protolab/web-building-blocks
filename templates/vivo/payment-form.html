@@ -26,38 +26,29 @@
             </div>
            <!-- <input name="redirect_url" type="hidden" value="http://spreedly.protolab.tefdigital.com/post_register.html" />
             <input name="environment_key" type="hidden" value="NsuxdyBfUANtKphD87e8UFxjKzn" />-->
-            <label for="vivo input" class="text-label">Full Name</label>
+            <label for="card-holder-name" class="text-label">Full Name</label>
             <div class="space025X"></div>
-            <input id="credit-card-full-name" class="vivo credit-card-input" name="credit_card[full_name]" type="text"/>
+            <input id="card-holder-name" class="vivo card-input" name="credit_card[full_name]" type="text"/>
             <div class="vivo input-hint"></div> 
             <div class="vivo error-container"> 
                 <a class="vivo error-message"></a>
             </div> 
-<!--
-            <div class="input-container">
-                <div class="quit-icon"></div>
-                <input class="' + brand +  ' input" type="text"></input>
-                <div class="' + brand + ' input-hint"></div>
-                <div class="' + brand +  ' error-container">
-                    <a class="' + brand +  ' error-message"></a>
-                </div>
-            </div>
--->
-            <div id="helpCVC" class="help">
+
+            <div id="CVC-hint">
                     <p>3-digit number on the back of your card</p>
             </div>
 
-            <label for="credit_card_number" class="text-label CC-label">Credit Card Number</label>
+            <label for="card-number" class="text-label CC-label">Credit Card Number</label>
             
-            <label for="credit_card_verification_value" class="text-label CVC-label" >CVC Code</label>
+            <label for="card-verification-code" class="text-label CVC-label" >CVC Code</label>
 
             <label id="help-label" for="help" class="help-security-code">?</label>
 
             <div class="space025X clearing"></div>
             
-            <input autocomplete="off" id="credit-card-number" name="credit_card[number]" type="text" class="vivo credit-card-input" />
+            <input autocomplete="off" id="card-number" name="credit_card[number]" type="text" class="vivo card-input" />
             
-            <input autocomplete="off" id="credit-card-verification-code" name="credit_card[verification_value]" type="password" class="vivo credit-card-input" maxlength=3/>
+            <input autocomplete="off" id="card-verification-code" name="credit_card[verification_code]" type="password" class="vivo card-input" maxlength=3/>
             
 
             <div class="info-left">
@@ -83,9 +74,9 @@
             <div class="space025X"></div>
             
            
-            <input id="credit-card-month-value" name="credit_card[month]" class="date-box credit-card-input" type="text" maxlength=2/>
+            <input id="credit-card-month-value" name="credit_card[month]" class="date-box card-input" type="text" maxlength=2/>
             /
-            <input id="credit-card-year-value" name="credit_card[year]"  class="date-box credit-card-input" type="text" maxlength=2/>
+            <input id="credit-card-year-value" name="credit_card[year]"  class="date-box card-input" type="text" maxlength=2/>
 
             
             <div id="error-date-empty" class="info-space">

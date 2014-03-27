@@ -135,7 +135,7 @@
     display: none;
 }
 
-.credit-card-input {
+.card-input {
     border: #999999 1px solid;
     border-radius: 5px;
     box-sizing: content-box;
@@ -146,11 +146,11 @@
     padding: 0px 5px 0px 5px;
 }
 
-#credit-card-full-name {
+#card-holder-name {
     width: 97.5%;
 }
 
-#credit-card-number {
+#card-number {
     margin-right: 12px;
     width: 73%;
 }
@@ -178,7 +178,7 @@
     background-repeat: no-repeat;
 }
 
-#credit-card-verification-code {
+#card-verification-code {
     float: right;
     width: 18%;
 }
@@ -200,7 +200,7 @@
     -webkit-border-radius: 7px;
 }
 
-.help {
+#CVC-hint {
     height: 60px;
     width: 140px;
     margin-right: -20px;

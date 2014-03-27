@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $(document).on('focus', '#credit-card-full-name', function() {
+  $(document).on('focus', '#card-holder-name', function() {
      if( !$(this).parent().find('.error-container').is(':visible') ) {
       $(this).parent().find('.input-hint').show();
       $(this).parent().find('.input-hint').text('Enter your full name as it appears on your card');
@@ -7,7 +7,7 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on('keyup', '#credit-card-full-name', function(e) {
+  $(document).on('keyup', '#card-holder-name', function(e) {
     var str = $(this).val();
     if( !containsLetters(str)) {
       $(this).parent().find('.input-hint').hide();
@@ -36,7 +36,7 @@ $(document).ready(function() {
     }
   });
 
-  $(document).on('blur', '#credit-card-full-name', function() {
+  $(document).on('blur', '#card-holder-name', function() {
     var str = $(this).val();
     $(this).parent().find('.input-hint').text('');
     if(!containsLetters(str)) {
