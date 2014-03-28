@@ -12,6 +12,7 @@
         <script src="../../js/paymentform/init.js" type="text/javascript"></script>
         <script src="../../js/paymentform/ccnameinput.js" type="text/javascript"></script>
         <script src="../../js/paymentform/ccnumberinput.js" type="text/javascript"></script>
+        <script src="../../js/paymentform/cccvcinput.js" type="text/javascript"></script>
 	    
         <title>Merchant payment page</title>
     </head>
@@ -41,7 +42,7 @@
 
             <label for="card-number" class="text-label CC-label">Credit Card Number</label>
             
-            <label for="card-verification-code" class="text-label CVC-label" >CVC Code</label>
+            <label for="card-verification-code" class="text-label CVC-label">CVC Code</label>
 
             <label id="help-label" for="help" class="help-security-code">?</label>
 
@@ -51,6 +52,15 @@
             
             <input autocomplete="off" id="card-verification-code" name="credit_card[verification_code]" type="password" class="vivo card-input" maxlength=3/>
             
+        <!--
+            <div class="input-container">
+                <input class="vivo input" type="text"></input>
+                <div id="error-spaceCC" class="vivo input-hint"></div>
+                <div id="check-boxCC" class="vivo error-container">
+                    <a class="vivo error-message"></a>
+                </div>
+            </div>
+        -->
 
             <div class="info-left">
                 <div id="error-spaceCC" class="info-space"> 
