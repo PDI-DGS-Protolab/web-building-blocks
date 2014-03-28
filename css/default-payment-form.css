@@ -156,20 +156,20 @@
 }
 
 .american {
-    background: transparent url('cards/americanexpress.png');
+    background: transparent url('../img/components/paymentform/americanexpress.png');
     
 }
 
 .maestro {
-    background: transparent url('cards/maestro.png');
+    background: transparent url('../img/components/paymentform/maestro.png');
 }
 
 .mastercard {
-    background: transparent url('cards/mastercard.png');
+    background: transparent url('../img/components/paymentform/mastercard.png');
 }
 
 .visa {
-    background: transparent url('cards/visa.png');
+    background: transparent url('../img/components/paymentform/visa.png');
 }
 
 .american,.mastercard,.maestro,.visa {
