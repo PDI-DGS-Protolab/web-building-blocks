@@ -31,25 +31,30 @@
             <label for="card-holder-name" class="text-label">Full Name</label>
             <div class="space025X"></div>
             <input id="card-holder-name" class="vivo card-input" name="credit_card[full_name]" type="text"/>
-            <div class="vivo input-hint"></div> 
-            <div class="vivo error-container"> 
-                <a class="vivo error-message"></a>
+            <div id="card-name-hint-container" class="vivo card-hint"></div> 
+            <div id="card-name-error-container" class="vivo card-error"> 
+                <a id="card-name-error-msg" class="vivo card-error-message"></a>
             </div> 
 
             <div id="CVC-hint">
                     <p>3-digit number on the back of your card</p>
             </div>
 
-            <label for="card-number" class="text-label CC-label">Credit Card Number</label>
+            <label for="card-number-input" class="text-label CC-label">Credit Card Number</label>
             
             <label for="card-verification-code" class="text-label CVC-label">CVC Code</label>
 
             <label id="help-label" for="help" class="help-security-code">?</label>
 
             <div class="space025X clearing"></div>
-            
-            <input autocomplete="off" id="card-number" name="credit_card[number]" type="text" class="vivo card-input" />
-            
+            <div id="card-number-container">
+                <input autocomplete="off" id="card-number-input" name="credit_card[number]" type="text" class="vivo card-input card-number" />
+                <div id="card-number-hint-container" class="vivo card-hint card-number"></div>
+                <div id="card-number-error-container" class="vivo card-error card-number">
+                    <a id="card-number-error-msg" class="vivo card-error-message"></a>
+                </div>
+            </div>
+
             <input autocomplete="off" id="card-verification-code" name="credit_card[verification_code]" type="password" class="vivo card-input" maxlength=3/>
             
         <!--
@@ -61,7 +66,7 @@
                 </div>
             </div>
         -->
-
+        <!--
             <div class="info-left">
                 <div id="error-spaceCC" class="info-space"> 
                 
@@ -69,7 +74,7 @@
                 <div id="check-boxCC" class="check-boxCC">
 
                 </div>
-
+        -->
             </div>
             <div class="info-right">
                 <div id="error-spaceCVC" class="info-space"> 

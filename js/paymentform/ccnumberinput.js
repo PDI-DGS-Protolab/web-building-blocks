@@ -6,28 +6,28 @@ var MAESTRO = ['5018', '5020', '5038', '5612', '5893', '6304', '6761', '6762', '
 
 
 $(document).ready(function() {
-  $('#card-number').focus(function() {
-    if(!$('#check-boxCC').is(':visible')) {
-      $('#error-spaceCC').text('Enter your credit card number without any spaces');
-      $('#error-spaceCC').show();
-      $('#check-boxCC').hide();
+  $('#card-number-input').focus(function() {
+    if(!$('#card-number-error-container').is(':visible')) {
+      $('#card-number-hint-container').text('Enter your credit card number without any spaces');
+      $('#card-number-hint-container').show();
+      $('#card-number-error-container').hide();
     }
   }); 
 
   //Credit Card Number Validation
 
-  $('#card-number').keyup(function(e){
+  $('#card-number-input').keyup(function(e){
 
     var str = $(this).val();
     var cardNumberElmnt = $(this);
 
    //Card Type Validation
    if(str.length==0){
-        $('#check-boxCC').hide();
-        $('#error-spaceCC').show();
-        $('#check-boxCC').text('');
+        $('#card-number-error-container').hide();
+        $('#card-number-hint-container').show();
+        $('#card-number-error-msg').text('');
         $(this).removeClass('negative-box');
-        $('#check-boxCC').removeClass('negative-check');
+        $('#card-number-error-container').removeClass('negative-check');
         cardCheck=false;
     }
     else if(str.length!=0&&str.length<12){
@@ -55,30 +55,30 @@ $(document).ready(function() {
 
       if(str.length==4&&/^\d*$/.test(str) == true){
         cardNumberElmnt.attr('maxlength', 4);
-        $('#error-spaceCC').hide();
-        $('#check-boxCC').show();
+        $('#card-number-hint-container').hide();
+        $('#card-number-error-container').show();
         cardNumberElmnt.addClass('negative-box');
-        $('#check-boxCC').text('We do not support your card type.');
-        $('#check-boxCC').addClass('negative-check');
+        $('#card-number-error-msg').text('We do not support your card type.');
+        $('#card-number-error-container').addClass('negative-check');
         cardCheck=false;
       }
     }
 
     if(/^\d*$/.test(str) == false) { 
-      $('#error-spaceCC').hide();
-      $('#check-boxCC').show();
+      $('#card-number-hint-container').hide();
+      $('#card-number-error-container').show();
       $(this).addClass('negative-box');
-      $('#check-boxCC').text('Illegal characters. You can input only numbers.');
-      $('#check-boxCC').addClass('negative-check');
+      $('#card-number-error-msg').text('Illegal characters. You can input only numbers.');
+      $('#card-number-error-container').addClass('negative-check');
       cardCheck=false;
     }
 
     else if(str.length>4 && (/^\d*$/.test(str) == true)){
-      $('#check-boxCC').hide();
-      $('#error-spaceCC').show();
-      $('#check-boxCC').text('');
+      $('#card-number-error-container').hide();
+      $('#card-number-hint-container').show();
+      $('#card-number-error-msg').text('');
       $(this).removeClass('negative-box');
-      $('#check-boxCC').removeClass('negative-check');
+      $('#card-number-error-container').removeClass('negative-check');
 
       if(isVisaCard(str.substr(0,1))){
         //visa
@@ -120,35 +120,35 @@ $(document).ready(function() {
       }
     }
     else if(str.length<4&& (/^\d*$/.test(str) == true)){
-      $('#check-boxCC').hide();
-      $('#error-spaceCC').show();
-      $('#check-boxCC').text('');
+      $('#card-number-error-container').hide();
+      $('#card-number-hint-container').show();
+      $('#card-number-error-msg').text('');
       $(this).removeClass('negative-box');
-      $('#check-boxCC').removeClass('negative-check');
+      $('#card-number-error-container').removeClass('negative-check');
     }
   }); 
 
-  $('#card-number').blur(function() {
-    var checkBoxCCElmnt = $('#check-boxCC');
-    checkBoxCCElmnt.text('');
+  $('#card-number-input').blur(function() {
+    var checkBoxCCElmnt = $('#card-number-error-container');
+    $('#card-number-error-msg').text('');
     var str = $(this).val();
     var errorMsg = checkBoxCCElmnt.text();
     
     if(/^\d*$/.test(str) == false) { 
-      $('#error-spaceCC').hide();
+      $('#card-number-hint-container').hide();
       checkBoxCCElmnt.show();
       $(this).addClass('negative-box');
-      checkBoxCCElmnt.text('Illegal characters. You can input only numbers.');
+      $('#card-number-error-msg').text('Illegal characters. You can input only numbers.');
       checkBoxCCElmnt.addClass('negative-check');
       cardCheck=false;
       $(this).focus().val();
     }
 
     else if(str.length!=0&&str.length<4){
-      $('#error-spaceCC').hide();
+      $('#card-number-hint-container').hide();
       checkBoxCCElmnt.show();
       $(this).addClass('negative-box');
-      checkBoxCCElmnt.text('Invalid length.');
+      $('#card-number-error-msg').text('Invalid length.');
       checkBoxCCElmnt.addClass('negative-check');
       cardCheck=false;
       $(this).focus().val();
@@ -158,10 +158,10 @@ $(document).ready(function() {
 
       if(isVisaCard(str.substr(0,1))){
         if(str.length!=13&&str.length!=16){
-          $('#error-spaceCC').hide();
+          $('#card-number-hint-container').hide();
           checkBoxCCElmnt.show();
           $(this).addClass('negative-box');
-          checkBoxCCElmnt.text('Invalid length. You should input 13 or 16 digits.(VISA)');
+          $('#card-number-error-msg').text('Invalid length. You should input 13 or 16 digits.(VISA)');
           checkBoxCCElmnt.addClass('negative-check');
           cardCheck=false;
           $(this).focus().val();
@@ -169,10 +169,10 @@ $(document).ready(function() {
       }
       else if(isMastercardCard(str.substr(0,2))){
         if(str.length!=16){
-          $('#error-spaceCC').hide();
+          $('#card-number-hint-container').hide();
           checkBoxCCElmnt.show();
           $(this).addClass('negative-box');
-          checkBoxCCElmnt.text('Invalid length. You should input 16 digits.(MC)');
+          $('#card-number-error-msg').text('Invalid length. You should input 16 digits.(MC)');
           checkBoxCCElmnt.addClass('negative-check');
           cardCheck=false;
           $(this).focus().val();
@@ -181,10 +181,10 @@ $(document).ready(function() {
 
       else if(isAmericanExpressCard(str.substr(0,2))){
         if(str.length!=15){
-          $('#error-spaceCC').hide();
+          $('#card-number-hint-container').hide();
           checkBoxCCElmnt.show();
           $(this).addClass('negative-box');
-          checkBoxCCElmnt.text('Invalid length. You should input 15 digits.(AE)');
+          $('#card-number-error-msg').text('Invalid length. You should input 15 digits.(AE)');
           checkBoxCCElmnt.addClass('negative-check');
           cardCheck=false;
           $(this).focus().val();
@@ -193,10 +193,10 @@ $(document).ready(function() {
 
       else if(isMaestroCard(str.substr(0,4))){
           if(str.length<12){
-            $('#error-spaceCC').hide();
+            $('#card-number-hint-container').hide();
             checkBoxCCElmnt.show();
             $(this).addClass('negative-box');
-            checkBoxCCElmnt.text('Invalid length. You should input at least 12 digits.(MAE)');
+            $('#card-number-error-msg').text('Invalid length. You should input at least 12 digits.(MAE)');
             checkBoxCCElmnt.removeClass('positive-check');
             checkBoxCCElmnt.addClass('negative-check');
             cardCheck=false;
@@ -208,18 +208,18 @@ $(document).ready(function() {
 
       else if(str.length==0){//empty
         checkBoxCCElmnt.hide();
-        $('#error-spaceCC').show();
+        $('#card-number-hint-container').show();
         checkBoxCCElmnt.text('');
-        $('#error-spaceCC').text('');
+        $('#card-number-hint-container').text('');
         $(this).removeClass('negative-box');
         checkBoxCCElmnt.removeClass('negative-check');
       }
 
       else{//ok
         checkBoxCCElmnt.hide();
-        $('#error-spaceCC').show();
+        $('#card-number-hint-container').show();
         checkBoxCCElmnt.text('');
-        $('#error-spaceCC').text('');
+        $('#card-number-hint-container').text('');
         $(this).removeClass('negative-box');
         checkBoxCCElmnt.removeClass('negative-check');
 

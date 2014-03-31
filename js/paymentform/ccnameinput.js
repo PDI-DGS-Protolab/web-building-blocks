@@ -1,50 +1,50 @@
 $(document).ready(function() {
   $(document).on('focus', '#card-holder-name', function() {
-     if( !$(this).parent().find('.error-container').is(':visible') ) {
-      $(this).parent().find('.input-hint').show();
-      $(this).parent().find('.input-hint').text('Enter your full name as it appears on your card');
-      $(this).parent().find('.error-container').hide();
+     if( !$(this).parent().find('#card-name-error-container').is(':visible') ) {
+      $(this).parent().find('#card-name-hint-container').show();
+      $(this).parent().find('#card-name-hint-container').text('Enter your full name as it appears on your card');
+      $(this).parent().find('#card-name-error-container').hide();
     }
   });
 
   $(document).on('keyup', '#card-holder-name', function(e) {
     var str = $(this).val();
     if( !containsLetters(str)) {
-      $(this).parent().find('.input-hint').hide();
-      $(this).parent().find('.error-container').show();
+      $(this).parent().find('#card-name-hint-container').hide();
+      $(this).parent().find('#card-name-error-container').show();
       $(this).addClass('negative-box');
-      $(this).parent().find('.error-message').text('Illegal characters. You can input only letters.');
-      $(this).parent().find('.error-message').addClass('negative-check');
+      $(this).parent().find('#card-name-error-msg').text('Illegal characters. You can input only letters.');
+      $(this).parent().find('#card-name-error-msg').addClass('negative-check');
       nameCheck=false;
     }
 
     else if((str=='')||(str==undefined)) {
-      $(this).parent().find('.input-hint').show();
-      $(this).parent().find('.error-container').hide();
-      $(this).parent().find('.error-message').text('');
+      $(this).parent().find('#card-name-hint-container').show();
+      $(this).parent().find('#card-name-error-container').hide();
+      $(this).parent().find('#card-name-error-msg').text('');
       $(this).removeClass('negative-box');
       nameCheck=false;
     }
 
     else {
       $(this).removeClass('negative-box');
-      $(this).parent().find('.error-container').hide();
-      $(this).parent().find('.input-hint').show();
-      $(this).parent().find('.input-hint').text('Enter your full name as it appears on your card');
-      $(this).parent().find('.error-message').removeClass('negative-check');
+      $(this).parent().find('#card-name-error-container').hide();
+      $(this).parent().find('#card-name-hint-container').show();
+      $(this).parent().find('#card-name-hint-container').text('Enter your full name as it appears on your card');
+      $(this).parent().find('#card-name-error-msg').removeClass('negative-check');
       nameCheck=true;
     }
   });
 
   $(document).on('blur', '#card-holder-name', function() {
     var str = $(this).val();
-    $(this).parent().find('.input-hint').text('');
+    $(this).parent().find('#card-name-hint-container').text('');
     if(!containsLetters(str)) {
-      $(this).parent().find('.input-hint').hide();
-      $(this).parent().find('.error-container').show();
+      $(this).parent().find('#card-name-hint-container').hide();
+      $(this).parent().find('#card-name-error-container').show();
       $(this).addClass('negative-box');
-      $(this).parent().find('.error-message').text('Illegal characters. You can input only letters.');
-      $(this).parent().find('.error-message').addClass('negative-check');
+      $(this).parent().find('#card-name-error-msg').text('Illegal characters. You can input only letters.');
+      $(this).parent().find('#card-name-error-msg').addClass('negative-check');
       nameCheck=false;
     }
   });

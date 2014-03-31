@@ -60,81 +60,6 @@
     height: 42px;
 }
 
-.error-container,.target-space,.info-space,.info-spaceCC,.info-spaceCVC {
-    height: 30px;
-    font-size: 18px;
-}
-
-
-.target-space {
-    height: 20px;
-    float: right;
-}
-.target-left-space {
-    z-index: 99999999;
-    width: 73%;
-    position: relative;
-    margin-top: -30px;
-    background-color: blue;
-    float: left;
-}
-.info-space {
-    padding: 0px 5px 0px 5px;
-    font-size: 14px;
-    color: #474747;
-    line-height: 30px;
-    vertical-align: middle;
-}
-
-
-.info-left {
-    height: 30px;
-    width: 76%;
-    margin-right: 6px;
-    float: left;
-}
-
-.info-right {
-    height: 30px;
-    width: 21%;
-    float: right;
-}
-
-.error-container {
-    display: none;
-}
-
-.text-label {
-    font-size: 18px;
-    font-weight: bold;
-}
-.clearing {
-    clear: both;
-}
-
-.error-message,.check-boxCC,.check-boxCVC {
-    height: 22.5px;
-    width: 100%;
-    margin-top: 3.75px;
-    font-size: 14px;
-    font-weight: bold;
-    background-color: white;
-    border-radius: 5px;
-    float: left;
-    line-height: 22.5px;
-    vertical-align: middle;
-    text-indent: 5px;
-}
-
-.error-message {
-    width: 97.5%;
-    padding-right: 12px;
-}
-
-.check-boxCC,.check-boxCVC {
-    display: none;
-}
-
 .card-input {
     border: #999999 1px solid;
     border-radius: 5px;
@@ -150,9 +75,68 @@
     width: 97.5%;
 }
 
-#card-number {
+#card-number-container {
+    float: left;
     margin-right: 12px;
-    width: 73%;
+    width: 76%;
+}
+
+#card-number-input {
+    width: 96%;
+}
+
+.card-number {
+    width: 100%;
+}
+
+.info-right {
+    height: 30px;
+    width: 21%;
+    float: right;
+}
+
+.card-hint, .card-error {
+    height: 30px;
+}
+
+.card-hint, .info-space {
+    padding: 0px 5px 0px 5px;
+    font-size: 14px;
+    color: #474747;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.card-error {
+    display: none;
+}
+
+.text-label {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#card-name-error-msg, #card-number-error-container,.check-boxCVC {
+    height: 22.5px;
+    margin-top: 3.75px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    float: left;
+    line-height: 22.5px;
+    vertical-align: middle;
+    text-indent: 5px;
+    width: 100%;
+}
+
+#card-name-error-msg {
+    width: 97.5%;
+    padding-right: 12px;
+}
+
+#card-number-error-container, .check-boxCVC {
+    display: none;
 }
 
 .american {
@@ -218,6 +202,10 @@
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     
+}
+
+.clearing {
+    clear: both;
 }
 
 .date-box {
