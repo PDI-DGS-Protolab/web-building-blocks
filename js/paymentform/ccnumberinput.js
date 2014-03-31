@@ -34,45 +34,24 @@ $(document).ready(function() {
       cardCheck=false;
     }
     if(isVisaCard(str.substr(0,1))){
-      cardNumberElmnt.removeClass('american');
-      cardNumberElmnt.removeClass('mastercard');
-      cardNumberElmnt.removeClass('maestro');
-      cardNumberElmnt.addClass('visa');
-      cardNumberElmnt.attr('maxlength', 16);
+      switchActiveCard(cardNumberElmnt, 'visa', 16);
     }
 
     else if(isMastercardCard(str.substr(0,2))){
-      cardNumberElmnt.removeClass('american');
-      cardNumberElmnt.removeClass('visa');
-      cardNumberElmnt.removeClass('maestro');
-      cardNumberElmnt.addClass('mastercard');
-      cardNumberElmnt.attr('maxlength', 16);
+      switchActiveCard(cardNumberElmnt, 'mastercard', 16);
     }
 
     else if(isAmericanExpressCard(str.substr(0,2))){
-      //american express
-      cardNumberElmnt.removeClass('visa');
-      cardNumberElmnt.removeClass('mastercard');
-      cardNumberElmnt.removeClass('maestro');
-      cardNumberElmnt.addClass('american');
-      cardNumberElmnt.attr('maxlength', 15);
+      switchActiveCard(cardNumberElmnt, 'american', 15);
     }
 
     else if(isMaestroCard(str.substr(0,4))){
-      //maestro
-      cardNumberElmnt.removeClass('american');
-      cardNumberElmnt.removeClass('mastercard');
-      cardNumberElmnt.removeClass('visa');
-      cardNumberElmnt.addClass('maestro');
-      cardNumberElmnt.attr('maxlength', 19);
+      switchActiveCard(cardNumberElmnt, 'maestro', 19);
     }
 
     else{
       //card not supported
-      cardNumberElmnt.removeClass('american');
-      cardNumberElmnt.removeClass('mastercard');
-      cardNumberElmnt.removeClass('maestro');
-      cardNumberElmnt.removeClass('visa');
+      clearCardClasses(cardNumberElmnt);
 
       if(str.length==4&&/^\d*$/.test(str) == true){
         cardNumberElmnt.attr('maxlength', 4);
@@ -275,6 +254,20 @@ function isMaestroCard (firstFourInputDigits) {
 
 
 
-function switchActiveCard () {
+function switchActiveCard (element, newCardClass, newCardLength) {
+  var CCInput = $(element);
+  
+  clearCardClasses(CCInput);
 
+  CCInput.addClass(newCardClass);
+  CCInput.attr('maxlength', newCardLength);
+};
+
+function clearCardClasses(element) {
+  var CCInput = $(element);
+  
+  CCInput.removeClass('visa');
+  CCInput.removeClass('american');
+  CCInput.removeClass('mastercard');
+  CCInput.removeClass('maestro');
 };
