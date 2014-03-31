@@ -34,16 +34,6 @@ $(document).ready(function() {
 
 
 
- /*---------------------------CVC HELP----------------------------------------*/
-  $('#help-label').mouseover(function() {
-    $("#helpCVC").show();
-  }); 
-
-  $('#help-label').mouseleave(function() {
-    $("#helpCVC").hide();
-  }); 
- /*----------------------END: CVC HELP----------------------------------------*/
-
 
  /*-------------------------CREDIT CARD NUMBER FIELD--------------------------*/  
 
@@ -323,92 +313,6 @@ $(document).ready(function() {
 
       }
    });
- /*---------------------------------------------------------------------------*/
-
-
- /*---------------------------------CVC FIELD---------------------------------*/
-  $('#credit-card-verification-code').focus(function() {
-    if( !$("#check-boxCVC").is(':visible') ) {
-      $("#error-spaceCVC").show();
-      $("#error-spaceCVC").text("3 digits");
-      $("#check-boxCVC").hide();
-    }
-  });  
-
-  $('#credit-card-verification-code').keyup(function(e) {
-    var str = $('#credit-card-verification-code').val();
-
-    if((/^[0-9]*$/.test(str) == false)) { 
-      $("#error-spaceCVC").hide();
-      $("#check-boxCVC").show();
-      $('#credit-card-verification-code').addClass("negative-box");
-      $("#check-boxCVC").text("Not Valid.");
-      $("#check-boxCVC").addClass("negative-check");
-      $('#credit-card-verification-code').focus().val();
-      cvcCheck=false;
-    }
-
-    else if(str.length==0){
-      $("#check-boxCVC").hide();
-      $("#error-spaceCVC").show();
-      $("#check-boxCVC").text("");
-      $('#credit-card-verification-code').removeClass("negative-box");
-      $("#check-boxCVC").removeClass("negative-check");
-      cvcCheck=false;
-    }
-
-    else if(str.length==3){
-        $('#credit-card-verification-code').removeClass("negative-box");
-        $("#error-spaceCVC").show();
-        $("#check-boxCVC").hide();
-        $("#check-boxCVC").removeClass("negative-check");
-        cvcCheck=true;
-    }
-  }); 
-
-
-  $('#credit-card-verification-code').blur(function() {
-
-    var str = $('#credit-card-verification-code').val();
-
-    if((/^[0-9]*$/.test(str) == false)) { 
-      $("#error-spaceCVC").hide();
-      $("#check-boxCVC").show();
-      $('#credit-card-verification-code').addClass("negative-box");
-      $("#check-boxCVC").text("Not Valid.");
-      $("#check-boxCVC").addClass("negative-check");
-      cvcCheck=false;
-      $('#credit-card-verification-code').focus().val();
-    }
-
-    else if(str.length!=0&&str.length<3){
-      $("#error-spaceCVC").hide();
-      $("#check-boxCVC").show();
-      $('#credit-card-verification-code').addClass("negative-box");
-      $("#check-boxCVC").text("Incomplete.");
-      $("#check-boxCVC").addClass("negative-check");
-      cvcCheck=false;
-      $('#credit-card-verification-code').focus().val();
-    }
-    else if(str.length==0){
-      $('#credit-card-verification-code').removeClass("negative-box");
-        $("#error-spaceCVC").show();
-        $("#error-spaceCVC").text("");
-        $("#check-boxCVC").hide();
-        $("#check-boxCVC").removeClass("negative-check");
-        cvcCheck=false;
-    }
-
-    else{
-        $('#credit-card-verification-code').removeClass("negative-box");
-        $("#error-spaceCVC").show();
-        $("#error-spaceCVC").text("");
-        $("#check-boxCVC").hide();
-        $("#check-boxCVC").removeClass("negative-check");
-        cvcCheck=true;
-    }
-   }); 
-
  /*---------------------------------------------------------------------------*/
 
 

@@ -1,3 +1,10 @@
+var VISA = '4';
+var MASTERCARD = ['51', '52'];
+var AMERICANEXPRESS = ['34', '37'];
+var MAESTRO = ['5018', '5020', '5038', '5612', '5893', '6304', '6761', '6762', '6763', '0604', '6390'];
+
+
+
 $(document).ready(function() {
   $('#card-number').focus(function() {
     if(!$('#check-boxCC').is(':visible')) {
@@ -26,8 +33,7 @@ $(document).ready(function() {
     else if(str.length!=0&&str.length<12){
       cardCheck=false;
     }
-    if(str.substr(0,1)=='4'){
-      //visa
+    if(isVisaCard(str.substr(0,1))){
       cardNumberElmnt.removeClass('american');
       cardNumberElmnt.removeClass('mastercard');
       cardNumberElmnt.removeClass('maestro');
@@ -35,9 +41,7 @@ $(document).ready(function() {
       cardNumberElmnt.attr('maxlength', 16);
     }
 
-    else if(str.substr(0,2)=='51'
-          ||str.substr(0,2)=='52'){
-      //master card
+    else if(isMastercardCard(str.substr(0,2))){
       cardNumberElmnt.removeClass('american');
       cardNumberElmnt.removeClass('visa');
       cardNumberElmnt.removeClass('maestro');
@@ -45,8 +49,7 @@ $(document).ready(function() {
       cardNumberElmnt.attr('maxlength', 16);
     }
 
-    else if(str.substr(0,2)=='34'
-          ||str.substr(0,2)=='37'){
+    else if(isAmericanExpressCard(str.substr(0,2))){
       //american express
       cardNumberElmnt.removeClass('visa');
       cardNumberElmnt.removeClass('mastercard');
@@ -55,17 +58,7 @@ $(document).ready(function() {
       cardNumberElmnt.attr('maxlength', 15);
     }
 
-    else if(str.substr(0,4)=='5018'
-          ||str.substr(0,4)=='5020'
-          ||str.substr(0,4)=='5038'
-          ||str.substr(0,4)=='5612'
-          ||str.substr(0,4)=='5893'
-          ||str.substr(0,4)=='6304'
-          ||str.substr(0,4)=='6761'
-          ||str.substr(0,4)=='6762'
-          ||str.substr(0,4)=='6763'
-          ||str.substr(0,4)=='0604'
-          ||str.substr(0,4)=='6390'){
+    else if(isMaestroCard(str.substr(0,4))){
       //maestro
       cardNumberElmnt.removeClass('american');
       cardNumberElmnt.removeClass('mastercard');
@@ -108,7 +101,8 @@ $(document).ready(function() {
       $(this).removeClass('negative-box');
       $('#check-boxCC').removeClass('negative-check');
 
-      if(str.substr(0,1)=='4'){
+      if(isVisaCard(str.substr(0,1))){
+        //visa
         if(str.length==13||str.length==16){
           cardCheck=true;
         }
@@ -117,8 +111,8 @@ $(document).ready(function() {
         } 
       }
 
-      else if(str.substr(0,2)=='51'
-            ||str.substr(0,2)=='52'){
+      else if(isMastercardCard(str.substr(0,2))){
+        //master card
         if(str.length==16){
           cardCheck=true;
         }
@@ -127,8 +121,8 @@ $(document).ready(function() {
         } 
       }
 
-      else if(str.substr(0,2)=='34'
-            ||str.substr(0,2)=='37'){
+      else if(isAmericanExpressCard(str.substr(0,2))){
+        //american express
         if(str.length==15){
           cardCheck=true;
         }
@@ -137,17 +131,7 @@ $(document).ready(function() {
         } 
       }
 
-      else if(str.substr(0,4)=='5018'
-              ||str.substr(0,4)=='5020'
-              ||str.substr(0,4)=='5038'
-              ||str.substr(0,4)=='5612'
-              ||str.substr(0,4)=='5893'
-              ||str.substr(0,4)=='6304'
-              ||str.substr(0,4)=='6761'
-              ||str.substr(0,4)=='6762'
-              ||str.substr(0,4)=='6763'
-              ||str.substr(0,4)=='0604'
-              ||str.substr(0,4)=='6390'){
+      else if(isMaestroCard(str.substr(0,4))){
         if(str.length>12){
           cardCheck=true;
         }
@@ -193,7 +177,7 @@ $(document).ready(function() {
 
     else if(str.length==4||str.length>4){
 
-      if(str.substr(0,1)=='4'){
+      if(isVisaCard(str.substr(0,1))){
         if(str.length!=13&&str.length!=16){
           $('#error-spaceCC').hide();
           checkBoxCCElmnt.show();
@@ -204,8 +188,7 @@ $(document).ready(function() {
           $(this).focus().val();
         }
       }
-      else if(str.substr(0,2)=='51'
-            ||str.substr(0,2)=='52'){
+      else if(isMastercardCard(str.substr(0,2))){
         if(str.length!=16){
           $('#error-spaceCC').hide();
           checkBoxCCElmnt.show();
@@ -217,8 +200,7 @@ $(document).ready(function() {
         }
       }
 
-      else if(str.substr(0,2)=='34'
-            ||str.substr(0,2)=='37'){
+      else if(isAmericanExpressCard(str.substr(0,2))){
         if(str.length!=15){
           $('#error-spaceCC').hide();
           checkBoxCCElmnt.show();
@@ -230,17 +212,7 @@ $(document).ready(function() {
         }
       }
 
-      else if(str.substr(0,4)=='5018'
-            ||str.substr(0,4)=='5020'
-            ||str.substr(0,4)=='5038'
-            ||str.substr(0,4)=='5612'
-            ||str.substr(0,4)=='5893'
-            ||str.substr(0,4)=='6304'
-            ||str.substr(0,4)=='6761'
-            ||str.substr(0,4)=='6762'
-            ||str.substr(0,4)=='6763'
-            ||str.substr(0,4)=='0604'
-            ||str.substr(0,4)=='6390') {
+      else if(isMaestroCard(str.substr(0,4))){
           if(str.length<12){
             $('#error-spaceCC').hide();
             checkBoxCCElmnt.show();
@@ -275,3 +247,34 @@ $(document).ready(function() {
       }
   });
 });
+
+function isVisaCard (firstInputDigit) {
+  return (firstInputDigit == VISA);
+};
+
+function isMastercardCard (firstTwoInputDigits) {
+  if ($.inArray(firstTwoInputDigits, MASTERCARD) > -1) {
+    return true;
+  }
+  return false;
+};
+
+function isAmericanExpressCard (firstTwoInputDigits) {
+  if ($.inArray(firstTwoInputDigits, AMERICANEXPRESS) > -1) {
+    return true;
+  }
+  return false;
+};
+
+function isMaestroCard (firstFourInputDigits) {
+  if ($.inArray(firstFourInputDigits, MAESTRO) > -1) {
+    return true;
+  }
+  return false;
+};
+
+
+
+function switchActiveCard () {
+
+};
