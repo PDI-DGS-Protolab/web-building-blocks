@@ -5,7 +5,7 @@
     position: relative;
 }
 
-.input, .special-input {
+.input, .special-input-refresh, .special-input-plus-less {
     border: #999999 1px solid;
     border-radius: 5px;
     box-sizing: border-box;
@@ -50,11 +50,11 @@
     width: 100%;
 }
 
-.special-input {
+.special-input-refresh, .special-input-plus-lesst {
     width: 85%; 
 }
 
-.special-input:disabled {
+.special-input-refresh:disabled, .special-input-plus-less:disabled {
     background-color: #EAEAEA;
 }
 

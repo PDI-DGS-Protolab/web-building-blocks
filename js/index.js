@@ -187,19 +187,10 @@ $(document).ready(function() {
   });
 
   $('#testing-container, #selection-container').droppable({
-      tolerance: 'fit',
+      tolerance: 'pointer',
       drop: function(event, ui) {
         var components = $(this);
-        var brand = '';
-        if (ui.draggable.hasClass('telefonica')) {
-          brand = 'telefonica';
-        } else if (ui.draggable.hasClass('movistar')) {
-          brand = 'movistar';
-        } else if (ui.draggable.hasClass('vivo')) {
-          brand = 'vivo';
-        } else if (ui.draggable.hasClass('o2')) {
-          brand = 'o2';
-        }
+        var brand = getComponentBrand(ui.draggable);
 
         if (ui.draggable.hasClass('img-input')) {
           addInput(ui.draggable, components, brand);
@@ -278,22 +269,34 @@ function addInput(draggable, parent, brand) {
   if (draggable.hasClass('normal')) {
     parent.append('<div class="input-container"><div class="quit-icon"></div><input class="' + brand +  ' input" type="text"></input><div class="' + brand + ' input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>');
   } else if (draggable.hasClass('refresh')) {
-    parent.append('<div class="input-container"><div class="quit-icon"></div><input disabled class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
+    parent.append('<div class="input-container"><div class="quit-icon"></div><input disabled class="' + brand + ' special-input-refresh" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
   } else if (draggable.hasClass('add')) {
-    parent.append('<div class=".input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>');
+    parent.append('<div class="input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input-plus-less" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>');
   } else if (draggable.hasClass('quit')) {
-    parent.append('<div class=".input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div></div>');
+    parent.append('<div class="input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input-plus-less" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div></div>');
   }
 }
 
+function getComponentBrand(component) {
+    if (component.hasClass('telefonica')) {
+      return'telefonica';
+    } else if (component.hasClass('movistar')) {
+      return 'movistar';
+    } else if (component.hasClass('vivo')) {
+      return 'vivo';
+    } else if (component.hasClass('o2')) {
+      return 'o2';
+    }
+}
+
 function getButtonType(draggable) {
-  if (draggable.hasClass('neutral')) {
+  if (draggable.hasClass('neutral') || draggable.hasClass('btt-neutral')) {
     return 'neutral';
-  } else if (draggable.hasClass('positive')) {
+  } else if (draggable.hasClass('positive') || draggable.hasClass('btt-positive')) {
     return 'positive';
-  } else if (draggable.hasClass('negative')) {
+  } else if (draggable.hasClass('negative') || draggable.hasClass('btt-negative')) {
     return 'negative';
-  } else if (draggable.hasClass('subdued')) {
+  } else if (draggable.hasClass('subdued') || draggable.hasClass('btt-subdued')) {
     return 'subdued';
   }
 }
@@ -304,10 +307,64 @@ function addButton(draggable, parent, brand) {
 }
 
 function addTable(draggable, parent, brand) {
-  var rows = $('#' + draggable.attr('id') + ' tr').length;
-  var cols = $('#' + draggable.attr('id') + ' td').length/rows;
-  parent.append('<div class="keep-table-container ' + brand + '" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="top-table"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
+  if (draggable.find('table').hasClass('top-table')) {
+    var rows = $('#' + draggable.attr('id') + ' tr').length;
+    var cols = $('#' + draggable.attr('id') + ' td').length/rows;
+    parent.append('<div class="keep-table-container" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="top-table ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
+  } else {
+    var rows = $('#' + draggable.attr('id') + ' tr').length/2;
+    var cols = $('#' + draggable.attr('id') + ' td').length/rows;
+    parent.append('<div class="keep-table-container" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="left-table ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td></tr><tr><td></td></tr></thead><tbody><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr></tbody></table></div>');
+  }
 }
+
+function getKeepMeComponents() {
+    var buttons = $('#selection-container').find('.button');
+    var inputs = $('#selection-container').find('.input');
+    var refresh = $('#selection-container').find('.special-input-refresh');
+    var plusless = $('#selection-container').find('.special-input-plus-less');
+    var topTables = $('#selection-container').find('.top-table');
+    var leftTables = $('#selection-container').find('.left-table');
+    
+    components = {};
+    for (var index = 0; index < buttons.length; ++index) {
+        var type = getButtonType($(buttons[index]));
+        var brand = getComponentBrand($(buttons[index]));
+        components['button-'+type+'-'+brand] = {component: 'button', brand: brand, type: type};
+    }
+
+    for (var index = 0; index < inputs.length; ++index) {
+        var brand = getComponentBrand($(inputs[index]));
+        components['input-'+brand] = {component: 'input', brand: brand};
+    }    
+
+    for (var index = 0; index < refresh.length; ++index) {
+        var brand = getComponentBrand($(refresh[index]));
+        components['special-input-refresh-'+brand] = {component: 'special-input-refresh', brand: brand};
+    }  
+
+    for (var index = 0; index < plusless.length; ++index) {
+        var brand = getComponentBrand($(plusless[index]));
+        components['special-input-plus-less-'+brand] = {component: 'special-input-plus-less', brand: brand};
+    }  
+
+    for (var index = 0; index < topTables.length; ++index) {
+        var brand = getComponentBrand($(topTables[index]));
+        var rows = $(topTables[index]).attr('rows');
+        var cols = $(topTables[index]).attr('cols');
+        components['top-table-'+brand+"-"+rows+"-"+cols] = {component: 'top-table', brand: brand, rows: rows, cols: cols};
+    }
+
+    for (var index = 0; index < leftTables.length; ++index) {
+        var brand = getComponentBrand($(leftTables[index]));
+        var rows = $(leftTables[index]).attr('rows');
+        var cols = $(leftTables[index]).attr('cols');
+        components['left-table-'+brand+"-"+rows+"-"+cols] = {component: 'left-table', brand: brand, rows: rows, cols: cols};
+    }    
+
+    return components;
+}
+
 
 function hideComponentsVisualization(containerId, brand) {
   if (brand === 'all') {
