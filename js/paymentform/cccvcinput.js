@@ -1,3 +1,5 @@
+var form = new GlobalFormTools();
+
 $(document).ready(function() {
   $('#help-label').mouseover(function() {
     $('#CVC-hint').show();
@@ -26,6 +28,7 @@ $(document).ready(function() {
       $('#check-boxCVC').addClass('negative-check');
       $('#card-verification-code').focus().val();
       $('#card-verification-code').removeClass('correct-input');
+      form.globalCheck();
     }
 
     else if(str.length==0){
@@ -35,6 +38,7 @@ $(document).ready(function() {
       $('#card-verification-code').removeClass('negative-box');
       $('#check-boxCVC').removeClass('negative-check');
       $('#card-verification-code').removeClass('correct-input');
+      form.globalCheck();
     }
 
     else if(str.length==3){
@@ -43,6 +47,7 @@ $(document).ready(function() {
         $('#check-boxCVC').hide();
         $('#check-boxCVC').removeClass('negative-check');
         $('#card-verification-code').addClass('correct-input');
+        form.globalCheck();
     }
   }); 
 
@@ -58,6 +63,7 @@ $(document).ready(function() {
       $('#check-boxCVC').text('Not Valid.');
       $('#check-boxCVC').addClass('negative-check');
       $('#card-verification-code').removeClass('correct-input');
+      form.globalCheck();
       $('#card-verification-code').focus().val();
     }
 
@@ -68,6 +74,7 @@ $(document).ready(function() {
       $('#check-boxCVC').text('Incomplete.');
       $('#check-boxCVC').addClass('negative-check');
       $('#card-verification-code').removeClass('correct-input');
+      form.globalCheck();
       $('#card-verification-code').focus().val();
     }
     else if(str.length==0){
@@ -77,6 +84,7 @@ $(document).ready(function() {
         $('#check-boxCVC').hide();
         $('#check-boxCVC').removeClass('negative-check');
         $('#card-verification-code').removeClass('correct-input');
+        form.globalCheck();
     }
 
     else{
@@ -86,6 +94,7 @@ $(document).ready(function() {
         $('#check-boxCVC').hide();
         $('#check-boxCVC').removeClass('negative-check');
         $('#card-verification-code').addClass('correct-input');
+        form.globalCheck();
     }
    });
 });
