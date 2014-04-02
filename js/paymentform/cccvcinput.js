@@ -25,7 +25,7 @@ $(document).ready(function() {
       $('#check-boxCVC').text('Not Valid.');
       $('#check-boxCVC').addClass('negative-check');
       $('#card-verification-code').focus().val();
-      cvcCheck=false;
+      $('#card-verification-code').removeClass('correct-input');
     }
 
     else if(str.length==0){
@@ -34,7 +34,7 @@ $(document).ready(function() {
       $('#check-boxCVC').text('');
       $('#card-verification-code').removeClass('negative-box');
       $('#check-boxCVC').removeClass('negative-check');
-      cvcCheck=false;
+      $('#card-verification-code').removeClass('correct-input');
     }
 
     else if(str.length==3){
@@ -42,7 +42,7 @@ $(document).ready(function() {
         $('#error-spaceCVC').show();
         $('#check-boxCVC').hide();
         $('#check-boxCVC').removeClass('negative-check');
-        cvcCheck=true;
+        $('#card-verification-code').addClass('correct-input');
     }
   }); 
 
@@ -57,7 +57,7 @@ $(document).ready(function() {
       $('#card-verification-code').addClass('negative-box');
       $('#check-boxCVC').text('Not Valid.');
       $('#check-boxCVC').addClass('negative-check');
-      cvcCheck=false;
+      $('#card-verification-code').removeClass('correct-input');
       $('#card-verification-code').focus().val();
     }
 
@@ -67,7 +67,7 @@ $(document).ready(function() {
       $('#card-verification-code').addClass('negative-box');
       $('#check-boxCVC').text('Incomplete.');
       $('#check-boxCVC').addClass('negative-check');
-      cvcCheck=false;
+      $('#card-verification-code').removeClass('correct-input');
       $('#card-verification-code').focus().val();
     }
     else if(str.length==0){
@@ -76,7 +76,7 @@ $(document).ready(function() {
         $('#error-spaceCVC').text('');
         $('#check-boxCVC').hide();
         $('#check-boxCVC').removeClass('negative-check');
-        cvcCheck=false;
+        $('#card-verification-code').removeClass('correct-input');
     }
 
     else{
@@ -85,7 +85,7 @@ $(document).ready(function() {
         $('#error-spaceCVC').text('');
         $('#check-boxCVC').hide();
         $('#check-boxCVC').removeClass('negative-check');
-        cvcCheck=true;
+        $('#card-verification-code').addClass('correct-input');
     }
    });
 });

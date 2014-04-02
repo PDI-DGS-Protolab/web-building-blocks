@@ -76,24 +76,24 @@ $(document).ready(function() {
 
  /*----------------------------FINAL CHECK------------------------------------*/
   $('input[type="text"]').keyup(function(e){
-    check(nameCheck,cardCheck, cvcCheck);
+    check();
   });
 
   $('input[type="password"]').keyup(function(e){
-    check(nameCheck,cardCheck, cvcCheck);
+    check();
   });
  /*--------------------------END: FINAL CHECK---------------------------------*/
 });
 
 var dateCh=false;
-function check(nameCheck,cardCheck, cvcCheck){
+function check(){
 
-  if((nameCheck==true)
-    &&(cardCheck==true)
-    &&(cvcCheck==true)
+  if($('#card-holder-name').hasClass('correct-input')
+    && $('#card-number-input').hasClass('correct-input')
+    && $('#card-verification-code').hasClass('correct-input')
     &&(dateCh==true)
     ){
-    $(":submit").removeAttr("disabled");
+    $(":submit").removeAttr('disabled');
   }
   else{
     $(":submit").attr('disabled','disabled');
