@@ -76,12 +76,14 @@ $(document).ready(function() {
 
     $(document).on('click','.download-keep', function() {
         var c=getKeepMeComponents();
+        //Per evitar
 
         var jsTmp;
         var jsAll='';
+        $('#javascript-content').html(jsAll);
         //adding all the javascripts
         for(a in c){
-            if(c[a].component!=='button' && c[a].component !=='table'){
+            if(c[a].component !== 'button' && c[a].component !== 'table' ){
                 var file=$.get( 'js/'+c[a].component+'.js', function() {
                 }).done(function( data ) {
                    jsTmp =data;
@@ -89,11 +91,46 @@ $(document).ready(function() {
                     //alert('Could not load files!');
                 });
                 $.when(file).done(function() {
-                    jsAll += jsTmp;
+                    jsAll += jsTmp+'\n';
                     var jsFinal= getFileToShow(jsAll);
                     $('#javascript-content').html(jsFinal);
                 });
             }
+
+        }
+        if($('#javascript-content').html()===''){
+            $('#javascript-content').html('No Javascript Code is needed for this components!');
+        }
+
+        var cssTmp,cssTmp2;
+        var css='';
+        var added={input:false,button:false,table:false};
+        for(a in c){
+            //check if already loaded something(default)
+            var file1=$.get( 'css/default-'+c[a].component+'.css', function() {
+            }).done(function( data2 ) {
+                cssTmp=data2;
+            }).fail(function(){
+            //alert('Could not load files!');
+            });
+            var file2=$.get( 'css/'+c[a].brand+'/'+c[a].component+'.css', function() {
+            }).done(function( data3 ) {
+                cssTmp2=data3;
+            }).fail(function(){
+            //alert('Could not load files!');
+            });
+            $.when(file1,file2).done(function() {
+                if(!added[c[a].component]){
+                    css += cssTmp+'\n'+cssTmp2+'\n';
+                    added[c[a].component]=true;
+                }
+                else{
+                    css += cssTmp2+'\n';
+                }
+
+                var cssFinal= getFileToShow(css);
+                $('#css-content').html(cssFinal);
+            });
         }
 
         //We read the file that we want:
