@@ -7,6 +7,8 @@
 }
 
 .keep-table-container {
+    clear: both;
+    float: left;
     padding: 10px;
 }
 
