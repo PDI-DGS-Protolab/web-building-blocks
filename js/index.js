@@ -335,32 +335,32 @@ function getKeepMeComponents() {
 
     for (var index = 0; index < inputs.length; ++index) {
         var brand = getComponentBrand($(inputs[index]));
-        components['input-'+brand] = {component: 'input', brand: brand};
+        components['input-'+brand] = {component: 'input', brand: brand,type:'input'};
     }    
 
     for (var index = 0; index < refresh.length; ++index) {
         var brand = getComponentBrand($(refresh[index]));
-        components['special-input-refresh-'+brand] = {component: 'special-input-refresh', brand: brand};
+        components['special-input-refresh-'+brand] = {component: 'input', brand: brand,type:'special-input-refresh'};
     }  
 
     for (var index = 0; index < plusless.length; ++index) {
         var brand = getComponentBrand($(plusless[index]));
-        components['special-input-plus-less-'+brand] = {component: 'special-input-plus-less', brand: brand};
+        components['special-input-plus-less-'+brand] = {component: 'input', brand: brand,type:'special-input-plus-less'};
     }  
 
     for (var index = 0; index < topTables.length; ++index) {
         var brand = getComponentBrand($(topTables[index]));
         var rows = $(topTables[index]).attr('rows');
         var cols = $(topTables[index]).attr('cols');
-        components['top-table-'+brand+"-"+rows+"-"+cols] = {component: 'top-table', brand: brand, rows: rows, cols: cols};
+        components['top-table-'+brand+"-"+rows+"-"+cols] = {component: 'table', brand: brand, rows: rows, cols: cols,type:'top-table'};
     }
 
     for (var index = 0; index < leftTables.length; ++index) {
         var brand = getComponentBrand($(leftTables[index]));
         var rows = $(leftTables[index]).attr('rows');
         var cols = $(leftTables[index]).attr('cols');
-        components['left-table-'+brand+"-"+rows+"-"+cols] = {component: 'left-table', brand: brand, rows: rows, cols: cols};
-    }    
+        components['left-table-'+brand+"-"+rows+"-"+cols] = {component: 'table', brand: brand, rows: rows, cols: cols,type:'left-table'};
+    }      
 
     return components;
 }

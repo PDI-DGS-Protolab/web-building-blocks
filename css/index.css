@@ -264,6 +264,10 @@ body {
     background: url("../img/delete-off.png"); 
 }
 
+.download-keep {
+    background: url("../img/download-keep.png"); 
+}
+
 .quit-icon {
     background: url("../img/quit.png");
     background-repeat: no-repeat; 
