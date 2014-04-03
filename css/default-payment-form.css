@@ -276,8 +276,3 @@
 .ui-datepicker-calendar {
     display: none;
 }​
-
-.ui-helper-hidden-accessible {
-    display: none !important;
-}
-
