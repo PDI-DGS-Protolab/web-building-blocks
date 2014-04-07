@@ -265,13 +265,25 @@ function toggleClearAll(toggle, text) {
     }
 }
 
+function getInputHtml(brand) {
+    return '<div class="input-container"><div class="quit-icon"></div><input class="' + brand +  ' input" type="text"></input><div class="' + brand + ' input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>';
+}
+
+function getInputRefreshHtml(brand) {
+    return '<div class="input-container"><div class="quit-icon"></div><input disabled class="' + brand + ' special-input-refresh" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>';
+}
+
+function getInputPlussLessHtml(brand) {
+    return '<div class="input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input-plus-less" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>';
+}
+
 function addInput(draggable, parent, brand) {
   if (draggable.hasClass('normal')) {
-    parent.append('<div class="input-container"><div class="quit-icon"></div><input class="' + brand +  ' input" type="text"></input><div class="' + brand + ' input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>');
+    parent.append(getInputHtml(brand));
   } else if (draggable.hasClass('refresh')) {
-    parent.append('<div class="input-container"><div class="quit-icon"></div><input disabled class="' + brand + ' special-input-refresh" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>');
+    parent.append(getInputRefreshHtml(brand));
   } else if (draggable.hasClass('add')) {
-    parent.append('<div class="input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input-plus-less" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>');
+    parent.append(getInputPlussLessHtml(brand));
   } else if (draggable.hasClass('quit')) {
     parent.append('<div class="input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input-plus-less" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div></div>');
   }
@@ -301,9 +313,13 @@ function getButtonType(draggable) {
   }
 }
 
+function getButtonHtml(brand, type) {
+    return '<div class="button-back" ><div class="quit-icon"></div><button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">' + toTitleCase(type) + '</button></div>';
+}
+
 function addButton(draggable, parent, brand) {
   var type = getButtonType(draggable);
-  parent.append('<div class="button-back" ><div class="quit-icon"></div><button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">' + toTitleCase(type) + '</button></div>');
+  parent.append(getButtonHtml(brand, type));
 }
 
 function addTable(draggable, parent, brand) {
