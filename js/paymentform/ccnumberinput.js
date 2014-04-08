@@ -29,28 +29,23 @@ $(document).ready(function() {
         $(this).removeClass('negative-box');
         $('#card-number-error-container').removeClass('negative-check');
         $('#card-number-input').removeClass('correct-input');
-        
-
     }
     else if (str.length != 0 && str.length < 12) {
       $('#card-number-input').removeClass('correct-input');
     }
+
     if (isVisaCard(str.substr(0, 1))) {
       switchActiveCard(cardNumberElmnt, 'visa', 16);
     }
-
     else if (isMastercardCard(str.substr(0, 2))) {
       switchActiveCard(cardNumberElmnt, 'mastercard', 16);
     }
-
     else if (isAmericanExpressCard(str.substr(0, 2))) {
       switchActiveCard(cardNumberElmnt, 'american', 15);
     }
-
     else if (isMaestroCard(str.substr(0, 4))) {
       switchActiveCard(cardNumberElmnt, 'maestro', 19);
     }
-
     else {
       //card not supported
       clearCardClasses(cardNumberElmnt);
@@ -63,7 +58,6 @@ $(document).ready(function() {
         $('#card-number-error-msg').text('We do not support your card type.');
         $('#card-number-error-container').addClass('negative-check');
         $('#card-number-input').removeClass('correct-input');
-        
       }
     }
 
@@ -74,61 +68,47 @@ $(document).ready(function() {
       $('#card-number-error-msg').text('Illegal characters. You can input only numbers.');
       $('#card-number-error-container').addClass('negative-check');
       $('#card-number-input').removeClass('correct-input');
-      
     }
-
     else if (str.length > 4 && onlyContainsDigits(str)) {
       $('#card-number-error-container').hide();
       $('#card-number-hint-container').show();
       $('#card-number-error-msg').text('');
       $(this).removeClass('negative-box');
       $('#card-number-error-container').removeClass('negative-check');
-      
 
       if (isVisaCard(str.substr(0, 1))) {
         //visa
         if (str.length == 13 || str.length == 16){
           $('#card-number-input').addClass('correct-input');
-          
         }
         else {
           $('#card-number-input').removeClass('correct-input');
-          
         } 
       }
-
       else if (isMastercardCard(str.substr(0, 2))) {
         //master card
         if (str.length == 16) {
           $('#card-number-input').addClass('correct-input');
-          
         }
         else {
           $('#card-number-input').removeClass('correct-input');
-          
         } 
       }
-
       else if (isAmericanExpressCard(str.substr(0, 2))) {
         //american express
         if (str.length == 15) {
           $('#card-number-input').addClass('correct-input');
-          
         }
         else {
           $('#card-number-input').removeClass('correct-input');
-          
         } 
       }
-
       else if (isMaestroCard(str.substr(0, 4))) {
         if (str.length > 12) {
           $('#card-number-input').addClass('correct-input');
-          
         }
         else {
           $('#card-number-input').removeClass('correct-input');
-          
         } 
       }
     }
@@ -155,10 +135,8 @@ $(document).ready(function() {
       $('#card-number-error-msg').text('Illegal characters. You can input only numbers.');
       checkBoxCCElmnt.addClass('negative-check');
       $('#card-number-input').removeClass('correct-input');
-      
       $(this).focus().val();
     }
-
     else if (str.length != 0 && str.length < 4) {
       $('#card-number-hint-container').hide();
       checkBoxCCElmnt.show();
@@ -166,10 +144,8 @@ $(document).ready(function() {
       $('#card-number-error-msg').text('Invalid length.');
       checkBoxCCElmnt.addClass('negative-check');
       $('#card-number-input').removeClass('correct-input');
-      
       $(this).focus().val();
     }
-
     else if (str.length == 4 || str.length > 4) {
 
       if (isVisaCard(str.substr(0, 1))) {
@@ -180,7 +156,6 @@ $(document).ready(function() {
           $('#card-number-error-msg').text('Invalid length. You should input 13 or 16 digits.(VISA)');
           checkBoxCCElmnt.addClass('negative-check');
           $('#card-number-input').removeClass('correct-input');
-          
           $(this).focus().val();
         }
       }
@@ -192,11 +167,9 @@ $(document).ready(function() {
           $('#card-number-error-msg').text('Invalid length. You should input 16 digits.(MC)');
           checkBoxCCElmnt.addClass('negative-check');
           $('#card-number-input').removeClass('correct-input');
-          
           $(this).focus().val();
         }
       }
-
       else if (isAmericanExpressCard(str.substr(0, 2))) {
         if (str.length != 15) {
           $('#card-number-hint-container').hide();
@@ -205,11 +178,9 @@ $(document).ready(function() {
           $('#card-number-error-msg').text('Invalid length. You should input 15 digits.(AE)');
           checkBoxCCElmnt.addClass('negative-check');
           $('#card-number-input').removeClass('correct-input');
-          
           $(this).focus().val();
         }
       }
-
       else if (isMaestroCard(str.substr(0, 4))) {
         if (str.length < 12) {
           $('#card-number-hint-container').hide();
@@ -219,12 +190,10 @@ $(document).ready(function() {
           checkBoxCCElmnt.removeClass('positive-check');
           checkBoxCCElmnt.addClass('negative-check');
           $('#card-number-input').removeClass('correct-input');
-          
           $(this).focus().val(); 
         }
       }
     }
-
     else if (str.length == 0) {//empty
       checkBoxCCElmnt.hide();
       $('#card-number-hint-container').show();
@@ -233,7 +202,6 @@ $(document).ready(function() {
       $(this).removeClass('negative-box');
       checkBoxCCElmnt.removeClass('negative-check');
     }
-
     else {//ok
       checkBoxCCElmnt.hide();
       $('#card-number-hint-container').show();
@@ -241,7 +209,6 @@ $(document).ready(function() {
       $('#card-number-hint-container').text('');
       $(this).removeClass('negative-box');
       checkBoxCCElmnt.removeClass('negative-check');
-
     }
     form.globalCheck();
   });
