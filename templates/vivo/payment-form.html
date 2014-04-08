@@ -91,21 +91,22 @@
             <label for="credit_card_month" class="text-label">Expiration Date</label>
             <div class="space025X"></div>
             
-           
-            <input id="credit-card-month-value" name="credit_card[month]" class="date-box card-input" type="text" maxlength=2/>
-            /
-            <input id="credit-card-year-value" name="credit_card[year]"  class="date-box card-input" type="text" maxlength=2/>
+            <div id="card-date-container">
+                <input id="credit-card-month-value" name="credit_card[month]" class="date-box card-input" type="text" maxlength=2/>
+                /
+                <input id="credit-card-year-value" name="credit_card[year]"  class="date-box card-input" type="text" maxlength=2/>
 
-            
-            <div id="error-date-empty" class="info-space">
-            </div>
-
-            <div id="error-date" class="check-space"> 
-                <div id="check-box-date" class="check-box">
+                
+                <div id="error-date-empty" class="info-space">
                 </div>
-            </div> 
 
-            <div id= "expiration-space" class="space05X"></div>
+                <div id="error-date" class="check-space"> 
+                    <div id="check-box-date" class="check-box">
+                    </div>
+                </div> 
+
+                <div id= "expiration-space" class="space05X"></div>
+            </div>
 
             <div class="back-submit">
                 <button type="submit" class="submit-button neutral-button" disabled>Submit Payment</button>

@@ -10,7 +10,7 @@ $(document).ready(function() {
   }); 
 
   $('#card-verification-code').focus(function() {
-    if( !$('#check-boxCVC').is(':visible') ) {
+    if(!$('#check-boxCVC').is(':visible')) {
       $('#error-spaceCVC').show();
       $('#error-spaceCVC').text('3 digits');
       $('#check-boxCVC').hide();
@@ -31,7 +31,7 @@ $(document).ready(function() {
       form.globalCheck();
     }
 
-    else if(str.length==0){
+    else if(str.length == 0){
       $('#check-boxCVC').hide();
       $('#error-spaceCVC').show();
       $('#check-boxCVC').text('');
@@ -41,14 +41,25 @@ $(document).ready(function() {
       form.globalCheck();
     }
 
-    else if(str.length==3){
-        $('#card-verification-code').removeClass('negative-box');
-        $('#error-spaceCVC').show();
-        $('#check-boxCVC').hide();
-        $('#check-boxCVC').removeClass('negative-check');
-        $('#card-verification-code').addClass('correct-input');
-        form.globalCheck();
+    else if(str.length == 3){
+      $('#card-verification-code').removeClass('negative-box');
+      $('#error-spaceCVC').show();
+      $('#check-boxCVC').hide();
+      $('#check-boxCVC').removeClass('negative-check');
+      $('#card-verification-code').addClass('correct-input');
+      form.globalCheck();
     }
+
+    else if (str.length < 3) {
+      $('#error-spaceCVC').hide();
+      $('#check-boxCVC').show();
+      $('#card-verification-code').addClass('negative-box');
+      $('#check-boxCVC').text('Incomplete.');
+      $('#check-boxCVC').addClass('negative-check');
+      $('#card-verification-code').removeClass('correct-input');
+      form.globalCheck();
+    }
+    form.globalCheck();
   }); 
 
 
@@ -67,7 +78,7 @@ $(document).ready(function() {
       $('#card-verification-code').focus().val();
     }
 
-    else if(str.length!=0&&str.length<3){
+    else if(str.length!=0&&str.length < 3){
       $('#error-spaceCVC').hide();
       $('#check-boxCVC').show();
       $('#card-verification-code').addClass('negative-box');
@@ -77,7 +88,7 @@ $(document).ready(function() {
       form.globalCheck();
       $('#card-verification-code').focus().val();
     }
-    else if(str.length==0){
+    else if(str.length == 0){
       $('#card-verification-code').removeClass('negative-box');
         $('#error-spaceCVC').show();
         $('#error-spaceCVC').text('');
@@ -96,5 +107,5 @@ $(document).ready(function() {
         $('#card-verification-code').addClass('correct-input');
         form.globalCheck();
     }
-   });
+  });
 });

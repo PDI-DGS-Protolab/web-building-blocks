@@ -1,7 +1,7 @@
 var form = new GlobalFormTools();
 
 $(document).on('focus', '#card-holder-name', function() {
-   if( !$(this).parent().find('#card-name-error-container').is(':visible') ) {
+   if(!$(this).parent().find('#card-name-error-container').is(':visible') ) {
     $(this).parent().find('#card-name-hint-container').show();
     $(this).parent().find('#card-name-hint-container').text('Enter your full name as it appears on your card');
     $(this).parent().find('#card-name-error-container').hide();
@@ -20,7 +20,7 @@ $(document).on('keyup', '#card-holder-name', function(e) {
     form.globalCheck();
   }
 
-  else if((str=='')||(str==undefined)||(str.match(/^\s*$/))) {
+  else if((str == '') || (str == undefined) || (str.match(/^\s*$/))) {
     $(this).parent().find('#card-name-hint-container').show();
     $(this).parent().find('#card-name-error-container').hide();
     $(this).parent().find('#card-name-error-msg').text('');

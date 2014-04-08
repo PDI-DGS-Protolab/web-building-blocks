@@ -4,7 +4,7 @@ function GlobalFormTools () {
     if($('#card-holder-name').hasClass('correct-input')
       && $('#card-number-input').hasClass('correct-input')
       && $('#card-verification-code').hasClass('correct-input')
-      &&(dateCh==true)
+      && $('#card-date-container').hasClass('correct-input')
       ){
       $(":submit").removeAttr('disabled');
     }

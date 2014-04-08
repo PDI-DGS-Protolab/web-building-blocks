@@ -1,25 +1,25 @@
 var form = new GlobalFormTools();
 
 $(document).ready(function() {
-  var date= new Date();
-  var month= date.getMonth();
+  var currentDate = new Date();
+  var currentMonth = currentDate.getMonth();
 
   var availableMonth = [ '01','02','03','04','05','06',
                         '07','08','09','10','11','12' ];
 
-  var year= date.getFullYear().toString().substring(2,4);
+  var currentYear = currentDate.getFullYear().toString().substring(2, 4);
 
   var availableYear = new Array();
-  availableYear.push(year);
+  availableYear.push(currentYear);
   var nextYear;
 
-  for (var i=0;i<30;i++){ 
-    nextYear=date.getFullYear()+i+1;
-    availableYear.push(nextYear.toString().substring(2,4));
+  for (var i = 0; i < 30; i++){ 
+    nextYear = currentDate.getFullYear() + i + 1;
+    availableYear.push(nextYear.toString().substring(2, 4));
   }
   
-  $('#credit-card-month-value').attr('placeholder', (month+1).toString());
-  $('#credit-card-year-value').attr('placeholder', year);
+  $('#credit-card-month-value').attr('placeholder', (currentMonth+1).toString());
+  $('#credit-card-year-value').attr('placeholder', currentYear);
 
   $('#credit-card-month-value').focus(function() {
     $('#credit-card-month-value').attr('placeholder', '');
@@ -59,11 +59,11 @@ $(document).ready(function() {
 });
 
 function dateCheck() {
-  var d=new Date();
-  var y=d.getFullYear().toString().substr(2,4);
-  var m=d.getMonth();
-  var selM= $('#credit-card-month-value').val().toString();
-  var selY= $('#credit-card-year-value').val().toString(); 
+  var currentDate = new Date();
+  var currentYear = currentDate.getFullYear().toString().substr(2, 4);
+  var currentMonth = currentDate.getMonth();
+  var selM = $('#credit-card-month-value').val().toString();
+  var selY = $('#credit-card-year-value').val().toString(); 
 
 
   if((/^[0-9]*$/.test(selY) == false)){
@@ -74,7 +74,7 @@ function dateCheck() {
     $('#check-box-date').text("You can input only digits.");
     $('#check-box-date').addClass('negative-check');
     $('#credit-card-year-value').focus().val();
-    dateCh=false;
+    $('#card-date-container').removeClass('correct-input');
   }
   else if((/^[0-9]*$/.test(selM) == false)){
     $('#error-date-empty').hide();
@@ -84,10 +84,10 @@ function dateCheck() {
     $('#check-box-date').text("You can input only digits.");
     $('#check-box-date').addClass('negative-check');
     $('#credit-card-month-value').focus().val();
-    dateCh=false;
+    $('#card-date-container').removeClass('correct-input');
   }
   else{
-    if(selM>12){
+    if(selM > 12){
       $('#error-date-empty').hide();
       $('#error-date').show();
       $('#credit-card-year-value').addClass('negative-box');
@@ -95,30 +95,30 @@ function dateCheck() {
       $('#check-box-date').text("Invalid Month entered.");
       $('#check-box-date').addClass('negative-check');
       $('#credit-card-year-value').focus().val();
-      dateCh=false;
+      $('#card-date-container').removeClass('correct-input');
     }
-    if(selY==y){
-      if(selM<m){
+    if(selY == currentYear){
+      if(selM < currentMonth){
         //ERROR
         $('#error-date-empty').hide();
         $('#error-date').show();
         $('#credit-card-year-value').addClass('negative-box');
         $('#credit-card-month-value').addClass('negative-box');
-        $('#check-box-date').text("Your card has expired or you have chosen a wrong expiration date.");
+        $('#check-box-date').text("Your card has expired or you have chosen a wrong expiration currentDate.");
         $('#check-box-date').addClass('negative-check');
         $('#credit-card-year-value').focus().val();
-        dateCh=false;
+        $('#card-date-container').removeClass('correct-input');
      }
-      else if(selM==''){
+      else if(selM == ''){
         //Must input a month
-        $('#credit-card-month-value').attr('placeholder', m+1);
+        $('#credit-card-month-value').attr('placeholder', currentMonth + 1);
         $('#error-date-empty').show();
         $('#error-date-empty').text("");
         $('#check-box-date').text("");
         $('#error-date').hide();
         $('#credit-card-month-value').removeClass('negative-box');
         $('#credit-card-year-value').removeClass('negative-box');
-        dateCh=false;
+        $('#card-date-container').removeClass('correct-input');
       }
       else{
         //EVERYTHING OK!
@@ -127,46 +127,46 @@ function dateCheck() {
         $('#check-box-date').text("");
         $('#credit-card-year-value').removeClass('negative-box');
         $('#credit-card-month-value').removeClass('negative-box');
-        dateCh=true;
+        $('#card-date-container').addClass('correct-input');
       }
     }
-    else if(selY==''){
+    else if(selY == ''){
       //Must input a year
-      $('#credit-card-year-value').attr('placeholder', y);
+      $('#credit-card-year-value').attr('placeholder', currentYear);
       $('#error-date-empty').show();
       $('#error-date-empty').text("");
       $('#check-box-date').text("");
       $('#error-date').hide();
       $('#credit-card-year-value').removeClass('negative-box');
       $('#credit-card-month-value').removeClass('negative-box');
-      dateCh=false;
+      $('#card-date-container').removeClass('correct-input');
     }
 
-    else if(selY.length==2&&selY<y){
+    else if(selY.length == 2 && selY < currentYear){
       //ERROR
       $('#error-date-empty').hide();
       $('#error-date').show();
       $('#credit-card-year-value').addClass('negative-box');
       $('#credit-card-month-value').addClass('negative-box');
-      $('#check-box-date').text("Your card has expired or you have chosen a wrong expiration date.");
+      $('#check-box-date').text("Your card has expired or you have chosen a wrong expiration currentDate.");
       $('#check-box-date').addClass('negative-check');
       $('#credit-card-year-value').focus().val();
-      dateCh=false;
+      $('#card-date-container').removeClass('correct-input');
     }
-    else if(selY.length==1){
-      dateCh=false;
+    else if(selY.length == 1){
+      $('#card-date-container').removeClass('correct-input');
     }
     else{
-      if(selM==''){
+      if(selM == ''){
         //Must input a month
-        $('#credit-card-month-value').attr('placeholder', m+1);
+        $('#credit-card-month-value').attr('placeholder', currentMonth + 1);
         $('#error-date-empty').show();
         $('#error-date-empty').text("");
         $('#check-box-date').text("");
         $('#error-date').hide();
         $('#credit-card-month-value').removeClass('negative-box');
         $('#credit-card-year-value').removeClass('negative-box');
-        dateCh=false;
+        $('#card-date-container').removeClass('correct-input');
       }
       else{
         $('#check-box-date').text("");
@@ -174,20 +174,21 @@ function dateCheck() {
         $('#error-date').hide();
         $('#credit-card-year-value').removeClass('negative-box');
         $('#credit-card-month-value').removeClass('negative-box');
-        dateCh=true;
+        $('#card-date-container').addClass('correct-input');
       }
     }
   }
+  form.globalCheck();
 }
 
 function dateCheckOnBlur(){
-  var d=new Date();
-  var y=d.getFullYear().toString().substr(2,4);
-  var m=d.getMonth();
-  var selM= $('#credit-card-month-value').val().toString();
-  var selY= $('#credit-card-year-value').val().toString();
+  var currentDate = new Date();
+  var currentYear = currentDate.getFullYear().toString().substr(2, 4);
+  var currentMonth = currentDate.getMonth();
+  var selM = $('#credit-card-month-value').val().toString();
+  var selY = $('#credit-card-year-value').val().toString();
 
-  if(selY.length==1){
+  if(selY.length == 1){
     $('#error-date-empty').hide();
     $('#error-date').show();
     $('#credit-card-year-value').addClass('negative-box');
@@ -195,22 +196,22 @@ function dateCheckOnBlur(){
     $('#check-box-date').text("Invalid year's length. Please input 2 digits.");
     $('#check-box-date').addClass('negative-check');
     $('#credit-card-year-value').focus().val();
-    dateCh=false;
+    $('#card-date-container').removeClass('correct-input');
   }
-  else if(selY.length==0){
-    $('#credit-card-year-value').attr('placeholder', y);
-    if(selM.length==0){
-      $('#credit-card-month-value').attr('placeholder', m+1);
+  else if(selY.length == 0){
+    $('#credit-card-year-value').attr('placeholder', currentYear );
+    if(selM.length == 0){
+      $('#credit-card-month-value').attr('placeholder', currentMonth + 1);
     }
-    dateCh=false;
+    $('#card-date-container').removeClass('correct-input');
   }
 
-  if(selM.length==0){
-    $('#credit-card-month-value').attr('placeholder', m+1);
-    if(selY.length==0){
-      $('#credit-card-year-value').attr('placeholder', y);
+  if(selM.length == 0){
+    $('#credit-card-month-value').attr('placeholder', currentMonth + 1);
+    if(selY.length == 0){
+      $('#credit-card-year-value').attr('placeholder', currentYear );
     }
-    dateCh=false;
+    $('#card-date-container').removeClass('correct-input');
   }
-
+  form.globalCheck();
 }
