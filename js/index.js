@@ -266,15 +266,32 @@ function toggleClearAll(toggle, text) {
 }
 
 function getInputHtml(brand) {
-    return '<div class="input-container"><div class="quit-icon"></div><input class="' + brand +  ' input" type="text"></input><div class="' + brand + ' input-hint"></div><div class="' + brand +  ' error-container"><a class="' + brand +  ' error-message"></a></div></div>';
+    return  '<div class="input-container">\n'+
+            '   <div class="quit-icon"></div>\n'+
+            '   <input class="' + brand +  ' input" type="text"></input>\n'+
+            '   <div class="' + brand + ' input-hint"></div>\n'+
+            '   <div class="' + brand +  ' error-container">\n'+
+            '       <a class="' + brand +  ' error-message"></a>\n'+
+            '   </div>\n'+
+            '</div>';
 }
 
 function getInputRefreshHtml(brand) {
-    return '<div class="input-container"><div class="quit-icon"></div><input disabled class="' + brand + ' special-input-refresh" type="text"></input><button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button></div>';
+    return  '<div class="input-container">\n'+
+            '   <div class="quit-icon"></div>\n+'
+            '   <input disabled class="' + brand + ' special-input-refresh" type="text"></input>\n'+
+            '   <button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button>\n'+
+            '</div>';
 }
 
 function getInputPlussLessHtml(brand) {
-    return '<div class="input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input-plus-less" type="text"></input><button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button></div></div>';
+    return  '<div class="input-container-plus-less">\n'+
+            '   <div class="input-container">\n'+
+            '       <div class="quit-icon"></div>\n'+
+            '       <input class="' + brand + ' special-input-plus-less" type="text"></input>\n'+
+            '       <button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button>\n'+
+            '   </div>\n'+
+            '</div>';
 }
 
 function addInput(draggable, parent, brand) {
@@ -314,7 +331,12 @@ function getButtonType(draggable) {
 }
 
 function getButtonHtml(brand, type) {
-    return '<div class="button-back" ><div class="quit-icon"></div><button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">' + toTitleCase(type) + '</button></div>';
+    return '<div class="button-back" >\n'+
+           '    <div class="quit-icon"></div>\n'+
+           '    <button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">\n'+ 
+           '        '+toTitleCase(type) +'\n'+
+           '    </button>\n'+
+           '</div>';
 }
 
 function addButton(draggable, parent, brand) {

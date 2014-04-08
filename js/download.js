@@ -2,7 +2,8 @@ $(document).ready(function() {
 
     $(document).on('click','.download-btt', function() {
       
-        
+        var buttonTypes=['neutral','positive','negative','subdued'];
+
         var tmp = $(this).attr('id').split('-');
         
         var brand = tmp[0];
@@ -14,12 +15,6 @@ $(document).ready(function() {
         
         var htmlFile, jsFile, defCssFile,cssFile;
 
-        var file1=$.get( 'templates/'+brand+'/'+component+'.html', function() {
-        }).done(function( data ) {
-            htmlFile=data;
-        }).fail(function(){
-            //alert('Could not load files!');
-        });
         var file21=$.get( 'css/default-'+component+'.css', function() {
         }).done(function( data21 ) {
             defCssFile=data21;
@@ -40,20 +35,39 @@ $(document).ready(function() {
                 //alert('Could not load files!');
             });
         }
+
+        if(component==='input'){
+            htmlFile = 'To add a simple '+brand+' input:\n'+
+                        getInputHtml(brand)+'\n\n'+
+                        'To add a refresheable '+brand+' input:\n'+
+                        getInputRefreshHtml(brand)+'\n\n'+
+                        'To add a pluss/less '+brand+' input:\n'+
+                        getInputPlussLessHtml(brand);
+        }
+        else if(component==='button'){
+            htmlFile='';
+            for (a in buttonTypes){
+                htmlFile += 'To add a '+buttonTypes[a]+' '+brand+' button:\n'+
+                            getButtonHtml(brand, buttonTypes[a])+'\n\n';
+            }
+        }
+        else if(component==='table'){
+            htmlFile='Not done yet';
+        }
+
+        var htmlFinal= getFileToShow(htmlFile);
         if(component!=='button' && component !=='table'){
-            $.when(file1, file21,file22,file3).done(function() {
+            $.when(file21,file22,file3).done(function() {
                 var jsFinal= getFileToShow(jsFile);
                 var cssFinal= getFileToShow(defCssFile+'\n'+cssFile);
-                var htmlFinal= getFileToShow(htmlFile);
                 $('#javascript-content').html(jsFinal);
                 $('#css-content').html(cssFinal);
                 $('#html-content').html(htmlFinal);
             });
         }
         else{
-           $.when(file1, file21,file22).done(function() {
+           $.when(file21,file22).done(function() {
                 var cssFinal= getFileToShow(defCssFile+'\n'+cssFile);
-                var htmlFinal= getFileToShow(htmlFile);
                 $('#javascript-content').html('No Javascript Code is needed for this component!');
                 $('#css-content').html(cssFinal);
                 $('#html-content').html(htmlFinal);
@@ -132,41 +146,34 @@ $(document).ready(function() {
                 $('#css-content').html(cssFinal);
             });
         }
-
-        //We read the file that we want:
-        //It only will work on localhost with firefox, with other 
-        //browsers we must need the project deployed on a server(heroku for example)
-        
-        /*var htmlFile, jsFile, cssFile;
-
-        var file1=$.get( 'templates/'+brand+'/'+component+'.html', function() {
-        }).done(function( data ) {
-            htmlFile=data;
-        }).fail(function(){
-            //alert('Could not load files!');
-        });
-        var file2=$.get( 'css/'+brand+'/'+component+'.css', function() {
-        }).done(function( data2 ) {
-            cssFile=data2;
-        }).fail(function(){
-            //alert('Could not load files!');
-        });
-        var file3=$.get( 'js/'+component+'.js', function() {
-        }).done(function( data3 ) {
-           jsFile=data3;
-        }).fail(function(){
-            //alert('Could not load files!');
-        });
-
-        $.when(file1, file2, file3).done(function() {
-            var jsFinal= getFileToShow(jsFile);
-            var cssFinal= getFileToShow(cssFile);
-            var htmlFinal= getFileToShow(htmlFile);
-            $('#javascript-content').html(jsFinal);
-            $('#css-content').html(cssFinal);
-            $('#html-content').html(htmlFinal);
+        var htmlFile='';
+        for(a in c){
+            //check if already loaded something(default)
+            if(c[a].component==='input'){
+                if(c[a].type==='input'){
+                    htmlFile += 'To add a simple '+c[a].brand+' input:\n'+
+                                 getInputHtml(c[a].brand)+'\n\n';
+                }
+                else if(c[a].type==='special-input-refresh'){
+                    htmlFile += 'To add a refresheable '+c[a].brand+' input:\n'+
+                        getInputRefreshHtml(c[a].brand)+'\n\n';
+                }
+                else if(c[a].type==='special-input-plus-less'){
+                    htmlFile +='To add a pluss/less '+c[a].brand+' input:\n'+
+                        getInputPlussLessHtml(c[a].brand)+'\n\n';
+                }
+            }
+            else if(c[a].component==='button'){
+                htmlFile += 'To add a '+c[a].type+' '+c[a].brand+' button:\n'+
+                            getButtonHtml(c[a].brand,c[a].type)+'\n\n';
+            }
+            else if(c[a].component==='table'){
+                htmlFile += 'Table not done yet';
+            }
             
-        });*/
+        }
+        var htmlFinal= getFileToShow(htmlFile);
+        $('#html-content').html(htmlFinal);
         $('#download-text').tabs();
         $('#download-pop-up').dialog({width:900});
         //console.log(htmlTemplate);
