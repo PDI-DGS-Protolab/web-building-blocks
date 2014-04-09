@@ -35,7 +35,7 @@
             <input id="card-holder-name" class="vivo card-input" name="credit_card[full_name]" type="text"/>
             <div id="card-name-hint-container" class="vivo card-hint"></div> 
             <div id="card-name-error-container" class="vivo card-error"> 
-                <a id="card-name-error-msg" class="vivo card-error-message"></a>
+                <a id="card-name-error-msg" class="vivo"></a>
             </div> 
 
             <div id="CVC-hint">
@@ -50,31 +50,17 @@
 
             <div class="space025X clearing"></div>
             <div id="card-number-container">
-                <input autocomplete="off" id="card-number-input" name="credit_card[number]" type="text" class="vivo card-input card-number" />
+                <input autocomplete="off" id="card-number-input" name="credit_card[number]" type="text" class="vivo card-input card-number"/>
                 <div id="card-number-hint-container" class="vivo card-hint card-number"></div>
-                <div id="card-number-error-container" class="vivo card-error card-number card-error-message"></div>
+                <div id="card-number-error-container" class="vivo card-error card-number"></div>
             </div>
 
-            <input autocomplete="off" id="card-verification-code" name="credit_card[verification_code]" type="password" class="vivo card-input" maxlength=3/>
-            
-        <!--
-            <div class="input-container">
-                <input class="vivo input" type="text"></input>
-                <div id="error-spaceCC" class="vivo input-hint"></div>
-                <div id="check-boxCC" class="vivo error-container">
-                    <a class="vivo error-message"></a>
-                </div>
+            <div id="card-CVC-container">
+                <input autocomplete="off" id="card-verification-code" name="credit_card[verification_code]" type="password" class="vivo card-input card-CVC" maxlength="3"/>
+                <div id="card-CVC-hint-container" class="vivo card-hint card-CVC"></div>
+                <div id="card-CVC-error-container" class="vivo card-error card-CVC"></div>
             </div>
-        -->
-        <!--
-            <div class="info-left">
-                <div id="error-spaceCC" class="info-space"> 
-                
-                </div>
-                <div id="check-boxCC" class="check-boxCC">
-
-                </div>
-        -->
+<!--
             </div>
             <div class="info-right">
                 <div id="error-spaceCVC" class="info-space"> 
@@ -84,7 +70,7 @@
 
                 </div>
             </div>
-            
+-->
 
             <label for="credit_card_month" class="text-label">Expiration Date</label>
             <div class="space025X"></div>
