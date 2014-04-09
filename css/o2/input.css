@@ -1,0 +1,45 @@
+.o2.input, .o2.error-message, .o2.input-hint {
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+}
+
+.o2.input:focus {
+    margin: -1px;
+    border-color: #0086C3;
+    border-width: 2px;
+    outline: none !important;
+}
+
+.o2.input.negative-box {
+    margin: -1px;
+    border-color: #D13B37;
+    border-width: 2px;
+}
+
+.o2.input.positive-box {
+    margin: -1px;
+    border-color: #00BD6B;
+    border-width: 2px;
+}
+
+.o2.error-message.negative-check, .o2.error-message.positive-check {
+    color: white;
+}
+
+.o2.error-message.negative-check {
+    background-color: #D13B37;
+}
+
+.o2.error-message.positive-check {
+    background-color: #00BD6B;
+}
+
+.o2.btt-plus, .o2.btt-refresh {
+    background-color: #04538D;
+    border: #016171 1px solid; 
+}
+
+.o2.btt-less {
+    background-color: #717982;
+    border: #717982 1px solid;
+}

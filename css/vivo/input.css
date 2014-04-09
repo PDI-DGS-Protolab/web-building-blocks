@@ -5,7 +5,7 @@
 
 .vivo.input:focus {
     margin: -1px;
-    border-color: #0b4784;
+    border-color: #0B4784;
     border-width: 2px;
     outline: none !important;
 }

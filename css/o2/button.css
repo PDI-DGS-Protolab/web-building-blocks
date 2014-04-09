@@ -70,14 +70,14 @@
     color: white;
     cursor: pointer;
     background: rgba( 0, 168, 179, 0.9 ); /* Old browsers */
-    background: -moz-linear-gradient( top, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220,, 0.9 ) 100% ); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop( 0%, rgba( 0, 168, 179, 0.9 ) ), color-stop( 100%, rgba( 95, 210, 220,, 0.9 ) ) ); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient( top, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220,, 0.9 ) 100% ); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient( top, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220,, 0.9 ) 100% ); /* Opera 11.10+ */
-    background: -ms-linear-gradient( top, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220,, 0.9 ) 100% ); /* IE10+ */
-    background: linear-gradient( to bottom, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220,, 0.9 ) 100% ); /* W3C */
+    background: -moz-linear-gradient( top, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220, 0.9 ) 100% ); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop( 0%, rgba( 0, 168, 179, 0.9 ) ), color-stop( 100%, rgba( 95, 210, 220, 0.9 ) ) ); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient( top, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220, 0.9 ) 100% ); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient( top, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220, 0.9 ) 100% ); /* Opera 11.10+ */
+    background: -ms-linear-gradient( top, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220, 0.9 ) 100% ); /* IE10+ */
+    background: linear-gradient( to bottom, rgba( 0, 168, 179, 0.9 ) 0%, rgba( 95, 210, 220, 0.9 ) 100% ); /* W3C */
     border: rgba( 0, 168, 179, 0.9 ) 1px solid;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 0, 168, 179, 0.9 )', endColorstr='rgba( 95, 210, 220,, 0.9 )', GradientType=0 ); /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 0, 168, 179, 0.9 )', endColorstr='rgba( 95, 210, 220, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
 .o2.btt-positive:active:enabled {

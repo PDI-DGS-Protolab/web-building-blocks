@@ -115,7 +115,22 @@ $(document).ready(function() {
   +'<div id="button-o2" class="visualization-container buttons-container">'
     +'<h3 class="brand-title buttons-container">O2</h3>'
     +'<h3 class="common-title">Buttons</h3>'
-    +'<img class="o2 component-img img-button"/>'
+    +'<img src="img/components/o2/button/neutral-normal.png" class="o2 component-img img-button neutral" title="This is the normal status for the neutral button."/>'
+    +'<img src="img/components/o2/button/neutral-hover.png" class="o2 component-img img-button neutral" title="This is the hover status for the neutral button."/>'
+    +'<img src="img/components/o2/button/neutral-pressed.png" class="o2 component-img img-button neutral" title="This is the pressed status for the neutral button."/>'
+    +'<img src="img/components/o2/button/neutral-disable.png" class="o2 component-img img-button neutral" title="This is the disabled status for the neutral button."/>'
+    +'<img src="img/components/o2/button/positive-normal.png" class="o2 component-img img-button positive" title="This is the normal status for the positive button."/>'
+    +'<img src="img/components/o2/button/positive-hover.png" class="o2 component-img img-button positive" title="This is the hover status for the positive button."/>'
+    +'<img src="img/components/o2/button/positive-pressed.png" class="o2 component-img img-button positive" title="This is the pressed status for the positive button."/>'
+    +'<img src="img/components/o2/button/positive-disable.png" class="o2 component-img img-button positive" title="This is the disabled status for the positive button."/>'
+    +'<img src="img/components/o2/button/negative-normal.png" class="o2 component-img img-button negative" title="This is the normal status for the negative button."/>'
+    +'<img src="img/components/o2/button/negative-hover.png" class="o2 component-img img-button negative" title="This is the hover status for the negative button."/>'
+    +'<img src="img/components/o2/button/negative-pressed.png" class="o2 component-img img-button negative" title="This is the pressed status for the negative button."/>'
+    +'<img src="img/components/o2/button/negative-disable.png" class="o2 component-img img-button negative" title="This is the disabled status for the negative button."/>'
+    +'<img src="img/components/o2/button/subdued-normal.png" class="o2 component-img img-button subdued" title="This is the normal status for the subdued button."/>'
+    +'<img src="img/components/o2/button/subdued-hover.png" class="o2 component-img img-button subdued" title="This is the hover status for the subdued button."/>'
+    +'<img src="img/components/o2/button/subdued-pressed.png" class="o2 component-img img-button subdued" title="This is the pressed status for the subdued button."/>'
+    +'<img src="img/components/o2/button/subdued-disable.png" class="o2 component-img img-button subdued" title="This is the disabled status for the subdued button."/>'
     +'<button type="submit" id="o2-button" class="download-btt">Download pack + guidelines</button>'
   +'</div>';
   
@@ -278,7 +293,7 @@ function getInputHtml(brand) {
 
 function getInputRefreshHtml(brand) {
     return  '<div class="input-container">\n'+
-            '   <div class="quit-icon"></div>\n+'
+            '   <div class="quit-icon"></div>\n'+
             '   <input disabled class="' + brand + ' special-input-refresh" type="text"></input>\n'+
             '   <button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button>\n'+
             '</div>';
