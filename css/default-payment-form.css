@@ -140,20 +140,20 @@
 }
 
 .american {
-    background: transparent url('../img/components/paymentform/americanexpress.png');
+    background: #FFFFFF url('../img/components/paymentform/americanexpress.png');
     
 }
 
 .maestro {
-    background: transparent url('../img/components/paymentform/maestro.png');
+    background: #FFFFFF url('../img/components/paymentform/maestro.png');
 }
 
 .mastercard {
-    background: transparent url('../img/components/paymentform/mastercard.png');
+    background: #FFFFFF url('../img/components/paymentform/mastercard.png');
 }
 
 .visa {
-    background: transparent url('../img/components/paymentform/visa.png');
+    background: #FFFFFF url('../img/components/paymentform/visa.png');
 }
 
 .american,.mastercard,.maestro,.visa {
@@ -238,11 +238,6 @@
 }
 
 .context-name {
-    font-size: 10px;
-    color: #474747;
-    display: none;
-}
-.context-name-r {
     font-size: 10px;
     color: #474747;
     display: none;

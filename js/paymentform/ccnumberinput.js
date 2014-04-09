@@ -158,6 +158,9 @@ $(document).ready(function() {
           $('#card-number-input').removeClass('correct-input');
           $(this).focus().val();
         }
+        else {
+          cardNumberIsCorrect();
+        }
       }
       else if (isMastercardCard(str.substr(0, 2))) {
         if (str.length != 16) {
@@ -169,6 +172,9 @@ $(document).ready(function() {
           $('#card-number-input').removeClass('correct-input');
           $(this).focus().val();
         }
+        else {
+          cardNumberIsCorrect();
+        }
       }
       else if (isAmericanExpressCard(str.substr(0, 2))) {
         if (str.length != 15) {
@@ -179,6 +185,9 @@ $(document).ready(function() {
           checkBoxCCElmnt.addClass('negative-check');
           $('#card-number-input').removeClass('correct-input');
           $(this).focus().val();
+        }
+        else {
+          cardNumberIsCorrect();
         }
       }
       else if (isMaestroCard(str.substr(0, 4))) {
@@ -192,6 +201,9 @@ $(document).ready(function() {
           $('#card-number-input').removeClass('correct-input');
           $(this).focus().val(); 
         }
+        else {
+          cardNumberIsCorrect();
+        }
       }
     }
     else if (str.length == 0) {//empty
@@ -203,12 +215,7 @@ $(document).ready(function() {
       checkBoxCCElmnt.removeClass('negative-check');
     }
     else {//ok
-      checkBoxCCElmnt.hide();
-      $('#card-number-hint-container').show();
-      checkBoxCCElmnt.text('');
-      $('#card-number-hint-container').text('');
-      $(this).removeClass('negative-box');
-      checkBoxCCElmnt.removeClass('negative-check');
+      cardNumberIsCorrect();
     }
     form.globalCheck();
   });
@@ -261,4 +268,15 @@ function clearCardClasses (element) {
 
 function onlyContainsDigits (numberToAnalyze) {
   return /^\d*$/.test(numberToAnalyze);
+}
+
+function cardNumberIsCorrect () {
+  var checkBoxCCElmnt = $('#card-number-error-container');
+  var cardHintContainer = $('#card-number-hint-container');
+  checkBoxCCElmnt.hide();
+  cardHintContainer.show();
+  checkBoxCCElmnt.text('');
+  cardHintContainer.text('');
+  $('#card-number-input').removeClass('negative-box');
+  checkBoxCCElmnt.removeClass('negative-check');
 }
