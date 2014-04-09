@@ -131,7 +131,6 @@ $(document).ready(function() {
 
   $('#card-number-input').blur(function() {
     var checkBoxCCElmnt = $('#card-number-error-container');
-    $('#card-number-error-container').text('');
     var str = $(this).val();
     var errorMsg = checkBoxCCElmnt.text();
     
@@ -206,11 +205,14 @@ $(document).ready(function() {
           checkBoxCCElmnt.removeClass('positive-check');
           checkBoxCCElmnt.addClass('negative-check');
           $('#card-number-input').removeClass('correct-input');
-          $(this).focus().val(); 
+          $(this).focus().val();
         }
         else {
           cardNumberIsCorrect();
         }
+      }
+      else {
+        $(this).focus().val();
       }
     }
     else if (str.length == 0) {//empty
@@ -252,8 +254,6 @@ function isMaestroCard (firstFourInputDigits) {
   }
   return false;
 };
-
-
 
 function switchActiveCard (element, newCardClass, newCardLength) {
   var CCInput = $(element);

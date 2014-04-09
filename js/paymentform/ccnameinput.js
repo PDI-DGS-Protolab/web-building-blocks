@@ -11,7 +11,7 @@ $(document).ready(function() {
 
   $('#card-holder-name').keyup(function(e) {
     var str = $(this).val();
-    if(!containsLetters(str)) {
+    if(!onlyContainsLetters(str)) {
       $('#card-name-hint-container').hide();
       $('#card-name-error-container').show();
       $(this).addClass('negative-box');
@@ -21,7 +21,7 @@ $(document).ready(function() {
       form.globalCheck();
     }
 
-    else if((str == '') || (str == undefined) || (str.match(/^\s*$/))) {
+    else if((str == '') || (str == undefined) || isMadeOfWhiteSpaces(str)) {
       $('#card-name-hint-container').show();
       $('#card-name-error-container').hide();
       $('#card-name-error-msg').text('');
@@ -44,7 +44,7 @@ $(document).ready(function() {
   $('#card-holder-name').blur(function() {
     var str = $(this).val();
     $('#card-name-hint-container').text('');
-    if(!containsLetters(str)) {
+    if(!onlyContainsLetters(str)) {
       $('#card-name-hint-container').hide();
       $('#card-name-error-container').show();
       $(this).addClass('negative-box');
@@ -57,6 +57,10 @@ $(document).ready(function() {
   });
 });
 
-function containsLetters(name) {
+function onlyContainsLetters(name) {
   return /^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1 ]*$/.test(name);
+}
+
+function isMadeOfWhiteSpaces(name) {
+  return name.match(/^\s*$/);
 }
