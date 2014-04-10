@@ -20,7 +20,7 @@ $(document).ready(function() {
   $('#card-verification-code').keyup(function(e) {
     var str = $('#card-verification-code').val();
 
-    if((/^[0-9]*$/.test(str) == false)) { 
+    if(!onlyContainsDigits(str)) { 
       $('#card-CVC-hint-container').hide();
       $('#card-CVC-error-container').show();
       $('#card-verification-code').addClass('negative-box');
@@ -49,16 +49,6 @@ $(document).ready(function() {
       $('#card-verification-code').addClass('correct-input');
       form.globalCheck();
     }
-
-    else if (str.length < 3) {
-      $('#card-CVC-hint-container').hide();
-      $('#card-CVC-error-container').show();
-      $('#card-verification-code').addClass('negative-box');
-      $('#card-CVC-error-container').text('Incomplete.');
-      $('#card-CVC-error-container').addClass('negative-check');
-      $('#card-verification-code').removeClass('correct-input');
-      form.globalCheck();
-    }
     form.globalCheck();
   }); 
 
@@ -67,7 +57,7 @@ $(document).ready(function() {
 
     var str = $('#card-verification-code').val();
 
-    if((/^[0-9]*$/.test(str) == false)) { 
+    if (!onlyContainsDigits(str)) { 
       $('#card-CVC-hint-container').hide();
       $('#card-CVC-error-container').show();
       $('#card-verification-code').addClass('negative-box');
@@ -78,7 +68,7 @@ $(document).ready(function() {
       $('#card-verification-code').focus().val();
     }
 
-    else if(str.length!=0&&str.length < 3){
+    else if (str.length != 0 && str.length < 3){
       $('#card-CVC-hint-container').hide();
       $('#card-CVC-error-container').show();
       $('#card-verification-code').addClass('negative-box');
@@ -88,7 +78,7 @@ $(document).ready(function() {
       form.globalCheck();
       $('#card-verification-code').focus().val();
     }
-    else if(str.length == 0){
+    else if (str.length == 0) {
       $('#card-verification-code').removeClass('negative-box');
         $('#card-CVC-hint-container').show();
         $('#card-CVC-hint-container').text('');
@@ -109,3 +99,7 @@ $(document).ready(function() {
     }
   });
 });
+
+function onlyContainsDigits (numberToAnalyze) {
+  return /^\d*$/.test(numberToAnalyze);
+}

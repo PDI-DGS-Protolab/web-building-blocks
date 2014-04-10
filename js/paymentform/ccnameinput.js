@@ -57,10 +57,10 @@ $(document).ready(function() {
   });
 });
 
-function onlyContainsLetters(name) {
+function onlyContainsLetters (name) {
   return /^[a-zA-Z\u00e1\u00e9\u00ed\u00f3\u00fa\u00c1\u00c9\u00cd\u00d3\u00da\u00f1\u00d1 ]*$/.test(name);
 }
 
-function isMadeOfWhiteSpaces(name) {
+function isMadeOfWhiteSpaces (name) {
   return name.match(/^\s*$/);
 }
