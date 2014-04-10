@@ -18,38 +18,38 @@ $(document).ready(function() {
     availableYear.push(nextYear.toString().substring(2, 4));
   }
   
-  $('#credit-card-month-value').attr('placeholder', (currentMonth + 1).toString());
-  $('#credit-card-year-value').attr('placeholder', currentYear);
+  $('#card-expiration-month').attr('placeholder', (currentMonth + 1).toString());
+  $('#card-expiration-year').attr('placeholder', currentYear);
 
-  $('#credit-card-month-value').focus(function() {
-    $('#credit-card-month-value').attr('placeholder', '');
+  $('#card-expiration-month').focus(function() {
+    $('#card-expiration-month').attr('placeholder', '');
   });
 
-  $('#credit-card-year-value').focus(function() {
-    $('#credit-card-year-value').attr('placeholder', '');
+  $('#card-expiration-year').focus(function() {
+    $('#card-expiration-year').attr('placeholder', '');
   });
 
-  $('#credit-card-month-value').keyup(function(e) {
+  $('#card-expiration-month').keyup(function(e) {
     dateCheck();
   });
 
-  $('#credit-card-year-value').keyup(function(e) {
+  $('#card-expiration-year').keyup(function(e) {
     dateCheck();
   });
 
-  $('#credit-card-year-value').blur(function() {
+  $('#card-expiration-year').blur(function() {
     dateCheckOnBlur();
   });
 
-  $('#credit-card-month-value').blur(function() {
+  $('#card-expiration-month').blur(function() {
     dateCheckOnBlur();
   });
 
-  $('#credit-card-month-value').autocomplete({
+  $('#card-expiration-month').autocomplete({
     source: availableMonth
   });
 
-  $('#credit-card-year-value').autocomplete({
+  $('#card-expiration-year').autocomplete({
     //source: availableYear
     source: function(request, response) {
         var results = $.ui.autocomplete.filter(availableYear, request.term);
@@ -62,119 +62,119 @@ function dateCheck() {
   var currentDate = new Date();
   var currentYear = currentDate.getFullYear().toString().substr(2, 4);
   var currentMonth = currentDate.getMonth();
-  var inputMonth = $('#credit-card-month-value').val().toString();
-  var inputYear = $('#credit-card-year-value').val().toString(); 
+  var inputMonth = $('#card-expiration-month').val().toString();
+  var inputYear = $('#card-expiration-year').val().toString(); 
 
 
   if ((/^[0-9]*$/.test(inputYear) == false)) {
     $('#error-date-empty').hide();
-    $('#error-date').show();
-    $('#credit-card-year-value').addClass('negative-box');
-    $('#credit-card-month-value').addClass('negative-box');
-    $('#check-box-date').text("You can input only digits.");
-    $('#check-box-date').addClass('negative-check');
-    $('#credit-card-year-value').focus().val();
-    $('#card-date-container').removeClass('correct-input');
+    $('#card-expiration-error-container').show();
+    $('#card-expiration-year').addClass('negative-box');
+    $('#card-expiration-month').addClass('negative-box');
+    $('#card-expiration-error-container').text("You can input only digits.");
+    $('#card-expiration-error-container').addClass('negative-check');
+    $('#card-expiration-year').focus().val();
+    $('#card-expiration-container').removeClass('correct-input');
   }
   else if ((/^[0-9]*$/.test(inputMonth) == false)) {
     $('#error-date-empty').hide();
-    $('#error-date').show();
-    $('#credit-card-year-value').addClass('negative-box');
-    $('#credit-card-month-value').addClass('negative-box');
-    $('#check-box-date').text("You can input only digits.");
-    $('#check-box-date').addClass('negative-check');
-    $('#credit-card-month-value').focus().val();
-    $('#card-date-container').removeClass('correct-input');
+    $('#card-expiration-error-container').show();
+    $('#card-expiration-year').addClass('negative-box');
+    $('#card-expiration-month').addClass('negative-box');
+    $('#card-expiration-error-container').text("You can input only digits.");
+    $('#card-expiration-error-container').addClass('negative-check');
+    $('#card-expiration-month').focus().val();
+    $('#card-expiration-container').removeClass('correct-input');
   }
   else {
     if (inputMonth > 12) {
       $('#error-date-empty').hide();
-      $('#error-date').show();
-      $('#credit-card-year-value').addClass('negative-box');
-      $('#credit-card-month-value').addClass('negative-box');
-      $('#check-box-date').text("Invalid Month entered.");
-      $('#check-box-date').addClass('negative-check');
-      $('#credit-card-year-value').focus().val();
-      $('#card-date-container').removeClass('correct-input');
+      $('#card-expiration-error-container').show();
+      $('#card-expiration-year').addClass('negative-box');
+      $('#card-expiration-month').addClass('negative-box');
+      $('#card-expiration-error-container').text("Invalid Month entered.");
+      $('#card-expiration-error-container').addClass('negative-check');
+      $('#card-expiration-year').focus().val();
+      $('#card-expiration-container').removeClass('correct-input');
     }
     if (inputYear == currentYear) {
       if (inputMonth < currentMonth) {
         //ERROR
         $('#error-date-empty').hide();
-        $('#error-date').show();
-        $('#credit-card-year-value').addClass('negative-box');
-        $('#credit-card-month-value').addClass('negative-box');
-        $('#check-box-date').text("Your card has expired or you have chosen a wrong expiration currentDate.");
-        $('#check-box-date').addClass('negative-check');
-        $('#credit-card-year-value').focus().val();
-        $('#card-date-container').removeClass('correct-input');
+        $('#card-expiration-error-container').show();
+        $('#card-expiration-year').addClass('negative-box');
+        $('#card-expiration-month').addClass('negative-box');
+        $('#card-expiration-error-container').text("Your card has expired or you have chosen a wrong expiration currentDate.");
+        $('#card-expiration-error-container').addClass('negative-check');
+        $('#card-expiration-year').focus().val();
+        $('#card-expiration-container').removeClass('correct-input');
      }
       else if (inputMonth == '') {
         //Must input a month
-        $('#credit-card-month-value').attr('placeholder', currentMonth + 1);
+        $('#card-expiration-month').attr('placeholder', currentMonth + 1);
         $('#error-date-empty').show();
         $('#error-date-empty').text("");
-        $('#check-box-date').text("");
-        $('#error-date').hide();
-        $('#credit-card-month-value').removeClass('negative-box');
-        $('#credit-card-year-value').removeClass('negative-box');
-        $('#card-date-container').removeClass('correct-input');
+        $('#card-expiration-error-container').text("");
+        $('#card-expiration-error-container').hide();
+        $('#card-expiration-month').removeClass('negative-box');
+        $('#card-expiration-year').removeClass('negative-box');
+        $('#card-expiration-container').removeClass('correct-input');
       }
       else {
         //EVERYTHING OK!
         $('#error-date-empty').show();
-        $('#error-date').hide();
-        $('#check-box-date').text("");
-        $('#credit-card-year-value').removeClass('negative-box');
-        $('#credit-card-month-value').removeClass('negative-box');
-        $('#card-date-container').addClass('correct-input');
+        $('#card-expiration-error-container').hide();
+        $('#card-expiration-error-container').text("");
+        $('#card-expiration-year').removeClass('negative-box');
+        $('#card-expiration-month').removeClass('negative-box');
+        $('#card-expiration-container').addClass('correct-input');
       }
     }
     else if (inputYear == '') {
       //Must input a year
-      $('#credit-card-year-value').attr('placeholder', currentYear);
+      $('#card-expiration-year').attr('placeholder', currentYear);
       $('#error-date-empty').show();
       $('#error-date-empty').text("");
-      $('#check-box-date').text("");
-      $('#error-date').hide();
-      $('#credit-card-year-value').removeClass('negative-box');
-      $('#credit-card-month-value').removeClass('negative-box');
-      $('#card-date-container').removeClass('correct-input');
+      $('#card-expiration-error-container').text("");
+      $('#card-expiration-error-container').hide();
+      $('#card-expiration-year').removeClass('negative-box');
+      $('#card-expiration-month').removeClass('negative-box');
+      $('#card-expiration-container').removeClass('correct-input');
     }
 
     else if (inputYear.length == 2 && inputYear < currentYear) {
       //ERROR
       $('#error-date-empty').hide();
-      $('#error-date').show();
-      $('#credit-card-year-value').addClass('negative-box');
-      $('#credit-card-month-value').addClass('negative-box');
-      $('#check-box-date').text("Your card has expired or you have chosen a wrong expiration currentDate.");
-      $('#check-box-date').addClass('negative-check');
-      $('#credit-card-year-value').focus().val();
-      $('#card-date-container').removeClass('correct-input');
+      $('#card-expiration-error-container').show();
+      $('#card-expiration-year').addClass('negative-box');
+      $('#card-expiration-month').addClass('negative-box');
+      $('#card-expiration-error-container').text("Your card has expired or you have chosen a wrong expiration currentDate.");
+      $('#card-expiration-error-container').addClass('negative-check');
+      $('#card-expiration-year').focus().val();
+      $('#card-expiration-container').removeClass('correct-input');
     }
     else if (inputYear.length == 1) {
-      $('#card-date-container').removeClass('correct-input');
+      $('#card-expiration-container').removeClass('correct-input');
     }
     else {
       if (inputMonth == '') {
         //Must input a month
-        $('#credit-card-month-value').attr('placeholder', currentMonth + 1);
+        $('#card-expiration-month').attr('placeholder', currentMonth + 1);
         $('#error-date-empty').show();
         $('#error-date-empty').text("");
-        $('#check-box-date').text("");
-        $('#error-date').hide();
-        $('#credit-card-month-value').removeClass('negative-box');
-        $('#credit-card-year-value').removeClass('negative-box');
-        $('#card-date-container').removeClass('correct-input');
+        $('#card-expiration-error-container').text("");
+        $('#card-expiration-error-container').hide();
+        $('#card-expiration-month').removeClass('negative-box');
+        $('#card-expiration-year').removeClass('negative-box');
+        $('#card-expiration-container').removeClass('correct-input');
       }
       else {
-        $('#check-box-date').text("");
+        $('#card-expiration-error-container').text("");
         $('#error-date-empty').show();
-        $('#error-date').hide();
-        $('#credit-card-year-value').removeClass('negative-box');
-        $('#credit-card-month-value').removeClass('negative-box');
-        $('#card-date-container').addClass('correct-input');
+        $('#card-expiration-error-container').hide();
+        $('#card-expiration-year').removeClass('negative-box');
+        $('#card-expiration-month').removeClass('negative-box');
+        $('#card-expiration-container').addClass('correct-input');
       }
     }
   }
@@ -185,33 +185,33 @@ function dateCheckOnBlur() {
   var currentDate = new Date();
   var currentYear = currentDate.getFullYear().toString().substr(2, 4);
   var currentMonth = currentDate.getMonth();
-  var inputMonth = $('#credit-card-month-value').val().toString();
-  var inputYear = $('#credit-card-year-value').val().toString();
+  var inputMonth = $('#card-expiration-month').val().toString();
+  var inputYear = $('#card-expiration-year').val().toString();
 
   if (inputYear.length == 1) {
     $('#error-date-empty').hide();
-    $('#error-date').show();
-    $('#credit-card-year-value').addClass('negative-box');
-    $('#credit-card-month-value').addClass('negative-box');
-    $('#check-box-date').text("Invalid year's length. Please input 2 digits.");
-    $('#check-box-date').addClass('negative-check');
-    $('#credit-card-year-value').focus().val();
-    $('#card-date-container').removeClass('correct-input');
+    $('#card-expiration-error-container').show();
+    $('#card-expiration-year').addClass('negative-box');
+    $('#card-expiration-month').addClass('negative-box');
+    $('#card-expiration-error-container').text("Invalid year's length. Please input 2 digits.");
+    $('#card-expiration-error-container').addClass('negative-check');
+    $('#card-expiration-year').focus().val();
+    $('#card-expiration-container').removeClass('correct-input');
   }
   else if (inputYear.length == 0) {
-    $('#credit-card-year-value').attr('placeholder', currentYear );
+    $('#card-expiration-year').attr('placeholder', currentYear );
     if (inputMonth.length == 0) {
-      $('#credit-card-month-value').attr('placeholder', currentMonth + 1);
+      $('#card-expiration-month').attr('placeholder', currentMonth + 1);
     }
-    $('#card-date-container').removeClass('correct-input');
+    $('#card-expiration-container').removeClass('correct-input');
   }
 
   if (inputMonth.length == 0) {
-    $('#credit-card-month-value').attr('placeholder', currentMonth + 1);
+    $('#card-expiration-month').attr('placeholder', currentMonth + 1);
     if (inputYear.length == 0) {
-      $('#credit-card-year-value').attr('placeholder', currentYear );
+      $('#card-expiration-year').attr('placeholder', currentYear );
     }
-    $('#card-date-container').removeClass('correct-input');
+    $('#card-expiration-container').removeClass('correct-input');
   }
   form.globalCheck();
 }

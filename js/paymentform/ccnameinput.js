@@ -15,8 +15,8 @@ $(document).ready(function() {
       $('#card-name-hint-container').hide();
       $('#card-name-error-container').show();
       $(this).addClass('negative-box');
-      $('#card-name-error-msg').text('Illegal characters. You can input only letters.');
-      $('#card-name-error-msg').addClass('negative-check');
+      $('#card-name-error-container').text('Illegal characters. You can input only letters.');
+      $('#card-name-error-container').addClass('negative-check');
       $('#card-holder-name').removeClass('correct-input');
       form.globalCheck();
     }
@@ -24,7 +24,7 @@ $(document).ready(function() {
     else if((str == '') || (str == undefined) || isMadeOfWhiteSpaces(str)) {
       $('#card-name-hint-container').show();
       $('#card-name-error-container').hide();
-      $('#card-name-error-msg').text('');
+      $('#card-name-error-container').text('');
       $(this).removeClass('negative-box');
       $('#card-holder-name').removeClass('correct-input');
       form.globalCheck();
@@ -35,7 +35,7 @@ $(document).ready(function() {
       $('#card-name-error-container').hide();
       $('#card-name-hint-container').show();
       $('#card-name-hint-container').text('Enter your full name as it appears on your card');
-      $('#card-name-error-msg').removeClass('negative-check');
+      $('#card-name-error-container').removeClass('negative-check');
       $('#card-holder-name').addClass('correct-input');
       form.globalCheck();
     }
@@ -48,8 +48,8 @@ $(document).ready(function() {
       $('#card-name-hint-container').hide();
       $('#card-name-error-container').show();
       $(this).addClass('negative-box');
-      $('#card-name-error-msg').text('Illegal characters. You can input only letters.');
-      $('#card-name-error-msg').addClass('negative-check');
+      $('#card-name-error-container').text('Illegal characters. You can input only letters.');
+      $('#card-name-error-container').addClass('negative-check');
       $('#card-holder-name').removeClass('correct-input');
       form.globalCheck();
       $('#card-holder-name').focus().val();

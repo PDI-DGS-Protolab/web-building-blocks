@@ -12,10 +12,10 @@
     border-radius: 5px;
 }
 
-.date-box::-webkit-input-placeholder {
+.date-input::-webkit-input-placeholder {
   font-style: italic;
 }
-.date-box:-moz-placeholder {
+.date-input:-moz-placeholder {
   font-style: italic;
 }
 
@@ -113,14 +113,15 @@
     font-weight: bold;
 }
 
-#card-name-error-msg, #card-number-error-container, #card-CVC-error-container {
-    height: 22.5px;
-    margin-top: 3.75px;
-    font-size: 14px;
-    font-weight: bold;
+.card-error {
     border-radius: 5px;
     float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 22.5px;
     line-height: 22.5px;
+    margin-top: 3.75px;
+    margin-bottom: 4px;
     text-indent: 5px;
     width: 100%;
 }
@@ -203,7 +204,7 @@
     clear: both;
 }
 
-.date-box {
+.date-input {
     width: 35px;
     text-align: center;
 }

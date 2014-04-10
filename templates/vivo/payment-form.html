@@ -34,9 +34,7 @@
             <div class="space025X"></div>
             <input id="card-holder-name" class="vivo card-input" name="credit_card[full_name]" type="text"/>
             <div id="card-name-hint-container" class="vivo card-hint"></div> 
-            <div id="card-name-error-container" class="vivo card-error"> 
-                <a id="card-name-error-msg" class="vivo"></a>
-            </div> 
+            <div id="card-name-error-container" class="vivo card-error"></div> 
 
             <div id="CVC-hint">
                     <p>3-digit number on the back of your card</p>
@@ -75,21 +73,12 @@
             <label for="credit_card_month" class="text-label">Expiration Date</label>
             <div class="space025X"></div>
             
-            <div id="card-date-container">
-                <input id="credit-card-month-value" name="credit_card[month]" class="date-box card-input" type="text" maxlength=2/>
-                /
-                <input id="credit-card-year-value" name="credit_card[year]"  class="date-box card-input" type="text" maxlength=2/>
-
-                
-                <div id="error-date-empty" class="info-space">
-                </div>
-
-                <div id="error-date" class="check-space"> 
-                    <div id="check-box-date" class="check-box">
-                    </div>
-                </div> 
-
-                <div id= "expiration-space" class="space05X"></div>
+            <div id="card-expiration-container">
+                <input autocomplete="off" id="card-expiration-month" name="credit_card[month]" type="text" class="vivo card-input date-input" maxlength="2"/>
+                <span>/</span>
+                <input autocomplete="off" id="card-expiration-year" name="credit_card[year]" type="text" class="vivo card-input date-input" maxlength="2"/>
+                <div id="card-expiration-error-container" class="vivo card-error"></div>
+                <div class="space05X"></div>
             </div>
 
             <div class="back-submit">
