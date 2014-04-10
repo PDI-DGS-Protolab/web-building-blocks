@@ -204,6 +204,10 @@
     clear: both;
 }
 
+#card-expiration-container {
+    padding-bottom: 30px;
+}
+
 .date-input {
     width: 35px;
     text-align: center;

@@ -67,7 +67,6 @@ function dateCheck() {
 
 
   if ((/^[0-9]*$/.test(inputYear) == false)) {
-    $('#error-date-empty').hide();
     $('#card-expiration-error-container').show();
     $('#card-expiration-year').addClass('negative-box');
     $('#card-expiration-month').addClass('negative-box');
@@ -77,7 +76,6 @@ function dateCheck() {
     $('#card-expiration-container').removeClass('correct-input');
   }
   else if ((/^[0-9]*$/.test(inputMonth) == false)) {
-    $('#error-date-empty').hide();
     $('#card-expiration-error-container').show();
     $('#card-expiration-year').addClass('negative-box');
     $('#card-expiration-month').addClass('negative-box');
@@ -88,7 +86,6 @@ function dateCheck() {
   }
   else {
     if (inputMonth > 12) {
-      $('#error-date-empty').hide();
       $('#card-expiration-error-container').show();
       $('#card-expiration-year').addClass('negative-box');
       $('#card-expiration-month').addClass('negative-box');
@@ -100,7 +97,6 @@ function dateCheck() {
     if (inputYear == currentYear) {
       if (inputMonth < currentMonth) {
         //ERROR
-        $('#error-date-empty').hide();
         $('#card-expiration-error-container').show();
         $('#card-expiration-year').addClass('negative-box');
         $('#card-expiration-month').addClass('negative-box');
@@ -112,8 +108,6 @@ function dateCheck() {
       else if (inputMonth == '') {
         //Must input a month
         $('#card-expiration-month').attr('placeholder', currentMonth + 1);
-        $('#error-date-empty').show();
-        $('#error-date-empty').text("");
         $('#card-expiration-error-container').text("");
         $('#card-expiration-error-container').hide();
         $('#card-expiration-month').removeClass('negative-box');
@@ -122,7 +116,6 @@ function dateCheck() {
       }
       else {
         //EVERYTHING OK!
-        $('#error-date-empty').show();
         $('#card-expiration-error-container').hide();
         $('#card-expiration-error-container').text("");
         $('#card-expiration-year').removeClass('negative-box');
@@ -133,8 +126,6 @@ function dateCheck() {
     else if (inputYear == '') {
       //Must input a year
       $('#card-expiration-year').attr('placeholder', currentYear);
-      $('#error-date-empty').show();
-      $('#error-date-empty').text("");
       $('#card-expiration-error-container').text("");
       $('#card-expiration-error-container').hide();
       $('#card-expiration-year').removeClass('negative-box');
@@ -144,7 +135,6 @@ function dateCheck() {
 
     else if (inputYear.length == 2 && inputYear < currentYear) {
       //ERROR
-      $('#error-date-empty').hide();
       $('#card-expiration-error-container').show();
       $('#card-expiration-year').addClass('negative-box');
       $('#card-expiration-month').addClass('negative-box');
@@ -160,8 +150,6 @@ function dateCheck() {
       if (inputMonth == '') {
         //Must input a month
         $('#card-expiration-month').attr('placeholder', currentMonth + 1);
-        $('#error-date-empty').show();
-        $('#error-date-empty').text("");
         $('#card-expiration-error-container').text("");
         $('#card-expiration-error-container').hide();
         $('#card-expiration-month').removeClass('negative-box');
@@ -170,7 +158,6 @@ function dateCheck() {
       }
       else {
         $('#card-expiration-error-container').text("");
-        $('#error-date-empty').show();
         $('#card-expiration-error-container').hide();
         $('#card-expiration-year').removeClass('negative-box');
         $('#card-expiration-month').removeClass('negative-box');
@@ -189,7 +176,6 @@ function dateCheckOnBlur() {
   var inputYear = $('#card-expiration-year').val().toString();
 
   if (inputYear.length == 1) {
-    $('#error-date-empty').hide();
     $('#card-expiration-error-container').show();
     $('#card-expiration-year').addClass('negative-box');
     $('#card-expiration-month').addClass('negative-box');
