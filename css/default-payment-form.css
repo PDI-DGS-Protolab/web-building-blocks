@@ -85,13 +85,9 @@
     width: 96%;
 }
 
-.card-number {
-    width: 100%;
-}
-
 #card-CVC-container {
     float: right;
-    width: 18%;
+    width: 21%;
 }
 
 .card-hint, .card-error {
@@ -104,6 +100,7 @@
     color: #474747;
     line-height: 30px;
     vertical-align: middle;
+    width: 100%;
 }
 
 .card-error {
@@ -124,7 +121,6 @@
     border-radius: 5px;
     float: left;
     line-height: 22.5px;
-    vertical-align: middle;
     text-indent: 5px;
     width: 100%;
 }
@@ -134,9 +130,9 @@
     padding-right: 12px;
 }
 
-.card-CVC {
+#card-verification-code {
     float: right;
-    width: 100%;
+    width: 87%;
 }
 
 .help-security-code {
