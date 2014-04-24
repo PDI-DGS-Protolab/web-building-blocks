@@ -38,11 +38,11 @@ $(document).ready(function() {
   });
 
   $('#card-expiration-year').blur(function() {
-    dateCheckOnBlur();
+    checkExpirationOnBlur();
   });
 
   $('#card-expiration-month').blur(function() {
-    dateCheckOnBlur();
+    checkExpirationOnBlur();
   });
 
   $('#card-expiration-month').autocomplete({
@@ -65,16 +65,16 @@ function checkInputMonth () {
 
   if (isVoid(inputYear)) {
     if (isVoid(inputMonth)) {
-      resetErrorContainer('month');
       $('#card-expiration-container').removeClass('correct-input');
+      resetErrorContainer(['month']);
     }
     else if (onlyContainsDigits(inputMonth)) {
       if (!isValidMonth(inputMonth)) {
         invalidMonthState();
       }
       else {
-        resetErrorContainer();
         $('#card-expiration-month').removeClass('negative-box');
+        resetErrorContainer([]);
       }
     }
     else {
@@ -95,16 +95,16 @@ function checkInputYear () {
 
   if (isVoid(inputMonth)) {
     if (isVoid(inputYear)) {
-      resetErrorContainer('year');
       $('#card-expiration-container').removeClass('correct-input');
+      resetErrorContainer(['year']);
     }
     else if (onlyContainsDigits(inputYear)) {
       if (inputYear.length == 2 && !isValidYear(inputYear, currentYear)) {
         expiredCardState();
       }
       else {
-        resetErrorContainer();
         $('#card-expiration-year').removeClass('negative-box');
+        resetErrorContainer([]);
       }
     }
     else {
@@ -126,16 +126,20 @@ function checkExpiration (modifiedElmnt) {
 
   if (onlyContainsDigits(inputMonth) && onlyContainsDigits(inputYear)) {
     if (isValidDate(inputMonth, currentMonth, inputYear, currentYear)) {
-      resetErrorContainer(['month', 'year']);
       $('#card-expiration-container').addClass('correct-input');
+      resetErrorContainer(['month', 'year']);
     }
     else if (isVoid(inputMonth)) {
-      resetErrorContainer('month');
       $('#card-expiration-container').removeClass('correct-input');
+      resetErrorContainer(['month']);
     }
     else if (isVoid(inputYear)) {
-      resetErrorContainer('year');
       $('#card-expiration-container').removeClass('correct-input');
+      resetErrorContainer(['year']);
+    }
+    else if (inputMonth < 1) {
+      $('#card-expiration-container').removeClass('correct-input');
+      resetErrorContainer(['month']);
     }
     else if (!isValidMonth(inputMonth)) {
       invalidMonthState();
@@ -144,8 +148,8 @@ function checkExpiration (modifiedElmnt) {
       expiredCardState();
     }
     else if (inputYear.length < 2) {
-      resetErrorContainer('year');
       $('#card-expiration-container').removeClass('correct-input');
+      resetErrorContainer(['year']);
     }
     else {
       expiredCardState();
@@ -156,37 +160,49 @@ function checkExpiration (modifiedElmnt) {
   }
 }
 
-function dateCheckOnBlur() {
+function checkExpirationOnBlur() {
   var currentDate = new Date();
   var currentYear = currentDate.getFullYear().toString().substr(2, 4);
-  var currentMonth = currentDate.getMonth();
+  var currentMonth = currentDate.getMonth() + 1;
   var inputMonth = $('#card-expiration-month').val().toString();
   var inputYear = $('#card-expiration-year').val().toString();
 
-  if (inputYear.length == 1) {
-    $('#card-expiration-error-container').show();
-    $('#card-expiration-year').addClass('negative-box');
-    $('#card-expiration-month').addClass('negative-box');
-    $('#card-expiration-error-container').text("Invalid year's length. Please input 2 digits.");
-    $('#card-expiration-error-container').addClass('negative-check');
-    $('#card-expiration-year').focus().val();
-    $('#card-expiration-container').removeClass('correct-input');
-  }
-  else if (inputYear.length == 0) {
-    $('#card-expiration-year').attr('placeholder', currentYear );
-    if (inputMonth.length == 0) {
-      $('#card-expiration-month').attr('placeholder', currentMonth + 1);
+  if (onlyContainsDigits(inputMonth) && onlyContainsDigits(inputYear)) {
+    if (!isValidDate(inputMonth, currentMonth, inputYear, currentYear)) {
+      $('#card-expiration-year').focus().val();
     }
-    $('#card-expiration-container').removeClass('correct-input');
   }
 
-  if (inputMonth.length == 0) {
-    $('#card-expiration-month').attr('placeholder', currentMonth + 1);
+  else {
     if (inputYear.length == 0) {
       $('#card-expiration-year').attr('placeholder', currentYear );
+      $('#card-expiration-container').removeClass('correct-input');
     }
-    $('#card-expiration-container').removeClass('correct-input');
+    else if (onlyContainsDigits(inputYear)) {
+      if (inputYear.length == 1) {
+        $('#card-expiration-year').addClass('negative-box');
+        $('#card-expiration-year').focus().val();
+        $('#card-expiration-error-container').show();
+        $('#card-expiration-error-container').text("Invalid year's length. Please input 2 digits.");
+        $('#card-expiration-error-container').addClass('negative-check');
+        $('#card-expiration-container').removeClass('correct-input');
+      }
+    }
+    else {
+      $('#card-expiration-year').focus().val();
+    }
+
+    if (onlyContainsDigits(inputMonth)) {
+      if (inputMonth.length == 0) {
+        $('#card-expiration-month').attr('placeholder', currentMonth);
+        $('#card-expiration-container').removeClass('correct-input');
+      }
+    }
+    else {
+      $('#card-expiration-month').focus().val();
+    }
   }
+
   form.globalCheck();
 }
 
@@ -252,7 +268,9 @@ function expiredCardState () {
 function resetErrorContainer (elmnts) {
   $('#card-expiration-error-container').hide();
   $('#card-expiration-error-container').text("");
-  for (el in elmnts) {
-    $('#card-expiration-' + el).removeClass('negative-box');
+  if (!$('#card-expiration-container').hasClass('correct-input')) {
+    for (var i = 0; i < elmnts.length; ++i) {
+      $('#card-expiration-' + elmnts[i]).removeClass('negative-box');
+    }
   }
 }
