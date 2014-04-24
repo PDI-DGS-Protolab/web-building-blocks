@@ -5,7 +5,6 @@ $(document).ready(function() {
         var buttonTypes=['neutral','positive','negative','subdued'];
 
         var tmp = $(this).attr('id').split('-');
-        
         var brand = tmp[0];
         var component = tmp[1];
         console.log('brand: '+brand+'; component: '+component);
@@ -37,11 +36,11 @@ $(document).ready(function() {
         }
 
         if(component==='input'){
-            htmlFile = 'To add a simple '+brand+' input:\n'+
+            htmlFile = '<!--To add a simple '+brand+' input:-->\n'+
                         getInputHtml(brand)+'\n\n'+
-                        'To add a refresheable '+brand+' input:\n'+
+                        '<!--To add a refresheable '+brand+' input:-->\n'+
                         getInputRefreshHtml(brand)+'\n\n'+
-                        'To add a pluss/less '+brand+' input:\n'+
+                        '<!--To add a pluss/less '+brand+' input:-->\n'+
                         getInputPlussLessHtml(brand);
         }
         else if(component==='button'){
@@ -60,17 +59,21 @@ $(document).ready(function() {
             $.when(file21,file22,file3).done(function() {
                 var jsFinal= getFileToShow(jsFile);
                 var cssFinal= getFileToShow(defCssFile+'\n'+cssFile);
-                $('#javascript-content').html(jsFinal);
-                $('#css-content').html(cssFinal);
-                $('#html-content').html(htmlFinal);
+                $('#javascript-content').html('<pre class="brush: js;">'+jsFinal+'</pre>');
+                $('#css-content').html('<pre class="brush: css;">'+cssFinal+'</pre>');
+                $('#html-content').html('<pre class="brush: xml;">'+htmlFinal+'</pre>');
+                //$("#testtest").html(htmlFinal);
+                SyntaxHighlighter.highlight();
             });
         }
         else{
            $.when(file21,file22).done(function() {
                 var cssFinal= getFileToShow(defCssFile+'\n'+cssFile);
                 $('#javascript-content').html('No Javascript Code is needed for this component!');
-                $('#css-content').html(cssFinal);
-                $('#html-content').html(htmlFinal);
+                $('#css-content').html('<pre class="brush: css;">'+cssFinal+'</pre>');
+                $('#html-content').html('<pre class="brush: xml;">'+htmlFinal+'</pre>');
+                //$("#testtest").html(htmlFinal);
+                SyntaxHighlighter.highlight();
             }); 
         }
         $('#download-text').tabs();
@@ -107,7 +110,8 @@ $(document).ready(function() {
                 $.when(file).done(function() {
                     jsAll += jsTmp+'\n';
                     var jsFinal= getFileToShow(jsAll);
-                    $('#javascript-content').html(jsFinal);
+                    $('#javascript-content').html('<pre class="brush: js;">'+jsFinal+'</pre>');
+                    SyntaxHighlighter.highlight();
                 });
             }
 
@@ -143,7 +147,8 @@ $(document).ready(function() {
                 }
 
                 var cssFinal= getFileToShow(css);
-                $('#css-content').html(cssFinal);
+                $('#css-content').html('<pre class="brush: css;">'+cssFinal+'</pre>');
+                SyntaxHighlighter.highlight();
             });
         }
         var htmlFile='';
@@ -151,29 +156,30 @@ $(document).ready(function() {
             //check if already loaded something(default)
             if(c[a].component==='input'){
                 if(c[a].type==='input'){
-                    htmlFile += 'To add a simple '+c[a].brand+' input:\n'+
+                    htmlFile += '<!--To add a simple '+c[a].brand+' input:-->\n'+
                                  getInputHtml(c[a].brand)+'\n\n';
                 }
                 else if(c[a].type==='special-input-refresh'){
-                    htmlFile += 'To add a refresheable '+c[a].brand+' input:\n'+
+                    htmlFile += '<!--To add a refresheable '+c[a].brand+' input:-->\n'+
                         getInputRefreshHtml(c[a].brand)+'\n\n';
                 }
                 else if(c[a].type==='special-input-plus-less'){
-                    htmlFile +='To add a pluss/less '+c[a].brand+' input:\n'+
+                    htmlFile +='<!--To add a pluss/less '+c[a].brand+' input:-->\n'+
                         getInputPlussLessHtml(c[a].brand)+'\n\n';
                 }
             }
             else if(c[a].component==='button'){
-                htmlFile += 'To add a '+c[a].type+' '+c[a].brand+' button:\n'+
+                htmlFile += '<!--To add a '+c[a].type+' '+c[a].brand+' button:-->\n'+
                             getButtonHtml(c[a].brand,c[a].type)+'\n\n';
             }
             else if(c[a].component==='table'){
-                htmlFile += 'Table not done yet';
+                htmlFile += '<!--Table not done yet-->';
             }
             
         }
         var htmlFinal= getFileToShow(htmlFile);
-        $('#html-content').html(htmlFinal);
+        $('#html-content').html('<pre class="brush: xml;">'+htmlFinal+'</pre>');
+        SyntaxHighlighter.highlight();
         $('#download-text').tabs();
         $('#download-pop-up').dialog({width:900});
         //console.log(htmlTemplate);
@@ -187,7 +193,7 @@ function getFileToShow(rawFile){
     return rawFile.replace(/&/g, '&amp;')
      .replace(/>/g, '&gt;')
      .replace(/</g, '&lt;')
-     .replace(/\n/g, '<br>')
-     .replace(/\s/g,'&nbsp;&nbsp;')
+     //.replace(/\n/g, '<br>')
+     //.replace(/\s/g,'&nbsp;&nbsp;')
      ;
 }
