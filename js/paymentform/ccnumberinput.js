@@ -21,15 +21,12 @@ $(document).ready(function() {
     }
   }); 
 
-  //Credit Card Number Validation
-
   $('#card-number-input').keyup(function(e) {
 
     var cardNumberElmnt = $(this);
     var cardErrorElmnt = $('#card-number-error-container');
     var str = cardNumberElmnt.val();
 
-   //Card Type Validation
     if (str.length == 0) {
       clearCardClasses(cardNumberElmnt);
       $('#card-number-hint-container').show();
@@ -40,16 +37,14 @@ $(document).ready(function() {
       cardNumberElmnt.removeClass('correct-input');
     }
     else {
-      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       if (str.length < 12) {
         cardNumberElmnt.removeClass('correct-input');
       }
-      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
       if (!onlyContainsDigits(str)) { 
         invalidCardState('Illegal characters. You can input only numbers.');
       }
       else {
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
         if (isVisaCard(str.substr(0, 1))) {
           switchActiveCard(cardNumberElmnt, 'visa', VISAMAXLENGTH);
         }
@@ -69,14 +64,14 @@ $(document).ready(function() {
             invalidCardState('We do not support your card type.');
           }
         }
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
+
         if (str.length > 4) {
           $('#card-number-hint-container').show();
           cardErrorElmnt.hide();
           cardErrorElmnt.text('');
           cardErrorElmnt.removeClass('negative-check');
           cardNumberElmnt.removeClass('negative-box');
-
+          
           if (isVisaCard(str.substr(0, 1))) {
             if (str.length == VISAMINLENGTH || str.length == VISAMAXLENGTH){
               cardNumberElmnt.addClass('correct-input');
@@ -134,11 +129,11 @@ $(document).ready(function() {
       invalidCardState('Illegal characters. You can input only numbers.');
       cardNumberElmnt.focus().val();
     }
-    else if (str.length != 0 && str.length < 4) {
+    else if (str.length > 0 && str.length < 4) {
       invalidCardState('Invalid length.');
       cardNumberElmnt.focus().val();
     }
-    else if (str.length == 4 || str.length > 4) {
+    else if (str.length >= 4) {
 
       if (isVisaCard(str.substr(0, 1))) {
         if (str.length != VISAMINLENGTH && str.length != VISAMAXLENGTH) {
