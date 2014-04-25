@@ -18,6 +18,9 @@ $(document).ready(function() {
   });  
 
   $('#card-verification-code').keyup(function(e) {
+
+    var cardCVCElmnt = $(this);
+    var cardCVCErrorElmnt = $('#card-CVC-error-container');
     var str = $('#card-verification-code').val();
 
     if(!onlyContainsDigits(str) && str.length > 0) { 
