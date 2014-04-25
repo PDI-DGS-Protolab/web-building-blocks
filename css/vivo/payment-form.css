@@ -31,16 +31,12 @@
     border-width: 2px;
 }
 
-.negative-check,.positive-check {
+.negative-check {
     color: white;
 }
 
 .negative-check {
     background-color: #DB0000;
-}
-
-.positive-check {
-    background-color: #8DC63F;
 }
 
 .neutral-button {
