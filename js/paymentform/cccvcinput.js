@@ -20,7 +20,7 @@ $(document).ready(function() {
   $('#card-verification-code').keyup(function(e) {
     var str = $('#card-verification-code').val();
 
-    if(!onlyContainsDigits(str)) { 
+    if(!onlyContainsDigits(str) && str.length > 0) { 
       $('#card-CVC-hint-container').hide();
       $('#card-CVC-error-container').show();
       $('#card-verification-code').addClass('negative-box');
@@ -49,6 +49,10 @@ $(document).ready(function() {
       $('#card-verification-code').addClass('correct-input');
       form.globalCheck();
     }
+    else if (str.length < 3) {
+      $('#card-verification-code').removeClass('correct-input');
+      form.globalCheck();
+    }
     form.globalCheck();
   }); 
 
@@ -57,7 +61,7 @@ $(document).ready(function() {
 
     var str = $('#card-verification-code').val();
 
-    if (!onlyContainsDigits(str)) { 
+    if (!onlyContainsDigits(str) && str.length > 0) { 
       $('#card-CVC-hint-container').hide();
       $('#card-CVC-error-container').show();
       $('#card-verification-code').addClass('negative-box');
@@ -99,7 +103,3 @@ $(document).ready(function() {
     }
   });
 });
-
-function onlyContainsDigits (numberToAnalyze) {
-  return /^\d*$/.test(numberToAnalyze);
-}

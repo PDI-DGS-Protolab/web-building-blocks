@@ -68,7 +68,7 @@ $(document).ready(function() {
       }
     }
 
-    if (!onlyContainsDigits(str)) { 
+    if (!onlyContainsDigits(str) && str.length > 0) { 
       $('#card-number-hint-container').hide();
       $('#card-number-error-container').show();
       $(this).addClass('negative-box');
@@ -134,7 +134,7 @@ $(document).ready(function() {
     var str = $(this).val();
     var errorMsg = checkBoxCCElmnt.text();
     
-    if (!onlyContainsDigits(str)) { 
+    if (!onlyContainsDigits(str) && str.length > 0) { 
       $('#card-number-hint-container').hide();
       checkBoxCCElmnt.show();
       $(this).addClass('negative-box');
@@ -272,10 +272,6 @@ function clearCardClasses (element) {
   CCInput.removeClass('mastercard');
   CCInput.removeClass('maestro');
 };
-
-function onlyContainsDigits (numberToAnalyze) {
-  return /^\d*$/.test(numberToAnalyze);
-}
 
 function cardNumberIsCorrect () {
   var checkBoxCCElmnt = $('#card-number-error-container');

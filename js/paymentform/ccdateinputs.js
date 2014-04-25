@@ -125,35 +125,55 @@ function checkExpiration (modifiedElmnt) {
   var inputYear = $('#card-expiration-year').val().toString();
 
   if (onlyContainsDigits(inputMonth) && onlyContainsDigits(inputYear)) {
-    if (isValidDate(inputMonth, currentMonth, inputYear, currentYear)) {
-      $('#card-expiration-container').addClass('correct-input');
+    if (isValidDate(inputMonth, currentMonth, inputYear, currentYear) && inputYear.length == 2) {
       resetErrorContainer(['month', 'year']);
-    }
-    else if (isVoid(inputMonth)) {
-      $('#card-expiration-container').removeClass('correct-input');
-      resetErrorContainer(['month']);
-    }
-    else if (isVoid(inputYear)) {
-      $('#card-expiration-container').removeClass('correct-input');
-      resetErrorContainer(['year']);
-    }
-    else if (inputMonth < 1) {
-      $('#card-expiration-container').removeClass('correct-input');
-      resetErrorContainer(['month']);
-    }
-    else if (!isValidMonth(inputMonth)) {
-      invalidMonthState();
-    }
-    else if (inputYear.length == 2 && !isValidYear(inputYear, currentYear)) {
-      expiredCardState();
-    }
-    else if (inputYear.length < 2) {
-      $('#card-expiration-container').removeClass('correct-input');
-      resetErrorContainer(['year']);
+      $('#card-expiration-container').addClass('correct-input');
     }
     else {
-      expiredCardState();
+      if (modifiedElmnt == 'month') {
+        if (isVoid(inputMonth)) {
+          $('#card-expiration-container').removeClass('correct-input');
+          resetErrorContainer(['month']);
+        }
+        else if (inputMonth < 1) {
+          $('#card-expiration-container').removeClass('correct-input');
+          resetErrorContainer(['month']);
+        }
+        else if (!isValidMonth(inputMonth)) {
+          invalidMonthState();
+        }
+        else if (isValidMonth(inputMonth)) {
+          resetErrorContainer(['month']); 
+        }
+      }
+      else if (modifiedElmnt == 'year') {
+        if (isVoid(inputYear)) {
+          $('#card-expiration-container').removeClass('correct-input');
+          resetErrorContainer(['year']);
+        }
+        else if (inputYear.length == 1) {
+          $('#card-expiration-container').removeClass('correct-input');
+          resetErrorContainer(['year']);
+        }
+        else if (inputYear.length == 2 && !isValidYear(inputYear, currentYear)) {
+          expiredCardState();
+        }
+        else if (isValidYear(inputYear, currentYear)) {
+          resetErrorContainer(['year']);
+        }
+        else {
+          expiredCardState();
+        }
+      }
     }
+  }
+  else if (isVoid(inputMonth)) {
+    $('#card-expiration-container').removeClass('correct-input');
+    resetErrorContainer(['month']);
+  }
+  else if (isVoid(inputYear)) {
+    $('#card-expiration-container').removeClass('correct-input');
+    resetErrorContainer(['year']);
   }
   else {
     notOnlyDigitsState(modifiedElmnt);
@@ -167,9 +187,15 @@ function checkExpirationOnBlur() {
   var inputMonth = $('#card-expiration-month').val().toString();
   var inputYear = $('#card-expiration-year').val().toString();
 
-  if (onlyContainsDigits(inputMonth) && onlyContainsDigits(inputYear)) {
+  if (onlyContainsDigits(inputMonth) && onlyContainsDigits(inputYear) && inputYear.length == 2) {
     if (!isValidDate(inputMonth, currentMonth, inputYear, currentYear)) {
-      $('#card-expiration-year').focus().val();
+
+      if (!isValidMonth(inputMonth)) {
+        $('#card-expiration-month').focus().val();
+      }
+      else if (!isValidYear(inputYear, currentYear)) {
+        $('#card-expiration-year').focus().val();
+      }
     }
   }
 
@@ -187,31 +213,24 @@ function checkExpirationOnBlur() {
         $('#card-expiration-error-container').addClass('negative-check');
         $('#card-expiration-container').removeClass('correct-input');
       }
+      else if (inputYear.length == 2 && !isValidYear(inputYear, currentYear)){
+        $('#card-expiration-year').focus().val();
+      }
     }
     else {
       $('#card-expiration-year').focus().val();
     }
 
-    if (onlyContainsDigits(inputMonth)) {
-      if (inputMonth.length == 0) {
-        $('#card-expiration-month').attr('placeholder', currentMonth);
-        $('#card-expiration-container').removeClass('correct-input');
-      }
+    if (inputMonth.length == 0) {
+      $('#card-expiration-month').attr('placeholder', currentMonth);
+      $('#card-expiration-container').removeClass('correct-input');
     }
-    else {
+    else if (!onlyContainsDigits(inputMonth) || !isValidMonth(inputMonth)) {
       $('#card-expiration-month').focus().val();
     }
   }
 
   form.globalCheck();
-}
-
-function onlyContainsDigits (number) {
-  return /^\d*$/.test(number);
-}
-
-function isMadeOfWhiteSpaces (name) {
-  return name.match(/^\s*$/);
 }
 
 function isVoid (number) {
