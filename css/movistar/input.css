@@ -1,5 +1,8 @@
 .movistar.input, .movistar.error-message, .movistar.input-hint {
     font-family: "Arial", sans-serif;
+}
+
+.movistar.error-message, .movistar.input-hint {
     font-weight: bold;
 }
 

@@ -1,5 +1,8 @@
 .telefonica.input, .telefonica.error-message, .telefonica.input-hint {
     font-family: "Arial", sans-serif;
+}
+
+.telefonica.error-message, .telefonica.input-hint {
     font-weight: bold;
 }
 

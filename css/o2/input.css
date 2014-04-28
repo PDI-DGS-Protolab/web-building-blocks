@@ -1,5 +1,8 @@
 .o2.input, .o2.error-message, .o2.input-hint {
     font-family: "Arial", sans-serif;
+}
+
+.o2.error-message, .o2.input-hint {
     font-weight: bold;
 }
 

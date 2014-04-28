@@ -1,5 +1,8 @@
 .vivo.input, .vivo.error-message, .vivo.input-hint {
     font-family: "Officina", sans-serif;
+}
+
+.vivo.error-message, .vivo.input-hint {
     font-weight: bold;
 }
 
