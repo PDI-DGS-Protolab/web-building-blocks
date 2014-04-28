@@ -143,7 +143,7 @@ $(document).ready(function() {
 
   $('.brand-tab').click(function() {
     switchActiveElements(this, '.brand-tab', 'active-brand');
-  hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
+    hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
   });
 
   $('.comp-tab').click(function() {
@@ -156,7 +156,15 @@ $(document).ready(function() {
     }
 
     if (lastComponent != $(this).attr('id')) {
-      if ($(this).attr('id') === 'table') {
+      if (lastComponent === 'table' && $(this).attr('id') === 'payment-form') {
+        $('#table-building-container').addClass('hidden');        
+        $('#payment-container').removeClass('hidden');
+      }
+      else if (lastComponent === 'payment-form' && $(this).attr('id') === 'table') {
+        $('#payment-container').addClass('hidden');
+        $('#table-building-container').removeClass('hidden');
+      }
+      else if ($(this).attr('id') === 'table') {
         $('#components-container').addClass('hidden');
         $('#testing-container').addClass('hidden');
         $('#table-building-container').removeClass('hidden');
@@ -171,9 +179,38 @@ $(document).ready(function() {
             hideComponentsVisualization($(this).attr('data-component-container'), 'telefonica');
         }
       }
+      else if ($(this).attr('id') === 'payment-form') {
+        $('#components-container').addClass('hidden');
+        $('#testing-container').addClass('hidden');
+        $('#payment-container').removeClass('hidden');
+        $('#static-container').removeClass('static-container-no-table');
+        $('#static-container').addClass('static-container-table');
+        $('#selection-container').removeClass('selection-container-no-table');
+        $('#selection-container').addClass('selection-container-table');
+
+        $('#all').addClass('hidden');
+        if ($('#all').hasClass('active-brand')) {
+            switchActiveElements($('#telefonica'), '.brand-tab', 'active-brand');
+            hideComponentsVisualization($(this).attr('data-component-container'), 'telefonica');
+        }
+      }
       else if (lastComponent === 'table') {
         $('#all').removeClass('hidden');
         $('#table-building-container').addClass('hidden');
+        $('#testing-container').removeClass('hidden');
+        $('#components-container').removeClass('hidden');
+        
+        $('#selection-container').removeClass('selection-container-table');
+        $('#selection-container').addClass('selection-container-no-table');
+
+        $('#static-container').removeClass('static-container-table');
+        $('#static-container').addClass('static-container-no-table');
+
+        hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
+      }
+      else if (lastComponent === 'payment-form') {
+        $('#all').removeClass('hidden');
+        $('#payment-container').addClass('hidden');
         $('#testing-container').removeClass('hidden');
         $('#components-container').removeClass('hidden');
         
@@ -212,7 +249,7 @@ $(document).ready(function() {
         } else if (ui.draggable.hasClass('img-button')) {
           addButton(ui.draggable, components, brand);
         } else if (ui.draggable.attr('id') === ('table-container')) {
-            addTable(ui.draggable, components, brand);
+          addTable(ui.draggable, components, brand);
         }
 
         toggleQuitIcons($(components.find('.trash')).hasClass('on'), components.find(".quit-icon"));
@@ -371,10 +408,6 @@ function addTable(draggable, parent, brand) {
   }
 }
 
-function addPaymentForm (draggable, parent, brand) {
-
-}
-
 function getKeepMeComponents() {
   var buttons = $('#selection-container').find('.button');
   var inputs = $('#selection-container').find('.input');
@@ -433,8 +466,10 @@ function hideComponentsVisualization(containerId, brand) {
     $('.visualization-container').addClass('hidden');
     component = $('.active-comp').attr('id');
     $('#' + component + '-' + brand).removeClass('hidden');
-    $('#table-container').removeClass( $('#table-container').attr('class') );
+    $('#table-container').removeClass($('#table-container').attr('class'));
     $('#table-container').addClass(brand);
+    $('#payment-container').removeClass($('#payment-container').attr('class'));
+    $('#payment-container').addClass(brand);
     $('.brand-title').hide();
   }
 }

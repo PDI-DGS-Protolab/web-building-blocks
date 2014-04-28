@@ -1,15 +1,15 @@
 #payment-container {
+    background-color: #C7C7C7;
+    padding: 12px;
     width: 568px;
-    padding: 12px; 
-    background-color: #C7C7C7;    
 }
 
 #payment-content {
-    padding: 42px;
-    font-family: "Arial",sans-serif;
     background-color: #ADADAD;
     border: #999 1px solid;
     border-radius: 5px;
+    font-family: "Arial",sans-serif;
+    padding: 42px;
 }
 
 .date-input::-webkit-input-placeholder {
@@ -95,10 +95,10 @@
 }
 
 .card-hint {
-    padding: 0px 5px 0px 5px;
-    font-size: 14px;
     color: #474747;
+    font-size: 14px;
     line-height: 30px;
+    padding: 0px 5px 0px 5px;    
     vertical-align: middle;
     width: 100%;
 }
@@ -127,8 +127,8 @@
 }
 
 #card-name-error-msg {
-    width: 97.5%;
     padding-right: 12px;
+    width: 97.5%;
 }
 
 #card-verification-code {
@@ -137,40 +137,39 @@
 }
 
 .help-security-code {
-    height: 14px;
-    width: 14px;
-    margin-right: -105px;
-    margin-top: -5px;
-    padding: -2px;
-    color: #FFF;
     background-color: #191919;
     border: 1px solid #000000;
     border-radius: 7px;
-    float: right;
-    font-size: 14px;
-    text-align: center;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
+    color: #FFF;
+    float: right;
+    font-size: 14px;
+    height: 14px;
+    margin-right: -105px;
+    margin-top: -5px;
+    padding: -2px;
+    text-align: center;
+    width: 14px;
 }
 
 #CVC-hint {
-    height: 60px;
-    width: 140px;
-    margin-right: -20px;
-    margin-top: -70px;
-    padding: -2px;
-    font-size: 14px;
-    color: #FFF;
     background-color: #212121;
     border: 1px solid #000000;
     border-radius: 5px;
-    display: none;
-    float: right;
-    opacity: 0.9;
-    text-align:center;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    
+    color: #FFF;
+    display: none;
+    float: right;
+    font-size: 14px;
+    height: 60px;
+    margin-right: -20px;
+    margin-top: -70px;
+    opacity: 0.9;
+    padding: -2px;
+    text-align: center;
+    width: 140px;
 }
 
 #card-number-error-container, #card-CVC-error-container {
@@ -196,8 +195,8 @@
 
 .american,.mastercard,.maestro,.visa {
     background-position: 98% 50%; 
-    background-size: 40px 25px;
     background-repeat: no-repeat;
+    background-size: 40px 25px;
 }
 
 .clearing {
@@ -209,25 +208,25 @@
 }
 
 .date-input {
-    width: 35px;
     text-align: center;
+    width: 35px;
 }
 
 .date-drop-down {
-    width: 30%;
     margin-right: 12px;
+    width: 30%;
 }
 
 .submit-button {
-    height: 45px;
-    width: 100%;
-    padding: 5px;
-    font-size: 18px;
-    font-weight: bold;
     background-color: white;
     border: #999999 1px solid;
     border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 45px;
+    padding: 5px;
     text-align:center;
+    width: 100%;
     z-index: 1;
 }
 .submit-button:hover:enabled {
@@ -238,26 +237,26 @@
 }
 
 .context-name {
-    font-size: 10px;
     color: #474747;
     display: none;
+    font-size: 10px;
 }
 
 .back-submit {
-    width: 50%;
     background-color: rgba(72,72,72,0.0);
     border-radius: 5px;
+    width: 50%;
 }
 
 .error-name {
-    padding:0px;
-    font-size:10px;
-    font-weight: bold;
-    color:white;
     background-color:red;
     border:#999999 1px solid;
     border-radius:5px;
+    color:white;
     display: none;
+    font-size:10px;
+    font-weight: bold;
+    padding:0px;
     text-align:center;    
 }
 
