@@ -143,7 +143,7 @@ $(document).ready(function() {
 
   $('.brand-tab').click(function() {
     switchActiveElements(this, '.brand-tab', 'active-brand');
-	hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
+  hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
   });
 
   $('.comp-tab').click(function() {
@@ -265,48 +265,48 @@ $(document).ready(function() {
 });
 
 function toggleQuitIcons(toggle, icons) {
-    if (toggle) {
-      icons.show();
-    } else {
-      icons.hide();
-    }
+  if (toggle) {
+    icons.show();
+  } else {
+    icons.hide();
+  }
 }
 
 function toggleClearAll(toggle, text) {
-    if (toggle) {
-      text.show();
-    } else {
-      text.hide();
-    }
+  if (toggle) {
+    text.show();
+  } else {
+    text.hide();
+  }
 }
 
 function getInputHtml(brand) {
-    return  '<div class="input-container">\n'+
-            '   <div class="quit-icon"></div>\n'+
-            '   <input class="' + brand +  ' input" type="text"></input>\n'+
-            '   <div class="' + brand + ' input-hint"></div>\n'+
-            '   <div class="' + brand +  ' error-container">\n'+
-            '       <a class="' + brand +  ' error-message"></a>\n'+
-            '   </div>\n'+
-            '</div>';
+  return  '<div class="input-container">\n'+
+          '   <div class="quit-icon"></div>\n'+
+          '   <input class="' + brand +  ' input" type="text"></input>\n'+
+          '   <div class="' + brand + ' input-hint"></div>\n'+
+          '   <div class="' + brand +  ' error-container">\n'+
+          '       <a class="' + brand +  ' error-message"></a>\n'+
+          '   </div>\n'+
+          '</div>';
 }
 
 function getInputRefreshHtml(brand) {
-    return  '<div class="input-container">\n'+
-            '   <div class="quit-icon"></div>\n'+
-            '   <input disabled class="' + brand + ' special-input-refresh" type="text"></input>\n'+
-            '   <button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button>\n'+
-            '</div>';
+  return  '<div class="input-container">\n'+
+          '   <div class="quit-icon"></div>\n'+
+          '   <input disabled class="' + brand + ' special-input-refresh" type="text"></input>\n'+
+          '   <button class="' + brand + ' btt-refresh btt-input"><img src="img/refresh.png"/></button>\n'+
+          '</div>';
 }
 
-function getInputPlussLessHtml(brand) {
-    return  '<div class="input-container-plus-less">\n'+
-            '   <div class="input-container">\n'+
-            '       <div class="quit-icon"></div>\n'+
-            '       <input class="' + brand + ' special-input-plus-less" type="text"></input>\n'+
-            '       <button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button>\n'+
-            '   </div>\n'+
-            '</div>';
+function getInputPlusLessHtml(brand) {
+  return  '<div class="input-container-plus-less">\n'+
+          '   <div class="input-container">\n'+
+          '       <div class="quit-icon"></div>\n'+
+          '       <input class="' + brand + ' special-input-plus-less" type="text"></input>\n'+
+          '       <button class="' + brand + ' btt-plus btt-input"><img src="img/more.png"/></button>\n'+
+          '   </div>\n'+
+          '</div>';
 }
 
 function addInput(draggable, parent, brand) {
@@ -315,22 +315,22 @@ function addInput(draggable, parent, brand) {
   } else if (draggable.hasClass('refresh')) {
     parent.append(getInputRefreshHtml(brand));
   } else if (draggable.hasClass('add')) {
-    parent.append(getInputPlussLessHtml(brand));
+    parent.append(getInputPlusLessHtml(brand));
   } else if (draggable.hasClass('quit')) {
     parent.append('<div class="input-container-plus-less"><div class="input-container"><div class="quit-icon"></div><input class="' + brand + ' special-input-plus-less" type="text"></input><button class="' + brand + ' btt-less btt-input"><img src="img/less.png"/></button></div></div>');
   }
 }
 
 function getComponentBrand(component) {
-    if (component.hasClass('telefonica')) {
-      return'telefonica';
-    } else if (component.hasClass('movistar')) {
-      return 'movistar';
-    } else if (component.hasClass('vivo')) {
-      return 'vivo';
-    } else if (component.hasClass('o2')) {
-      return 'o2';
-    }
+  if (component.hasClass('telefonica')) {
+    return'telefonica';
+  } else if (component.hasClass('movistar')) {
+    return 'movistar';
+  } else if (component.hasClass('vivo')) {
+    return 'vivo';
+  } else if (component.hasClass('o2')) {
+    return 'o2';
+  }
 }
 
 function getButtonType(draggable) {
@@ -346,12 +346,12 @@ function getButtonType(draggable) {
 }
 
 function getButtonHtml(brand, type) {
-    return '<div class="button-back" >\n'+
-           '    <div class="quit-icon"></div>\n'+
-           '    <button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">\n'+ 
-           '        '+toTitleCase(type) +'\n'+
-           '    </button>\n'+
-           '</div>';
+  return '<div class="button-back" >\n'+
+         '    <div class="quit-icon"></div>\n'+
+         '    <button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">\n'+ 
+         '        '+toTitleCase(type) +'\n'+
+         '    </button>\n'+
+         '</div>';
 }
 
 function addButton(draggable, parent, brand) {
@@ -371,51 +371,55 @@ function addTable(draggable, parent, brand) {
   }
 }
 
+function addPaymentForm (draggable, parent, brand) {
+
+}
+
 function getKeepMeComponents() {
-    var buttons = $('#selection-container').find('.button');
-    var inputs = $('#selection-container').find('.input');
-    var refresh = $('#selection-container').find('.special-input-refresh');
-    var plusless = $('#selection-container').find('.special-input-plus-less');
-    var topTables = $('#selection-container').find('.top-table');
-    var leftTables = $('#selection-container').find('.left-table');
-    
-    components = {};
-    for (var index = 0; index < buttons.length; ++index) {
-        var type = getButtonType($(buttons[index]));
-        var brand = getComponentBrand($(buttons[index]));
-        components['button-'+type+'-'+brand] = {component: 'button', brand: brand, type: type};
-    }
+  var buttons = $('#selection-container').find('.button');
+  var inputs = $('#selection-container').find('.input');
+  var refresh = $('#selection-container').find('.special-input-refresh');
+  var plusless = $('#selection-container').find('.special-input-plus-less');
+  var topTables = $('#selection-container').find('.top-table');
+  var leftTables = $('#selection-container').find('.left-table');
+  
+  components = {};
+  for (var index = 0; index < buttons.length; ++index) {
+    var type = getButtonType($(buttons[index]));
+    var brand = getComponentBrand($(buttons[index]));
+    components['button-'+type+'-'+brand] = {component: 'button', brand: brand, type: type};
+  }
 
-    for (var index = 0; index < inputs.length; ++index) {
-        var brand = getComponentBrand($(inputs[index]));
-        components['input-'+brand] = {component: 'input', brand: brand,type:'input'};
-    }    
+  for (var index = 0; index < inputs.length; ++index) {
+    var brand = getComponentBrand($(inputs[index]));
+    components['input-'+brand] = {component: 'input', brand: brand,type:'input'};
+  }    
 
-    for (var index = 0; index < refresh.length; ++index) {
-        var brand = getComponentBrand($(refresh[index]));
-        components['special-input-refresh-'+brand] = {component: 'input', brand: brand,type:'special-input-refresh'};
-    }  
+  for (var index = 0; index < refresh.length; ++index) {
+    var brand = getComponentBrand($(refresh[index]));
+    components['special-input-refresh-'+brand] = {component: 'input', brand: brand,type:'special-input-refresh'};
+  }  
 
-    for (var index = 0; index < plusless.length; ++index) {
-        var brand = getComponentBrand($(plusless[index]));
-        components['special-input-plus-less-'+brand] = {component: 'input', brand: brand,type:'special-input-plus-less'};
-    }  
+  for (var index = 0; index < plusless.length; ++index) {
+    var brand = getComponentBrand($(plusless[index]));
+    components['special-input-plus-less-'+brand] = {component: 'input', brand: brand,type:'special-input-plus-less'};
+  }  
 
-    for (var index = 0; index < topTables.length; ++index) {
-        var brand = getComponentBrand($(topTables[index]));
-        var rows = $(topTables[index]).attr('rows');
-        var cols = $(topTables[index]).attr('cols');
-        components['top-table-'+brand+"-"+rows+"-"+cols] = {component: 'table', brand: brand, rows: rows, cols: cols,type:'top-table'};
-    }
+  for (var index = 0; index < topTables.length; ++index) {
+    var brand = getComponentBrand($(topTables[index]));
+    var rows = $(topTables[index]).attr('rows');
+    var cols = $(topTables[index]).attr('cols');
+    components['top-table-'+brand+"-"+rows+"-"+cols] = {component: 'table', brand: brand, rows: rows, cols: cols,type:'top-table'};
+  }
 
-    for (var index = 0; index < leftTables.length; ++index) {
-        var brand = getComponentBrand($(leftTables[index]));
-        var rows = $(leftTables[index]).attr('rows');
-        var cols = $(leftTables[index]).attr('cols');
-        components['left-table-'+brand+"-"+rows+"-"+cols] = {component: 'table', brand: brand, rows: rows, cols: cols,type:'left-table'};
-    }      
+  for (var index = 0; index < leftTables.length; ++index) {
+    var brand = getComponentBrand($(leftTables[index]));
+    var rows = $(leftTables[index]).attr('rows');
+    var cols = $(leftTables[index]).attr('cols');
+    components['left-table-'+brand+"-"+rows+"-"+cols] = {component: 'table', brand: brand, rows: rows, cols: cols,type:'left-table'};
+  }      
 
-    return components;
+  return components;
 }
 
 
@@ -441,7 +445,7 @@ function switchActiveElements(element, elementClass, activeClass) {
 }
 
 function toTitleCase(str) {
-    return str.replace(/(?:^|\s)\w/g, function(match) {
-        return match.toUpperCase();
-    });
+  return str.replace(/(?:^|\s)\w/g, function(match) {
+      return match.toUpperCase();
+  });
 }
