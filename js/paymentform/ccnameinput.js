@@ -44,7 +44,7 @@ $(document).ready(function() {
   $('#card-holder-name').blur(function() {
     var str = $(this).val();
     $('#card-name-hint-container').text('');
-    if(!onlyContainsLetters(str) || isMadeOfWhiteSpaces(str)) {
+    if((!onlyContainsLetters(str) || isMadeOfWhiteSpaces(str)) && str.length > 0) {
       $('#card-name-hint-container').hide();
       $('#card-name-error-container').show();
       $(this).addClass('negative-box');

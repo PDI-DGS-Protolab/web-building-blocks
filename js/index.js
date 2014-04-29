@@ -468,8 +468,8 @@ function hideComponentsVisualization(containerId, brand) {
     $('#' + component + '-' + brand).removeClass('hidden');
     $('#table-container').removeClass($('#table-container').attr('class'));
     $('#table-container').addClass(brand);
-    $('#payment-container').removeClass($('#payment-container').attr('class'));
-    $('#payment-container').addClass(brand);
+    $('#payment-form-container').removeClass($('#payment-container').attr('class'));
+    $('#payment-form-container').addClass(brand);
     $('.brand-title').hide();
   }
 }
