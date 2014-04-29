@@ -2,7 +2,7 @@ $(document).ready(function() {
   $(document).on('focus', '.input', function() {
      if( !$(this).parent().find('.error-container').is(':visible') ) {
       $(this).parent().find('.input-hint').show();
-      $(this).parent().find('.input-hint').text('Enter your full name as it appears on your card');
+      $(this).parent().find('.input-hint').text($(this).attr("hint"));
       $(this).parent().find('.error-container').hide();
     }
   });
@@ -13,7 +13,7 @@ $(document).ready(function() {
       $(this).parent().find('.input-hint').hide();
       $(this).parent().find('.error-container').show();
       $(this).addClass('negative-box');
-      $(this).parent().find('.error-message').text('Illegal characters. You can input only letters.');
+      $(this).parent().find('.error-message').text($(this).attr("error"));
       $(this).parent().find('.error-message').addClass('negative-check');
       nameCheck=false;
     }
@@ -30,7 +30,7 @@ $(document).ready(function() {
       $(this).removeClass('negative-box');
       $(this).parent().find('.error-container').hide();
       $(this).parent().find('.input-hint').show();
-      $(this).parent().find('.input-hint').text('Enter your full name as it appears on your card');
+      $(this).parent().find('.input-hint').text($(this).attr("hint"));
       $(this).parent().find('.error-message').removeClass('negative-check');
       nameCheck=true;
     }
@@ -43,7 +43,7 @@ $(document).ready(function() {
       $(this).parent().find('.input-hint').hide();
       $(this).parent().find('.error-container').show();
       $(this).addClass('negative-box');
-      $(this).parent().find('.error-message').text('Illegal characters. You can input only letters.');
+      $(this).parent().find('.error-message').text($(this).attr("error"));
       $(this).parent().find('.error-message').addClass('negative-check');
       nameCheck=false;
     }

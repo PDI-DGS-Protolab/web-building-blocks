@@ -320,7 +320,7 @@ function toggleClearAll(toggle, text) {
 function getInputHtml(brand) {
   return  '<div class="input-container">\n'+
           '   <div class="quit-icon"></div>\n'+
-          '   <input class="' + brand +  ' input" type="text"></input>\n'+
+          '   <input class="' + brand +  ' input" type="text" hint="Enter your full name as it appears on your card" error="Illegal characters. You can input only letters."></input>\n'+
           '   <div class="' + brand + ' input-hint"></div>\n'+
           '   <div class="' + brand +  ' error-container">\n'+
           '       <a class="' + brand +  ' error-message"></a>\n'+
