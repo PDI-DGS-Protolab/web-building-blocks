@@ -193,9 +193,8 @@ function checkExpirationOnBlur() {
   var inputMonth = $('#card-expiration-month').val().toString();
   var inputYear = $('#card-expiration-year').val().toString();
 
-  if (onlyContainsDigits(inputMonth) && onlyContainsDigits(inputYear) && inputYear.length == 2) {
+  if (onlyContainsDigits(inputMonth) && onlyContainsDigits(inputYear) && inputYear.length == 2 && inputMonth.length > 0) {
     if (!isValidDate(inputMonth, currentMonth, inputYear, currentYear)) {
-
       if (inputYear == currentYear && inputMonth < currentMonth) {
         $('#card-expiration-year').focus().val();
       }
@@ -310,6 +309,7 @@ function resetErrorContainer (elmnts) {
   if (!$('#card-expiration-container').hasClass('correct-input')) {
     for (var i = 0; i < elmnts.length; ++i) {
       $('#card-expiration-' + elmnts[i]).removeClass('negative-box');
+      $('#card-expiration-' + elmnts[i]).val("");
     }
   }
 }

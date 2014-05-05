@@ -1,5 +1,5 @@
 function onlyContainsDigits (number) {
-  return /^.\d*$/.test(number);
+  return /^\d*$/.test(number);
 }
 
 function isMadeOfWhiteSpaces (name) {

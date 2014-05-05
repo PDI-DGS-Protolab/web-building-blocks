@@ -23,7 +23,7 @@ $(document).ready(function() {
     var cvcErrorElmnt = $('#card-CVC-error-container');
     var str = cvcElmnt.val();
 
-    if(!onlyContainsDigits(str) && str.length > 0) { 
+    if(!onlyContainsDigits(str) && str.length > 0) {
       $('#card-CVC-hint-container').hide();
       cvcErrorElmnt.show();
       cvcErrorElmnt.text('Not Valid.');
