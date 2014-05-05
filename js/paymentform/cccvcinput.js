@@ -11,49 +11,49 @@ $(document).ready(function() {
 
   $('#card-verification-code').focus(function() {
     if(!$('#card-CVC-error-container').is(':visible')) {
-      $('#card-CVC-hint-container').show();
-      $('#card-CVC-hint-container').text('3 digits');
+      var cvcHintElmnt = $('#card-CVC-hint-container');
+      cvcHintElmnt.show();
+      cvcHintElmnt.text('3 digits');
       $('#card-CVC-error-container').hide();
     }
   });  
 
   $('#card-verification-code').keyup(function(e) {
-
-    var cardCVCElmnt = $(this);
-    var cardCVCErrorElmnt = $('#card-CVC-error-container');
-    var str = $('#card-verification-code').val();
+    var cvcElmnt = $(this);
+    var cvcErrorElmnt = $('#card-CVC-error-container');
+    var str = cvcElmnt.val();
 
     if(!onlyContainsDigits(str) && str.length > 0) { 
       $('#card-CVC-hint-container').hide();
-      $('#card-CVC-error-container').show();
-      $('#card-verification-code').addClass('negative-box');
-      $('#card-CVC-error-container').text('Not Valid.');
-      $('#card-CVC-error-container').addClass('negative-check');
-      $('#card-verification-code').focus().val();
-      $('#card-verification-code').removeClass('correct-input');
+      cvcErrorElmnt.show();
+      cvcErrorElmnt.text('Not Valid.');
+      cvcErrorElmnt.addClass('negative-check');
+      cvcElmnt.addClass('negative-box');
+      cvcElmnt.removeClass('correct-input');
+      cvcElmnt.focus().val();
       form.globalCheck();
     }
 
     else if(str.length == 0){
-      $('#card-CVC-error-container').hide();
       $('#card-CVC-hint-container').show();
-      $('#card-CVC-error-container').text('');
-      $('#card-verification-code').removeClass('negative-box');
-      $('#card-CVC-error-container').removeClass('negative-check');
-      $('#card-verification-code').removeClass('correct-input');
+      cvcErrorElmnt.hide();
+      cvcErrorElmnt.text('');
+      cvcErrorElmnt.removeClass('negative-check');
+      cvcElmnt.removeClass('negative-box');
+      cvcElmnt.removeClass('correct-input');
       form.globalCheck();
     }
 
     else if(str.length == 3){
-      $('#card-verification-code').removeClass('negative-box');
       $('#card-CVC-hint-container').show();
-      $('#card-CVC-error-container').hide();
-      $('#card-CVC-error-container').removeClass('negative-check');
-      $('#card-verification-code').addClass('correct-input');
+      cvcErrorElmnt.hide();
+      cvcErrorElmnt.removeClass('negative-check');
+      cvcElmnt.removeClass('negative-box');
+      cvcElmnt.addClass('correct-input');
       form.globalCheck();
     }
     else if (str.length < 3) {
-      $('#card-verification-code').removeClass('correct-input');
+      cvcElmnt.removeClass('correct-input');
       form.globalCheck();
     }
     form.globalCheck();
@@ -61,48 +61,50 @@ $(document).ready(function() {
 
 
   $('#card-verification-code').blur(function() {
-
-    var str = $('#card-verification-code').val();
+    var cvcElmnt = $(this);
+    var cvcErrorElmnt = $('#card-CVC-error-container');
+    var cvcHintElmnt = $('#card-CVC-hint-container');
+    var str = cvcElmnt.val();
 
     if (!onlyContainsDigits(str) && str.length > 0) { 
-      $('#card-CVC-hint-container').hide();
-      $('#card-CVC-error-container').show();
-      $('#card-verification-code').addClass('negative-box');
-      $('#card-CVC-error-container').text('Not Valid.');
-      $('#card-CVC-error-container').addClass('negative-check');
-      $('#card-verification-code').removeClass('correct-input');
+      cvcHintElmnt.hide();
+      cvcErrorElmnt.show();
+      cvcErrorElmnt.text('Not Valid.');
+      cvcErrorElmnt.addClass('negative-check');
+      cvcElmnt.addClass('negative-box');
+      cvcElmnt.removeClass('correct-input');
+      cvcElmnt.focus().val();
       form.globalCheck();
-      $('#card-verification-code').focus().val();
     }
 
     else if (str.length != 0 && str.length < 3){
-      $('#card-CVC-hint-container').hide();
-      $('#card-CVC-error-container').show();
-      $('#card-verification-code').addClass('negative-box');
-      $('#card-CVC-error-container').text('Incomplete.');
-      $('#card-CVC-error-container').addClass('negative-check');
-      $('#card-verification-code').removeClass('correct-input');
+      cvcHintElmnt.hide();
+      cvcErrorElmnt.show();
+      cvcErrorElmnt.text('Incomplete.');
+      cvcErrorElmnt.addClass('negative-check');
+      cvcElmnt.addClass('negative-box');
+      cvcElmnt.removeClass('correct-input');
+      cvcElmnt.focus().val();
       form.globalCheck();
-      $('#card-verification-code').focus().val();
     }
     else if (str.length == 0) {
-      $('#card-verification-code').removeClass('negative-box');
-        $('#card-CVC-hint-container').show();
-        $('#card-CVC-hint-container').text('');
-        $('#card-CVC-error-container').hide();
-        $('#card-CVC-error-container').removeClass('negative-check');
-        $('#card-verification-code').removeClass('correct-input');
-        form.globalCheck();
+      cvcHintElmnt.show();
+      cvcHintElmnt.text('');
+      cvcErrorElmnt.hide();
+      cvcErrorElmnt.removeClass('negative-check');
+      cvcElmnt.removeClass('negative-box');
+      cvcElmnt.removeClass('correct-input');
+      form.globalCheck();
     }
 
     else{
-        $('#card-verification-code').removeClass('negative-box');
-        $('#card-CVC-hint-container').show();
-        $('#card-CVC-hint-container').text('');
-        $('#card-CVC-error-container').hide();
-        $('#card-CVC-error-container').removeClass('negative-check');
-        $('#card-verification-code').addClass('correct-input');
-        form.globalCheck();
+      cvcHintElmnt.show();
+      cvcHintElmnt.text('');
+      cvcErrorElmnt.hide();
+      cvcErrorElmnt.removeClass('negative-check');
+      cvcElmnt.removeClass('negative-box');
+      cvcElmnt.addClass('correct-input');
+      form.globalCheck();
     }
   });
 });

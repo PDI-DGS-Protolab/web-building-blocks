@@ -176,8 +176,9 @@ $(document).ready(function() {
       }
     }
     else if (str.length == 0) {//empty
-      $('#card-number-hint-container').show();
-      $('#card-number-hint-container').text('');
+      var cardNumberHintElmnt = $('#card-number-hint-container');
+      cardNumberHintElmnt.show();
+      cardNumberHintElmnt.text('');
       cardErrorElmnt.hide();
       cardErrorElmnt.text('');
       cardErrorElmnt.removeClass('negative-check');

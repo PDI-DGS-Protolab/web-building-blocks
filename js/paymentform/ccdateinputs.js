@@ -215,12 +215,12 @@ function checkExpirationOnBlur() {
     }
     else if (onlyContainsDigits(inputYear)) {
       if (inputYear.length == 1) {
-        var expirationErrorEl = $('#card-expiration-error-container');
+        var expirationErrorElmnt = $('#card-expiration-error-container');
         $('#card-expiration-year').addClass('negative-box');
         $('#card-expiration-year').focus().val();
-        expirationErrorEl.show();
-        expirationErrorEl.text("Invalid year's length. Please input 2 digits.");
-        expirationErrorEl.addClass('negative-check');
+        expirationErrorElmnt.show();
+        expirationErrorElmnt.text("Invalid year's length. Please input 2 digits.");
+        expirationErrorElmnt.addClass('negative-check');
         $('#card-expiration-container').removeClass('correct-input');
       }
       else if (inputYear.length == 2 && !isValidYear(inputYear, currentYear)){
@@ -268,45 +268,45 @@ function isValidDate (inputMonth, currentMonth, inputYear, currentYear) {
 }
 
 function invalidMonthState () {
-  var expirationMonthEl = $('#card-expiration-month');
-  var expirationErrorEl = $('#card-expiration-error-container');
+  var expirationMonthElmnt = $('#card-expiration-month');
+  var expirationErrorElmnt = $('#card-expiration-error-container');
 
-  expirationMonthEl.addClass('negative-box');
-  expirationMonthEl.focus().val();
-  expirationErrorEl.show();
-  expirationErrorEl.text("Invalid Month entered.");
-  expirationErrorEl.addClass('negative-check');
+  expirationMonthElmnt.addClass('negative-box');
+  expirationMonthElmnt.focus().val();
+  expirationErrorElmnt.show();
+  expirationErrorElmnt.text("Invalid Month entered.");
+  expirationErrorElmnt.addClass('negative-check');
   $('#card-expiration-container').removeClass('correct-input');
 }
 
 function notOnlyDigitsState (elmnt) {
-  var expirationErrorEl = $('#card-expiration-error-container');
+  var expirationErrorElmnt = $('#card-expiration-error-container');
 
   $('#card-expiration-' + elmnt).addClass('negative-box');
   $('#card-expiration-' + elmnt).focus().val();
-  expirationErrorEl.show();
-  expirationErrorEl.text("You can input only digits.");
-  expirationErrorEl.addClass('negative-check');
+  expirationErrorElmnt.show();
+  expirationErrorElmnt.text("You can input only digits.");
+  expirationErrorElmnt.addClass('negative-check');
   $('#card-expiration-container').removeClass('correct-input');
 }
 
 function expiredCardState () {
-  var expirationYearEl = $('#card-expiration-year')
-  var expirationErrorEl = $('#card-expiration-error-container');
+  var expirationYearElmnt = $('#card-expiration-year')
+  var expirationErrorElmnt = $('#card-expiration-error-container');
 
-  expirationYearEl.addClass('negative-box');
-  expirationYearEl.focus().val();
-  expirationErrorEl.show();
-  expirationErrorEl.text("Your card has expired or you have chosen a wrong expiration date.");
-  expirationErrorEl.addClass('negative-check');
+  expirationYearElmnt.addClass('negative-box');
+  expirationYearElmnt.focus().val();
+  expirationErrorElmnt.show();
+  expirationErrorElmnt.text("Your card has expired or you have chosen a wrong expiration date.");
+  expirationErrorElmnt.addClass('negative-check');
   $('#card-expiration-container').removeClass('correct-input');
 }
 
 function resetErrorContainer (elmnts) {
-  var expirationErrorEl = $('#card-expiration-error-container');
+  var expirationErrorElmnt = $('#card-expiration-error-container');
 
-  expirationErrorEl.hide();
-  expirationErrorEl.text("");
+  expirationErrorElmnt.hide();
+  expirationErrorElmnt.text("");
   if (!$('#card-expiration-container').hasClass('correct-input')) {
     for (var i = 0; i < elmnts.length; ++i) {
       $('#card-expiration-' + elmnts[i]).removeClass('negative-box');
