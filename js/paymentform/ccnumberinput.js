@@ -15,14 +15,15 @@ var form = new GlobalFormTools();
 $(document).ready(function() {
   $('#card-number-input').focus(function() {
     if (!$('#card-number-error-container').is(':visible')) {
-      $('#card-number-hint-container').text('Enter your credit card number without any spaces');
-      $('#card-number-hint-container').show();
+      var cardHintElmnt = $('#card-number-hint-container');
+      
+      cardHintElmnt.text('Enter your credit card number without any spaces');
+      cardHintElmnt.show();
       $('#card-number-error-container').hide();
     }
   }); 
 
   $('#card-number-input').keyup(function(e) {
-
     var cardNumberElmnt = $(this);
     var cardErrorElmnt = $('#card-number-error-container');
     var str = cardNumberElmnt.val();
@@ -118,10 +119,8 @@ $(document).ready(function() {
   }); 
 
   $('#card-number-input').blur(function() {
-    
     var cardNumberElmnt = $(this);
     var cardErrorElmnt = $('#card-number-error-container');
-
     var str = cardNumberElmnt.val();
     var errorMsg = cardErrorElmnt.text();
     
@@ -177,6 +176,7 @@ $(document).ready(function() {
     }
     else if (str.length == 0) {//empty
       var cardNumberHintElmnt = $('#card-number-hint-container');
+
       cardNumberHintElmnt.show();
       cardNumberHintElmnt.text('');
       cardErrorElmnt.hide();
@@ -237,6 +237,7 @@ function clearCardClasses (element) {
 function cardNumberIsCorrect () {
   var cardErrorElmnt = $('#card-number-error-container');
   var cardHintContainer = $('#card-number-hint-container');
+
   cardErrorElmnt.hide();
   cardErrorElmnt.text('');
   cardErrorElmnt.removeClass('negative-check');
@@ -248,6 +249,7 @@ function cardNumberIsCorrect () {
 function invalidCardState (errorMsg) {
   var cardNumberElmnt = $('#card-number-input');
   var cardErrorElmnt = $('#card-number-error-container');
+
   $('#card-number-hint-container').hide();
   cardErrorElmnt.show();
   cardErrorElmnt.text(errorMsg);
