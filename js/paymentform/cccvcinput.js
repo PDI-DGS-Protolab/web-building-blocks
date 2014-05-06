@@ -26,7 +26,7 @@ $(document).ready(function() {
     if(!onlyContainsDigits(str) && str.length > 0) {
       $('#card-CVC-hint-container').hide();
       cvcErrorElmnt.show();
-      cvcErrorElmnt.text('Not Valid.');
+      cvcErrorElmnt.text('Not Valid');
       cvcErrorElmnt.addClass('negative-check');
       cvcElmnt.addClass('negative-box');
       cvcElmnt.removeClass('correct-input');
@@ -63,7 +63,7 @@ $(document).ready(function() {
     }
 
     else if (str.length != 0 && str.length < 3){
-      incorrectCVCBlurState("Incomplete.");
+      incorrectCVCBlurState("Incomplete");
       form.globalCheck();
     }
     else if (str.length == 0) {

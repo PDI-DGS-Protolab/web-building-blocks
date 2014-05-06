@@ -3,56 +3,65 @@ var form = new GlobalFormTools();
 $(document).ready(function() {
   $('#card-holder-name').focus(function() {
     if(!$('#card-name-error-container').is(':visible') ) {
-      $('#card-name-hint-container').show();
-      $('#card-name-hint-container').text('Enter your full name as it appears on your card');
+      var cardNameHintElmnt = $('#card-name-hint-container');
+      cardNameHintElmnt.show();
+      cardNameHintElmnt.text('Enter your full name as it appears on your card');
       $('#card-name-error-container').hide();
     }
   });
 
   $('#card-holder-name').keyup(function(e) {
-    var str = $(this).val();
+    var cardNameElmnt = $(this);
+    var cardNameHintElmnt = $('#card-name-hint-container');
+    var cardNameErrorElmnt = $('#card-name-error-container');
+    var str = cardNameElmnt.val();
+
     if(!onlyContainsLetters(str)) {
-      $('#card-name-hint-container').hide();
-      $('#card-name-error-container').show();
-      $(this).addClass('negative-box');
-      $('#card-name-error-container').text('Illegal characters. You can input only letters.');
-      $('#card-name-error-container').addClass('negative-check');
-      $('#card-holder-name').removeClass('correct-input');
+      cardNameHintElmnt.hide();
+      cardNameErrorElmnt.show();
+      cardNameErrorElmnt.text('Illegal characters. You can input only letters.');
+      cardNameErrorElmnt.addClass('negative-check');
+      cardNameElmnt.addClass('negative-box');
+      cardNameElmnt.removeClass('correct-input');
       form.globalCheck();
     }
 
     else if((str == '') || (str == undefined) || isMadeOfWhiteSpaces(str)) {
-      $('#card-name-hint-container').show();
-      $('#card-name-error-container').hide();
-      $('#card-name-error-container').text('');
-      $(this).removeClass('negative-box');
-      $('#card-holder-name').removeClass('correct-input');
+      cardNameHintElmnt.show();
+      cardNameErrorElmnt.hide();
+      cardNameErrorElmnt.text('');
+      cardNameElmnt.removeClass('negative-box');
+      cardNameElmnt.removeClass('correct-input');
       form.globalCheck();
     }
 
     else {
-      $(this).removeClass('negative-box');
-      $('#card-name-error-container').hide();
-      $('#card-name-hint-container').show();
-      $('#card-name-hint-container').text('Enter your full name as it appears on your card');
-      $('#card-name-error-container').removeClass('negative-check');
-      $('#card-holder-name').addClass('correct-input');
+      cardNameHintElmnt.show();
+      cardNameHintElmnt.text('Enter your full name as it appears on your card');
+      cardNameErrorElmnt.hide();
+      cardNameErrorElmnt.removeClass('negative-check');
+      cardNameElmnt.removeClass('negative-box');
+      cardNameElmnt.addClass('correct-input');
       form.globalCheck();
     }
   });
 
   $('#card-holder-name').blur(function() {
-    var str = $(this).val();
-    $('#card-name-hint-container').text('');
+    var cardNameElmnt = $(this);
+    var cardNameHintElmnt = $('#card-name-hint-container');
+    var cardNameErrorElmnt = $('#card-name-error-container');
+    var str = cardNameElmnt.val();
+    
+    cardNameHintElmnt.text('');
     if((!onlyContainsLetters(str) || isMadeOfWhiteSpaces(str)) && str.length > 0) {
-      $('#card-name-hint-container').hide();
-      $('#card-name-error-container').show();
-      $(this).addClass('negative-box');
-      $('#card-name-error-container').text('Illegal characters. You can input only letters.');
-      $('#card-name-error-container').addClass('negative-check');
-      $('#card-holder-name').removeClass('correct-input');
+      cardNameHintElmnt.hide();
+      cardNameErrorElmnt.show();
+      cardNameErrorElmnt.text('Illegal characters. You can input only letters.');
+      cardNameErrorElmnt.addClass('negative-check');
+      cardNameElmnt.addClass('negative-box');
+      cardNameElmnt.removeClass('correct-input');
+      cardNameElmnt.focus().val();
       form.globalCheck();
-      $('#card-holder-name').focus().val();
     }
   });
 });
