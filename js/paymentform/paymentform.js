@@ -2,13 +2,13 @@ $(document).ready(function() {
   var currentDate = new Date();
   var currentMonth = currentDate.getMonth();
   var currentYear = currentDate.getFullYear().toString().substring(2, 4);
-  var availableMonths = [ '01','02','03','04','05','06',
-                        '07','08','09','10','11','12' ];
+  var availableMonths = ['01','02','03','04','05','06',
+                        '07','08','09','10','11','12'];
   var availableYears = new Array();
   availableYears.push(currentYear);
   var nextYear;
 
-  for (var i = 0; i < 30; i++) { 
+  for (var i = 0; i < 30; i++) {
     nextYear = currentDate.getFullYear() + i + 1;
     availableYears.push(nextYear.toString().substring(2, 4));
   }

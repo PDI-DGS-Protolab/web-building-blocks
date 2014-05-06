@@ -9,7 +9,7 @@ function cardCVCHelpMouseLeave () {
 }
 
 function cardCVCFocus () {
-  if(!$('#card-CVC-error-container').is(':visible')) {
+  if (!$('#card-CVC-error-container').is(':visible')) {
     var cvcHintElmnt = $('#card-CVC-hint-container');
     cvcHintElmnt.show();
     cvcHintElmnt.text("3 digits");
@@ -22,7 +22,7 @@ function cardCVCKeyUp () {
   var cvcErrorElmnt = $('#card-CVC-error-container');
   var str = cvcElmnt.val();
 
-  if(!onlyContainsDigits(str) && str.length > 0) {
+  if (!onlyContainsDigits(str) && str.length > 0) {
     $('#card-CVC-hint-container').hide();
     cvcErrorElmnt.show();
     cvcErrorElmnt.text("Not Valid");
@@ -33,13 +33,13 @@ function cardCVCKeyUp () {
     form.globalCheck();
   }
 
-  else if(str.length == 0){
+  else if (str.length == 0){
     neutralCVCState();
     cvcElmnt.removeClass('correct-input');
     form.globalCheck();
   }
 
-  else if(str.length == 3){
+  else if (str.length == 3){
     neutralCVCState();
     cvcElmnt.addClass('correct-input');
     form.globalCheck();
@@ -55,11 +55,11 @@ function cardCVCBlur () {
   var cvcElmnt = $('#card-verification-code');
   var str = cvcElmnt.val();
 
-  if (!onlyContainsDigits(str) && str.length > 0) { 
+  if (!onlyContainsDigits(str) && str.length > 0) {
     incorrectCVCBlurState("Not Valid");
     form.globalCheck();
   }
-  else if (str.length != 0 && str.length < 3){
+  else if (str.length != 0 && str.length < 3) {
     incorrectCVCBlurState("Incomplete");
     form.globalCheck();
   }
@@ -68,7 +68,7 @@ function cardCVCBlur () {
     cvcElmnt.removeClass('correct-input');
     form.globalCheck();
   }
-  else{
+  else {
     neutralCVCBlurState();
     cvcElmnt.addClass('correct-input');
     form.globalCheck();
@@ -80,7 +80,7 @@ function neutralCVCState () {
 
   $('#card-CVC-hint-container').show();
   cvcErrorElmnt.hide();
-  cvcErrorElmnt.text('');
+  cvcErrorElmnt.text("");
   cvcErrorElmnt.removeClass('negative-check');
   $('#card-verification-code').removeClass('negative-box');
 }
@@ -103,7 +103,7 @@ function neutralCVCBlurState () {
   var cvcHintElmnt = $('#card-CVC-hint-container');
 
   cvcHintElmnt.show();
-  cvcHintElmnt.text('');
+  cvcHintElmnt.text("");
   cvcErrorElmnt.hide();
   cvcErrorElmnt.removeClass('negative-check');
   $('#card-verification-code').removeClass('negative-box');

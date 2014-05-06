@@ -12,7 +12,7 @@ function checkInputMonth () {
   var currentDate = new Date();
   var currentMonth = currentDate.getMonth() + 1;
   var inputMonth = $('#card-expiration-month').val().toString();
-  var inputYear = $('#card-expiration-year').val().toString(); 
+  var inputYear = $('#card-expiration-year').val().toString();
 
   if (isVoid(inputYear)) {
     if (isVoid(inputMonth)) {
@@ -43,7 +43,7 @@ function checkInputYear () {
   var currentDate = new Date();
   var currentYear = currentDate.getFullYear().toString().substr(2, 4);
   var inputMonth = $('#card-expiration-month').val().toString();
-  var inputYear = $('#card-expiration-year').val().toString(); 
+  var inputYear = $('#card-expiration-year').val().toString();
 
   if (isVoid(inputMonth)) {
     if (isVoid(inputYear)) {
@@ -99,7 +99,7 @@ function checkExpiration (modifiedElmnt) {
           invalidMonthState();
         }
         else if (isValidMonth(inputMonth)) {
-          resetErrorContainer(['month']); 
+          resetErrorContainer(['month']);
         }
       }
       else if (modifiedElmnt == 'year') {

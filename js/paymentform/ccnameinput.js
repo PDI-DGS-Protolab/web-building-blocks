@@ -1,7 +1,7 @@
 var form = new GlobalFormTools();
 
-function cardNameFocus ()  {
-  if(!$('#card-name-error-container').is(':visible') ) {
+function cardNameFocus () {
+  if (!$('#card-name-error-container').is(':visible') ) {
     var cardNameHintElmnt = $('#card-name-hint-container');
     cardNameHintElmnt.show();
     cardNameHintElmnt.text("Enter your full name as it appears on your card");
@@ -15,7 +15,7 @@ function cardNameKeyUp () {
   var cardNameErrorElmnt = $('#card-name-error-container');
   var str = cardNameElmnt.val();
 
-  if(!onlyContainsLetters(str)) {
+  if (!onlyContainsLetters(str)) {
     cardNameHintElmnt.hide();
     cardNameErrorElmnt.show();
     cardNameErrorElmnt.text("Illegal characters. You can input only letters.");
@@ -24,7 +24,7 @@ function cardNameKeyUp () {
     cardNameElmnt.removeClass('correct-input');
     form.globalCheck();
   }
-  else if((str == '') || (str == undefined) || isMadeOfWhiteSpaces(str)) {
+  else if ((str == '') || (str == undefined) || isMadeOfWhiteSpaces(str)) {
     cardNameHintElmnt.show();
     cardNameErrorElmnt.hide();
     cardNameErrorElmnt.text("");
@@ -50,7 +50,7 @@ function cardNameBlur () {
   var str = cardNameElmnt.val();
   
   cardNameHintElmnt.text("");
-  if((!onlyContainsLetters(str) || isMadeOfWhiteSpaces(str)) && str.length > 0) {
+  if ((!onlyContainsLetters(str) || isMadeOfWhiteSpaces(str)) && str.length > 0) {
     cardNameHintElmnt.hide();
     cardNameErrorElmnt.show();
     cardNameErrorElmnt.text("Illegal characters. You can input only letters.");

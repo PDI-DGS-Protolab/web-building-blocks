@@ -40,7 +40,7 @@ function cardNumberKeyUp () {
       cardNumberElmnt.removeClass('correct-input');
     }
 
-    if (!onlyContainsDigits(str)) { 
+    if (!onlyContainsDigits(str)) {
       invalidCardState('Illegal characters. You can input only numbers.');
     }
     else {
@@ -76,7 +76,7 @@ function cardNumberKeyUp () {
           }
           else {
             cardNumberElmnt.removeClass('correct-input');
-          } 
+          }
         }
         else if (isMastercardCard(str.substr(0, 2))) {
           if (str.length == MASTERCARDLENGTH) {
@@ -84,7 +84,7 @@ function cardNumberKeyUp () {
           }
           else {
             cardNumberElmnt.removeClass('correct-input');
-          } 
+          }
         }
         else if (isAmericanExpressCard(str.substr(0, 2))) {
           if (str.length == AMERICANEXPRESSLENGTH) {
@@ -92,7 +92,7 @@ function cardNumberKeyUp () {
           }
           else {
             cardNumberElmnt.removeClass('correct-input');
-          } 
+          }
         }
         else if (isMaestroCard(str.substr(0, 4))) {
           if (str.length > MAESTROMINLENGTH) {
@@ -100,12 +100,12 @@ function cardNumberKeyUp () {
           }
           else {
             cardNumberElmnt.removeClass('correct-input');
-          } 
+          }
         }
       }
       else if (str.length < 4) {
         $('#card-number-hint-container').show();
-        cardErrorElmnt.hide();          
+        cardErrorElmnt.hide();
         cardErrorElmnt.text("");
         cardErrorElmnt.removeClass('negative-check');
         cardNumberElmnt.removeClass('negative-box');
@@ -170,7 +170,7 @@ function cardNumberBlur () {
       cardNumberElmnt.focus().val();
     }
   }
-  else if (str.length == 0) {//empty
+  else if (str.length == 0) {
     var cardNumberHintElmnt = $('#card-number-hint-container');
 
     cardNumberHintElmnt.show();
@@ -180,7 +180,7 @@ function cardNumberBlur () {
     cardErrorElmnt.removeClass('negative-check');
     cardNumberElmnt.removeClass('negative-box');
   }
-  else {//ok
+  else {
     cardNumberIsCorrect();
   }
   form.globalCheck();
