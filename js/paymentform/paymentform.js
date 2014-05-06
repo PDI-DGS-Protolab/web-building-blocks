@@ -69,19 +69,19 @@ $(document).ready(function() {
   });
 
   $('#card-expiration-month').keyup(function(e) {
-    cardMonthKeyUp();
+    checkInputMonth();
   });
 
   $('#card-expiration-year').keyup(function(e) {
-    cardYearKeyUp();
+    checkInputYear();
   });
 
   $('#card-expiration-month').blur(function() {
-    cardMonthBlur();
+    checkExpirationOnBlur()
   });
 
   $('#card-expiration-year').blur(function() {
-    cardYearBlur();
+    checkExpirationOnBlur()
   });
 
   $('#card-expiration-month').autocomplete({

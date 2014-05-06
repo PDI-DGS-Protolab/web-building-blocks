@@ -8,22 +8,6 @@ function cardYearFocus () {
   $('#card-expiration-year').attr('placeholder', '');
 }
 
-function cardMonthKeyUp () {
-  checkInputMonth();
-}
-
-function cardYearKeyUp () {
-  checkInputYear();
-}
-
-function cardMonthBlur () {
-  checkExpirationOnBlur();
-}
-
-function cardYearBlur () {
-  checkExpirationOnBlur();
-}
-
 function checkInputMonth () {
   var currentDate = new Date();
   var currentMonth = currentDate.getMonth() + 1;
@@ -102,7 +86,6 @@ function checkExpiration (modifiedElmnt) {
       if (modifiedElmnt == 'month') {
         if (isVoid(inputMonth)) {
           $('#card-expiration-container').removeClass('correct-input');
-          $('#card-expiration-month').val("");
           resetErrorContainer(['month']);
         }
         else if (inputMonth < 1) {
@@ -122,7 +105,6 @@ function checkExpiration (modifiedElmnt) {
       else if (modifiedElmnt == 'year') {
         if (isVoid(inputYear)) {
           $('#card-expiration-container').removeClass('correct-input');
-          $('#card-expiration-year').val("");
           resetErrorContainer(['year']);
         }
         else if (inputYear.length == 1) {
@@ -146,10 +128,12 @@ function checkExpiration (modifiedElmnt) {
   }
   else if (isVoid(inputMonth)) {
     $('#card-expiration-container').removeClass('correct-input');
+    $('#card-expiration-month').val("");
     resetErrorContainer(['month']);
   }
   else if (isVoid(inputYear)) {
     $('#card-expiration-container').removeClass('correct-input');
+    $('#card-expiration-year').val("");
     resetErrorContainer(['year']);
   }
   else {
