@@ -272,8 +272,9 @@ function resetErrorContainer (elmnts) {
   expirationErrorElmnt.hide();
   expirationErrorElmnt.text("");
   if (!$('#card-expiration-container').hasClass('correct-input')) {
-    for (var i = 0; i < elmnts.length; ++i) {
-      $('#card-expiration-' + elmnts[i]).removeClass('negative-box');
-    }
+    var it = elmnts.length;
+    do {
+      $('#card-expiration-' + elmnts[it]).removeClass('negative-box');
+    } while (it--);
   }
 }
