@@ -35,20 +35,13 @@ $(document).ready(function() {
     }
 
     else if(str.length == 0){
-      $('#card-CVC-hint-container').show();
-      cvcErrorElmnt.hide();
-      cvcErrorElmnt.text('');
-      cvcErrorElmnt.removeClass('negative-check');
-      cvcElmnt.removeClass('negative-box');
+      neutralCVCState();
       cvcElmnt.removeClass('correct-input');
       form.globalCheck();
     }
 
     else if(str.length == 3){
-      $('#card-CVC-hint-container').show();
-      cvcErrorElmnt.hide();
-      cvcErrorElmnt.removeClass('negative-check');
-      cvcElmnt.removeClass('negative-box');
+      neutralCVCState();
       cvcElmnt.addClass('correct-input');
       form.globalCheck();
     }
@@ -62,49 +55,61 @@ $(document).ready(function() {
 
   $('#card-verification-code').blur(function() {
     var cvcElmnt = $(this);
-    var cvcErrorElmnt = $('#card-CVC-error-container');
-    var cvcHintElmnt = $('#card-CVC-hint-container');
     var str = cvcElmnt.val();
 
     if (!onlyContainsDigits(str) && str.length > 0) { 
-      cvcHintElmnt.hide();
-      cvcErrorElmnt.show();
-      cvcErrorElmnt.text('Not Valid.');
-      cvcErrorElmnt.addClass('negative-check');
-      cvcElmnt.addClass('negative-box');
-      cvcElmnt.removeClass('correct-input');
-      cvcElmnt.focus().val();
+      incorrectCVCBlurState("Not Valid");
       form.globalCheck();
     }
 
     else if (str.length != 0 && str.length < 3){
-      cvcHintElmnt.hide();
-      cvcErrorElmnt.show();
-      cvcErrorElmnt.text('Incomplete.');
-      cvcErrorElmnt.addClass('negative-check');
-      cvcElmnt.addClass('negative-box');
-      cvcElmnt.removeClass('correct-input');
-      cvcElmnt.focus().val();
+      incorrectCVCBlurState("Incomplete.");
       form.globalCheck();
     }
     else if (str.length == 0) {
-      cvcHintElmnt.show();
-      cvcHintElmnt.text('');
-      cvcErrorElmnt.hide();
-      cvcErrorElmnt.removeClass('negative-check');
-      cvcElmnt.removeClass('negative-box');
+      neutralCVCBlurState();
       cvcElmnt.removeClass('correct-input');
       form.globalCheck();
     }
 
     else{
-      cvcHintElmnt.show();
-      cvcHintElmnt.text('');
-      cvcErrorElmnt.hide();
-      cvcErrorElmnt.removeClass('negative-check');
-      cvcElmnt.removeClass('negative-box');
+      neutralCVCBlurState();
       cvcElmnt.addClass('correct-input');
       form.globalCheck();
     }
   });
 });
+
+function neutralCVCState () {
+  var cvcErrorElmnt = $('#card-CVC-error-container');
+
+  $('#card-CVC-hint-container').show();
+  cvcErrorElmnt.hide();
+  cvcErrorElmnt.text('');
+  cvcErrorElmnt.removeClass('negative-check');
+  $('#card-verification-code').removeClass('negative-box');
+}
+
+function incorrectCVCBlurState (errorMsg) {
+  var cvcElmnt = $('#card-verification-code');
+  var cvcErrorElmnt = $('#card-CVC-error-container');
+
+  $('#card-CVC-hint-container').hide();
+  cvcErrorElmnt.show();
+  cvcErrorElmnt.text(errorMsg);
+  cvcErrorElmnt.addClass('negative-check');
+  cvcElmnt.addClass('negative-box');
+  cvcElmnt.removeClass('correct-input');
+  cvcElmnt.focus().val();
+}
+
+function neutralCVCBlurState () {
+  var cvcErrorElmnt = $('#card-CVC-error-container');
+  var cvcHintElmnt = $('#card-CVC-hint-container');
+
+  cvcHintElmnt.show();
+  cvcHintElmnt.text('');
+  cvcErrorElmnt.hide();
+  cvcErrorElmnt.removeClass('negative-check');
+  $('#card-verification-code').removeClass('negative-box');
+}
