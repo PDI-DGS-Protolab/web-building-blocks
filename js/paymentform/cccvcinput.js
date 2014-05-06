@@ -12,7 +12,7 @@ function cardCVCFocus () {
   if(!$('#card-CVC-error-container').is(':visible')) {
     var cvcHintElmnt = $('#card-CVC-hint-container');
     cvcHintElmnt.show();
-    cvcHintElmnt.text('3 digits');
+    cvcHintElmnt.text("3 digits");
     $('#card-CVC-error-container').hide();
   }
 }
@@ -25,7 +25,7 @@ function cardCVCKeyUp () {
   if(!onlyContainsDigits(str) && str.length > 0) {
     $('#card-CVC-hint-container').hide();
     cvcErrorElmnt.show();
-    cvcErrorElmnt.text('Not Valid');
+    cvcErrorElmnt.text("Not Valid");
     cvcErrorElmnt.addClass('negative-check');
     cvcElmnt.addClass('negative-box');
     cvcElmnt.removeClass('correct-input');
@@ -59,7 +59,6 @@ function cardCVCBlur () {
     incorrectCVCBlurState("Not Valid");
     form.globalCheck();
   }
-
   else if (str.length != 0 && str.length < 3){
     incorrectCVCBlurState("Incomplete");
     form.globalCheck();
@@ -69,7 +68,6 @@ function cardCVCBlur () {
     cvcElmnt.removeClass('correct-input');
     form.globalCheck();
   }
-
   else{
     neutralCVCBlurState();
     cvcElmnt.addClass('correct-input');

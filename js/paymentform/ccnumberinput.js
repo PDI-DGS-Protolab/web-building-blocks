@@ -15,8 +15,7 @@ var form = new GlobalFormTools();
 function cardNumberFocus () {
   if (!$('#card-number-error-container').is(':visible')) {
     var cardHintElmnt = $('#card-number-hint-container');
-    
-    cardHintElmnt.text('Enter your credit card number without any spaces');
+    cardHintElmnt.text("Enter your credit card number without any spaces");
     cardHintElmnt.show();
     $('#card-number-error-container').hide();
   }
@@ -31,7 +30,7 @@ function cardNumberKeyUp () {
     clearCardClasses(cardNumberElmnt);
     $('#card-number-hint-container').show();
     cardErrorElmnt.hide();
-    cardErrorElmnt.text('');
+    cardErrorElmnt.text("");
     cardErrorElmnt.removeClass('negative-check');
     cardNumberElmnt.removeClass('negative-box');
     cardNumberElmnt.removeClass('correct-input');
@@ -68,10 +67,9 @@ function cardNumberKeyUp () {
       if (str.length > 4) {
         $('#card-number-hint-container').show();
         cardErrorElmnt.hide();
-        cardErrorElmnt.text('');
+        cardErrorElmnt.text("");
         cardErrorElmnt.removeClass('negative-check');
         cardNumberElmnt.removeClass('negative-box');
-        
         if (isVisaCard(str.substr(0, 1))) {
           if (str.length == VISAMINLENGTH || str.length == VISAMAXLENGTH){
             cardNumberElmnt.addClass('correct-input');
@@ -108,7 +106,7 @@ function cardNumberKeyUp () {
       else if (str.length < 4) {
         $('#card-number-hint-container').show();
         cardErrorElmnt.hide();          
-        cardErrorElmnt.text('');
+        cardErrorElmnt.text("");
         cardErrorElmnt.removeClass('negative-check');
         cardNumberElmnt.removeClass('negative-box');
       }
@@ -132,7 +130,6 @@ function cardNumberBlur () {
     cardNumberElmnt.focus().val();
   }
   else if (str.length >= 4) {
-
     if (isVisaCard(str.substr(0, 1))) {
       if (str.length != VISAMINLENGTH && str.length != VISAMAXLENGTH) {
         invalidCardState('Invalid length. You should input 13 or 16 digits.(VISA)');
@@ -177,9 +174,9 @@ function cardNumberBlur () {
     var cardNumberHintElmnt = $('#card-number-hint-container');
 
     cardNumberHintElmnt.show();
-    cardNumberHintElmnt.text('');
+    cardNumberHintElmnt.text("");
     cardErrorElmnt.hide();
-    cardErrorElmnt.text('');
+    cardErrorElmnt.text("");
     cardErrorElmnt.removeClass('negative-check');
     cardNumberElmnt.removeClass('negative-box');
   }
@@ -218,7 +215,6 @@ function switchActiveCard (element, newCardClass, newCardLength) {
   var cardNumberElmnt = $(element);
   
   clearCardClasses(cardNumberElmnt);
-
   cardNumberElmnt.addClass(newCardClass);
   cardNumberElmnt.attr('maxlength', newCardLength);
 };
@@ -237,10 +233,10 @@ function cardNumberIsCorrect () {
   var cardHintContainer = $('#card-number-hint-container');
 
   cardErrorElmnt.hide();
-  cardErrorElmnt.text('');
+  cardErrorElmnt.text("");
   cardErrorElmnt.removeClass('negative-check');
   cardHintContainer.show();
-  cardHintContainer.text('');
+  cardHintContainer.text("");
   $('#card-number-input').removeClass('negative-box');
 }
 

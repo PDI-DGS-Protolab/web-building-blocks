@@ -161,7 +161,6 @@ function checkExpirationOnBlur() {
       }
     }
   }
-
   else {
     if (inputYear.length == 0) {
       $('#card-expiration-year').attr('placeholder', currentYear);
@@ -203,7 +202,6 @@ function checkExpirationOnBlur() {
       $('#card-expiration-month').focus().val();
     }
   }
-
   form.globalCheck();
 }
 
