@@ -1,61 +1,28 @@
 var form = new GlobalFormTools();
 
-$(document).ready(function() {
-  var currentDate = new Date();
-  var currentMonth = currentDate.getMonth();
+function cardMonthFocus () {
+  $('#card-expiration-month').attr('placeholder', '');
+}
 
-  var availableMonths = [ '01','02','03','04','05','06',
-                        '07','08','09','10','11','12' ];
+function cardYearFocus () {
+  $('#card-expiration-year').attr('placeholder', '');
+}
 
-  var currentYear = currentDate.getFullYear().toString().substring(2, 4);
+function cardMonthKeyUp () {
+  checkInputMonth();
+}
 
-  var availableYears = new Array();
-  availableYears.push(currentYear);
-  var nextYear;
+function cardYearKeyUp () {
+  checkInputYear();
+}
 
-  for (var i = 0; i < 30; i++) { 
-    nextYear = currentDate.getFullYear() + i + 1;
-    availableYears.push(nextYear.toString().substring(2, 4));
-  }
-  
-  $('#card-expiration-month').attr('placeholder', (currentMonth + 1).toString());
-  $('#card-expiration-year').attr('placeholder', currentYear);
+function cardMonthBlur () {
+  checkExpirationOnBlur();
+}
 
-  $('#card-expiration-month').focus(function() {
-    $('#card-expiration-month').attr('placeholder', '');
-  });
-
-  $('#card-expiration-year').focus(function() {
-    $('#card-expiration-year').attr('placeholder', '');
-  });
-
-  $('#card-expiration-month').keyup(function(e) {
-    checkInputMonth();
-  });
-
-  $('#card-expiration-year').keyup(function(e) {
-    checkInputYear();
-  });
-
-  $('#card-expiration-year').blur(function() {
-    checkExpirationOnBlur();
-  });
-
-  $('#card-expiration-month').blur(function() {
-    checkExpirationOnBlur();
-  });
-
-  $('#card-expiration-month').autocomplete({
-    source: availableMonths
-  });
-
-  $('#card-expiration-year').autocomplete({
-    source: function(request, response) {
-        var results = $.ui.autocomplete.filter(availableYears, request.term);
-        response(results.slice(0, 7));
-    }
-  });
-});
+function cardYearBlur () {
+  checkExpirationOnBlur();
+}
 
 function checkInputMonth () {
   var currentDate = new Date();
