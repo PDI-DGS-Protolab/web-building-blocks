@@ -32,14 +32,12 @@ function cardCVCKeyUp () {
     cvcElmnt.focus().val();
     form.globalCheck();
   }
-
-  else if (str.length == 0){
+  else if (str.length == 0) {
     neutralCVCState();
     cvcElmnt.removeClass('correct-input');
     form.globalCheck();
   }
-
-  else if (str.length == 3){
+  else if (str.length == 3) {
     neutralCVCState();
     cvcElmnt.addClass('correct-input');
     form.globalCheck();
