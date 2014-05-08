@@ -377,7 +377,7 @@ function getButtonType(draggable) {
 }
 
 function getButtonHtml(brand, type) {
-  return '<div class="button-back" >\n'+
+  return '<div class="button-back ' + brand + '"' + '>\n'+
          '    <div class="quit-icon"></div>\n'+
          '    <button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">\n'+ 
          '        '+toTitleCase(type) +'\n'+

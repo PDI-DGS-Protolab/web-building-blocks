@@ -1,8 +1,8 @@
-.movistar.button {
+.movistar .button {
     font-family: "Arial", sans-serif;
 }
 
-.movistar.btt-neutral {
+.movistar .btt-neutral {
     color: white;
     cursor: pointer;
     background: #0086C3; /* Old browsers */
@@ -16,7 +16,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0086C3', endColorstr='#1A8DCA', GradientType=0 ); /* IE6-9 */
 }
 
-.movistar.btt-neutral:hover:enabled {
+.movistar .btt-neutral:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 0, 134, 195, 0.9 ); /* Old browsers */
@@ -30,7 +30,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 0, 134, 195, 0.9 )', endColorstr='rgba( 26, 141, 202, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.movistar.btt-neutral:active:enabled {
+.movistar .btt-neutral:active:enabled {
     background: #1A8DCA; /* Old browsers */
     background: -moz-linear-gradient( top, #1A8DCA 0%, #0086C3 100% ); /* FF3.6+ */
     background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #1A8DCA ), color-stop( 100%, #0086C3 ) ); /* Chrome,Safari4+ */
@@ -42,7 +42,7 @@
     outline: none !important;
 }
 
-.movistar.btt-neutral[disabled=disabled], .movistar.btt-neutral:disabled {
+.movistar .btt-neutral[disabled=disabled], .movistar .btt-neutral:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -52,7 +52,7 @@
     -ms-filter: "alpha( opacity=40 )";
 }
 
-.movistar.btt-positive {
+.movistar .btt-positive {
     color: white;
     cursor: pointer;
     background: #7AB800; /* Old browsers */
@@ -66,7 +66,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7AB800', endColorstr='#8DC922', GradientType=0 ); /* IE6-9 */
 }
 
-.movistar.btt-positive:hover:enabled {
+.movistar .btt-positive:hover:enabled {
     border: rgba( 122, 184, 0, 0.9 ) 1px solid;
     background: rgba( 122, 184, 0, 0.9 ); /* Old browsers */
     background: -moz-linear-gradient( top, rgba( 122, 184, 0, 0.9 ) 0%, rgba( 141, 201, 34, 0.9 ) 100% ); /* FF3.6+ */
@@ -80,7 +80,7 @@
     cursor: pointer;
 }
 
-.movistar.btt-positive:active:enabled {
+.movistar .btt-positive:active:enabled {
     background: #8DC922; /* Old browsers */
     background: -moz-linear-gradient( top, #8DC922 0%, #7AB800 100% ); /* FF3.6+ */
     background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #8DC922), color-stop( 100%, #7AB800 ) ); /* Chrome,Safari4+ */
@@ -92,7 +92,7 @@
     outline: none !important;
 }
 
-.movistar.btt-positive[disabled=disabled], .movistar.btt-positive:disabled {
+.movistar .btt-positive[disabled=disabled], .movistar .btt-positive:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -102,7 +102,7 @@
     -ms-filter: "alpha( opacity=40 )";
 }
 
-.movistar.btt-negative {
+.movistar .btt-negative {
     color: white;
     cursor: pointer;
     background: #C60606; /* Old browsers */
@@ -116,7 +116,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C60606', endColorstr='#CA3430', GradientType=0 ); /* IE6-9 */
 }
 
-.movistar.btt-negative:hover:enabled {
+.movistar .btt-negative:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 198,6,6, 0.9 ); /* Old browsers */
@@ -130,7 +130,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 198,6,6, 0.9 )', endColorstr='rgba( 202, 52,48, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.movistar.btt-negative:active:enabled {
+.movistar .btt-negative:active:enabled {
     background: #CA3430; /* Old browsers */
     background: -moz-linear-gradient( top, #CA3430 0%, #C60606 100% ); /* FF3.6+ */
     background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #CA3430 ), color-stop( 100%, #C60606) ); /* Chrome,Safari4+ */
@@ -142,7 +142,7 @@
     outline: none !important;
 }
 
-.movistar.btt-negative[disabled=disabled], .movistar.btt-negative:disabled {
+.movistar .btt-negative[disabled=disabled], .movistar .btt-negative:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
@@ -152,7 +152,7 @@
     -ms-filter: "alpha( opacity=40 )";
 }
 
-.movistar.btt-subdued {
+.movistar .btt-subdued {
     color: white;
     cursor: pointer;
     background: #999999; /* Old browsers */
@@ -166,7 +166,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#A4A4A4', GradientType=0 ); /* IE6-9 */
 }
 
-.movistar.btt-subdued-movistar:hover:enabled {
+.movistar .btt-subdued-movistar:hover:enabled {
     color: white;
     cursor: pointer;
     background: rgba( 153, 153, 153, 0.9 ); /* Old browsers */
@@ -180,7 +180,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba( 153, 153, 153, 0.9 )', endColorstr='rgba( 164, 164, 164, 0.9 )', GradientType=0 ); /* IE6-9 */
 }
 
-.movistar.btt-subdued-movistar:active:enabled {
+.movistar .btt-subdued-movistar:active:enabled {
     background: #A4A4A4; /* Old browsers */
     background: -moz-linear-gradient( top, #A4A4A4 0%, #999999 100% ); /* FF3.6+ */
     background: -webkit-gradient( linear, left top, left bottom, color-stop( 0%, #A4A4A4 ), color-stop( 100%, #999999 ) ); /* Chrome,Safari4+ */
@@ -192,7 +192,7 @@
     outline: none !important;
 }
 
-.movistar.btt-subdued-movistar[ disabled=disabled ], .btt-subdued-movistar:disabled {
+.movistar .btt-subdued-movistar[ disabled=disabled ], .btt-subdued-movistar:disabled {
     cursor: inherit;
     filter: alpha( opacity=40 );
     filter: progid:DXImageTransform.Microsoft.Alpha( opacity=0.4 );
