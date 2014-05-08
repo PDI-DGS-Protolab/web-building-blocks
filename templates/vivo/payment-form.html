@@ -21,7 +21,7 @@
     </head>
     <body>
 
-	   <form id="payment-container" method="POST"><!--action="https://core.spreedly.com/v1/payment_methods"-->
+	   <form id="payment-form-container" class="telefonica" method="POST"><!--action="https://core.spreedly.com/v1/payment_methods"-->
         <fieldset id="payment-content">
             <div class="header">
                 Header
@@ -33,9 +33,9 @@
             <input name="environment_key" type="hidden" value="NsuxdyBfUANtKphD87e8UFxjKzn" />-->
             <label for="card-holder-name" class="text-label">Full Name</label>
             <div class="space025X"></div>
-            <input id="card-holder-name" class="vivo card-input" name="credit_card[full_name]" type="text"/>
-            <div id="card-name-hint-container" class="vivo card-hint"></div> 
-            <div id="card-name-error-container" class="vivo card-error"></div> 
+            <input id="card-holder-name" class="card-input" name="credit_card[full_name]" type="text"/>
+            <div id="card-name-hint-container" class="card-hint"></div> 
+            <div id="card-name-error-container" class="card-error"></div> 
 
             <div id="CVC-hint">
                     <p>3-digit number on the back of your card</p>
@@ -49,24 +49,24 @@
 
             <div class="space025X clearing"></div>
             <div id="card-number-container">
-                <input autocomplete="off" id="card-number-input" name="credit_card[number]" type="text" class="vivo card-input"/>
-                <div id="card-number-hint-container" class="vivo card-hint"></div>
-                <div id="card-number-error-container" class="vivo card-error"></div>
+                <input autocomplete="off" id="card-number-input" name="credit_card[number]" type="text" class="card-input"/>
+                <div id="card-number-hint-container" class="card-hint"></div>
+                <div id="card-number-error-container" class="card-error"></div>
             </div>
 
             <div id="card-CVC-container">
-                <input autocomplete="off" id="card-verification-code" name="credit_card[verification_code]" type="password" class="vivo card-input" maxlength="3"/>
-                <div id="card-CVC-hint-container" class="vivo card-hint"></div>
-                <div id="card-CVC-error-container" class="vivo card-error"></div>
+                <input autocomplete="off" id="card-verification-code" name="credit_card[verification_code]" type="password" class="card-input" maxlength="3"/>
+                <div id="card-CVC-hint-container" class="card-hint"></div>
+                <div id="card-CVC-error-container" class="card-error"></div>
             </div>
 
             <div id="card-expiration-container">
                 <label for="card-expiration-month" class="text-label">Expiration Date</label>
                 <div class="space025X"></div>
-                <input autocomplete="off" id="card-expiration-month" name="credit_card[month]" type="text" class="vivo card-input date-input" maxlength="2"/>
+                <input autocomplete="off" id="card-expiration-month" name="credit_card[month]" type="text" class="card-input date-input" maxlength="2"/>
                 <span>/</span>
-                <input autocomplete="off" id="card-expiration-year" name="credit_card[year]" type="text" class="vivo card-input date-input" maxlength="2"/>
-                <div id="card-expiration-error-container" class="vivo card-error"></div>
+                <input autocomplete="off" id="card-expiration-year" name="credit_card[year]" type="text" class="card-input date-input" maxlength="2"/>
+                <div id="card-expiration-error-container" class="card-error"></div>
                 <div class="space05X"></div>
             </div>
 

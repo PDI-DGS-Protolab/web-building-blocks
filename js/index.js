@@ -163,6 +163,7 @@ $(document).ready(function() {
       else if (lastComponent === 'payment-form' && $(this).attr('id') === 'table') {
         $('#payment-container').addClass('hidden');
         $('#table-building-container').removeClass('hidden');
+        document.getElementById('payment-form-container').reset();
       }
       else if ($(this).attr('id') === 'table') {
         $('#components-container').addClass('hidden');
@@ -172,7 +173,6 @@ $(document).ready(function() {
         $('#static-container').addClass('static-container-table');
         $('#selection-container').removeClass('selection-container-no-table');
         $('#selection-container').addClass('selection-container-table');
-
         $('#all').addClass('hidden');
         if ($('#all').hasClass('active-brand')) {
             switchActiveElements($('#telefonica'), '.brand-tab', 'active-brand');
@@ -187,7 +187,6 @@ $(document).ready(function() {
         $('#static-container').addClass('static-container-table');
         $('#selection-container').removeClass('selection-container-no-table');
         $('#selection-container').addClass('selection-container-table');
-
         $('#all').addClass('hidden');
         if ($('#all').hasClass('active-brand')) {
             switchActiveElements($('#telefonica'), '.brand-tab', 'active-brand');
@@ -199,13 +198,10 @@ $(document).ready(function() {
         $('#table-building-container').addClass('hidden');
         $('#testing-container').removeClass('hidden');
         $('#components-container').removeClass('hidden');
-        
         $('#selection-container').removeClass('selection-container-table');
         $('#selection-container').addClass('selection-container-no-table');
-
         $('#static-container').removeClass('static-container-table');
         $('#static-container').addClass('static-container-no-table');
-
         hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
       }
       else if (lastComponent === 'payment-form') {
@@ -213,13 +209,11 @@ $(document).ready(function() {
         $('#payment-container').addClass('hidden');
         $('#testing-container').removeClass('hidden');
         $('#components-container').removeClass('hidden');
-        
         $('#selection-container').removeClass('selection-container-table');
         $('#selection-container').addClass('selection-container-no-table');
-
         $('#static-container').removeClass('static-container-table');
         $('#static-container').addClass('static-container-no-table');
-
+        document.getElementById('payment-form-container').reset();
         hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
       }
       else {
@@ -468,8 +462,8 @@ function hideComponentsVisualization(containerId, brand) {
     $('#' + component + '-' + brand).removeClass('hidden');
     $('#table-container').removeClass($('#table-container').attr('class'));
     $('#table-container').addClass(brand);
-    $('#payment-form-container').removeClass($('#payment-container').attr('class'));
-    $('#payment-form-container').addClass(brand);
+    $('#payment-testing-container').removeClass($('#payment-testing-container').attr('class'));
+    $('#payment-testing-container').addClass(brand);
     $('.brand-title').hide();
   }
 }

@@ -1,11 +1,11 @@
-#payment-container {
-    background-color: #C7C7C7;
+#payment-form-container {
+    background-color: #FFFFFF;
     padding: 12px;
     width: 568px;
 }
 
 #payment-content {
-    background-color: #ADADAD;
+    background-color: #F2F2F2;
     border: #999 1px solid;
     border-radius: 5px;
     font-family: "Arial",sans-serif;
