@@ -272,25 +272,25 @@ body {
     background: url("../img/quit.png");
     background-repeat: no-repeat; 
     background-size: contain;
-    display: inline-block;
+    float: right;
     min-height: 12px;
     min-width: 12px;
-    position: absolute;
+    position: relative;
 }
 
-.input-container .quit-icon {
-    margin-left: 394px;
-    margin-top: -6px;
+
+.keep-table-bottom {
+    clear: both;
+    float: left;
+    padding: 10px;
+    width: 160px;
 }
 
-.button-back .quit-icon {
-    margin-left: 294px;
-    margin-top: -6px;
-}
-
-.keep-container-bottom .quit-icon {
-    margin-left: 150px;
-    margin-top: -5px;
+.keep-payment-form-bottom {
+    clear: both;
+    float: left;
+    padding: 10px;
+    width: 155px;
 }
 
 .trash:hover, .quit-icon:hover {

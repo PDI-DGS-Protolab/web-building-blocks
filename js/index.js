@@ -396,16 +396,16 @@ function addTable (draggable, parent, brand) {
   if (draggable.find('table').hasClass('top-table')) {
     var rows = $('#' + draggable.attr('id') + ' tr').length;
     var cols = $('#' + draggable.attr('id') + ' td').length/rows;
-    parent.append('<div class="keep-container-bottom" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="top-table ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
+    parent.append('<div class="keep-table-bottom" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="top-table table-img ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
   } else {
     var rows = $('#' + draggable.attr('id') + ' tr').length/2;
     var cols = $('#' + draggable.attr('id') + ' td').length/rows;
-    parent.append('<div class="keep-container-bottom" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="left-table ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td></tr><tr><td></td></tr></thead><tbody><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr></tbody></table></div>');
+    parent.append('<div class="keep-table-bottom" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="left-table table-img ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td></tr><tr><td></td></tr></thead><tbody><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr></tbody></table></div>');
   }
 }
 
 function addPaymentForm (draggable, parent, brand) {
-  parent.append('<div class="keep-container-bottom" title= "' + brand + ' payment form."><div class="quit-icon"></div><img src="img/components/paymentform/payment-form.png" class="payment-form-img"/>');
+  parent.append('<div class="keep-payment-form-bottom" title= "' + brand + ' payment form."><div class="quit-icon"></div><img src="img/components/paymentform/payment-form.png" class="payment-form-img"/>');
 }
 
 function getKeepMeComponents () {
