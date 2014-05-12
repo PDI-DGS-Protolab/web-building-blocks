@@ -1,8 +1,9 @@
 .input-container {
-    width: 400px;
+    clear: both;
     height: 54px;
     padding-top: 18px;
     position: relative;
+    width: 400px;
 }
 
 .input, .special-input-refresh, .special-input-plus-less {
