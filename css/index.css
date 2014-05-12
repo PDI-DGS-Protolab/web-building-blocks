@@ -176,7 +176,7 @@ body {
     width: 50%;
 }
 
-.static-container-no-table {
+.static-container-right {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -189,7 +189,7 @@ body {
     width: 40%; /*50% of the 80% that is the right container from the body*/
 }
 
-.static-container-table {
+.static-container-bottom {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -223,13 +223,13 @@ body {
     width: 100%;
 }
 
-.selection-container-no-table {
+.selection-container-right {
     height: 300px;
     overflow: auto;
     position: relative;
 }
 
-.selection-container-table {
+.selection-container-bottom {
     clear: both;
     height: 300px;
     float: left;
@@ -288,7 +288,7 @@ body {
     margin-top: -6px;
 }
 
-.keep-table-container .quit-icon {
+.keep-container-bottom .quit-icon {
     margin-left: 150px;
     margin-top: -5px;
 }

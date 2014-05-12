@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   
   var htmlString = 
   '<div id="input-telefonica" class="visualization-container inputs-container">'
@@ -135,18 +135,18 @@ $(document).ready(function() {
   +'</div>';
   
   $('#components-container').empty().append(htmlString);
-  $('#components-container').ready(function() {
+  $('#components-container').ready(function () {
     $('img').tooltip({position: {my: 'left+15 center', at: 'right center'}});
   });
 
   $('#selection-container').tooltip({position: {my: 'left+10 center', at: 'right center'}});
 
-  $('.brand-tab').click(function() {
+  $('.brand-tab').click(function () {
     switchActiveElements(this, '.brand-tab', 'active-brand');
     hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
   });
 
-  $('.comp-tab').click(function() {
+  $('.comp-tab').click(function () {
     var lastComponent = $('.active-comp').attr('id');
     switchActiveElements(this, '.comp-tab', 'active-comp');
     $('#right-container').removeClass('hidden');
@@ -169,10 +169,10 @@ $(document).ready(function() {
         $('#components-container').addClass('hidden');
         $('#testing-container').addClass('hidden');
         $('#table-building-container').removeClass('hidden');
-        $('#static-container').removeClass('static-container-no-table');
-        $('#static-container').addClass('static-container-table');
-        $('#selection-container').removeClass('selection-container-no-table');
-        $('#selection-container').addClass('selection-container-table');
+        $('#static-container').removeClass('static-container-right');
+        $('#static-container').addClass('static-container-bottom');
+        $('#selection-container').removeClass('selection-container-right');
+        $('#selection-container').addClass('selection-container-bottom');
         $('#all').addClass('hidden');
         if ($('#all').hasClass('active-brand')) {
             switchActiveElements($('#telefonica'), '.brand-tab', 'active-brand');
@@ -183,10 +183,10 @@ $(document).ready(function() {
         $('#components-container').addClass('hidden');
         $('#testing-container').addClass('hidden');
         $('#payment-container').removeClass('hidden');
-        $('#static-container').removeClass('static-container-no-table');
-        $('#static-container').addClass('static-container-table');
-        $('#selection-container').removeClass('selection-container-no-table');
-        $('#selection-container').addClass('selection-container-table');
+        $('#static-container').removeClass('static-container-right');
+        $('#static-container').addClass('static-container-bottom');
+        $('#selection-container').removeClass('selection-container-right');
+        $('#selection-container').addClass('selection-container-bottom');
         $('#all').addClass('hidden');
         if ($('#all').hasClass('active-brand')) {
             switchActiveElements($('#telefonica'), '.brand-tab', 'active-brand');
@@ -198,10 +198,10 @@ $(document).ready(function() {
         $('#table-building-container').addClass('hidden');
         $('#testing-container').removeClass('hidden');
         $('#components-container').removeClass('hidden');
-        $('#selection-container').removeClass('selection-container-table');
-        $('#selection-container').addClass('selection-container-no-table');
-        $('#static-container').removeClass('static-container-table');
-        $('#static-container').addClass('static-container-no-table');
+        $('#selection-container').removeClass('selection-container-bottom');
+        $('#selection-container').addClass('selection-container-right');
+        $('#static-container').removeClass('static-container-bottom');
+        $('#static-container').addClass('static-container-right');
         hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
       }
       else if (lastComponent === 'payment-form') {
@@ -209,10 +209,10 @@ $(document).ready(function() {
         $('#payment-container').addClass('hidden');
         $('#testing-container').removeClass('hidden');
         $('#components-container').removeClass('hidden');
-        $('#selection-container').removeClass('selection-container-table');
-        $('#selection-container').addClass('selection-container-no-table');
-        $('#static-container').removeClass('static-container-table');
-        $('#static-container').addClass('static-container-no-table');
+        $('#selection-container').removeClass('selection-container-bottom');
+        $('#selection-container').addClass('selection-container-right');
+        $('#static-container').removeClass('static-container-bottom');
+        $('#static-container').addClass('static-container-right');
         document.getElementById('payment-form-container').reset();
         hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
       }
@@ -226,7 +226,7 @@ $(document).ready(function() {
     }
   });
 
-  $('.component-img, #table-building-container #table-container').draggable({ 
+  $('.component-img, #table-building-container #table-container, #payment-container #payment-testing-container').draggable({ 
       containment: '#right-container',
       revert: true,
       helper: 'clone'
@@ -244,13 +244,15 @@ $(document).ready(function() {
           addButton(ui.draggable, components, brand);
         } else if (ui.draggable.attr('id') === ('table-container')) {
           addTable(ui.draggable, components, brand);
+        } else if (ui.draggable.attr('id') === ('payment-testing-container')) {
+          addPaymentForm(ui.draggable, components, brand);
         }
 
         toggleQuitIcons($(components.find('.trash')).hasClass('on'), components.find(".quit-icon"));
     }
   });
 
-  $('.trash').click(function() {
+  $('.trash').click(function () {
     var trash = $(this);
     if (trash.hasClass('on')) {
       trash.removeClass('on');
@@ -261,13 +263,13 @@ $(document).ready(function() {
     }
   });
 
-  $('#trash-test').click(function() {
+  $('#trash-test').click(function () {
     var trashTest = $(this);
     toggleQuitIcons(trashTest.hasClass('on'), $('#testing-container .quit-icon'));
     toggleClearAll(trashTest.hasClass('on'), $('#clear-all-test'));
   });
 
-  $('#trash-keep').click(function() {
+  $('#trash-keep').click(function () {
     var trashKeep = $(this);
     toggleQuitIcons(trashKeep.hasClass('on'), $('#selection-container .quit-icon'));
     toggleClearAll(trashKeep.hasClass('on'), $('#clear-all-keep'));
@@ -277,14 +279,14 @@ $(document).ready(function() {
     $(this).parent().remove();
   });
 
-  $('#clear-all-test').click(function() {
+  $('#clear-all-test').click(function () {
     $('#testing-container .quit-icon').trigger('click');
     $('#trash-test').removeClass('on').addClass('off');
     toggleQuitIcons($('#trash-test').hasClass('on'), $('#selection-container .quit-icon'));
     toggleClearAll($('#trash-test').hasClass('on'), $('#clear-all-test'));
   });
 
-  $('#clear-all-keep').click(function() {
+  $('#clear-all-keep').click(function () {
     $('#selection-container .quit-icon').trigger('click');
     $('#trash-keep').removeClass('on').addClass('off');
     toggleQuitIcons($('#trash-keep').hasClass('on'), $('#selection-container .quit-icon'));
@@ -295,7 +297,7 @@ $(document).ready(function() {
   $('.quit-icon').hide();
 });
 
-function toggleQuitIcons(toggle, icons) {
+function toggleQuitIcons (toggle, icons) {
   if (toggle) {
     icons.show();
   } else {
@@ -303,7 +305,7 @@ function toggleQuitIcons(toggle, icons) {
   }
 }
 
-function toggleClearAll(toggle, text) {
+function toggleClearAll (toggle, text) {
   if (toggle) {
     text.show();
   } else {
@@ -311,7 +313,7 @@ function toggleClearAll(toggle, text) {
   }
 }
 
-function getInputHtml(brand) {
+function getInputHtml (brand) {
   return  '<div class="input-container">\n'+
           '   <div class="quit-icon"></div>\n'+
           '   <input class="' + brand +  ' input" type="text" hint="Enter your full name as it appears on your card" error="Illegal characters. You can input only letters."></input>\n'+
@@ -322,7 +324,7 @@ function getInputHtml(brand) {
           '</div>';
 }
 
-function getInputRefreshHtml(brand) {
+function getInputRefreshHtml (brand) {
   return  '<div class="input-container">\n'+
           '   <div class="quit-icon"></div>\n'+
           '   <input disabled class="' + brand + ' special-input-refresh" type="text"></input>\n'+
@@ -330,7 +332,7 @@ function getInputRefreshHtml(brand) {
           '</div>';
 }
 
-function getInputPlusLessHtml(brand) {
+function getInputPlusLessHtml (brand) {
   return  '<div class="input-container-plus-less">\n'+
           '   <div class="input-container">\n'+
           '       <div class="quit-icon"></div>\n'+
@@ -340,7 +342,7 @@ function getInputPlusLessHtml(brand) {
           '</div>';
 }
 
-function addInput(draggable, parent, brand) {
+function addInput (draggable, parent, brand) {
   if (draggable.hasClass('normal')) {
     parent.append(getInputHtml(brand));
   } else if (draggable.hasClass('refresh')) {
@@ -352,7 +354,7 @@ function addInput(draggable, parent, brand) {
   }
 }
 
-function getComponentBrand(component) {
+function getComponentBrand (component) {
   if (component.hasClass('telefonica')) {
     return'telefonica';
   } else if (component.hasClass('movistar')) {
@@ -364,7 +366,7 @@ function getComponentBrand(component) {
   }
 }
 
-function getButtonType(draggable) {
+function getButtonType (draggable) {
   if (draggable.hasClass('neutral') || draggable.hasClass('btt-neutral')) {
     return 'neutral';
   } else if (draggable.hasClass('positive') || draggable.hasClass('btt-positive')) {
@@ -376,7 +378,7 @@ function getButtonType(draggable) {
   }
 }
 
-function getButtonHtml(brand, type) {
+function getButtonHtml (brand, type) {
   return '<div class="button-back ' + brand + '"' + '>\n'+
          '    <div class="quit-icon"></div>\n'+
          '    <button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">\n'+ 
@@ -385,24 +387,28 @@ function getButtonHtml(brand, type) {
          '</div>';
 }
 
-function addButton(draggable, parent, brand) {
+function addButton (draggable, parent, brand) {
   var type = getButtonType(draggable);
   parent.append(getButtonHtml(brand, type));
 }
 
-function addTable(draggable, parent, brand) {
+function addTable (draggable, parent, brand) {
   if (draggable.find('table').hasClass('top-table')) {
     var rows = $('#' + draggable.attr('id') + ' tr').length;
     var cols = $('#' + draggable.attr('id') + ' td').length/rows;
-    parent.append('<div class="keep-table-container" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="top-table ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
+    parent.append('<div class="keep-container-bottom" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="top-table ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td><td></td><td></td><td></td></tr></thead><tbody><tr class="even-line"><td></td><td></td><td></td><td></td></tr></tbody></table></div>');
   } else {
     var rows = $('#' + draggable.attr('id') + ' tr').length/2;
     var cols = $('#' + draggable.attr('id') + ' td').length/rows;
-    parent.append('<div class="keep-table-container" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="left-table ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td></tr><tr><td></td></tr></thead><tbody><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr></tbody></table></div>');
+    parent.append('<div class="keep-container-bottom" title="A table with ' + rows + ' rows and ' + cols + ' columns."><div class="quit-icon"></div><table class="left-table ' + brand + '" rows="' + rows + '" cols="' + cols + '"><thead><tr><td></td></tr><tr><td></td></tr></thead><tbody><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr><tr><td class="even-line"></td><td class="odd-line"></td><td class="even-line"></td></tr></tbody></table></div>');
   }
 }
 
-function getKeepMeComponents() {
+function addPaymentForm (draggable, parent, brand) {
+  parent.append('<div class="keep-container-bottom" title= "' + brand + ' payment form."><div class="quit-icon"></div><img src="img/components/paymentform/payment-form.png" class="payment-form-img"/>');
+}
+
+function getKeepMeComponents () {
   var buttons = $('#selection-container').find('.button');
   var inputs = $('#selection-container').find('.input');
   var refresh = $('#selection-container').find('.special-input-refresh');
@@ -450,7 +456,7 @@ function getKeepMeComponents() {
 }
 
 
-function hideComponentsVisualization(containerId, brand) {
+function hideComponentsVisualization (containerId, brand) {
   if (brand === 'all') {
     $('.visualization-container').addClass('hidden');
     $('.' + containerId).removeClass('hidden');
@@ -468,12 +474,12 @@ function hideComponentsVisualization(containerId, brand) {
   }
 }
 
-function switchActiveElements(element, elementClass, activeClass) {
+function switchActiveElements (element, elementClass, activeClass) {
   $(element).addClass(activeClass);
   $(elementClass).not(element).removeClass(activeClass);
 }
 
-function toTitleCase(str) {
+function toTitleCase (str) {
   return str.replace(/(?:^|\s)\w/g, function(match) {
       return match.toUpperCase();
   });
