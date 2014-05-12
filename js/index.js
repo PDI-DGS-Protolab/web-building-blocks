@@ -282,7 +282,7 @@ $(document).ready(function () {
   $('#clear-all-test').click(function () {
     $('#testing-container .quit-icon').trigger('click');
     $('#trash-test').removeClass('on').addClass('off');
-    toggleQuitIcons($('#trash-test').hasClass('on'), $('#selection-container .quit-icon'));
+    toggleQuitIcons($('#trash-test').hasClass('on'), $('#testing-container .quit-icon'));
     toggleClearAll($('#trash-test').hasClass('on'), $('#clear-all-test'));
   });
 
