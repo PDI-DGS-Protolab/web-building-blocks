@@ -257,7 +257,8 @@ $(document).ready(function () {
     if (trash.hasClass('on')) {
       trash.removeClass('on');
       trash.addClass('off');
-    } else {
+    } 
+    else if (trash.hasClass('off')) {
       trash.removeClass('off');
       trash.addClass('on');
     }
