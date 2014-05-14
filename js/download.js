@@ -139,10 +139,9 @@ $(document).ready(function () {
                     SyntaxHighlighter.highlight();
                 });
             }
-        }
-
-        if ($('#javascript-content').html() === '') {
-            $('#javascript-content').html('No Javascript Code is needed for this components!');
+            else if (c[a].component == 'button') {
+                $('#javascript-content').append('<a> No Javascript Code is needed for component "' + c[a].component + '"</a>');
+            }
         }
 
         var cssTmp, cssTmp2;
