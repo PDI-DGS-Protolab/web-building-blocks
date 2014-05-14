@@ -434,7 +434,11 @@ footer {
 .download-code {
     line-break: strict;
     background-color: white;
-    height:300px;
-    overflow-x: scroll;
+    height: 300px;
+    overflow-x: auto;
     overflow-y: scroll;
+}
+
+.download-code .syntaxhighlighter {
+    height: 300px;
 }

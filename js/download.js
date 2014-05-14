@@ -106,7 +106,7 @@ $(document).ready(function () {
 
         var jsFile1;
         var jsFile2;
-        var outputJS = '';
+        var outputJS1, outputJS2;
         //adding all the javascripts
         for (a in c) {
             if (c[a].component != 'payment-form' && c[a].component != 'button') {
@@ -118,7 +118,10 @@ $(document).ready(function () {
                 });
                 
                 $.when(componentJsRequest).done(function () {
-                    outputJS += jsFile1 + '\n';
+                    outputJS1 = jsFile1 + '\n';
+                    outputJS1 = getFileToShow(outputJS1);
+                    $('#javascript-content').append('<pre class="brush: js;">' + outputJS1 + '</pre>');
+                    SyntaxHighlighter.highlight();
                 });
             }
             else if (c[a].component == 'payment-form') {
@@ -130,14 +133,13 @@ $(document).ready(function () {
                     //alert('Could not load files!');
                 });
                 $.when(componentJsRequest).done(function () {
-                    outputJS += jsFile2 + '\n';
+                    outputJS2 = jsFile2 + '\n';
+                    outputJS2 = getFileToShow(outputJS2);
+                    $('#javascript-content').append('<pre class="brush: js;">' + outputJS2 + '</pre>');
+                    SyntaxHighlighter.highlight();
                 });
             }
         }
-        outputJS = getFileToShow(outputJS);
-        alert(outputJS);
-        $('#javascript-content').html('<pre class="brush: js;">' + outputJS + '</pre>');
-        SyntaxHighlighter.highlight();
 
         if ($('#javascript-content').html() === '') {
             $('#javascript-content').html('No Javascript Code is needed for this components!');
