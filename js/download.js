@@ -12,25 +12,25 @@ $(document).ready(function () {
         //It only will work on localhost with firefox, with other 
         //browsers we must need the project deployed on a server(heroku for example)
         
-        var htmlFile, jsFile, defCssFile,cssFile;
+        var htmlFile, jsFile, defCssFile, cssFile;
 
-        var file21 = $.get('css/default-' + component + '.css', function () {
+        var defaultCssRequest = $.get('css/default-' + component + '.css', function () {
         }).done(function (data21) {
             defCssFile = data21;
-        }).fail(function (){
+        }).fail(function () {
             //alert('Could not load files!');
         });
-        var file22 = $.get('css/' + brand + '/' + component + '.css', function () {
+        var componentCssRequest = $.get('css/' + brand + '/' + component + '.css', function () {
         }).done(function (data22) {
             cssFile = data22;
-        }).fail(function (){
+        }).fail(function () {
             //alert('Could not load files!');
         });
         if (component !== 'button' && component !== 'table'){
-            var file3 = $.get('js/' + component + '.js', function () {
+            var componentJsRequest = $.getScript('js/' + component + '.js', function () {
             }).done(function (data3) {
                jsFile = data3;
-            }).fail(function (){
+            }).fail(function () {
                 //alert('Could not load files!');
             });
         }
@@ -41,7 +41,7 @@ $(document).ready(function () {
                         '<!--To add a refresheable ' + brand + ' input:-->\n' +
                         getInputRefreshHtml(brand) + '\n\n' +
                         '<!--To add a pluss/less ' + brand + ' input:-->\n' +
-                        getInputPlussLessHtml(brand);
+                        getInputPlusLessHtml(brand);
         }
         else if (component === 'button') {
             htmlFile = '';
@@ -56,21 +56,30 @@ $(document).ready(function () {
 
         var htmlFinal = getFileToShow(htmlFile);
         if (component !== 'button' && component !== 'table') {
-            $.when(file21, file22, file3).done(function () {
-                var jsFinal = getFileToShow(jsFile);
-                var cssFinal = getFileToShow(defCssFile + '\n' + cssFile);
-                $('#javascript-content').html('<pre class="brush: js;">' + jsFinal + '</pre>');
-                $('#css-content').html('<pre class="brush: css;">' + cssFinal + '</pre>');
+            $.when(componentJsRequest).done(function () {
+                var outputJS = getFileToShow(jsFile);
+                $('#javascript-content').html('<pre class="brush: js;">' + outputJS + '</pre>');
+                SyntaxHighlighter.highlight();
+            });
+            /*
+            $.when(defaultCssRequest, componentCssRequest, componentJsRequest).done(function () {
+                jsAll += jsFile + '\n';
+                var outputJS = getFileToShow(jsAll);
+                alert(outputJS);
+                var outputCSS = getFileToShow(defCssFile + '\n' + cssFile);
+                $('#javascript-content').html('<pre class="brush: js;">' + outputJS + '</pre>');
+                $('#css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
                 $('#html-content').html('<pre class="brush: xml;">' + htmlFinal + '</pre>');
                 //$("#testtest").html(htmlFinal);
                 SyntaxHighlighter.highlight();
             });
+            */
         }
         else {
-           $.when(file21, file22).done(function () {
-                var cssFinal = getFileToShow(defCssFile + '\n' + cssFile);
+           $.when(defaultCssRequest, componentCssRequest).done(function () {
+                var outputCSS = getFileToShow(defCssFile + '\n' + cssFile);
                 $('#javascript-content').html('No Javascript Code is needed for this component!');
-                $('#css-content').html('<pre class="brush: css;">' + cssFinal + '</pre>');
+                $('#css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
                 $('#html-content').html('<pre class="brush: xml;">' + htmlFinal + '</pre>');
                 //$("#testtest").html(htmlFinal);
                 SyntaxHighlighter.highlight();
@@ -95,27 +104,41 @@ $(document).ready(function () {
         var c = getKeepMeComponents();
         //Per evitar
 
-        var jsTmp;
-        var jsAll = '';
-        $('#javascript-content').html(jsAll);
+        var jsFile1;
+        var jsFile2;
+        var outputJS = '';
         //adding all the javascripts
         for (a in c) {
-            if (c[a].component !== 'button' && c[a].component !== 'table' ) {
-                var file = $.get( 'js/' + c[a].component + '.js', function () {
+            if (c[a].component != 'payment-form' && c[a].component != 'button') {
+                var componentJsRequest = $.getScript( 'js/' + c[a].component + '.js', function () {
                 }).done(function (data) {
-                   jsTmp = data;
+                   jsFile1 = data;
                 }).fail(function (){
                     //alert('Could not load files!');
                 });
-                $.when(file).done(function () {
-                    jsAll += jsTmp + '\n';
-                    var jsFinal = getFileToShow(jsAll);
-                    $('#javascript-content').html('<pre class="brush: js;">' + jsFinal + '</pre>');
-                    SyntaxHighlighter.highlight();
+                
+                $.when(componentJsRequest).done(function () {
+                    outputJS += jsFile1 + '\n';
                 });
             }
-
+            else if (c[a].component == 'payment-form') {
+                /*should be minified js of all the payment form files*/
+                var componentJsRequest = $.getScript( 'js/paymentform/paymentform.js', function () {
+                }).done(function (data) {
+                   jsFile2 = data;
+                }).fail(function (){
+                    //alert('Could not load files!');
+                });
+                $.when(componentJsRequest).done(function () {
+                    outputJS += jsFile2 + '\n';
+                });
+            }
         }
+        outputJS = getFileToShow(outputJS);
+        alert(outputJS);
+        $('#javascript-content').html('<pre class="brush: js;">' + outputJS + '</pre>');
+        SyntaxHighlighter.highlight();
+
         if ($('#javascript-content').html() === '') {
             $('#javascript-content').html('No Javascript Code is needed for this components!');
         }
@@ -146,8 +169,8 @@ $(document).ready(function () {
                     css += cssTmp2 + '\n';
                 }
 
-                var cssFinal = getFileToShow(css);
-                $('#css-content').html('<pre class="brush: css;">' + cssFinal + '</pre>');
+                var outputCSS = getFileToShow(css);
+                $('#css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
                 SyntaxHighlighter.highlight();
             });
         }
@@ -165,7 +188,7 @@ $(document).ready(function () {
                 }
                 else if (c[a].type === 'special-input-plus-less') {
                     htmlFile += '<!--To add a pluss/less ' + c[a].brand + ' input:-->\n' +
-                        getInputPlussLessHtml(c[a].brand) + '\n\n';
+                        getInputPlusLessHtml(c[a].brand) + '\n\n';
                 }
             }
             else if (c[a].component==='button') {
@@ -173,7 +196,10 @@ $(document).ready(function () {
                             getButtonHtml(c[a].brand,c[a].type) + '\n\n';
             }
             else if(c[a].component==='table'){
-                htmlFile += '<!--Table not done yet-->';
+                htmlFile += '<!--Table not done yet-->' + '\n';
+            }
+            else if(c[a].component==='payment-form'){
+                htmlFile += '<!--Payment form not done yet-->' + '\n';
             }
             
         }
@@ -183,7 +209,7 @@ $(document).ready(function () {
         $('#download-text').tabs();
         $('#download-pop-up').dialog({width:900});
         //console.log(htmlTemplate);
-        //Created an empty zip file
+        //Created an empty zip componentJsRequest
         
     });
 });

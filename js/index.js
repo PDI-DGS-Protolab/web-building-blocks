@@ -406,7 +406,7 @@ function addTable (draggable, parent, brand) {
 }
 
 function addPaymentForm (draggable, parent, brand) {
-  parent.append('<div class="keep-payment-form-bottom" title= "' + brand + ' payment form."><div class="quit-icon"></div><img src="img/components/paymentform/payment-form.png" class="payment-form-img"/>');
+  parent.append('<div class="keep-payment-form-bottom" title= "' + brand + ' payment form."><div class="quit-icon"></div><img src="img/components/paymentform/payment-form.png" class="payment-form-img ' + brand + '"/>');
 }
 
 function getKeepMeComponents () {
@@ -416,42 +416,48 @@ function getKeepMeComponents () {
   var plusless = $('#selection-container').find('.special-input-plus-less');
   var topTables = $('#selection-container').find('.top-table');
   var leftTables = $('#selection-container').find('.left-table');
+  var paymentforms = $('#selection-container').find('.payment-form-img');
   
   components = {};
   for (var index = 0; index < buttons.length; ++index) {
     var type = getButtonType($(buttons[index]));
     var brand = getComponentBrand($(buttons[index]));
-    components['button-'+type+'-'+brand] = {component: 'button', brand: brand, type: type};
+    components['button-' + type + '-' + brand] = {component: 'button', brand: brand, type: type};
   }
 
   for (var index = 0; index < inputs.length; ++index) {
     var brand = getComponentBrand($(inputs[index]));
-    components['input-'+brand] = {component: 'input', brand: brand,type:'input'};
+    components['input-' + brand] = {component: 'input', brand: brand, type: 'input'};
   }    
 
   for (var index = 0; index < refresh.length; ++index) {
     var brand = getComponentBrand($(refresh[index]));
-    components['special-input-refresh-'+brand] = {component: 'input', brand: brand,type:'special-input-refresh'};
+    components['special-input-refresh-' + brand] = {component: 'input', brand: brand, type: 'special-input-refresh'};
   }  
 
   for (var index = 0; index < plusless.length; ++index) {
     var brand = getComponentBrand($(plusless[index]));
-    components['special-input-plus-less-'+brand] = {component: 'input', brand: brand,type:'special-input-plus-less'};
+    components['special-input-plus-less-' + brand] = {component: 'input', brand: brand, type: 'special-input-plus-less'};
   }  
 
   for (var index = 0; index < topTables.length; ++index) {
     var brand = getComponentBrand($(topTables[index]));
     var rows = $(topTables[index]).attr('rows');
     var cols = $(topTables[index]).attr('cols');
-    components['top-table-'+brand+"-"+rows+"-"+cols] = {component: 'table', brand: brand, rows: rows, cols: cols,type:'top-table'};
+    components['top-table-' + brand + "-" + rows + "-" + cols] = {component: 'table', brand: brand, rows: rows, cols: cols, type: 'top-table'};
   }
 
   for (var index = 0; index < leftTables.length; ++index) {
     var brand = getComponentBrand($(leftTables[index]));
     var rows = $(leftTables[index]).attr('rows');
     var cols = $(leftTables[index]).attr('cols');
-    components['left-table-'+brand+"-"+rows+"-"+cols] = {component: 'table', brand: brand, rows: rows, cols: cols,type:'left-table'};
-  }      
+    components['left-table-' + brand + "-" + rows + "-" + cols] = {component: 'table', brand: brand, rows: rows, cols: cols, type: 'left-table'};
+  }
+
+  for (var index = 0; index < paymentforms.length; ++index) {
+    var brand = getComponentBrand($(paymentforms[index]));
+    components['payment-form-img-' + brand] = {component: 'payment-form', brand: brand, type: 'payment-form-img'};
+  }   
 
   return components;
 }
