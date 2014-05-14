@@ -10,13 +10,6 @@
     margin: 10px;
 }
 
-.keep-table-bottom {
-    clear: both;
-    float: left;
-    padding: 10px;
-    width: 160px;
-}
-
 table {
     border-spacing: 0px;
     font-size: 0.875em;

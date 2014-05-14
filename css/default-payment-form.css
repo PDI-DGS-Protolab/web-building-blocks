@@ -2,13 +2,6 @@
     max-width: 150px;
 }
 
-.keep-payment-form-bottom {
-    clear: both;
-    float: left;
-    padding: 10px;
-    width: 155px;
-}
-
 #payment-form-container {
     background-color: #FFFFFF;
     padding: 12px;
