@@ -15,21 +15,21 @@ $(document).ready(function () {
         var htmlFile, jsFile, defCssFile, cssFile;
 
         var defaultCssRequest = $.get('css/default-' + component + '.css', function () {
-        }).done(function (data21) {
-            defCssFile = data21;
+        }).done(function (data) {
+            defCssFile = data;
         }).fail(function () {
             //alert('Could not load files!');
         });
         var componentCssRequest = $.get('css/' + brand + '/' + component + '.css', function () {
-        }).done(function (data22) {
-            cssFile = data22;
+        }).done(function (data) {
+            cssFile = data;
         }).fail(function () {
             //alert('Could not load files!');
         });
         if (component !== 'button' && component !== 'table'){
             var componentJsRequest = $.getScript('js/' + component + '.js', function () {
-            }).done(function (data3) {
-               jsFile = data3;
+            }).done(function (data) {
+               jsFile = data;
             }).fail(function () {
                 //alert('Could not load files!');
             });
@@ -45,42 +45,33 @@ $(document).ready(function () {
         }
         else if (component === 'button') {
             htmlFile = '';
-            for (a in buttonTypes) {
-                htmlFile += 'To add a ' + buttonTypes[a] + ' ' + brand + ' button:\n' +
-                            getButtonHtml(brand, buttonTypes[a]) + '\n\n';
+            for (type in buttonTypes) {
+                htmlFile += 'To add a ' + buttonTypes[type] + ' ' + brand + ' button:\n' +
+                            getButtonHtml(brand, buttonTypes[type]) + '\n\n';
             }
         }
         else if (component === 'table') {
             htmlFile = 'Not done yet';
         }
 
-        var htmlFinal = getFileToShow(htmlFile);
+        var outputHTML = getFileToShow(htmlFile);
         if (component !== 'button' && component !== 'table') {
-            $.when(componentJsRequest).done(function () {
-                var outputJS = getFileToShow(jsFile);
-                $('#javascript-content').html('<pre class="brush: js;">' + outputJS + '</pre>');
-                SyntaxHighlighter.highlight();
-            });
-            /*
             $.when(defaultCssRequest, componentCssRequest, componentJsRequest).done(function () {
-                jsAll += jsFile + '\n';
-                var outputJS = getFileToShow(jsAll);
-                alert(outputJS);
+                var outputJS = getFileToShow(jsFile);
                 var outputCSS = getFileToShow(defCssFile + '\n' + cssFile);
                 $('#javascript-content').html('<pre class="brush: js;">' + outputJS + '</pre>');
                 $('#css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
-                $('#html-content').html('<pre class="brush: xml;">' + htmlFinal + '</pre>');
+                $('#html-content').html('<pre class="brush: xml;">' + outputHTML + '</pre>');
                 //$("#testtest").html(htmlFinal);
                 SyntaxHighlighter.highlight();
             });
-            */
         }
         else {
            $.when(defaultCssRequest, componentCssRequest).done(function () {
                 var outputCSS = getFileToShow(defCssFile + '\n' + cssFile);
                 $('#javascript-content').html('No Javascript Code is needed for this component!');
                 $('#css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
-                $('#html-content').html('<pre class="brush: xml;">' + htmlFinal + '</pre>');
+                $('#html-content').html('<pre class="brush: xml;">' + outputHTML + '</pre>');
                 //$("#testtest").html(htmlFinal);
                 SyntaxHighlighter.highlight();
             }); 
@@ -101,16 +92,16 @@ $(document).ready(function () {
 
 
     $(document).on('click', '.download-keep', function () {
-        var c = getKeepMeComponents();
+        var keepMeComponents = getKeepMeComponents();
         //Per evitar
 
         var jsFile1;
         var jsFile2;
         var outputJS1, outputJS2;
         //adding all the javascripts
-        for (a in c) {
-            if (c[a].component != 'payment-form' && c[a].component != 'button') {
-                var componentJsRequest = $.getScript( 'js/' + c[a].component + '.js', function () {
+        for (comp in keepMeComponents) {
+            if (keepMeComponents[comp].component != 'payment-form' && keepMeComponents[comp].component != 'button') {
+                var componentJsRequest = $.getScript( 'js/' + keepMeComponents[comp].component + '.js', function () {
                 }).done(function (data) {
                    jsFile1 = data;
                 }).fail(function (){
@@ -124,7 +115,7 @@ $(document).ready(function () {
                     SyntaxHighlighter.highlight();
                 });
             }
-            else if (c[a].component == 'payment-form') {
+            else if (keepMeComponents[comp].component == 'payment-form') {
                 /*should be minified js of all the payment form files*/
                 var componentJsRequest = $.getScript( 'js/paymentform/paymentform.js', function () {
                 }).done(function (data) {
@@ -139,73 +130,73 @@ $(document).ready(function () {
                     SyntaxHighlighter.highlight();
                 });
             }
-            else if (c[a].component == 'button') {
-                $('#javascript-content').append('<a> No Javascript Code is needed for component "' + c[a].component + '"</a>');
+            else if (keepMeComponents[comp].component == 'button') {
+                $('#javascript-content').append('<a> No Javascript Code is needed for component "' + keepMeComponents[comp].component + '"</a>');
             }
         }
 
-        var cssTmp, cssTmp2;
-        var css = '';
+        var cssFile1, cssFile2;
+        var cssFile = '';
         var added = {input:false, button:false, table:false};
-        for (a in c) {
+        for (comp in keepMeComponents) {
             //check if already loaded something(default)
-            var file1 = $.get('css/default-' + c[a].component + '.css', function () {
-            }).done(function (data2) {
-                cssTmp = data2;
+            var componentCssRequest1 = $.get('css/default-' + keepMeComponents[comp].component + '.css', function () {
+            }).done(function (data) {
+                cssFile1 = data;
             }).fail(function () {
             //alert('Could not load files!');
             });
-            var file2 = $.get('css/' + c[a].brand + '/' + c[a].component + '.css', function () {
-            }).done(function (data3) {
-                cssTmp2 = data3;
+            var componentCssRequest2 = $.get('css/' + keepMeComponents[comp].brand + '/' + keepMeComponents[comp].component + '.css', function () {
+            }).done(function (data) {
+                cssFile2 = data;
             }).fail(function () {
             //alert('Could not load files!');
             });
-            $.when(file1,file2).done(function () {
-                if (!added[c[a].component]) {
-                    css += cssTmp + '\n' + cssTmp2 + '\n';
-                    added[c[a].component]=true;
+            $.when(componentCssRequest1, componentCssRequest2).done(function () {
+                if (!added[keepMeComponents[comp].component]) {
+                    cssFile += cssFile1 + '\n' + cssFile2 + '\n';
+                    added[keepMeComponents[comp].component] = true;
                 }
                 else {
-                    css += cssTmp2 + '\n';
+                    cssFile += cssFile2 + '\n';
                 }
 
-                var outputCSS = getFileToShow(css);
+                var outputCSS = getFileToShow(cssFile);
                 $('#css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
                 SyntaxHighlighter.highlight();
             });
         }
         var htmlFile='';
-        for (a in c) {
+        for (comp in keepMeComponents) {
             //check if already loaded something(default)
-            if (c[a].component === 'input') {
-                if (c[a].type === 'input') {
-                    htmlFile += '<!--To add a simple ' + c[a].brand + ' input:-->\n' +
-                                 getInputHtml(c[a].brand) + '\n\n';
+            if (keepMeComponents[comp].component === 'input') {
+                if (keepMeComponents[comp].type === 'input') {
+                    htmlFile += '<!--To add a simple ' + keepMeComponents[comp].brand + ' input:-->\n' +
+                                 getInputHtml(keepMeComponents[comp].brand) + '\n\n';
                 }
-                else if (c[a].type === 'special-input-refresh') {
-                    htmlFile += '<!--To add a refresheable ' + c[a].brand + ' input:-->\n' +
-                        getInputRefreshHtml(c[a].brand) + '\n\n';
+                else if (keepMeComponents[comp].type === 'special-input-refresh') {
+                    htmlFile += '<!--To add a refresheable ' + keepMeComponents[comp].brand + ' input:-->\n' +
+                        getInputRefreshHtml(keepMeComponents[comp].brand) + '\n\n';
                 }
-                else if (c[a].type === 'special-input-plus-less') {
-                    htmlFile += '<!--To add a pluss/less ' + c[a].brand + ' input:-->\n' +
-                        getInputPlusLessHtml(c[a].brand) + '\n\n';
+                else if (keepMeComponents[comp].type === 'special-input-plus-less') {
+                    htmlFile += '<!--To add a pluss/less ' + keepMeComponents[comp].brand + ' input:-->\n' +
+                        getInputPlusLessHtml(keepMeComponents[comp].brand) + '\n\n';
                 }
             }
-            else if (c[a].component==='button') {
-                htmlFile += '<!--To add a ' + c[a].type + ' ' + c[a].brand + ' button:-->\n' +
-                            getButtonHtml(c[a].brand,c[a].type) + '\n\n';
+            else if (keepMeComponents[comp].component === 'button') {
+                htmlFile += '<!--To add a ' + keepMeComponents[comp].type + ' ' + keepMeComponents[comp].brand + ' button:-->\n' +
+                            getButtonHtml(keepMeComponents[comp].brand,keepMeComponents[comp].type) + '\n\n';
             }
-            else if(c[a].component==='table'){
+            else if(keepMeComponents[comp].component === 'table'){
                 htmlFile += '<!--Table not done yet-->' + '\n';
             }
-            else if(c[a].component==='payment-form'){
+            else if(keepMeComponents[comp].component === 'payment-form'){
                 htmlFile += '<!--Payment form not done yet-->' + '\n';
             }
             
         }
-        var htmlFinal = getFileToShow(htmlFile);
-        $('#html-content').html('<pre class="brush: xml;">' + htmlFinal + '</pre>');
+        var outputHTML = getFileToShow(htmlFile);
+        $('#html-content').html('<pre class="brush: xml;">' + outputHTML + '</pre>');
         SyntaxHighlighter.highlight();
         $('#download-text').tabs();
         $('#download-pop-up').dialog({width:900});
