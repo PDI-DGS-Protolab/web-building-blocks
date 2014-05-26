@@ -142,6 +142,7 @@ $(document).ready(function () {
             //check if already loaded something(default)
             var componentCssRequest1 = $.get('css/default-' + keepMeComponents[comp].component + '.css', function () {
             }).done(function (data) {
+                alert(keepMeComponents[comp].component);
                 cssFile1 = data;
             }).fail(function () {
             //alert('Could not load files!');
