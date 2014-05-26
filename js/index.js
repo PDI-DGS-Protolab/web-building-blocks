@@ -343,6 +343,54 @@ function getInputPlusLessHtml (brand) {
           '</div>';
 }
 
+function getPaymentFormHtml (brand) {
+  return    '<div id="payment-testing-container" class="' + brand + '">\n'+
+            '   <form id="payment-form-container" method="POST">\n'+
+            '       <fieldset id="payment-content">\n'+
+            '          <div class="header">\n'+
+            '              Header\n'+
+            '          </div>\n'+
+            '          <div class="spaceX"></div>\n'+
+            '          <label for="card-holder-name" class="text-label">Full Name</label>\n'+
+            '          <div class="space025X"></div>\n'+
+            '          <input id="card-holder-name" class="card-input" name="credit_card[full_name]" type="text"/>\n'+
+            '          <div id="card-name-hint-container" class="card-hint"></div>\n'+
+            '          <div id="card-name-error-container" class="card-error"></div>\n'+
+            '          <div id="CVC-hint">\n'+
+            '              <p>3-digit number on the back of your card</p>\n'+
+            '          </div>\n'+
+            '          <label for="card-number-input" class="text-label CC-label">Credit Card Number</label>\n'+
+            '          <label for="card-verification-code" class="text-label CVC-label">CVC Code</label>\n'+
+            '          <label id="help-label" for="help" class="help-security-code">?</label>\n'+
+            '          <div class="space025X clearing"></div>\n'+
+            '          <div id="card-number-container">\n'+
+            '              <input autocomplete="off" id="card-number-input" name="credit_card[number]" type="text" class="card-input"/>\n'+
+            '              <div id="card-number-hint-container" class="card-hint"></div>\n'+
+            '              <div id="card-number-error-container" class="card-error"></div>\n'+
+            '          </div>\n'+
+            '          <div id="card-CVC-container">\n'+
+            '              <input autocomplete="off" id="card-verification-code" name="credit_card[verification_code]" type="password" class="card-input" maxlength="3"/>\n'+
+            '              <div id="card-CVC-hint-container" class="card-hint"></div>\n'+
+            '              <div id="card-CVC-error-container" class="card-error"></div>\n'+
+            '          </div>\n'+
+            '          <div id="card-expiration-container">\n'+
+            '              <label for="card-expiration-month" class="text-label">Expiration Date</label>\n'+
+            '              <div class="space025X"></div>\n'+
+            '              <input autocomplete="off" id="card-expiration-month" name="credit_card[month]" type="text" class="card-input date-input" maxlength="2"/>\n'+
+            '              <span>/</span>\n'+
+            '              <input autocomplete="off" id="card-expiration-year" name="credit_card[year]" type="text" class="card-input date-input" maxlength="2"/>\n'+
+            '              <div id="card-expiration-error-container" class="card-error"></div>\n'+
+            '              <div class="space05X"></div>\n'+
+            '          </div>\n'+
+            '          <div class="back-submit">\n'+
+            '              <button type="submit" class="submit-button btt-neutral" disabled>Submit Payment</button>\n'+
+            '          </div>\n'+
+            '          <div class="last-space"></div>\n'+
+            '      </fieldset>\n'+
+            '   </form>\n'+
+            '</div>';
+}
+
 function addInput (draggable, parent, brand) {
   if (draggable.hasClass('normal')) {
     parent.append(getInputHtml(brand));

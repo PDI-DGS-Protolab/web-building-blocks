@@ -191,7 +191,8 @@ $(document).ready(function () {
                 htmlFile += '<!--Table not done yet-->' + '\n';
             }
             else if(keepMeComponents[comp].component === 'payment-form'){
-                htmlFile += '<!--Payment form not done yet-->' + '\n';
+                htmlFile += '<!--To add a ' + keepMeComponents[comp].brand + ' payment form:-->\n' +
+                getPaymentFormHtml(keepMeComponents[comp].brand) + '\n\n';
             }
             
         }
