@@ -188,7 +188,8 @@ $(document).ready(function () {
                             getButtonHtml(keepMeComponents[comp].brand,keepMeComponents[comp].type) + '\n\n';
             }
             else if(keepMeComponents[comp].component === 'table'){
-                htmlFile += '<!--Table not done yet-->' + '\n';
+                htmlFile += '<!--To add a ' + keepMeComponents[comp].brand + ' table:-->\n' +
+                getTableHtml(keepMeComponents[comp].brand) + '\n\n';
             }
             else if(keepMeComponents[comp].component === 'payment-form'){
                 htmlFile += '<!--To add a ' + keepMeComponents[comp].brand + ' payment form:-->\n' +

@@ -343,6 +343,13 @@ function getInputPlusLessHtml (brand) {
           '</div>';
 }
 
+function getTableHtml (brand) {
+    var tableHtml = $('#table-container').html();
+    return  '<div id="table-container" class="telefonica">\n'+
+            '   ' + tableHtml + '\n' +
+            '</div>';
+}
+
 function getPaymentFormHtml (brand) {
   return    '<div id="payment-testing-container" class="' + brand + '">\n'+
             '   <form id="payment-form-container" method="POST">\n'+
