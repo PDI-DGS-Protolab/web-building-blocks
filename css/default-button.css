@@ -4,7 +4,7 @@
     clear: both;
     padding: 13px 0 13px 0;
     position: relative;
-    width: 300px;
+    width: 185px;
 }
 
 .button {
@@ -13,7 +13,7 @@
     border-radius: 3px;
     font-size: 0.875em;
     font-weight: bold;
-    height: 45px;
+    height: 36px;
     padding: 5px;
     text-align: center;
     width: 100%;
