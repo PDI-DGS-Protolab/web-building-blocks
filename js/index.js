@@ -433,16 +433,43 @@ function getButtonType (draggable) {
     return 'subdued';
   }
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(document).on('click', '.size-button', function () {
+  var radioPressed = $(this);
+  var radioButtons = radioPressed.parent().children();
+  $(radioButtons).not(radioPressed).removeAttr('checked');
+  var currentButton = radioPressed.closest('.button-back').find('.button');
+  if (radioPressed.val() == 'small') {
+    currentButton.addClass('small');
+    currentButton.removeClass('medium');
+    currentButton.removeClass('large');
+  }
+  else if (radioPressed.val() == 'medium') {
+    currentButton.addClass('medium');
+    currentButton.removeClass('small');
+    currentButton.removeClass('large');
+  }
+  else if (radioPressed.val() == 'large') { 
+    currentButton.addClass('large');
+    currentButton.removeClass('small');
+    currentButton.removeClass('medium');
+  }
+});
 
 function getButtonHtml (brand, type) {
-  return '<div class="button-back ' + brand + '"' + '>\n'+
-         '    <div class="quit-icon"></div>\n'+
-         '    <button type="submit" class="' + brand + ' button btt-' + type + '" enabled="">\n'+ 
-         '        '+toTitleCase(type) +'\n'+
-         '    </button>\n'+
+  return '<div class="button-back ' + brand + '"' + '>\n' +
+         '    <div class="quit-icon"></div>\n' +
+         '    <button type="submit" class="' + brand + ' button medium btt-' + type + '" enabled="">\n' + 
+         '        ' + toTitleCase(type) +'\n' +
+         '    </button>\n' +
+         '    <div class="radio-container">' + '\n' +
+         '        <input type="radio" class="size-button" value="small"><label class="radio-label">S</label>\n' +
+         '        <input type="radio" class="size-button" value="medium" checked><label class="radio-label">M</label>\n' +
+         '        <input type="radio" class="size-button" value="large"><label class="radio-label">L</label>\n' +
+         '    </div>\n' +
          '</div>';
 }
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function addButton (draggable, parent, brand) {
   var type = getButtonType(draggable);
   parent.append(getButtonHtml(brand, type));
