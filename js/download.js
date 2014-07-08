@@ -46,7 +46,7 @@ $(document).ready(function () {
         else if (component === 'button') {
             htmlFile = '';
             for (type in buttonTypes) {
-                htmlFile += 'To add ' + buttonTypes[type] + ' ' + brand + ' buttons:\n' +
+                htmlFile += '<!--To add ' + buttonTypes[type] + ' ' + brand + ' buttons:-->\n' +
                             getDownloadButtonsHtml(brand, buttonTypes[type]) + '\n\n';
             }
         }
