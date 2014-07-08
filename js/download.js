@@ -47,7 +47,7 @@ $(document).ready(function () {
             htmlFile = '';
             for (type in buttonTypes) {
                 htmlFile += 'To add a ' + buttonTypes[type] + ' ' + brand + ' button:\n' +
-                            getButtonHtml(brand, buttonTypes[type]) + '\n\n';
+                            getDownloadButtonsHtml(brand, buttonTypes[type]) + '\n\n';
             }
         }
         else if (component === 'table') {
@@ -184,8 +184,8 @@ $(document).ready(function () {
                 }
             }
             else if (keepMeComponents[comp].component === 'button') {
-                htmlFile += '<!--To add a ' + keepMeComponents[comp].type + ' ' + keepMeComponents[comp].brand + ' button:-->\n' +
-                            getButtonHtml(keepMeComponents[comp].brand,keepMeComponents[comp].type) + '\n\n';
+                htmlFile += '<!--To add ' + keepMeComponents[comp].type + ' ' + keepMeComponents[comp].brand + ' buttons:-->\n' +
+                            getDownloadButtonsHtml(keepMeComponents[comp].brand,keepMeComponents[comp].type) + '\n\n';
             }
             else if(keepMeComponents[comp].component === 'table'){
                 htmlFile += '<!--To add a ' + keepMeComponents[comp].brand + ' table:-->\n' +

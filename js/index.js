@@ -433,7 +433,7 @@ function getButtonType (draggable) {
     return 'subdued';
   }
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 $(document).on('click', '.size-button', function () {
   var radioPressed = $(this);
   var radioButtons = radioPressed.parent().children();
@@ -469,7 +469,28 @@ function getButtonHtml (brand, type) {
          '    </div>\n' +
          '</div>';
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function getDownloadButtonsHtml (brand, type) {
+  return '<div class="button-back ' + brand + '"' + '>\n' +
+     '    <div class="quit-icon"></div>\n' +
+     '    <button type="submit" class="' + brand + ' button small btt-' + type + '" enabled="">\n' + 
+     '        ' + toTitleCase(type) +'\n' +
+     '    </button>\n' +
+     '</div>\n' + 
+     '<div class="button-back ' + brand + '"' + '>\n' +
+     '    <div class="quit-icon"></div>\n' +
+     '    <button type="submit" class="' + brand + ' button medium btt-' + type + '" enabled="">\n' + 
+     '        ' + toTitleCase(type) +'\n' +
+     '    </button>\n' +
+     '</div>\n' +
+     '<div class="button-back ' + brand + '"' + '>\n' +
+     '    <div class="quit-icon"></div>\n' +
+     '    <button type="submit" class="' + brand + ' button large btt-' + type + '" enabled="">\n' + 
+     '        ' + toTitleCase(type) +'\n' +
+     '    </button>\n' +
+     '</div>';
+}
+
 function addButton (draggable, parent, brand) {
   var type = getButtonType(draggable);
   parent.append(getButtonHtml(brand, type));
@@ -539,8 +560,7 @@ function getKeepMeComponents () {
   for (var index = 0; index < paymentforms.length; ++index) {
     var brand = getComponentBrand($(paymentforms[index]));
     components['payment-form-img-' + brand] = {component: 'payment-form', brand: brand, type: 'payment-form-img'};
-  }   
-
+  }
   return components;
 }
 

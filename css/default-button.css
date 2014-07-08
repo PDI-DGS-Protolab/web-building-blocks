@@ -25,6 +25,10 @@
     cursor: hand;
 }
 
+.radio-container {
+    clear: both;
+}
+
 .size-button {
     outline: none;
 }
