@@ -472,19 +472,16 @@ function getButtonHtml (brand, type) {
 
 function getDownloadButtonsHtml (brand, type) {
   return '<div class="button-back ' + brand + '"' + '>\n' +
-     '    <div class="quit-icon"></div>\n' +
      '    <button type="submit" class="' + brand + ' button small btt-' + type + '" enabled="">\n' + 
      '        ' + toTitleCase(type) +'\n' +
      '    </button>\n' +
      '</div>\n' + 
      '<div class="button-back ' + brand + '"' + '>\n' +
-     '    <div class="quit-icon"></div>\n' +
      '    <button type="submit" class="' + brand + ' button medium btt-' + type + '" enabled="">\n' + 
      '        ' + toTitleCase(type) +'\n' +
      '    </button>\n' +
      '</div>\n' +
      '<div class="button-back ' + brand + '"' + '>\n' +
-     '    <div class="quit-icon"></div>\n' +
      '    <button type="submit" class="' + brand + ' button large btt-' + type + '" enabled="">\n' + 
      '        ' + toTitleCase(type) +'\n' +
      '    </button>\n' +
