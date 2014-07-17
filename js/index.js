@@ -141,6 +141,10 @@ $(document).ready(function () {
 
   $('#selection-container').tooltip({position: {my: 'left+10 center', at: 'right center'}});
 
+  $( "#date-picker-container" ).datepicker({
+      inline: true
+  });
+
   $('.brand-tab').click(function () {
     switchActiveElements(this, '.brand-tab', 'active-brand');
     hideComponentsVisualization($('.active-comp').attr('data-component-container'), $(this).attr('id'));
@@ -157,13 +161,30 @@ $(document).ready(function () {
 
     if (lastComponent != $(this).attr('id')) {
       if (lastComponent === 'table' && $(this).attr('id') === 'payment-form') {
-        $('#table-building-container').addClass('hidden');        
+        $('#table-building-container').addClass('hidden');      
         $('#payment-container').removeClass('hidden');
       }
       else if (lastComponent === 'payment-form' && $(this).attr('id') === 'table') {
         $('#payment-container').addClass('hidden');
         $('#table-building-container').removeClass('hidden');
         document.getElementById('payment-form-container').reset();
+      }
+      else if (lastComponent === 'table' && $(this).attr('id') === 'date-picker') {
+        $('#table-building-container').addClass('hidden');
+        $('#date-picker-container').removeClass('hidden');
+      }
+      else if (lastComponent === 'payment-form' && $(this).attr('id') === 'date-picker') {
+        $('#payment-container').addClass('hidden');
+        $('#date-picker-container').removeClass('hidden');
+        document.getElementById('payment-form-container').reset();
+      }
+      else if (lastComponent === 'date-picker' && $(this).attr('id') === 'table') {
+        $('#date-picker-container').addClass('hidden');
+        $('#table-building-container').removeClass('hidden');
+      }
+      else if (lastComponent === 'date-picker' && $(this).attr('id') === 'payment-form') {
+        $('#date-picker-container').addClass('hidden');
+        $('#payment-container').removeClass('hidden');
       }
       else if ($(this).attr('id') === 'table') {
         $('#components-container').addClass('hidden');
@@ -183,6 +204,20 @@ $(document).ready(function () {
         $('#components-container').addClass('hidden');
         $('#testing-container').addClass('hidden');
         $('#payment-container').removeClass('hidden');
+        $('#static-container').removeClass('static-container-right');
+        $('#static-container').addClass('static-container-bottom');
+        $('#selection-container').removeClass('selection-container-right');
+        $('#selection-container').addClass('selection-container-bottom');
+        $('#all').addClass('hidden');
+        if ($('#all').hasClass('active-brand')) {
+            switchActiveElements($('#telefonica'), '.brand-tab', 'active-brand');
+            hideComponentsVisualization($(this).attr('data-component-container'), 'telefonica');
+        }
+      }
+      else if ($(this).attr('id') === 'date-picker') {
+        $('#components-container').addClass('hidden');
+        $('#testing-container').addClass('hidden');
+        $('#date-picker-container').removeClass('hidden');
         $('#static-container').removeClass('static-container-right');
         $('#static-container').addClass('static-container-bottom');
         $('#selection-container').removeClass('selection-container-right');
@@ -216,6 +251,17 @@ $(document).ready(function () {
         document.getElementById('payment-form-container').reset();
         hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
       }
+      else if (lastComponent === 'date-picker') {
+        $('#all').removeClass('hidden');
+        $('#date-picker-container').addClass('hidden');
+        $('#testing-container').removeClass('hidden');
+        $('#components-container').removeClass('hidden');
+        $('#selection-container').removeClass('selection-container-bottom');
+        $('#selection-container').addClass('selection-container-right');
+        $('#static-container').removeClass('static-container-bottom');
+        $('#static-container').addClass('static-container-right');
+        hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
+      }
       else {
         hideComponentsVisualization($(this).attr('data-component-container'), $('.active-brand').attr('id'));
       }
@@ -246,6 +292,8 @@ $(document).ready(function () {
           addTable(ui.draggable, components, brand);
         } else if (ui.draggable.attr('id') === ('payment-testing-container')) {
           addPaymentForm(ui.draggable, components, brand);
+        } else if (ui.draggable.attr('id') === ('date-picker-container')) {
+          addDatePicker(ui.draggable, components, brand);
         }
 
         toggleQuitIcons($(components.find('.trash')).hasClass('on'), components.find(".quit-icon"));
@@ -507,6 +555,10 @@ function addTable (draggable, parent, brand) {
 
 function addPaymentForm (draggable, parent, brand) {
   parent.append('<div class="keep-payment-form-bottom" title= "' + brand + ' payment form."><div class="quit-icon"></div><img src="img/components/paymentform/payment-form.png" class="payment-form-img ' + brand + '"/>');
+}
+
+function addDatePicker (draggable, parent, brand) {
+  parent.append('<input type="text" id="date-picker-input" class="' + brand + '"">');
 }
 
 function getKeepMeComponents () {
