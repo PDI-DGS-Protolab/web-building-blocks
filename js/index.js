@@ -141,7 +141,7 @@ $(document).ready(function () {
 
   $('#selection-container').tooltip({position: {my: 'left+10 center', at: 'right center'}});
 
-  $( "#date-picker-container" ).datepicker({
+  $( "#date-picker-input" ).datepicker({
       inline: true
   });
 
