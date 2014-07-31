@@ -27,21 +27,47 @@ $(document).ready(function () {
   $('.visualization-container').append(codeLayout);
 
   $('.visualization-container').each(function() {
-    var element = $(this).attr('data-elmnt-code');
-    if (element == 'input') {
+    var visualizationContainer = $(this);
+    var component = visualizationContainer.attr('data-comp-code');
+    var buttonTypes = ['neutral', 'positive', 'negative', 'subdued'];
+    var htmlFile = '';
+    //In the future you should take the brand from the component defining the current brand
+    var brand = 'movistar';
 
+    if (component === 'input') {
+      htmlFile = '<!--To add a simple ' + brand + ' input:-->\n' +
+                  getInputHtml(brand) + '\n\n' +
+                  '<!--To add a refresheable ' + brand + ' input:-->\n' +
+                  getInputRefreshHtml(brand) + '\n\n' +
+                  '<!--To add a pluss/less ' + brand + ' input:-->\n' +
+                  getInputPlusLessHtml(brand);
     }
-    else if (element == 'button') {
+    else if (component === 'button') {
+      for (type in buttonTypes) {
+        htmlFile += '<!--To add ' + buttonTypes[type] + ' ' + brand + ' buttons:-->\n' +
+                    getButtonsHtml(brand, buttonTypes[type]) + '\n\n';
+      }
+    }
+    else if (component === 'table') {
+      htmlFile = '<!--To add a ' + brand + ' table:-->\n' +
+      getTableHtml(brand) + '\n\n';
+    }
+    else if(component === 'payment-form'){
+      htmlFile += '<!--To add a ' + brand + ' payment form:-->\n' +
+      getPaymentFormHtml(brand) + '\n\n';
+    }
 
-    }
-    else {
+    var outputHTML = getFileToShow(htmlFile);
+    visualizationContainer.find('.html-content').html('<pre class="brush: xml;">' + outputHTML + '</pre>');
+            
 
-    }
-    var defCssFile = '<link href="(your styles folder)/css/default-' + element + '.css" rel="stylesheet" type="text/css">'
+    var cssLinks = '<link href="(your styles folder)/css/default-' + component + '.css" rel="stylesheet" type="text/css">'
                     + '\n'
-                    +'<link href="(your styles folder)/css/movistar/' + element + '.css" rel="stylesheet" type="text/css">';
-    var outputCSS = getFileToShow(defCssFile + '\n');
-    $(this).find('.css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
+                    +'<link href="(your styles folder)/css/' + brand + '/' + component + '.css" rel="stylesheet" type="text/css">';
+    var outputCSS = getFileToShow(cssLinks + '\n');
+    visualizationContainer.find('.css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
+
+    SyntaxHighlighter.highlight();
   });
 
 });
@@ -202,7 +228,7 @@ function getButtonHtml (brand, type) {
          '</div>';
 }
 
-function getDownloadButtonsHtml (brand, type) {
+function getButtonsHtml (brand, type) {
   return '<div class="button-back ' + brand + '"' + '>\n' +
      '    <button type="submit" class="' + brand + ' button small btt-' + type + '" enabled="">\n' + 
      '        ' + toTitleCase(type) +'\n' +
