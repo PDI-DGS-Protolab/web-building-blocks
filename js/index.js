@@ -49,7 +49,7 @@ $(document).ready(function () {
       }
     }
     else if (component === 'table') {
-      htmlFile = '<!--To add a ' + brand + ' table:-->\n' +
+      htmlFile = '<!--To add a 4 x 4 ' + brand + ' table with top header:-->\n' +
       getTableHtml(brand) + '\n\n';
     }
     else if(component === 'payment-form'){
@@ -102,10 +102,44 @@ function getInputPlusLessHtml (brand) {
 }
 
 function getTableHtml (brand) {
+    /*
     var tableHtml = $('#table-container').html();
     return  '<div id="table-container" class="telefonica">\n'+
             '   ' + tableHtml + '\n' +
             '</div>';
+    */
+    return '<div id="table-container" class="telefonica">\n'+
+           '    <table class="top-table">\n'+
+           '        <thead>\n'+
+           '            <tr>\n'+
+           '                <td>Header-Column: 1</td>\n'+
+           '                <td>Header-Column: 2</td>\n'+
+           '                <td>Header-Column: 3</td>\n'+
+           '                <td>Header-Column: 4</td>\n'+
+           '            </tr>\n'+
+           '        </thead>\n'+
+           '        <tbody>\n'+
+           '            <tr class="even-line">\n'+
+           '                <td>Row: 1 Column: 1</td>\n'+
+           '                <td>Row: 1 Column: 2</td>\n'+
+           '                <td>Row: 1 Column: 3</td>\n'+
+           '                <td>Row: 1 Column: 4</td>\n'+
+           '            </tr>\n'+
+           '            <tr class="odd-line">\n'+
+           '                <td>Row: 2 Column: 1</td>\n'+
+           '                <td>Row: 2 Column: 2</td>\n'+
+           '                <td>Row: 2 Column: 3</td>\n'+
+           '                <td>Row: 2 Column: 4</td>\n'+
+           '            </tr>\n'+
+           '            <tr class="even-line">\n'+
+           '                <td>Row: 3 Column: 1</td>\n'+
+           '                <td>Row: 3 Column: 2</td>\n'+
+           '                <td>Row: 3 Column: 3</td>\n'+
+           '                <td>Row: 3 Column: 4</td>\n'+
+           '            </tr>\n'+
+           '        </tbody>\n'+
+           '   </table>\n'+
+           '</div>';
 }
 
 function getPaymentFormHtml (brand) {
