@@ -8,16 +8,16 @@ $(document).ready(function () {
 
   var codeLayout = 
   '<div class="code-container">'
-    +'<div id="css-tab">'
+    +'<div class="css-tab">'
       +'<h4>Css link</h4>'
-      +'<div id="css-content" class="download-code">'
+      +'<div class="css-content download-code">'
         +'<pre class="brush: css;">'
         +'</pre>'
       +'</div>'
     +'</div>'
-    +'<div id="html-tab">'
+    +'<div class="html-tab">'
       +'<h4>HTML code</h4>'
-      +'<div id="html-content" class="download-code">'
+      +'<div class="html-content download-code">'
         +'<pre class="brush: xml;">'
         +'</pre>'
       +'</div>'
@@ -25,6 +25,24 @@ $(document).ready(function () {
   +'</div>';
 
   $('.visualization-container').append(codeLayout);
+
+  $('.visualization-container').each(function() {
+    var element = $(this).attr('data-elmnt-code');
+    if (element == 'input') {
+
+    }
+    else if (element == 'button') {
+
+    }
+    else {
+
+    }
+    var defCssFile = '<link href="(your styles folder)/css/default-' + element + '.css" rel="stylesheet" type="text/css">'
+                    + '\n'
+                    +'<link href="(your styles folder)/css/movistar/' + element + '.css" rel="stylesheet" type="text/css">';
+    var outputCSS = getFileToShow(defCssFile + '\n');
+    $(this).find('.css-content').html('<pre class="brush: css;">' + outputCSS + '</pre>');
+  });
 
 });
 
