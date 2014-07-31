@@ -71,12 +71,12 @@
                     <h1>UI<br>BUILDING<br>BLOCKS</h1>
                     <h2>FORMS</h2>
                     <ul id="forms-nav">
-                        <li><a class="comp-tab" id="input" href="#" data-component-container="inputs-container">Inputs</a></li>
+                        <li><a class="comp-tab active-comp" id="input" href="#" data-component-container="inputs-container">Inputs</a></li>
                         <li><a class="comp-tab" id="button" href="#" data-component-container="buttons-container">Buttons</a></li>
                         <li><a class="comp-tab" id="upload-box" href="#">Upload box</a></li>
                         <li><a class="comp-tab" id="drop-down" href="#">Drop-down menu</a></li>
                         <li><a class="comp-tab" id="background-boxes" href="#">Background boxes</a></li>
-                        <li><a class="comp-tab" id="payment-form" href="#" data-component-container="payment-container">Payment Form></li>
+                        <li><a class="comp-tab" id="payment-form" href="#" data-component-container="payment-container">Payment Form</a></li>
                         <li><a class="comp-tab" id="date-picker" href="#" data-component-container="date-picker">Date Picker</a></li>
                     </ul>
                     <h2>DATA</h2>
@@ -100,23 +100,38 @@
                     </ul>
                 </div>
             </div>
-            <div id="informative-text" class="common-right-section">
-                <a>Cupcake ipsum dolor sit amet muffin. Ice cream chocolate sugar plum marzipan macaroon applicake toffee candy canes lemon drops. Dragée sweet cheesecake gingerbread chupa chups liquorice tootsie roll cotton candy cotton candy. Tart muffin applicake sugar plum tart unerdwear.com cookie. Cookie toffee fruitcake sweet roll. Bear claw candy canes chupa chups sweet roll. Bonbon fruitcake applicake muffin sesame snaps.<br><br>
-                Cake fruitcake sweet sugar plum caramels. Candy bonbon lollipop cupcake ice cream wafer macaroon halvah jelly. Bonbon croissant cupcake halvah biscuit. Fruitcake marzipan jujubes gingerbread. Icing toffee jujubes jujubes candy ice cream danish chocolate bar marzipan. Carrot cake lollipop wafer.<br><br>
-                Muffin apple pie candy cake cheesecake donut. Liquorice caramels cookie icing tootsie roll sweet. Cake pie jelly candy. Pastry soufflé chupa chups liquorice. Cake jelly pastry fruitcake cheesecake tootsie roll. Dragée pie jelly-o topping candy. Liquorice cookie jujubes marshmallow toffee soufflé. Chocolate cake oat cake jelly beans tiramisu bonbon jelly-o gingerbread. Powder macaroon chupa chups. Brownie toffee cookie chocolate bar cookie.</a>
-            </div>
-            <div id="right-container" class="hidden common-right-section">
+            <div id="right-container" class="common-right-section">
                 <ul id="brand-nav">
                     <li><a class="brand-tab" id="all" href="#">All brands</a></li>
                     <li><a class="brand-tab" id="telefonica" href="#">Telefónica</a></li>
-                    <li><a class="brand-tab" id="movistar" href="#">Movistar</a></li>
+                    <li><a class="brand-tab active-brand" id="movistar" href="#">Movistar</a></li>
                     <li><a class="brand-tab" id="vivo" href="#">Vivo</a></li>
                     <li><a class="brand-tab" id="o2" href="#">O2</a></li>
                 </ul>
 
-                <div id="components-container"> 
+                <div id="components-container">
+                    <h3 class="common-title">Input Boxes</h3>
+                    <div id="input-movistar" class="visualization-container inputs-container">
+                        <h4>Example</h4>
+                        <img src="img/components/inputs-movistar.png" class="movistar component-img img-input"/>
+                    </div>
+                    <h3 class="common-title">Buttons</h3>
+                    <div id="button-movistar" class="visualization-container buttons-container">
+                        <h4>Example</h4>
+                        <img src="img/components/buttons-movistar.png" class="movistar component-img img-button"/>
+                    </div>
+                    <h3 class="common-title">Payment Form</h3>
+                    <div id="payment-form-movistar" class="visualization-container payment-form-container">
+                        <h4>Example</h4>
+                        <img src="img/components/payment-form-movistar.png" class="movistar component-img"/>
+                    </div>
+                    <h3 class="common-title">Table</h3>
+                    <div id="table-movistar" class="visualization-container table-container">
+                        <h4>Example</h4>
+                        <img src="img/components/table-movistar.png" class="movistar component-img"/>
+                    </div>
                 </div>
-
+                <!--
                 <div id="static-container" class="static-container-right">
                     <div id="testing-container">
                         <div>
@@ -235,51 +250,8 @@
                     </div>
 
                 </div>
+            -->
 
-            </div>
-        </div>
-
-        <div style="display:none">
-            <div id="download-pop-up">
-                <button class="btt-close-download">X</button>
-                <div id="download-text">
-                    <ul id="download_tabs">
-                        <li><a href="#javascript-tab">Javascript</a></li>
-                        <li><a href="#css-tab">Css</a></li>
-                        <li><a href="#html-tab">Html</a></li>
-                    </ul>
-                    <div id="download_content">
-                        <div id="javascript-tab">
-                            Javascript Code.<br>Copy de code showed bellow and save it in a .js file<br>
-                            <strong>To copy all the code double click it and copy it.</strong>
-                            <br>
-                            <div id="javascript-content" class="download-code">
-                            </div>
-                        </div>
-                        <div id="css-tab">
-                            Css Code.<br>Copy de code showed bellow and save it in a .css file<br>
-                            <strong>To copy all the code double click it and copy it.</strong>
-                            <br>
-                            <div id="css-content" class="download-code">
-                                <pre class="brush: css;">
-                                    
-                    
-                                </pre>
-                            </div>
-                        </div>
-                        <div id="html-tab">
-                            Html Code.<br>Copy de code showed bellow and save it in a .html file<br>
-                            <strong>To copy all the code double click it and copy it.</strong>
-                            <br>
-                            <div id="html-content" class="download-code">
-                                <pre class="brush: xml;">
-                                    
-                    
-                                </pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </body>
