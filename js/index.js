@@ -199,6 +199,8 @@ function getPaymentFormHtml (brand) {
             '</div>';
 }
 
+//All draggables and droppables and such should be removed as they are no longer in use
+
 function addInput (draggable, parent, brand) {
   if (draggable.hasClass('normal')) {
     parent.append(getInputHtml(brand));
