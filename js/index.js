@@ -72,6 +72,15 @@ $(document).ready(function () {
 
 });
 
+function getFileToShow (rawFile) {
+    return rawFile.replace(/&/g, '&amp;')
+     .replace(/>/g, '&gt;')
+     .replace(/</g, '&lt;')
+     //.replace(/\n/g, '<br>')
+     //.replace(/\s/g,'&nbsp;&nbsp;')
+     ;
+}
+
 function getInputHtml (brand) {
   return  '<div class="input-container">\n'+
           '   <div class="quit-icon"></div>\n'+
