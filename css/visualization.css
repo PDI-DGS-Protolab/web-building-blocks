@@ -21,8 +21,8 @@
 
 .component-img {
     clear: both;
-    float: left;
-    margin: 10px;
+    display: block;
+    margin: 10px auto;
 }
 
 .ui-tooltip {
